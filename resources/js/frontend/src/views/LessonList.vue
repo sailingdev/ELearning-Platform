@@ -1,0 +1,66 @@
+<template>
+    <div class="shop--area shop-fullwidth section-padding-120">
+        <div class="container">
+            <h2 class="wow fadeInUp mt-3" data-wow-delay="200ms" data-wow-duration="1000ms">Free German lessons</h2>
+            <p class="mb-3 wow fadeInUp mt-5" data-wow-delay="300ms" data-wow-duration="1000ms">
+                Teach yourself German. Learn with 125 free lessons. There is no risk and no contract. Learn to speak German. Totally free!
+            </p>
+        <div class="row align-items-center justify-content-center wow fadeInUp" data-wow-delay="100ms" data-wow-duration="1000ms">
+                <div class="row g-3">
+                    <!-- Single Feature Area-->
+                    <div v-for="n in 35" class="col-6 col-sm-6 col-lg-3">
+                        <a href="#">
+                        <div class="card feature-card">
+                            <div class="card-body d-flex align-items-center">
+                                <div class="fea-text">
+                                    <h6>Lesson {{n}}</h6><span>Meeting someone</span>
+                                </div>
+                                <i class="lni-arrow-right-circle lesson-arrow"></i>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+                    <div class="text-center mt-5">
+                        <a class="let-us-know" href="#">Do you see an error on our website? Please let us know</a>
+                    </div>
+                </div>
+        </div>
+    </div>
+    </div>
+</template>
+
+<script>
+  export default {
+    name: 'LessonList'
+  }
+</script>
+
+<style lang="css" scoped>
+    .let-us-know {
+        font-weight: 600;
+    }
+
+    .feature-card.active, .feature-card:hover, .feature-card:focus {
+        border-color: unset;
+        background-color: unset;
+        box-shadow: 0 18px 56px rgb(255 255 255 / 18%);
+        color: white;
+    }
+    .feature-card i {
+        color: #00000099;
+        background-color: #0b075700;
+    }
+    .feature-card.active i, .feature-card:hover i, .feature-card:focus i {
+        box-shadow: 0 2px 38px rgb(255 255 255 / 40%);
+        color: white;
+    }
+    a {
+        color: #00000099;
+    }
+    a:hover {
+        color: black;
+    }
+    h6 {
+        color: unset;
+    }
+</style>
