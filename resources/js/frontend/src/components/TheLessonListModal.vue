@@ -11,7 +11,7 @@ emit: Boolean isClosed
             <div class="cust-lesson-list-modal-content">
                 <div class="cust-modal-header" :style="style_lesson_full_name">
                     <span class="cust-close" v-on:click="onCloseModal">&times;</span>
-                    <h style="font-size: 20px" class="text-black-50">{{header}}</h>
+                    <h6 style="font-size: 20px" class="text-black-50">{{header}}</h6>
                 </div>
                 <div class="cust-modal-body mt-4 mb-3">
                    <div class="row">
