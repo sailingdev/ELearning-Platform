@@ -9,12 +9,12 @@
 
     <title>Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template</title>
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset(mix('css/main.css')) }}">
-    <link rel="stylesheet" href="{{ asset(mix('css/iconfont.css')) }}">
-    <link rel="stylesheet" href="{{ asset(mix('css/material-icons/material-icons.css')) }}">
-    <link rel="stylesheet" href="{{ asset(mix('css/vuesax.css')) }}">
-    <link rel="stylesheet" href="{{ asset(mix('css/prism-tomorrow.css')) }}">
-    <link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/iconfont.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/material-icons/material-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vuesax.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/prism-tomorrow.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('images/logo/favicon.png') }}">
@@ -27,7 +27,7 @@
     </div>
 
     <!-- <script src="js/app.js"></script> -->
-    <script src="{{ asset(mix('js/app.js')) }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
   </body>
 </html>
