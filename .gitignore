@@ -1,4 +1,3 @@
-./app/Providers/AppServiceProvider.php
 /node_modules
 /storage/*.key
 /vendor
@@ -10,3 +9,4 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 /vuexy-shell-scripts
+app/Providers/AppServiceProvider.php
