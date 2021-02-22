@@ -1,2 +1,0 @@
-RewriteCond %{SERVER_PORT} ^443$
-RewriteRule (.*) http://www.example.com/$1 
