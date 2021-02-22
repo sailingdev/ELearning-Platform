@@ -12,7 +12,7 @@
 {{--    <link rel="icon" href="img/core-img/favicon.ico">--}}
     <!-- Core Stylesheet-->
     <link rel="stylesheet" href="{{asset('frontend/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asse('frontend/css/default/classy-nav.min.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/default/classy-nav.min.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/animate.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/magnific-popup.css')}}">
