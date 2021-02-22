@@ -1,4 +1,4 @@
-/app/Providers/AppServiceProvider.php
+./app/Providers/AppServiceProvider.php
 /node_modules
 /storage/*.key
 /vendor
