@@ -9,4 +9,4 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 /vuexy-shell-scripts
-app/Providers/AppServiceProvider.php
+AppServiceProvider.php
