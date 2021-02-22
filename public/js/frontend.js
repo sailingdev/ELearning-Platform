@@ -40779,7 +40779,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/',
       name: 'Home',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/frontend/src/views/Home.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/frontend/src/views/Home.vue"));
       }
     }, {
       path: '/lesson-list',
@@ -40791,7 +40791,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/lesson',
       name: 'Lesson',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/Lesson.vue */ "./resources/js/frontend/src/views/Lesson.vue"));
+        return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./views/Lesson.vue */ "./resources/js/frontend/src/views/Lesson.vue"));
       }
     }, {
       path: '/contact',

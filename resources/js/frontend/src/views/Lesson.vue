@@ -45,7 +45,7 @@
                             <a class="let-us-know" href="#">Do you see an error on our website? Please let us know</a>
                         </div>
                         <div :style="style_lesson_full_name">
-                            <a class="cursor-on d-flex"><h5 class="wow fadeInUp mt-3" data-wow-delay="200ms" data-wow-duration="1000ms">More Afrikaans lessons    <i class="lni-arrow-right"></i></h5></a>
+                            <router-link :to="{name: 'Lessons'}" class="cursor-on d-flex"><h5 class="wow fadeInUp mt-3" data-wow-delay="200ms" data-wow-duration="1000ms">More Afrikaans lessons    <i class="lni-arrow-right"></i></h5></router-link>
                         </div>
                         <div class="row align-items-center justify-content-center wow fadeInUp" data-wow-delay="100ms" data-wow-duration="1000ms">
                             <div class="row g-3">
@@ -68,7 +68,7 @@
                             </div>
                         </div>
                         <div :style="style_lesson_full_name">
-                            <a class="cursor-on d-flex"><h5 class="wow fadeInUp mt-3" data-wow-delay="200ms" data-wow-duration="1000ms">More Afrikaans lessons    <i class="lni-arrow-right"></i></h5></a>
+                            <router-link :to="{name: 'Lessons'}" class="cursor-on d-flex"><h5 class="wow fadeInUp mt-3" data-wow-delay="200ms" data-wow-duration="1000ms">More Afrikaans lessons    <i class="lni-arrow-right"></i></h5></router-link>
                         </div>
                     </div>
                 </div>
