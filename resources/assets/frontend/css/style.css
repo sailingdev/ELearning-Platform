@@ -4274,6 +4274,19 @@ textarea.form-control {
     border-radius: 10px;
     padding: 1em;
 }
+.cust-lesson-list-modal-content {
+    position: relative;
+    top: 85px;
+    background-color: #fefefe;
+    -webkit-animation-name: cust-slideLeft;
+    -webkit-animation-duration: 0.6s;
+    animation-name: cust-slideLeft;
+    animation-duration: 0.6s;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 10px;
+    padding: 1em;
+}
 
 /* The Close Button */
 .cust-close {
@@ -4321,7 +4334,14 @@ textarea.form-control {
     from {opacity: 0}
     to {opacity: 1}
 }
-
+@-webkit-keyframes cust-slideLeft {
+    from {left: -300px; opacity: 0}
+    to {left: 0px; opacity: 1}
+}
+@keyframes cust-slideLeft {
+    from {left: -300px; opacity: 0}
+    to {left: 0px; opacity: 1}
+}
 /* lesson */
 .lesson-arrow {
     background-color: #0b075700 !important;

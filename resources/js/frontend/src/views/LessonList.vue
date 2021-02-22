@@ -8,15 +8,15 @@
             <div class="row align-items-center justify-content-center wow fadeInUp" data-wow-delay="100ms" data-wow-duration="1000ms">
                 <div class="row g-3">
                     <!-- Single Feature Area-->
-                    <div v-for="n in 35" class="col-6 col-sm-6 col-lg-3">
+                    <div v-for="n in 35" class="col-12 col-sm-6 col-lg-3">
                         <router-link :to="{name:'Lesson'}">
                         <div class="card feature-card">
                             <div class="card-body d-flex align-items-center row">
-                                <div class="fea-text col-9 col-sm-9 col-lg-9">
+                                <div class="fea-text col-10 col-sm-9 col-lg-9">
                                     <h6>Lesson {{n}}</h6><span>Meeting someone</span>
                                 </div>
 
-                                <div class=" col-3 col-sm-3 col-lg-3">
+                                <div class=" col-2 col-sm-3 col-lg-3">
                                     <i class="lni-arrow-right-circle lesson-arrow"></i>
                                 </div>
                             </div>

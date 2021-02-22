@@ -1,13 +1,14 @@
 <template>
     <div class="shop--area shop-fullwidth section-padding-120">
         <div class="container">
+            <the-lesson-list-modal :display="isShown" @isClosed="closeModal"/>
             <div class="lesson-page">
                 <div class="wow fadeInUp" data-wow-delay="100ms" data-wow-duration="1000ms">
-                    <a class="text-left cursor-on">
+                    <a class="text-left cursor-on" v-on:click="selectLesson">
                         <h7 class="dropdown-toggle">Learn {{language}} :: Lesson {{lesson_num}}   </h7>
                         <h5>Meeting Someone</h5>
                     </a>
-                    <a class="text-left cursor-on mt-5">
+                    <a class="text-left cursor-on mt-5" v-on:click="selectLesson">
                         <img class="selected-type" :src="'frontend/img/lesson-type/'+selected_type+'.svg'" width="30px" />
                         <h7 class="dropdown-toggle">{{selected_type}} Lessons</h7>
                     </a>
@@ -49,7 +50,7 @@
                         <div class="row align-items-center justify-content-center wow fadeInUp" data-wow-delay="100ms" data-wow-duration="1000ms">
                             <div class="row g-3">
                                 <!-- Single Feature Area-->
-                                <div v-for="n in 35" class="col-6 col-sm-6 col-lg-6">
+                                <div v-for="n in 35" class="col-12 col-sm-6 col-lg-6">
                                     <router-link :to="{name:'Lesson'}">
                                         <div class="card feature-card">
                                             <div class="card-body d-flex align-items-center row">
@@ -77,8 +78,12 @@
 </template>
 
 <script>
+    import TheLessonListModal from '../components/TheLessonListModal'
     export default {
         name: 'Lesson',
+        components:{
+          TheLessonListModal
+        },
         data(){
             return {
                 language: 'Afrikaans',
@@ -88,8 +93,22 @@
                 style_lesson_full_name: {
                     'padding-left': '21px',
                     'padding-right': '10px'
-                }
+                },
+                display: false
             }
+        },
+        computed:{
+          isShown(){
+              return this.display;
+          }
+        },
+        methods:{
+            closeModal(){
+                this.display = false;
+            },
+            selectLesson(){
+                this.display = true;
+            },
         }
     }
 </script>
@@ -120,6 +139,9 @@
         color: black;
     }
     h5 {
+        color: unset;
+    }
+    h6 {
         color: unset;
     }
     .selected-type {

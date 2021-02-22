@@ -13,11 +13,11 @@ emit: Boolean isClosed
                     <span class="cust-close" v-on:click="onCloseModal">&times;</span>
                     <h4>{{header}}</h4>
                 </div>
-                <div class="cust-modal-body">
+                <div class="cust-modal-body mt-4 mb-3">
                     <p>Some text in the Modal Body</p>
                     <p>Some other text...</p>
                 </div>
-                <div class="cust-modal-footer align-content-center">
+                <div class="cust-modal-footer align-content-center mb-4">
                     <button class="btn btn-outline-primary" v-on:click="onCloseModal"> Close </button>
                 </div>
             </div>

@@ -12,7 +12,7 @@
 
             <!--  Flag Element -->
                 <div class="row">
-                    <div v-for="(flag, key) in langs" :key="key" class="col-xs-6 col-sm-4 col-md-4 col-lg-3 mt-1 mb-4">
+                    <div v-for="(flag, key) in langs" :key="key" class="col-xs-6 col-sm-4 col-md-4 col-lg-3 mt-1 mb-4" v-on:click="onCloseModal">
                        <router-link :to="{name: 'Lessons'}">
                            <span :class="'flag-icon flag-icon-'+key"></span>
                             <span>{{flag.name}}</span>

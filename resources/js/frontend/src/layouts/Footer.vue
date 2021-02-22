@@ -69,8 +69,8 @@
                     <div class="col-12 col-lg-2">
                         <!-- Default dropup button-->
                         <div class="language-dropdown text-center text-lg-right mt-4 mt-lg-0">
-                            <div class="btn-group dropup">
-                                <button v-on:click="selectLang()" class="btn saasbox-btn-2 dropdown-toggle text-white" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</button>
+                            <div class="btn-group">
+                                <button v-on:click="selectLang()" class="btn saasbox-btn-2 dropdown-toggle text-white" type="button" >Language</button>
                             </div>
                         </div>
                     </div>
