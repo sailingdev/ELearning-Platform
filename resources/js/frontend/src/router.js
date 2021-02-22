@@ -44,7 +44,7 @@ const router = new Router({
                 {
                     path: '/lesson',
                     name: 'Lesson',
-                    component: () => import('./views/LessonList.vue')
+                    component: () => import('./views/Lesson.vue')
                 },
                 {
                     path: '/contact',

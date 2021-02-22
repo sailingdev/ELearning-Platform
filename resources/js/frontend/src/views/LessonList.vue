@@ -5,27 +5,30 @@
             <p class="mb-3 wow fadeInUp mt-5" data-wow-delay="300ms" data-wow-duration="1000ms">
                 Teach yourself German. Learn with 125 free lessons. There is no risk and no contract. Learn to speak German. Totally free!
             </p>
-        <div class="row align-items-center justify-content-center wow fadeInUp" data-wow-delay="100ms" data-wow-duration="1000ms">
+            <div class="row align-items-center justify-content-center wow fadeInUp" data-wow-delay="100ms" data-wow-duration="1000ms">
                 <div class="row g-3">
                     <!-- Single Feature Area-->
                     <div v-for="n in 35" class="col-6 col-sm-6 col-lg-3">
-                        <a href="#">
+                        <router-link :to="{name:'Lesson'}">
                         <div class="card feature-card">
-                            <div class="card-body d-flex align-items-center">
-                                <div class="fea-text">
+                            <div class="card-body d-flex align-items-center row">
+                                <div class="fea-text col-9 col-sm-9 col-lg-9">
                                     <h6>Lesson {{n}}</h6><span>Meeting someone</span>
                                 </div>
-                                <i class="lni-arrow-right-circle lesson-arrow"></i>
+
+                                <div class=" col-3 col-sm-3 col-lg-3">
+                                    <i class="lni-arrow-right-circle lesson-arrow"></i>
+                                </div>
                             </div>
                         </div>
-                        </a>
+                        </router-link>
                     </div>
                     <div class="text-center mt-5">
                         <a class="let-us-know" href="#">Do you see an error on our website? Please let us know</a>
                     </div>
                 </div>
+            </div>
         </div>
-    </div>
     </div>
 </template>
 

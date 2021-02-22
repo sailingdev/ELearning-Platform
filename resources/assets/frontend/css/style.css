@@ -4337,3 +4337,10 @@ textarea.form-control {
     margin-top: 55px;
 }
 
+.text-left {
+    text-align: start;
+}
+.cursor-on {
+    cursor: pointer;
+}
+

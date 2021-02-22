@@ -30,6 +30,7 @@
 
     <!-- All JavaScript Files-->
     <script src="{{asset(mix('js/frontend.js'))}}"></script>
+
     <script src="{{asset(mix('frontend/js/popper.min.js'))}}"></script>
     <script src="{{asset(mix('frontend/js/bootstrap.min.js'))}}"></script>
     <script src="{{asset(mix('frontend/js/jquery.min.js'))}}"></script>
@@ -45,5 +46,6 @@
     <script src="{{asset(mix('frontend/js/default/jquery.passwordstrength.js'))}}"></script>
     <script src="{{asset(mix('frontend/js/jquery.countdown.min.js'))}}"></script>
     <script src="{{asset(mix('frontend/js/default/active.js'))}}"></script>
+    <script src="https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js" charset="UTF-8"></script>
 </body>
 </html>
