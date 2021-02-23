@@ -54,14 +54,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Login',
   data: function data() {
-    return {};
+    return {
+      email: null,
+      password: null
+    };
+  },
+  methods: {
+    login: function login() {
+      var payload = {
+        email: this.email,
+        password: this.password
+      };
+      $('form').submit(false);
+      this.$store.dispatch('auth/login', payload);
+    }
   }
 });
 
@@ -123,9 +132,83 @@ var render = function() {
                       1
                     ),
                     _vm._v(" "),
-                    _vm._m(2),
-                    _vm._v(" "),
-                    _vm._m(3)
+                    _c("div", { staticClass: "register-form my-5" }, [
+                      _c("form", [
+                        _c("div", { staticClass: "form-group mb-3" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.email,
+                                expression: "email"
+                              }
+                            ],
+                            staticClass: "form-control rounded-0",
+                            attrs: {
+                              type: "email",
+                              placeholder: "Email Address",
+                              required: ""
+                            },
+                            domProps: { value: _vm.email },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.email = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group mb-3" }, [
+                          _vm._m(2),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.password,
+                                expression: "password"
+                              }
+                            ],
+                            staticClass: "input-psswd form-control rounded-0",
+                            attrs: {
+                              id: "password",
+                              type: "password",
+                              placeholder: "Password",
+                              "psswd-shown": "false",
+                              required: ""
+                            },
+                            domProps: { value: _vm.password },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.password = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn saasbox-btn white-btn w-100",
+                            on: { click: _vm.login }
+                          },
+                          [
+                            _c("i", { staticClass: "lni-unlock mr-2" }),
+                            _vm._v("Login")
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(3)
+                    ])
                   ])
                 ]
               )
@@ -164,106 +247,53 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "register-form my-5" }, [
-      _c("form", { attrs: { action: "#", method: "post" } }, [
-        _c("div", { staticClass: "form-group mb-3" }, [
-          _c("input", {
-            staticClass: "form-control rounded-0",
-            attrs: { type: "email", placeholder: "Email Address", required: "" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group mb-3" }, [
-          _c(
-            "label",
-            { staticClass: "label-psswd", attrs: { for: "password" } },
-            [
-              _c("span", { staticClass: "hide" }, [_vm._v("HIDE")]),
-              _c("span", { staticClass: "show" }, [_vm._v("SHOW")])
-            ]
-          ),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "input-psswd form-control rounded-0",
-            attrs: {
-              id: "password",
-              type: "password",
-              placeholder: "Password",
-              "psswd-shown": "false",
-              required: ""
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn saasbox-btn white-btn w-100",
-            attrs: { type: "submit" }
-          },
-          [_c("i", { staticClass: "lni-unlock mr-2" }), _vm._v("Login")]
-        )
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass:
-            "login-meta-data d-flex align-items-center justify-content-between"
-        },
-        [
-          _c("div", { staticClass: "form-check mt-3" }, [
-            _c("input", {
-              staticClass: "form-check-input",
-              attrs: {
-                id: "rememberMe",
-                type: "checkbox",
-                value: "",
-                checked: ""
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "form-check-label", attrs: { for: "rememberMe" } },
-              [_vm._v("Keep me logged in")]
-            )
-          ]),
-          _c(
-            "a",
-            {
-              staticClass: "forgot-password mt-3",
-              attrs: { href: "forget-password.html" }
-            },
-            [_vm._v("Forgot Password?")]
-          )
-        ]
-      )
-    ])
+    return _c(
+      "label",
+      { staticClass: "label-psswd", attrs: { for: "password" } },
+      [
+        _c("span", { staticClass: "hide" }, [_vm._v("HIDE")]),
+        _c("span", { staticClass: "show" }, [_vm._v("SHOW")])
+      ]
+    )
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "signin-via-others" }, [
-      _c("p", { staticClass: "mb-0" }, [_vm._v("Or Sign in with")]),
-      _c(
-        "a",
-        {
-          staticClass: "btn saasbox-btn btn-sm mt-3 mr-3",
-          attrs: { href: "#" }
-        },
-        [_c("i", { staticClass: "fa fa-facebook mr-2" }), _vm._v("Facebook")]
-      ),
-      _c(
-        "a",
-        {
-          staticClass: "btn saasbox-btn btn-sm mt-3 mr-3",
-          attrs: { href: "#" }
-        },
-        [_c("i", { staticClass: "fa fa-twitter mr-2" }), _vm._v("Twitter")]
-      )
-    ])
+    return _c(
+      "div",
+      {
+        staticClass:
+          "login-meta-data d-flex align-items-center justify-content-between"
+      },
+      [
+        _c("div", { staticClass: "form-check mt-3" }, [
+          _c("input", {
+            staticClass: "form-check-input",
+            attrs: {
+              id: "rememberMe",
+              type: "checkbox",
+              value: "",
+              checked: ""
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "form-check-label", attrs: { for: "rememberMe" } },
+            [_vm._v("Keep me logged in")]
+          )
+        ]),
+        _c(
+          "a",
+          {
+            staticClass: "forgot-password mt-3",
+            attrs: { href: "forget-password.html" }
+          },
+          [_vm._v("Forgot Password?")]
+        )
+      ]
+    )
   }
 ]
 render._withStripped = true
