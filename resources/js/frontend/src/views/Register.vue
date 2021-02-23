@@ -18,7 +18,7 @@
                             <p>Already have an account?<router-link class="ml-2" :to="{name: 'Login'}">Log In</router-link></p>
                             <!-- Register Form-->
                             <div class="register-form my-5">
-                                <form id="form">
+                                <form>
                                     <div class="form-group mb-3">
                                         <input class="form-control rounded-0" type="email" placeholder="Email Address" v-model="email" required>
                                     </div>
@@ -60,7 +60,6 @@
                 }
                 $('form').submit(false)
                 this.$store.dispatch('auth/register', payload)
-
             }
         }
     }

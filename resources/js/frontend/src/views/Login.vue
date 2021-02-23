@@ -18,15 +18,15 @@
                             <p>Didn't have an account? <router-link class="ml-2" :to="{name: 'Register'}">Sign Up</router-link></p>
                             <!-- Register Form-->
                             <div class="register-form my-5">
-                                <form action="#" method="post">
+                                <form>
                                     <div class="form-group mb-3">
-                                        <input class="form-control rounded-0" type="email" placeholder="Email Address" required>
+                                        <input class="form-control rounded-0" type="email" placeholder="Email Address" v-model="email" required>
                                     </div>
                                     <div class="form-group mb-3">
                                         <label class="label-psswd" for="password"><span class="hide">HIDE</span><span class="show">SHOW</span></label>
-                                        <input class="input-psswd form-control rounded-0" id="password" type="password" placeholder="Password" psswd-shown="false" required>
+                                        <input class="input-psswd form-control rounded-0" id="password" type="password" placeholder="Password" psswd-shown="false" v-model="password" required>
                                     </div>
-                                    <button class="btn saasbox-btn white-btn w-100" type="submit"><i class="lni-unlock mr-2"></i>Login</button>
+                                    <button class="btn saasbox-btn white-btn w-100" v-on:click="login"><i class="lni-unlock mr-2"></i>Login</button>
                                 </form>
                                 <div class="login-meta-data d-flex align-items-center justify-content-between">
                                     <div class="form-check mt-3">
@@ -34,10 +34,6 @@
                                         <label class="form-check-label" for="rememberMe">Keep me logged in</label>
                                     </div><a class="forgot-password mt-3" href="forget-password.html">Forgot Password?</a>
                                 </div>
-                            </div>
-                            <!-- Sign in via others-->
-                            <div class="signin-via-others">
-                                <p class="mb-0">Or Sign in with</p><a class="btn saasbox-btn btn-sm mt-3 mr-3" href="#"><i class="fa fa-facebook mr-2"></i>Facebook</a><a class="btn saasbox-btn btn-sm mt-3 mr-3" href="#"><i class="fa fa-twitter mr-2"></i>Twitter</a>
                             </div>
                         </div>
                     </div>
@@ -52,8 +48,20 @@
         name: 'Login',
         data(){
             return {
-
+                email: null,
+                password: null
+            }
+        },
+        methods:{
+            login(){
+                let payload = {
+                    email: this.email,
+                    password: this.password
+                }
+                $('form').submit(false);
+                this.$store.dispatch('auth/login', payload)
             }
         }
+
     }
 </script>

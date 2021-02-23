@@ -40668,6 +40668,57 @@ var baseURL = '';
 
 /***/ }),
 
+/***/ "./resources/js/frontend/src/http/axios/index.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/frontend/src/http/axios/index.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _axios_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../axios.js */ "./resources/js/frontend/src/axios.js");
+
+/* harmony default export */ __webpack_exports__["default"] = (_axios_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/***/ }),
+
+/***/ "./resources/js/frontend/src/http/request/auth/index.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/frontend/src/http/request/auth/index.js ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../axios */ "./resources/js/frontend/src/http/axios/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  register: function register(payload) {
+    var name = payload.name,
+        email = payload.email,
+        password = payload.password,
+        password_confirmation = payload.password_confirmation;
+    return _axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/register', {
+      name: name,
+      email: email,
+      password: password,
+      password_confirmation: password_confirmation
+    });
+  },
+  login: function login(payload) {
+    var email = payload.email,
+        password = payload.password;
+    return _axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/login', {
+      email: email,
+      password: password
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/frontend/src/main.js":
 /*!*******************************************!*\
   !*** ./resources/js/frontend/src/main.js ***!
@@ -40701,13 +40752,7 @@ __webpack_require__.r(__webpack_exports__);
  // axios
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$http = _axios_js__WEBPACK_IMPORTED_MODULE_2__["default"]; // Filters
-// import './filters/filters.js'
-// Theme Configurations
-// import '../themeConfig.js'
-// Globally Registered Components
-// import './globalComponents.js'
-// Vue Router
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$http = _axios_js__WEBPACK_IMPORTED_MODULE_2__["default"]; // Vue Router
 
  // Vuex Store
 
@@ -40892,6 +40937,110 @@ var actions = {
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (actions);
+
+/***/ }),
+
+/***/ "./resources/js/frontend/src/store/auth/moduleAuth.js":
+/*!************************************************************!*\
+  !*** ./resources/js/frontend/src/store/auth/moduleAuth.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _moduleAuthStates__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./moduleAuthStates */ "./resources/js/frontend/src/store/auth/moduleAuthStates.js");
+/* harmony import */ var _moduleAuthGetters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moduleAuthGetters */ "./resources/js/frontend/src/store/auth/moduleAuthGetters.js");
+/* harmony import */ var _moduleAuthActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./moduleAuthActions */ "./resources/js/frontend/src/store/auth/moduleAuthActions.js");
+/* harmony import */ var _moduleAuthMutations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./moduleAuthMutations */ "./resources/js/frontend/src/store/auth/moduleAuthMutations.js");
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: _moduleAuthStates__WEBPACK_IMPORTED_MODULE_0__["default"],
+  mutations: _moduleAuthMutations__WEBPACK_IMPORTED_MODULE_3__["default"],
+  actions: _moduleAuthActions__WEBPACK_IMPORTED_MODULE_2__["default"],
+  getters: _moduleAuthGetters__WEBPACK_IMPORTED_MODULE_1__["default"]
+});
+
+/***/ }),
+
+/***/ "./resources/js/frontend/src/store/auth/moduleAuthActions.js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/frontend/src/store/auth/moduleAuthActions.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _http_request_auth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../http/request/auth */ "./resources/js/frontend/src/http/request/auth/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  register: function register(_ref, payload) {
+    var commit = _ref.commit;
+    return new Promise(function (resolve, reject) {
+      _http_request_auth__WEBPACK_IMPORTED_MODULE_0__["default"].register(payload).then(function (response) {
+        console.log(response);
+        resolve();
+      })["catch"](function (err) {
+        reject(err);
+      });
+    });
+  },
+  login: function login(_ref2, payload) {
+    var commit = _ref2.commit;
+    return new Promise(function (resolve, reject) {
+      _http_request_auth__WEBPACK_IMPORTED_MODULE_0__["default"].login(payload).then(function (resonse) {
+        console.log(resonse);
+        resolve();
+      })["catch"](function (err) {
+        reject(err);
+      });
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/frontend/src/store/auth/moduleAuthGetters.js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/frontend/src/store/auth/moduleAuthGetters.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/frontend/src/store/auth/moduleAuthMutations.js":
+/*!*********************************************************************!*\
+  !*** ./resources/js/frontend/src/store/auth/moduleAuthMutations.js ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/frontend/src/store/auth/moduleAuthStates.js":
+/*!******************************************************************!*\
+  !*** ./resources/js/frontend/src/store/auth/moduleAuthStates.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 
@@ -41151,6 +41300,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _getters__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./getters */ "./resources/js/frontend/src/store/getters.js");
 /* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./mutations */ "./resources/js/frontend/src/store/mutations.js");
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./actions */ "./resources/js/frontend/src/store/actions.js");
+/* harmony import */ var _auth_moduleAuth__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./auth/moduleAuth */ "./resources/js/frontend/src/store/auth/moduleAuth.js");
 /*=========================================================================================
   File Name: store.js
   Description: Vuex store
@@ -41166,11 +41316,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   getters: _getters__WEBPACK_IMPORTED_MODULE_3__["default"],
   mutations: _mutations__WEBPACK_IMPORTED_MODULE_4__["default"],
   state: _state__WEBPACK_IMPORTED_MODULE_2__["default"],
   actions: _actions__WEBPACK_IMPORTED_MODULE_5__["default"],
+  modules: {
+    auth: _auth_moduleAuth__WEBPACK_IMPORTED_MODULE_6__["default"]
+  },
   strict: "development" !== 'production'
 }));
 
