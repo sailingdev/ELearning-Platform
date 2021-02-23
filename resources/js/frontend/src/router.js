@@ -59,13 +59,18 @@ const router = new Router({
                 {
                     path: '/login',
                     name: 'Login',
-                    component: () => import('./views/login.vue')
+                    component: () => import('./views/auth/Login.vue')
                 },
                 {
                     path: '/register',
                     name: 'Register',
-                    component: () => import('./views/Register.vue')
+                    component: () => import('./views/auth/Register.vue')
                 },
+                {
+                    path: '/forgot-password',
+                    name: 'Forgot Password',
+                    component: () => import('./views/auth/ForgotPassword.vue')
+                }
             ],
         },
     ],

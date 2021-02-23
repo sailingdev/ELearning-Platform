@@ -40714,6 +40714,12 @@ __webpack_require__.r(__webpack_exports__);
       email: email,
       password: password
     });
+  },
+  forgot_password: function forgot_password(payload) {
+    var email = payload.email;
+    return _axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/password/email', {
+      email: email
+    });
   }
 });
 
@@ -40854,13 +40860,19 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/login',
       name: 'Login',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/login.vue */ "./resources/js/frontend/src/views/login.vue"));
+        return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/auth/Login.vue */ "./resources/js/frontend/src/views/auth/Login.vue"));
       }
     }, {
       path: '/register',
       name: 'Register',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/Register.vue */ "./resources/js/frontend/src/views/Register.vue"));
+        return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/auth/Register.vue */ "./resources/js/frontend/src/views/auth/Register.vue"));
+      }
+    }, {
+      path: '/forgot-password',
+      name: 'Forgot Password',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./views/auth/ForgotPassword.vue */ "./resources/js/frontend/src/views/auth/ForgotPassword.vue"));
       }
     }]
   }]
@@ -40993,8 +41005,19 @@ __webpack_require__.r(__webpack_exports__);
   login: function login(_ref2, payload) {
     var commit = _ref2.commit;
     return new Promise(function (resolve, reject) {
-      _http_request_auth__WEBPACK_IMPORTED_MODULE_0__["default"].login(payload).then(function (resonse) {
-        console.log(resonse);
+      _http_request_auth__WEBPACK_IMPORTED_MODULE_0__["default"].login(payload).then(function (response) {
+        console.log(response);
+        resolve();
+      })["catch"](function (err) {
+        reject(err);
+      });
+    });
+  },
+  forgot_password: function forgot_password(_ref3, payload) {
+    var commit = _ref3.commit;
+    return new Promise(function (resolve, reject) {
+      _http_request_auth__WEBPACK_IMPORTED_MODULE_0__["default"].forgot_password(payload).then(function (response) {
+        console.log(response);
         resolve();
       })["catch"](function (err) {
         reject(err);

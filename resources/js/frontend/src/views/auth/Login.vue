@@ -32,7 +32,7 @@
                                     <div class="form-check mt-3">
                                         <input class="form-check-input" id="rememberMe" type="checkbox" value="" checked>
                                         <label class="form-check-label" for="rememberMe">Keep me logged in</label>
-                                    </div><a class="forgot-password mt-3" href="forget-password.html">Forgot Password?</a>
+                                    </div><router-link class="forgot-password mt-3" :to="{name:'Forgot Password'}">Forgot Password?</router-link>
                                 </div>
                             </div>
                         </div>

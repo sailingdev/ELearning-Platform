@@ -16,8 +16,20 @@ export default {
     login({commit}, payload){
         return new Promise((resolve, reject) => {
             auth.login(payload)
-                .then((resonse) => {
-                    console.log(resonse)
+                .then((response) => {
+                    console.log(response)
+                    resolve()
+                })
+                .catch((err) => {
+                    reject(err)
+                })
+        })
+    },
+    forgot_password({commit}, payload){
+        return new Promise((resolve, reject) => {
+            auth.forgot_password(payload)
+                .then((response) => {
+                    console.log(response)
                     resolve()
                 })
                 .catch((err) => {

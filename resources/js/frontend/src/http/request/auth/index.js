@@ -16,5 +16,11 @@ export default {
             email,
             password
         })
+    },
+    forgot_password(payload){
+        const { email } = payload
+        return axios.post('/api/password/email', {
+            email
+        })
     }
 }
