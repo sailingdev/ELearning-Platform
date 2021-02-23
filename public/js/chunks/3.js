@@ -356,15 +356,14 @@ var render = function() {
               ),
               _vm._v(" "),
               _c(
-                "h",
+                "h6",
                 {
                   staticClass: "text-black-50",
                   staticStyle: { "font-size": "20px" }
                 },
                 [_vm._v(_vm._s(_vm.header))]
               )
-            ],
-            1
+            ]
           ),
           _vm._v(" "),
           _c("div", { staticClass: "cust-modal-body mt-4 mb-3" }, [

@@ -636,11 +636,7 @@ var render = function() {
                   staticClass: "nav-brand mr-5",
                   attrs: { to: { name: "Home" } }
                 },
-                [
-                  _c("img", {
-                    attrs: { src: "frontend/img/core-img/logo.png", alt: "" }
-                  })
-                ]
+                [_c("img", { attrs: { src: "", alt: "" } })]
               ),
               _vm._v(" "),
               _c(
