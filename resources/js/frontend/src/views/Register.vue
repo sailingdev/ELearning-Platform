@@ -18,23 +18,19 @@
                             <p>Already have an account?<router-link class="ml-2" :to="{name: 'Login'}">Log In</router-link></p>
                             <!-- Register Form-->
                             <div class="register-form my-5">
-                                <form action="#" method="post">
+                                <form id="form">
                                     <div class="form-group mb-3">
-                                        <input class="form-control rounded-0" type="email" placeholder="Email Address" required>
+                                        <input class="form-control rounded-0" type="email" placeholder="Email Address" v-model="email" required>
                                     </div>
                                     <div class="form-group mb-3">
-                                        <input class="form-control rounded-0" type="text" placeholder="Full Name" required>
+                                        <input class="form-control rounded-0" type="text" placeholder="Full Name" v-model="full_name" required>
                                     </div>
                                     <div class="form-group mb-3">
                                         <label class="label-psswd" for="registerPassword"><span class="hide">HIDE</span><span class="show">SHOW</span></label>
-                                        <input class="input-psswd form-control rounded-0" id="registerPassword" type="password" placeholder="Password" psswd-shown="false" required>
+                                        <input class="input-psswd form-control rounded-0" id="registerPassword" type="password" placeholder="Password" psswd-shown="false" v-model="password" required>
                                     </div>
-                                    <button class="btn saasbox-btn white-btn w-100" type="submit">Register Now</button>
+                                    <button class="btn saasbox-btn white-btn w-100" v-on:click="register">Register Now</button>
                                 </form>
-                            </div>
-                            <!-- Sign in via others-->
-                            <div class="signin-via-others">
-                                <p class="mb-0">Or Sign in with</p><a class="btn saasbox-btn btn-sm mt-3 mr-3" href="#"><i class="fa fa-facebook mr-2"></i>Facebook</a><a class="btn saasbox-btn btn-sm mt-3 mr-3" href="#"><i class="fa fa-twitter mr-2"></i>Twitter</a>
                             </div>
                         </div>
                     </div>
@@ -49,6 +45,21 @@
         name: 'Register',
         data() {
             return {
+                email: null,
+                full_name: null,
+                password: null
+            }
+        },
+        methods: {
+            register(){
+                let payload = {
+                        email: this.email,
+                        name: this.full_name,
+                        password: this.password,
+                        password_confirmation: this.password
+                }
+                $('form').submit(false)
+                this.$store.dispatch('auth/register', payload)
 
             }
         }

@@ -15,18 +15,6 @@ import Frontend from './Frontend.vue'
 import axios from './axios.js'
 Vue.prototype.$http = axios
 
-// Filters
-// import './filters/filters.js'
-
-
-// Theme Configurations
-// import '../themeConfig.js'
-
-
-// Globally Registered Components
-// import './globalComponents.js'
-
-
 // Vue Router
 import router from './router'
 
