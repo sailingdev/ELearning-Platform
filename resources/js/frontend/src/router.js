@@ -90,13 +90,13 @@ const router = new Router({
         },
     ],
 })
-
-router.afterEach(() => {
-  // Remove initial loading
-  const preloader = document.getElementById('preloader')
-    if (preloader) {
-        preloader.style.display = "none";
-    }
-})
+//
+// router.afterEach(() => {
+//   // Remove initial loading
+//   const preloader = document.getElementById('preloader')
+//     if (preloader) {
+//         preloader.style.display = "none";
+//     }
+// })
 
 export default router

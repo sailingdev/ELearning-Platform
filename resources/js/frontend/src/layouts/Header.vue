@@ -1,6 +1,5 @@
 <template>
     <div>
-
         <header class="header-area header2">
             <div class="container">
                 <div :class="breakpoint">
