@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/lingofeen/public_html/ELearning-Platform/
+    - export DEPLOYPATH=/home/lingofeen/public_html/app/
     - /bin/cp -r * $DEPLOYPATH #copy all from root
     #    - /bin/cp -r ./public/* $DEPLOYPATH/public_html/
 #    - /bin/cp ./public/js/*.js $DEPLOYPATH/public_html/js
