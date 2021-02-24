@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags-->
     <!-- Title-->
-    <title>Saasbox - Bootstrap 5 Multipurpose HTML Template for Saas & Agency</title>
+    <title>E-Learning platform</title>
     <!-- Favicon-->
 {{--    <link rel="icon" href="img/core-img/favicon.ico">--}}
 <!-- Core Stylesheet-->
