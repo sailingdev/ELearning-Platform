@@ -40894,14 +40894,15 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       }
     }]
   }]
-}); // router.afterEach(() => {
-//   // Remove initial loading
-//   const preloader = document.getElementById('preloader')
-//     if (preloader) {
-//         preloader.style.display = "none";
-//     }
-// })
+});
+router.afterEach(function () {
+  // Remove initial loading
+  var preloader = document.getElementById('preloader');
 
+  if (preloader) {
+    preloader.style.display = "none";
+  }
+});
 /* harmony default export */ __webpack_exports__["default"] = (router);
 
 /***/ }),

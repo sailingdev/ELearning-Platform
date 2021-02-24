@@ -167,8 +167,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Header',
@@ -635,8 +633,6 @@ var render = function() {
   return _c(
     "div",
     [
-      _vm._m(0),
-      _vm._v(" "),
       _c("header", { staticClass: "header-area header2" }, [
         _c("div", { staticClass: "container" }, [
           _c("div", { class: _vm.breakpoint }, [
@@ -670,7 +666,7 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._m(1)]
+                  [_vm._m(0)]
                 ),
                 _vm._v(" "),
                 _c("div", { class: _vm.menu }, [
@@ -684,7 +680,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._m(2)]
+                    [_vm._m(1)]
                   ),
                   _vm._v(" "),
                   _c("div", { staticClass: "classynav" }, [
@@ -810,18 +806,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "preloader", attrs: { id: "preloader" } }, [
-      _c(
-        "div",
-        { staticClass: "spinner-grow text-light", attrs: { role: "status" } },
-        [_c("span", { staticClass: "sr-only" }, [_vm._v("Loading...")])]
-      )
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

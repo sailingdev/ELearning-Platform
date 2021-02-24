@@ -1,8 +1,6 @@
 <template>
     <div>
-        <div class="preloader" id="preloader">
-            <div class="spinner-grow text-light" role="status"><span class="sr-only">Loading...</span></div>
-        </div>
+
         <header class="header-area header2">
             <div class="container">
                 <div :class="breakpoint">
