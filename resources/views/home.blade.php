@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{asset(mix('frontend/css/bootstrap.min.css'))}}">
     <link rel="stylesheet" href="{{asset(mix('frontend/css/default/classy-nav.min.css'))}}">
     <link rel="stylesheet" href="{{asset(mix('frontend/css/animate.css'))}}">
-    <link rel="stylesheet" href="{{asset(mix('frontend/css/owl.carousel.min.css'))}}">
+{{--    <link rel="stylesheet" href="{{asset(mix('frontend/css/owl.carousel.min.css'))}}">--}}
     <link rel="stylesheet" href="{{asset(mix('frontend/css/magnific-popup.css'))}}">
     <link rel="stylesheet" href="{{asset(mix('frontend/css/jquery.animatedheadline.css'))}}">
     <link rel="stylesheet" href="{{asset(mix('frontend/css/default/lineicons.min.css'))}}">
@@ -40,8 +40,8 @@
 <script src="{{asset(mix('frontend/js/default/jquery.scrollup.min.js'))}}"></script>
 <script src="{{asset(mix('frontend/js/owl.carousel.min.js'))}}"></script>
 <script src="{{asset(mix('frontend/js/wow.min.js'))}}"></script>
-<script src="{{asset(mix('frontend/js/jarallax.min.js'))}}"></script>
-<script src="{{asset(mix('frontend/js/jarallax-video.min.js'))}}"></script>
+{{--<script src="{{asset(mix('frontend/js/jarallax.min.js'))}}"></script>--}}
+{{--<script src="{{asset(mix('frontend/js/jarallax-video.min.js'))}}"></script>--}}
 <script src="{{asset(mix('frontend/js/default/cookiealert.js'))}}"></script>
 <script src="{{asset(mix('frontend/js/default/jquery.passwordstrength.js'))}}"></script>
 <script src="{{asset(mix('frontend/js/jquery.countdown.min.js'))}}"></script>

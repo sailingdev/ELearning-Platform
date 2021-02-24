@@ -135,13 +135,20 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-12 col-md-9 col-lg-7 col-xxl-6" }, [
-        _c("div", { staticClass: "section-heading text-center" }, [
-          _c("h2", [_vm._v("What lesson do you want to learn?")])
+    return _c(
+      "div",
+      {
+        staticClass: "row justify-content-center wow fadeInUp",
+        attrs: { "data-wow-delay": "200ms", "data-wow-duration": "1000ms" }
+      },
+      [
+        _c("div", { staticClass: "col-12 col-md-9 col-lg-7 col-xxl-6" }, [
+          _c("div", { staticClass: "section-heading text-center" }, [
+            _c("h2", [_vm._v("What lesson do you want to learn?")])
+          ])
         ])
-      ])
-    ])
+      ]
+    )
   }
 ]
 render._withStripped = true

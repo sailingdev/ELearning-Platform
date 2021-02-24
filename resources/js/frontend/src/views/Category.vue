@@ -2,7 +2,7 @@
     <!-- Category Area-->
     <section class="service-area section-padding-120" style="padding-bottom: 345px">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1000ms">
                 <div class="col-12 col-md-9 col-lg-7 col-xxl-6">
                     <div class="section-heading text-center">
                         <h2>What lesson do you want to learn?</h2>

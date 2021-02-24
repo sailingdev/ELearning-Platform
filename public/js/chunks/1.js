@@ -61,7 +61,13 @@ __webpack_require__.r(__webpack_exports__);
       return this.type === 1 ? 'What language do you speak?' : 'What language do you want to learn?';
     },
     isType: function isType() {
-      return this.type;
+      if (this.type === 1) {
+        return "home";
+      }
+
+      if (this.type === 2) {
+        return "category";
+      } else return "lesson-list";
     }
   },
   methods: {
@@ -169,21 +175,11 @@ var render = function() {
                   on: { click: _vm.onCloseModal }
                 },
                 [
-                  _c(
-                    "router-link",
-                    {
-                      attrs: {
-                        to: {
-                          name: _vm.isType === 1 ? "lesson-list" : "category"
-                        }
-                      }
-                    },
-                    [
-                      _c("span", { class: "flag-icon flag-icon-" + key }),
-                      _vm._v(" "),
-                      _c("span", [_vm._v(_vm._s(flag.name))])
-                    ]
-                  )
+                  _c("router-link", { attrs: { to: { name: _vm.isType } } }, [
+                    _c("span", { class: "flag-icon flag-icon-" + key }),
+                    _vm._v(" "),
+                    _c("span", [_vm._v(_vm._s(flag.name))])
+                  ])
                 ],
                 1
               )
