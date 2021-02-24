@@ -41,51 +41,51 @@ const router = new Router({
                     name: 'category',
                     component: () => import('./views/Category.vue')
                 },
-                // {
-                //     path: '/lesson-list',
-                //     name: 'lesson-list',
-                //     component: () => import('./views/LessonList.vue')
-                // },
-                // {
-                //     path: '/lesson',
-                //     name: 'lesson',
-                //     component: () => import('./views/Lesson.vue')
-                // },
-                // {
-                //     path: '/contact',
-                //     name: 'contact',
-                //     component: () => import('./views/Contact.vue')
-                // },
-                // {
-                //     path: '/pricing',
-                //     name: 'pricing',
-                //     component: () => import('./views/Pricing.vue')
-                // },
-                // {
-                //     path: '/blog',
-                //     name: 'blog',
-                //     component: () => import('./views/blog/Blog.vue')
-                // },
-                // {
-                //     path: '/blog-details',
-                //     name: 'blog-details',
-                //     component: () => import('./views/blog/BlogDetails.vue')
-                // },
-                // {
-                //     path: '/login',
-                //     name: 'login',
-                //     component: () => import('./views/auth/Login.vue')
-                // },
-                // {
-                //     path: '/register',
-                //     name: 'register',
-                //     component: () => import('./views/auth/Register.vue')
-                // },
-                // {
-                //     path: '/forgot-password',
-                //     name: 'forgot-password',
-                //     component: () => import('./views/auth/ForgotPassword.vue')
-                // }
+                {
+                    path: '/lesson-list',
+                    name: 'lesson-list',
+                    component: () => import('./views/LessonList.vue')
+                },
+                {
+                    path: '/lesson',
+                    name: 'lesson',
+                    component: () => import('./views/Lesson.vue')
+                },
+                {
+                    path: '/contact',
+                    name: 'contact',
+                    component: () => import('./views/Contact.vue')
+                },
+                {
+                    path: '/pricing',
+                    name: 'pricing',
+                    component: () => import('./views/Pricing.vue')
+                },
+                {
+                    path: '/blog',
+                    name: 'blog',
+                    component: () => import('./views/blog/Blog.vue')
+                },
+                {
+                    path: '/blog-details',
+                    name: 'blog-details',
+                    component: () => import('./views/blog/BlogDetails.vue')
+                },
+                {
+                    path: '/login',
+                    name: 'login',
+                    component: () => import('./views/auth/Login.vue')
+                },
+                {
+                    path: '/register',
+                    name: 'register',
+                    component: () => import('./views/auth/Register.vue')
+                },
+                {
+                    path: '/forgot-password',
+                    name: 'forgot-password',
+                    component: () => import('./views/auth/ForgotPassword.vue')
+                }
             ],
         },
     ],

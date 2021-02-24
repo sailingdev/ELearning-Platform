@@ -1,14 +1,15 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[1],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/frontend/src/components/TheContactModal.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/frontend/src/components/TheContactModal.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/frontend/src/components/TheLanguageModal.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/frontend/src/components/TheLanguageModal.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _LanguageList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../LanguageList */ "./resources/js/frontend/src/LanguageList/index.js");
 //
 //
 //
@@ -40,60 +41,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'TheContactModal',
+  name: 'TheLanguageModal',
+  props: {
+    type: Number,
+    display: Boolean
+  },
   data: function data() {
     return {
-      display: false
+      langs: _LanguageList__WEBPACK_IMPORTED_MODULE_0__["default"]
     };
   },
   computed: {
@@ -101,22 +58,25 @@ __webpack_require__.r(__webpack_exports__);
       return this.display;
     },
     header: function header() {
-      return "What language do you speak?";
+      return this.type === 1 ? 'What language do you speak?' : 'What language do you want to learn?';
+    },
+    isType: function isType() {
+      return this.type;
     }
   },
   methods: {
-    manageModal: function manageModal(val) {
-      this.display = val;
+    onCloseModal: function onCloseModal() {
+      this.$emit('isClosed', true);
     }
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/frontend/src/components/TheContactModal.vue?vue&type=style&index=0&id=4904127f&scoped=true&lang=css&":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/frontend/src/components/TheContactModal.vue?vue&type=style&index=0&id=4904127f&scoped=true&lang=css& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/frontend/src/components/TheLanguageModal.vue?vue&type=style&index=0&id=1e24f993&scoped=true&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/frontend/src/components/TheLanguageModal.vue?vue&type=style&index=0&id=1e24f993&scoped=true&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -125,22 +85,22 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "h4[data-v-4904127f] {\n  color: gray;\n}\n@media only screen and (min-width: 1400px) {\n.cust-modal-content[data-v-4904127f] {\n    max-width: 1015px;\n}\n}\n@media only screen and (min-width: 1200px) and (max-width: 1399px) {\n.cust-modal-content[data-v-4904127f] {\n    max-width: 1130px;\n}\n}\n@media only screen and (min-width: 992px) and (max-width: 1199px) {\n.cust-modal-content[data-v-4904127f] {\n    max-width: 950px;\n}\n}\n@media only screen and (min-width: 768px) and (max-width: 991px) {\n.cust-modal-content[data-v-4904127f] {\n    max-width: 700px;\n}\n}\n@media only screen and (min-width: 576px) and (max-width: 767px) {\n.cust-modal-content[data-v-4904127f] {\n    max-width: 530px;\n}\n}\n.let-us-know[data-v-4904127f] {\n  font-weight: 600;\n}\na[data-v-4904127f] {\n  color: #00000099;\n}\na[data-v-4904127f]:hover {\n  color: black;\n}\n", ""]);
+exports.push([module.i, "h4[data-v-1e24f993] {\n  color: gray;\n}\n@media only screen and (min-width: 1400px) {\n.cust-modal-content[data-v-1e24f993] {\n    max-width: 1015px;\n}\n}\n@media only screen and (min-width: 1200px) and (max-width: 1399px) {\n.cust-modal-content[data-v-1e24f993] {\n    max-width: 1130px;\n}\n}\n@media only screen and (min-width: 992px) and (max-width: 1199px) {\n.cust-modal-content[data-v-1e24f993] {\n    max-width: 950px;\n}\n}\n@media only screen and (min-width: 768px) and (max-width: 991px) {\n.cust-modal-content[data-v-1e24f993] {\n    max-width: 700px;\n}\n}\n@media only screen and (min-width: 576px) and (max-width: 767px) {\n.cust-modal-content[data-v-1e24f993] {\n    max-width: 530px;\n}\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/frontend/src/components/TheContactModal.vue?vue&type=style&index=0&id=4904127f&scoped=true&lang=css&":
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/frontend/src/components/TheContactModal.vue?vue&type=style&index=0&id=4904127f&scoped=true&lang=css& ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/frontend/src/components/TheLanguageModal.vue?vue&type=style&index=0&id=1e24f993&scoped=true&lang=css&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/frontend/src/components/TheLanguageModal.vue?vue&type=style&index=0&id=1e24f993&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--7-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TheContactModal.vue?vue&type=style&index=0&id=4904127f&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/frontend/src/components/TheContactModal.vue?vue&type=style&index=0&id=4904127f&scoped=true&lang=css&");
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--7-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TheLanguageModal.vue?vue&type=style&index=0&id=1e24f993&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/frontend/src/components/TheLanguageModal.vue?vue&type=style&index=0&id=1e24f993&scoped=true&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -162,10 +122,10 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/frontend/src/components/TheContactModal.vue?vue&type=template&id=4904127f&scoped=true&":
-/*!*******************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/frontend/src/components/TheContactModal.vue?vue&type=template&id=4904127f&scoped=true& ***!
-  \*******************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/frontend/src/components/TheLanguageModal.vue?vue&type=template&id=1e24f993&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/frontend/src/components/TheLanguageModal.vue?vue&type=template&id=1e24f993&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -177,244 +137,321 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "text-center mt-5" }, [
-      _c(
-        "a",
-        {
-          staticClass: "let-us-know cursor-on",
-          on: {
-            click: function($event) {
-              return _vm.manageModal(true)
-            }
-          }
-        },
-        [_vm._v("Do you see an error on our website? Please let us know")]
-      )
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "cust-modal",
-        style: _vm.isShown ? "display: block" : "display: none",
-        attrs: { id: "myModal" }
-      },
-      [
-        _c("div", { staticClass: "cust-modal-content" }, [
-          _c("div", { staticClass: "cust-modal-header" }, [
-            _c(
-              "span",
-              {
-                staticClass: "cust-close",
-                on: {
-                  click: function($event) {
-                    return _vm.manageModal(false)
-                  }
-                }
-              },
-              [_vm._v("×")]
-            ),
-            _vm._v(" "),
-            _c("h4", [_vm._v("Contact Us")])
-          ]),
-          _vm._v(" "),
-          _vm._m(0),
-          _vm._v(" "),
+  return _c(
+    "div",
+    {
+      staticClass: "cust-modal",
+      style: _vm.isShown ? "display: block" : "display: none",
+      attrs: { id: "myModal" }
+    },
+    [
+      _c("div", { staticClass: "cust-modal-content" }, [
+        _c("div", { staticClass: "cust-modal-header" }, [
           _c(
-            "div",
-            { staticClass: "cust-modal-footer align-content-center mb-4" },
-            [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-outline-primary",
-                  on: {
-                    click: function($event) {
-                      return _vm.manageModal(false)
-                    }
-                  }
-                },
-                [_vm._v(" Close ")]
-              )
-            ]
-          )
-        ])
-      ]
-    )
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "cust-modal-body mt-4 mb-3 row justify-content-between" },
-      [
-        _c("div", { staticClass: "col-12 col-lg-5 col-xl-4" }, [
-          _c("div", { staticClass: "contact-side-info mb-80" }, [
-            _c("h2", { staticClass: "mb-3" }, [
-              _vm._v("Let's talk about "),
-              _c("br"),
-              _vm._v(" all things!")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "mb-4" }, [
-              _vm._v(
-                "Write to us or give us a call. We will reply to you as soon as possible. But yes, it can take up to 24 hours."
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "contact-mini-card-wrapper" }, [
-              _c("div", { staticClass: "contact-mini-card" }, [
-                _c("div", { staticClass: "contact-mini-card-icon" }, [
-                  _c("i", { staticClass: "lni lni-envelope" })
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("example@domain.com")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "contact-mini-card" }, [
-                _c("div", { staticClass: "contact-mini-card-icon" }, [
-                  _c("i", { staticClass: "lni lni-headphone-alt" })
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("(+880) 145 2635896")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "contact-mini-card" }, [
-                _c("div", { staticClass: "contact-mini-card-icon" }, [
-                  _c("i", { staticClass: "lni lni-tag" })
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("We are open from 9am — 5pm business days.")])
-              ])
-            ])
-          ])
+            "span",
+            { staticClass: "cust-close", on: { click: _vm.onCloseModal } },
+            [_vm._v("×")]
+          ),
+          _vm._v(" "),
+          _c("h4", [_vm._v(_vm._s(_vm.header))])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-12 col-lg-7" }, [
-          _c("div", { staticClass: "contact-form mb-80" }, [
+        _c("div", { staticClass: "cust-modal-body mt-4 mb-3" }, [
+          _c(
+            "div",
+            { staticClass: "row" },
+            _vm._l(_vm.langs, function(flag, key) {
+              return _c(
+                "div",
+                {
+                  key: key,
+                  staticClass: "col-xs-6 col-sm-4 col-md-4 col-lg-3 mt-1 mb-4",
+                  on: { click: _vm.onCloseModal }
+                },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: {
+                          name: _vm.isType === 1 ? "lesson-list" : "category"
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { class: "flag-icon flag-icon-" + key }),
+                      _vm._v(" "),
+                      _c("span", [_vm._v(_vm._s(flag.name))])
+                    ]
+                  )
+                ],
+                1
+              )
+            }),
+            0
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "cust-modal-footer align-content-center mb-4" },
+          [
             _c(
-              "form",
+              "button",
               {
-                attrs: {
-                  id: "main_contact_form",
-                  action: "php/mail.php",
-                  method: "POST"
-                }
+                staticClass: "btn btn-outline-primary",
+                on: { click: _vm.onCloseModal }
               },
-              [
-                _c("div", { attrs: { id: "success_fail_info" } }),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-12 col-lg-6" }, [
-                    _c("label", { attrs: { for: "name" } }, [
-                      _vm._v("Full Name:")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "form-control mb-30",
-                      attrs: {
-                        id: "name",
-                        type: "text",
-                        placeholder: "Designing World",
-                        value: "",
-                        name: "name",
-                        required: ""
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-12 col-lg-6" }, [
-                    _c("label", { attrs: { for: "email" } }, [
-                      _vm._v("Email Address:")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "form-control mb-30",
-                      attrs: {
-                        id: "email",
-                        type: "email",
-                        placeholder: "care.designingworld@gmail.com",
-                        name: "email",
-                        value: "",
-                        required: ""
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-12" }, [
-                    _c("label", { attrs: { for: "subject" } }, [
-                      _vm._v("Topics:")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "form-control mb-30",
-                      attrs: {
-                        id: "topics",
-                        type: "text",
-                        placeholder: "Presale Questions",
-                        name: "topics",
-                        value: ""
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-12" }, [
-                    _c("label", { attrs: { for: "message" } }, [
-                      _vm._v("Message:")
-                    ]),
-                    _vm._v(" "),
-                    _c("textarea", {
-                      staticClass: "form-control mb-30",
-                      attrs: {
-                        id: "message",
-                        name: "message",
-                        placeholder: "Message"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-12 text-center" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn saasbox-btn w-100",
-                        attrs: { type: "submit" }
-                      },
-                      [_vm._v("Send Now")]
-                    )
-                  ])
-                ])
-              ]
+              [_vm._v(" Close ")]
             )
-          ])
-        ])
-      ]
-    )
-  }
-]
+          ]
+        )
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
 
 /***/ }),
 
-/***/ "./resources/js/frontend/src/components/TheContactModal.vue":
-/*!******************************************************************!*\
-  !*** ./resources/js/frontend/src/components/TheContactModal.vue ***!
-  \******************************************************************/
+/***/ "./resources/js/frontend/src/LanguageList/index.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/frontend/src/LanguageList/index.js ***!
+  \*********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _TheContactModal_vue_vue_type_template_id_4904127f_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TheContactModal.vue?vue&type=template&id=4904127f&scoped=true& */ "./resources/js/frontend/src/components/TheContactModal.vue?vue&type=template&id=4904127f&scoped=true&");
-/* harmony import */ var _TheContactModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TheContactModal.vue?vue&type=script&lang=js& */ "./resources/js/frontend/src/components/TheContactModal.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _TheContactModal_vue_vue_type_style_index_0_id_4904127f_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TheContactModal.vue?vue&type=style&index=0&id=4904127f&scoped=true&lang=css& */ "./resources/js/frontend/src/components/TheContactModal.vue?vue&type=style&index=0&id=4904127f&scoped=true&lang=css&");
+var langs = {
+  'za': {
+    name: 'Afrikaans',
+    title: 'Ek praat Afrikaans'
+  },
+  'id': {
+    name: 'Bahasa Indonesia',
+    title: 'Saya berbahasa Indonesia'
+  },
+  'es-ca': {
+    name: 'Català',
+    title: 'Parlo català'
+  },
+  'dk': {
+    name: 'Dansk',
+    title: 'Jeg taler dansk'
+  },
+  'de': {
+    name: 'Deutsch',
+    title: 'Ich spreche Deutsch'
+  },
+  'ee': {
+    name: 'Eesti',
+    title: 'Ma räägin eesti keelt'
+  },
+  'us': {
+    name: 'English',
+    title: 'I speak English'
+  },
+  'es': {
+    name: 'Español',
+    title: 'Hablo español'
+  },
+  'fr': {
+    name: 'Français',
+    title: 'Je parle français'
+  },
+  'es-ga': {
+    name: 'Galego',
+    title: 'Falo galego'
+  },
+  'hr': {
+    name: 'Hrvatski',
+    title: 'Govorim hrvatski'
+  },
+  'it': {
+    name: 'Italiano',
+    title: 'Parlo italiano'
+  },
+  'tz': {
+    name: 'Kiswahili',
+    title: 'Ninazungumza Kiswahili'
+  },
+  'lv': {
+    name: 'Latviešu',
+    title: 'Es runāju latviski'
+  },
+  'lt': {
+    name: 'Lietuvių kalba',
+    title: 'Aš kalbu lietuviškai'
+  },
+  'ro': {
+    name: 'Limba română',
+    title: 'Vorbesc limba română'
+  },
+  'hu': {
+    name: 'Magyar',
+    title: 'Magyarul beszélek'
+  },
+  'ms': {
+    name: 'Melayu',
+    title: 'Saya bertutur dalam bahasa Melayu'
+  },
+  'nl': {
+    name: 'Nederlands',
+    title: 'Ik spreek Nederlands'
+  },
+  'no': {
+    name: 'Norsk',
+    title: 'Jeg snakker norsk'
+  },
+  'pl': {
+    name: 'Polski',
+    title: 'Mówię po polsku'
+  },
+  'pt': {
+    name: 'Português',
+    title: 'Eu falo português'
+  },
+  'al': {
+    name: 'Shqip',
+    title: 'Unë flas anglisht'
+  },
+  'sk': {
+    name: 'Slovenčina',
+    title: 'Hovorím po slovensky'
+  },
+  'sl': {
+    name: 'Slovenščina',
+    title: 'Govorim slovensko'
+  },
+  'rs': {
+    name: 'Srpski jezik',
+    title: 'Ja govorim srpski'
+  },
+  'fi': {
+    name: 'Suomi',
+    title: 'Puhun suomea'
+  },
+  'se': {
+    name: 'Svenska',
+    title: 'Jag talar svenska'
+  },
+  'ph': {
+    name: 'Tagalog',
+    title: 'Nagsasalita ako ng Tagalog'
+  },
+  'vn': {
+    name: 'Tiếng Việt',
+    title: 'Tôi nói tiếng Việt'
+  },
+  'tr': {
+    name: 'Türkçe',
+    title: 'Türkçe konuşuyorum'
+  },
+  'is': {
+    name: 'Íslenska',
+    title: 'Ég tala íslensku'
+  },
+  'cz': {
+    name: 'Čeština',
+    title: 'Mluvím česky'
+  },
+  'gr': {
+    name: 'Ελληνικά',
+    title: 'Μιλάω Ελληνικά'
+  },
+  'by': {
+    name: 'Беларуская',
+    title: 'Я размаўляю па-беларуску'
+  },
+  'bg': {
+    name: 'Български език',
+    title: 'Аз говоря български език'
+  },
+  'mk': {
+    name: 'Македонски',
+    title: 'Зборувам македонски'
+  },
+  'ru': {
+    name: 'Русский',
+    title: 'Я говорю по-русски'
+  },
+  'ua': {
+    name: 'Українська',
+    title: 'Я розмовляю українською'
+  },
+  'am': {
+    name: 'Հայերեն',
+    title: 'Ես խոսում եմ հայերեն'
+  },
+  'il': {
+    name: 'עברית',
+    title: 'אני מדבר עברית'
+  },
+  'pk': {
+    name: 'اردو',
+    title: 'میں اردو بولتا/بولتی ہوں'
+  },
+  'sa': {
+    name: 'اللغة العربية',
+    title: 'أنا أتحدث العربية'
+  },
+  'ir': {
+    name: 'فارسی',
+    title: 'من فارسی صحبت می‌کنم'
+  },
+  'in': {
+    name: 'हिंदी',
+    title: 'मैं हिंदी बोलता/बोलती हूँ'
+  },
+  // 'panjab': {
+  //     name: 'ਪੰਜਾਬੀ',
+  //     title: 'ਮੈਂ ਪੰਜਾਬੀ ਬੋਲਦਾ/ਬੋਲਦੀ ਹਾਂ'
+  // },
+  'th': {
+    name: 'ภาษาไทย',
+    title: 'ผมพูดภาษาไทย / ฉันพูดภาษาไทย'
+  },
+  'ge': {
+    name: 'ქართული',
+    title: 'მე ვლაპარაკობ ქართულად'
+  },
+  'et': {
+    name: 'አማርኛ',
+    title: 'አማርኛ እናገራለሁ'
+  },
+  'cn': {
+    name: '中文',
+    title: '我说中文'
+  },
+  'jp': {
+    name: '日本語',
+    title: '私は日本語を話します'
+  },
+  'kr': {
+    name: '한국어',
+    title: '저는 한국어를 합니다.'
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (langs);
+
+/***/ }),
+
+/***/ "./resources/js/frontend/src/components/TheLanguageModal.vue":
+/*!*******************************************************************!*\
+  !*** ./resources/js/frontend/src/components/TheLanguageModal.vue ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TheLanguageModal_vue_vue_type_template_id_1e24f993_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TheLanguageModal.vue?vue&type=template&id=1e24f993&scoped=true& */ "./resources/js/frontend/src/components/TheLanguageModal.vue?vue&type=template&id=1e24f993&scoped=true&");
+/* harmony import */ var _TheLanguageModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TheLanguageModal.vue?vue&type=script&lang=js& */ "./resources/js/frontend/src/components/TheLanguageModal.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _TheLanguageModal_vue_vue_type_style_index_0_id_1e24f993_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TheLanguageModal.vue?vue&type=style&index=0&id=1e24f993&scoped=true&lang=css& */ "./resources/js/frontend/src/components/TheLanguageModal.vue?vue&type=style&index=0&id=1e24f993&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -425,66 +462,66 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _TheContactModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _TheContactModal_vue_vue_type_template_id_4904127f_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _TheContactModal_vue_vue_type_template_id_4904127f_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _TheLanguageModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TheLanguageModal_vue_vue_type_template_id_1e24f993_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TheLanguageModal_vue_vue_type_template_id_1e24f993_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "4904127f",
+  "1e24f993",
   null
   
 )
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/frontend/src/components/TheContactModal.vue"
+component.options.__file = "resources/js/frontend/src/components/TheLanguageModal.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/frontend/src/components/TheContactModal.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************************!*\
-  !*** ./resources/js/frontend/src/components/TheContactModal.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************************/
+/***/ "./resources/js/frontend/src/components/TheLanguageModal.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/frontend/src/components/TheLanguageModal.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TheContactModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TheContactModal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/frontend/src/components/TheContactModal.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TheContactModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TheLanguageModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TheLanguageModal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/frontend/src/components/TheLanguageModal.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TheLanguageModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/frontend/src/components/TheContactModal.vue?vue&type=style&index=0&id=4904127f&scoped=true&lang=css&":
-/*!***************************************************************************************************************************!*\
-  !*** ./resources/js/frontend/src/components/TheContactModal.vue?vue&type=style&index=0&id=4904127f&scoped=true&lang=css& ***!
-  \***************************************************************************************************************************/
+/***/ "./resources/js/frontend/src/components/TheLanguageModal.vue?vue&type=style&index=0&id=1e24f993&scoped=true&lang=css&":
+/*!****************************************************************************************************************************!*\
+  !*** ./resources/js/frontend/src/components/TheLanguageModal.vue?vue&type=style&index=0&id=1e24f993&scoped=true&lang=css& ***!
+  \****************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TheContactModal_vue_vue_type_style_index_0_id_4904127f_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--7-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TheContactModal.vue?vue&type=style&index=0&id=4904127f&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/frontend/src/components/TheContactModal.vue?vue&type=style&index=0&id=4904127f&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TheContactModal_vue_vue_type_style_index_0_id_4904127f_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TheContactModal_vue_vue_type_style_index_0_id_4904127f_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TheContactModal_vue_vue_type_style_index_0_id_4904127f_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TheContactModal_vue_vue_type_style_index_0_id_4904127f_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TheLanguageModal_vue_vue_type_style_index_0_id_1e24f993_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--7-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TheLanguageModal.vue?vue&type=style&index=0&id=1e24f993&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/frontend/src/components/TheLanguageModal.vue?vue&type=style&index=0&id=1e24f993&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TheLanguageModal_vue_vue_type_style_index_0_id_1e24f993_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TheLanguageModal_vue_vue_type_style_index_0_id_1e24f993_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TheLanguageModal_vue_vue_type_style_index_0_id_1e24f993_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TheLanguageModal_vue_vue_type_style_index_0_id_1e24f993_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
 
-/***/ "./resources/js/frontend/src/components/TheContactModal.vue?vue&type=template&id=4904127f&scoped=true&":
-/*!*************************************************************************************************************!*\
-  !*** ./resources/js/frontend/src/components/TheContactModal.vue?vue&type=template&id=4904127f&scoped=true& ***!
-  \*************************************************************************************************************/
+/***/ "./resources/js/frontend/src/components/TheLanguageModal.vue?vue&type=template&id=1e24f993&scoped=true&":
+/*!**************************************************************************************************************!*\
+  !*** ./resources/js/frontend/src/components/TheLanguageModal.vue?vue&type=template&id=1e24f993&scoped=true& ***!
+  \**************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TheContactModal_vue_vue_type_template_id_4904127f_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TheContactModal.vue?vue&type=template&id=4904127f&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/frontend/src/components/TheContactModal.vue?vue&type=template&id=4904127f&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TheContactModal_vue_vue_type_template_id_4904127f_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TheLanguageModal_vue_vue_type_template_id_1e24f993_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TheLanguageModal.vue?vue&type=template&id=1e24f993&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/frontend/src/components/TheLanguageModal.vue?vue&type=template&id=1e24f993&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TheLanguageModal_vue_vue_type_template_id_1e24f993_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TheContactModal_vue_vue_type_template_id_4904127f_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TheLanguageModal_vue_vue_type_template_id_1e24f993_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

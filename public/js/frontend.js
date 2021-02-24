@@ -40838,52 +40838,61 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       component: function component() {
         return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/Category.vue */ "./resources/js/frontend/src/views/Category.vue"));
       }
-    } // {
-    //     path: '/lesson-list',
-    //     name: 'lesson-list',
-    //     component: () => import('./views/LessonList.vue')
-    // },
-    // {
-    //     path: '/lesson',
-    //     name: 'lesson',
-    //     component: () => import('./views/Lesson.vue')
-    // },
-    // {
-    //     path: '/contact',
-    //     name: 'contact',
-    //     component: () => import('./views/Contact.vue')
-    // },
-    // {
-    //     path: '/pricing',
-    //     name: 'pricing',
-    //     component: () => import('./views/Pricing.vue')
-    // },
-    // {
-    //     path: '/blog',
-    //     name: 'blog',
-    //     component: () => import('./views/blog/Blog.vue')
-    // },
-    // {
-    //     path: '/blog-details',
-    //     name: 'blog-details',
-    //     component: () => import('./views/blog/BlogDetails.vue')
-    // },
-    // {
-    //     path: '/login',
-    //     name: 'login',
-    //     component: () => import('./views/auth/Login.vue')
-    // },
-    // {
-    //     path: '/register',
-    //     name: 'register',
-    //     component: () => import('./views/auth/Register.vue')
-    // },
-    // {
-    //     path: '/forgot-password',
-    //     name: 'forgot-password',
-    //     component: () => import('./views/auth/ForgotPassword.vue')
-    // }
-    ]
+    }, {
+      path: '/lesson-list',
+      name: 'lesson-list',
+      component: function component() {
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ./views/LessonList.vue */ "./resources/js/frontend/src/views/LessonList.vue"));
+      }
+    }, {
+      path: '/lesson',
+      name: 'lesson',
+      component: function component() {
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./views/Lesson.vue */ "./resources/js/frontend/src/views/Lesson.vue"));
+      }
+    }, {
+      path: '/contact',
+      name: 'contact',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/Contact.vue */ "./resources/js/frontend/src/views/Contact.vue"));
+      }
+    }, {
+      path: '/pricing',
+      name: 'pricing',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/Pricing.vue */ "./resources/js/frontend/src/views/Pricing.vue"));
+      }
+    }, {
+      path: '/blog',
+      name: 'blog',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./views/blog/Blog.vue */ "./resources/js/frontend/src/views/blog/Blog.vue"));
+      }
+    }, {
+      path: '/blog-details',
+      name: 'blog-details',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./views/blog/BlogDetails.vue */ "./resources/js/frontend/src/views/blog/BlogDetails.vue"));
+      }
+    }, {
+      path: '/login',
+      name: 'login',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/auth/Login.vue */ "./resources/js/frontend/src/views/auth/Login.vue"));
+      }
+    }, {
+      path: '/register',
+      name: 'register',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/auth/Register.vue */ "./resources/js/frontend/src/views/auth/Register.vue"));
+      }
+    }, {
+      path: '/forgot-password',
+      name: 'forgot-password',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./views/auth/ForgotPassword.vue */ "./resources/js/frontend/src/views/auth/ForgotPassword.vue"));
+      }
+    }]
   }]
 });
 router.afterEach(function () {
