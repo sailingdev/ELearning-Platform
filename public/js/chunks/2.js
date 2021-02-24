@@ -85,13 +85,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Footer',
@@ -130,6 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_TheLanguageModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/TheLanguageModal */ "./resources/js/frontend/src/components/TheLanguageModal.vue");
 //
 //
 //
@@ -168,13 +162,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Header',
   data: function data() {
     return {
       windowWidth: window.innerWidth,
-      menuClass: false
+      menuClass: false,
+      modal: 2,
+      display: false
     };
+  },
+  components: {
+    TheLanguageModal: _components_TheLanguageModal__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   computed: {
     breakpoint: function breakpoint() {
@@ -185,11 +192,20 @@ __webpack_require__.r(__webpack_exports__);
         'classy-menu': true,
         'menu-on': this.menuClass
       };
+    },
+    isShown: function isShown() {
+      return this.display;
     }
   },
   methods: {
     setMenuOn: function setMenuOn() {
       this.menuClass = !this.menuClass;
+    },
+    closeModal: function closeModal() {
+      this.display = false;
+    },
+    showModal: function showModal() {
+      this.display = true;
     }
   }
 });
@@ -320,13 +336,49 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("footer", { staticClass: "footer-area footer2 section-padding-120" }, [
-        _vm._m(1),
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row justify-content-between" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" },
+              [
+                _c("div", { staticClass: "footer-widget-area mb-70" }, [
+                  _c("ul", [
+                    _c("h5", [_vm._v(" ")]),
+                    _vm._v(" "),
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _vm._m(4),
+                    _vm._v(" "),
+                    _vm._m(5),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      [
+                        _c("router-link", { attrs: { to: { name: "home" } } }, [
+                          _vm._v("Home")
+                        ])
+                      ],
+                      1
+                    )
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(6)
+          ])
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "container" }, [
           _c("div", { staticClass: "row align-items-center" }, [
-            _vm._m(2),
+            _vm._m(7),
             _vm._v(" "),
-            _vm._m(3),
+            _c("div", { staticClass: "col-12 col-md-6 col-lg-5" }),
             _vm._v(" "),
             _c("div", { staticClass: "col-12 col-lg-2" }, [
               _c(
@@ -375,182 +427,173 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-between" }, [
-        _c("div", { staticClass: "col-12 col-sm-10 col-lg-3" }, [
-          _c("div", { staticClass: "footer-widget-area mb-70" }, [
-            _c(
-              "a",
-              { staticClass: "d-block mb-4", attrs: { href: "index.html" } },
-              [
-                _c("img", {
-                  attrs: { src: "img/core-img/logo-white.png", alt: "" }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _c("p", [_vm._v("SIGN UP FOR EMAILS")]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v("We'll send you emails with advise, tips, and trends. ")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "newsletter-form" }, [
-              _c("form", { attrs: { action: "#" } }, [
-                _c("input", {
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "email",
-                    placeholder: "Enter email & press enter"
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  { staticClass: "btn d-none", attrs: { type: "submit" } },
-                  [_vm._v("Go")]
-                )
-              ])
-            ]),
+    return _c("div", { staticClass: "col-12 col-sm-10 col-lg-3" }, [
+      _c("div", { staticClass: "footer-widget-area mb-70" }, [
+        _c(
+          "a",
+          { staticClass: "d-block mb-4", attrs: { href: "index.html" } },
+          [
+            _c("img", {
+              attrs: { src: "img/core-img/logo-white.png", alt: "" }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c("p", [_vm._v("SIGN UP FOR EMAILS")]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v("We'll send you emails with advise, tips, and trends. ")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "newsletter-form" }, [
+          _c("form", { attrs: { action: "#" } }, [
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "email", placeholder: "Enter email & press enter" }
+            }),
             _vm._v(" "),
             _c(
-              "div",
-              { staticClass: "footer-social-icon d-flex align-items-center" },
-              [
-                _c(
-                  "a",
-                  {
-                    attrs: {
-                      href: "#",
-                      "data-toggle": "tooltip",
-                      "data-placement": "top",
-                      title: "Facbook"
-                    }
-                  },
-                  [_c("i", { staticClass: "fa fa-facebook" })]
-                ),
-                _c(
-                  "a",
-                  {
-                    attrs: {
-                      href: "#",
-                      "data-toggle": "tooltip",
-                      "data-placement": "top",
-                      title: "Twitter"
-                    }
-                  },
-                  [_c("i", { staticClass: "fa fa-twitter" })]
-                ),
-                _c(
-                  "a",
-                  {
-                    attrs: {
-                      href: "#",
-                      "data-toggle": "tooltip",
-                      "data-placement": "top",
-                      title: "Instagram"
-                    }
-                  },
-                  [_c("i", { staticClass: "fa fa-instagram" })]
-                ),
-                _c(
-                  "a",
-                  {
-                    attrs: {
-                      href: "#",
-                      "data-toggle": "tooltip",
-                      "data-placement": "top",
-                      title: "Linkedin"
-                    }
-                  },
-                  [_c("i", { staticClass: "fa fa-linkedin" })]
-                ),
-                _c(
-                  "a",
-                  {
-                    attrs: {
-                      href: "#",
-                      "data-toggle": "tooltip",
-                      "data-placement": "top",
-                      title: "Youtube"
-                    }
-                  },
-                  [_c("i", { staticClass: "fa fa-youtube" })]
-                )
-              ]
+              "button",
+              { staticClass: "btn d-none", attrs: { type: "submit" } },
+              [_vm._v("Go")]
             )
           ])
         ]),
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" },
+          { staticClass: "footer-social-icon d-flex align-items-center" },
           [
-            _c("div", { staticClass: "footer-widget-area mb-70" }, [
-              _c("ul", [
-                _c("h5", [_vm._v(" ")]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#", target: "_blank" } }, [
-                    _vm._v("Terms & Conditions")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#", target: "_blank" } }, [
-                    _vm._v("Contact")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#", target: "_blank" } }, [
-                    _vm._v("About Us")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#", target: "_blank" } }, [
-                    _vm._v("FAQ")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#", target: "_blank" } }, [
-                    _vm._v("Home")
-                  ])
-                ])
-              ])
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" },
-          [
-            _c("div", { staticClass: "footer-widget-area mb-70" }, [
-              _c("h5", [_vm._v(" ")]),
-              _vm._v(" "),
-              _c("ul", [
-                _c("li", [
-                  _c("a", { attrs: { href: "#", target: "_blank" } }, [
-                    _vm._v("Site Map")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#", target: "_blank" } }, [
-                    _vm._v("Pricing")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [_c("a", { attrs: { href: "#", target: "_blank" } })])
-              ])
-            ])
+            _c(
+              "a",
+              {
+                attrs: {
+                  href: "#",
+                  "data-toggle": "tooltip",
+                  "data-placement": "top",
+                  title: "Facbook"
+                }
+              },
+              [_c("i", { staticClass: "fa fa-facebook" })]
+            ),
+            _c(
+              "a",
+              {
+                attrs: {
+                  href: "#",
+                  "data-toggle": "tooltip",
+                  "data-placement": "top",
+                  title: "Twitter"
+                }
+              },
+              [_c("i", { staticClass: "fa fa-twitter" })]
+            ),
+            _c(
+              "a",
+              {
+                attrs: {
+                  href: "#",
+                  "data-toggle": "tooltip",
+                  "data-placement": "top",
+                  title: "Instagram"
+                }
+              },
+              [_c("i", { staticClass: "fa fa-instagram" })]
+            ),
+            _c(
+              "a",
+              {
+                attrs: {
+                  href: "#",
+                  "data-toggle": "tooltip",
+                  "data-placement": "top",
+                  title: "Linkedin"
+                }
+              },
+              [_c("i", { staticClass: "fa fa-linkedin" })]
+            ),
+            _c(
+              "a",
+              {
+                attrs: {
+                  href: "#",
+                  "data-toggle": "tooltip",
+                  "data-placement": "top",
+                  title: "Youtube"
+                }
+              },
+              [_c("i", { staticClass: "fa fa-youtube" })]
+            )
           ]
         )
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { attrs: { href: "#", target: "_blank" } }, [
+        _vm._v("Terms & Conditions")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { attrs: { href: "#", target: "_blank" } }, [
+        _vm._v("Contact Us")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { attrs: { href: "#", target: "_blank" } }, [_vm._v("About Us")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { attrs: { href: "#", target: "_blank" } }, [_vm._v("FAQ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" },
+      [
+        _c("div", { staticClass: "footer-widget-area mb-70" }, [
+          _c("h5", [_vm._v(" ")]),
+          _vm._v(" "),
+          _c("ul", [
+            _c("li", [
+              _c("a", { attrs: { href: "#", target: "_blank" } }, [
+                _vm._v("Site Map")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "#", target: "_blank" } }, [
+                _vm._v("Pricing")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [_c("a", { attrs: { href: "#", target: "_blank" } })])
+          ])
+        ])
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -562,34 +605,6 @@ var staticRenderFns = [
           _vm._v("All rights reserved by "),
           _c("a", { attrs: { href: "#", target: "_blank" } }, [
             _vm._v("Meng Lang")
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 col-md-6 col-lg-5" }, [
-      _c("div", { staticClass: "footer-nav" }, [
-        _c("ul", { staticClass: "d-flex" }, [
-          _c("li", [
-            _c("a", { attrs: { href: "#", target: "_blank" } }, [
-              _vm._v("Privacy Policy")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#", target: "_blank" } }, [
-              _vm._v("Terms & Conditions")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#", target: "_blank" } }, [
-              _vm._v("Get Support")
-            ])
           ])
         ])
       ])
@@ -617,182 +632,182 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("header", { staticClass: "header-area header2" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { class: _vm.breakpoint }, [
-          _c(
-            "nav",
-            {
-              staticClass: "classy-navbar navbar2 justify-content-between",
-              attrs: { id: "saasboxNav" }
-            },
-            [
-              _c(
-                "router-link",
-                {
-                  staticClass: "nav-brand mr-5",
-                  attrs: { to: { name: "Home" } }
-                },
-                [_c("img", { attrs: { src: "", alt: "" } })]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "classy-navbar-toggler",
-                  on: {
-                    click: function($event) {
-                      return _vm.setMenuOn()
-                    }
-                  }
-                },
-                [_vm._m(1)]
-              ),
-              _vm._v(" "),
-              _c("div", { class: _vm.menu }, [
+  return _c(
+    "div",
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("header", { staticClass: "header-area header2" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { class: _vm.breakpoint }, [
+            _c(
+              "nav",
+              {
+                staticClass: "classy-navbar navbar2 justify-content-between",
+                attrs: { id: "saasboxNav" }
+              },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "nav-brand mr-5",
+                    attrs: { to: { name: "home" } }
+                  },
+                  [
+                    _c("img", {
+                      attrs: { src: "images/logo/logo.png", alt: "" }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
                 _c(
                   "div",
                   {
-                    staticClass: "classycloseIcon",
+                    staticClass: "classy-navbar-toggler",
                     on: {
                       click: function($event) {
                         return _vm.setMenuOn()
                       }
                     }
                   },
-                  [_vm._m(2)]
+                  [_vm._m(1)]
                 ),
                 _vm._v(" "),
-                _c("div", { staticClass: "classynav" }, [
-                  _c("ul", { attrs: { id: "corenav" } }, [
-                    _c(
-                      "li",
-                      {
-                        on: {
-                          click: function($event) {
-                            return _vm.setMenuOn()
-                          }
-                        }
-                      },
-                      [
-                        _c("router-link", { attrs: { to: { name: "Home" } } }, [
-                          _vm._v("Home")
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      {
-                        on: {
-                          click: function($event) {
-                            return _vm.setMenuOn()
-                          }
-                        }
-                      },
-                      [
-                        _c(
-                          "router-link",
-                          { attrs: { to: { name: "Lessons" } } },
-                          [_vm._v("Lesson List")]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      {
-                        on: {
-                          click: function($event) {
-                            return _vm.setMenuOn()
-                          }
-                        }
-                      },
-                      [
-                        _c(
-                          "router-link",
-                          { attrs: { to: { name: "Lesson" } } },
-                          [_vm._v("Lesson")]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      {
-                        on: {
-                          click: function($event) {
-                            return _vm.setMenuOn()
-                          }
-                        }
-                      },
-                      [
-                        _c(
-                          "router-link",
-                          { attrs: { to: { name: "Contact" } } },
-                          [_vm._v("Contact")]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      {
-                        on: {
-                          click: function($event) {
-                            return _vm.setMenuOn()
-                          }
-                        }
-                      },
-                      [
-                        _c(
-                          "router-link",
-                          { attrs: { to: { name: "Pricing" } } },
-                          [_vm._v("Pricing")]
-                        )
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
+                _c("div", { class: _vm.menu }, [
                   _c(
                     "div",
                     {
-                      staticClass: "login-btn-area ml-4 mt-4 mt-lg-0",
+                      staticClass: "classycloseIcon",
                       on: {
                         click: function($event) {
                           return _vm.setMenuOn()
                         }
                       }
                     },
-                    [
+                    [_vm._m(2)]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "classynav" }, [
+                    _c("ul", { attrs: { id: "corenav" } }, [
                       _c(
-                        "router-link",
+                        "li",
                         {
-                          staticClass: "btn saasbox-btn btn-sm  btn-full",
-                          attrs: { to: { name: "Login" } }
+                          staticClass: "cursor-on",
+                          on: {
+                            click: function($event) {
+                              return _vm.setMenuOn()
+                            }
+                          }
                         },
-                        [_vm._v("Login")]
+                        [
+                          _c("a", { on: { click: _vm.showModal } }, [
+                            _vm._v(
+                              "\n                                        learn Afrikaans "
+                            ),
+                            _c("i", {
+                              staticClass: "lni lni-chevron-down-circle",
+                              staticStyle: { "font-weight": "bold" }
+                            })
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        {
+                          on: {
+                            click: function($event) {
+                              return _vm.setMenuOn()
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "router-link",
+                            { attrs: { to: { name: "contact" } } },
+                            [_vm._v("Contact")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        {
+                          on: {
+                            click: function($event) {
+                              return _vm.setMenuOn()
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "router-link",
+                            { attrs: { to: { name: "pricing" } } },
+                            [_vm._v("Pricing")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        {
+                          on: {
+                            click: function($event) {
+                              return _vm.setMenuOn()
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "router-link",
+                            { attrs: { to: { name: "blog" } } },
+                            [_vm._v("Blog")]
+                          )
+                        ],
+                        1
                       )
-                    ],
-                    1
-                  )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "login-btn-area ml-4 mt-4 mt-lg-0",
+                        on: {
+                          click: function($event) {
+                            return _vm.setMenuOn()
+                          }
+                        }
+                      },
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            staticClass: "btn saasbox-btn btn-sm  btn-full",
+                            attrs: { to: { name: "login" } }
+                          },
+                          [_vm._v("Login")]
+                        )
+                      ],
+                      1
+                    )
+                  ])
                 ])
-              ])
-            ],
-            1
-          )
+              ],
+              1
+            )
+          ])
         ])
-      ])
-    ])
-  ])
+      ]),
+      _vm._v(" "),
+      _c("the-language-modal", {
+        attrs: { display: _vm.isShown, type: _vm.modal },
+        on: { isClosed: _vm.closeModal }
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {

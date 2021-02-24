@@ -315,7 +315,7 @@ var render = function() {
                       [
                         _c(
                           "router-link",
-                          { attrs: { to: { name: "Lessons" } } },
+                          { attrs: { to: { name: "category" } } },
                           [
                             _c("div", { staticClass: "product-img-wrap" }, [
                               _c("img", {

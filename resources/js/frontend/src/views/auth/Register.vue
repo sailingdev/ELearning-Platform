@@ -15,7 +15,7 @@
                     <div class="card register-card bg-gray p-1 p-sm-4 mb-50">
                         <div class="card-body">
                             <h4>Create your free account</h4>
-                            <p>Already have an account?<router-link class="ml-2" :to="{name: 'Login'}">Log In</router-link></p>
+                            <p>Already have an account?<router-link class="ml-2" :to="{name: 'login'}">Log In</router-link></p>
                             <!-- Register Form-->
                             <div class="register-form my-5">
                                 <form>

@@ -1,6 +1,6 @@
 <template>
     <!-- Category Area-->
-    <section class="service-area section-padding-120 " style="padding-bottom: 345px">
+    <section class="service-area section-padding-120 bg-gray" style="padding-bottom: 345px">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-9 col-lg-7 col-xxl-6">
@@ -12,7 +12,7 @@
             <div class="row justify-content-center g-5">
                 <!-- Single Service Area-->
                 <div v-for="(item, index) in category" :key="index" class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
-                    <router-link :to="{name: 'Lessons'}">
+                    <router-link :to="{name: 'lesson-list'}">
                         <div class="card service-card wow fadeInUp" :data-wow-delay="(400 + 100 * index )+'ms'" data-wow-duration="1000ms">
                             <div class="card-body">
                                 <div class="icon"><i :class="'lni lni-'+item.icon"></i></div>

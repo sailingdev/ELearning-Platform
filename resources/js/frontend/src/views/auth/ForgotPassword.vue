@@ -14,7 +14,7 @@
                     <div class="card register-card bg-gray p-1 p-sm-4 mb-50">
                         <div class="card-body">
                             <h4>Reset Password</h4>
-                            <p>Already have an account?<router-link class="ml-2" :to="{name: 'Login'}">Log in</router-link></p>
+                            <p>Already have an account?<router-link class="ml-2" :to="{name: 'login'}">Log in</router-link></p>
                             <!-- Register form-->
                             <div class="register-form my-5">
                                 <form>

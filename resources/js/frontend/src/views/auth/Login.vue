@@ -15,7 +15,7 @@
                     <div class="card register-card bg-gray p-1 p-sm-4 mb-50">
                         <div class="card-body">
                             <h4>Welcome Back!</h4>
-                            <p>Didn't have an account? <router-link class="ml-2" :to="{name: 'Register'}">Sign Up</router-link></p>
+                            <p>Didn't have an account? <router-link class="ml-2" :to="{name: 'register'}">Sign Up</router-link></p>
                             <!-- Register Form-->
                             <div class="register-form my-5">
                                 <form>
@@ -32,7 +32,7 @@
                                     <div class="form-check mt-3">
                                         <input class="form-check-input" id="rememberMe" type="checkbox" value="" checked>
                                         <label class="form-check-label" for="rememberMe">Keep me logged in</label>
-                                    </div><router-link class="forgot-password mt-3" :to="{name:'Forgot Password'}">Forgot Password?</router-link>
+                                    </div><router-link class="forgot-password mt-3" :to="{name:'forgot-password'}">Forgot Password?</router-link>
                                 </div>
                             </div>
                         </div>

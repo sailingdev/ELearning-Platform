@@ -412,7 +412,7 @@ var render = function() {
                       "router-link",
                       {
                         staticClass: "cursor-on d-flex",
-                        attrs: { to: { name: "Lessons" } }
+                        attrs: { to: { name: "lesson-list" } }
                       },
                       [
                         _c("h5", { staticClass: "mt-3" }, [
@@ -430,7 +430,7 @@ var render = function() {
                     "div",
                     { staticClass: "col-12 col-sm-6 col-lg-6" },
                     [
-                      _c("router-link", { attrs: { to: { name: "Lesson" } } }, [
+                      _c("router-link", { attrs: { to: { name: "lesson" } } }, [
                         _c("div", { staticClass: "card feature-card" }, [
                           _c(
                             "div",
@@ -481,7 +481,7 @@ var render = function() {
                   "router-link",
                   {
                     staticClass: "cursor-on d-flex",
-                    attrs: { to: { name: "Lessons" } }
+                    attrs: { to: { name: "lesson-list" } }
                   },
                   [
                     _c("h5", { staticClass: "mt-3" }, [
@@ -675,7 +675,7 @@ var render = function() {
                           "router-link",
                           {
                             staticClass: "cursor-on d-flex",
-                            attrs: { to: { name: "Lessons" } }
+                            attrs: { to: { name: "lesson-list" } }
                           },
                           [
                             _c(
@@ -786,7 +786,7 @@ var render = function() {
                           "router-link",
                           {
                             staticClass: "cursor-on d-flex",
-                            attrs: { to: { name: "Lessons" } }
+                            attrs: { to: { name: "lesson-list" } }
                           },
                           [
                             _c(

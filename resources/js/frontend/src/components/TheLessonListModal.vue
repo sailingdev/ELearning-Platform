@@ -14,18 +14,21 @@ emit: Boolean isClosed
                     <h6 style="font-size: 20px" class="text-black-50">{{header}}</h6>
                 </div>
                 <div class="cust-modal-body mt-4 mb-3">
+                    <!-- quiz area -->
                    <div class="row">
                        <div v-for="n in lesson_type_list"  class="col-12 col-sm-6 col-lg-4">
                            <a class="cursor-on"><img class="lessong-type" :src="'frontend/img/lesson-type/'+n+'.svg'" width="62px"/> <h class="text-black-50" style="font-size: 1.2em">{{n}}</h></a>
                        </div>
                    </div>
+
+                    <!-- lesson area -->
                     <div class="row g-3 mt-5">
                         <div :style="style_lesson_full_name">
-                            <router-link :to="{name:'Lessons'}" class="cursor-on d-flex"><h5 class="mt-3" >More Afrikaans lessons    <i class="lni-arrow-right"></i></h5></router-link>
+                            <router-link :to="{name:'category'}" class="cursor-on d-flex"><h5 class="mt-3" >More Afrikaans lessons    <i class="lni-arrow-right"></i></h5></router-link>
                         </div>
                         <!-- Single Feature Area-->
                         <div v-for="n in 20" class="col-12 col-sm-6 col-lg-6">
-                            <router-link :to="{name:'Lesson'}">
+                            <router-link :to="{name:'lesson'}">
                                 <div class="card feature-card">
                                     <div class="card-body d-flex align-items-center row">
                                         <div class="fea-text col-10 col-sm-10 col-lg-10">
@@ -41,7 +44,7 @@ emit: Boolean isClosed
                         </div>
                     </div>
                     <div :style="style_lesson_full_name">
-                        <router-link :to="{name:'Lessons'}" class="cursor-on d-flex"><h5 class="mt-3" >More Afrikaans lessons    <i class="lni-arrow-right"></i></h5></router-link>
+                        <router-link :to="{name:'category'}" class="cursor-on d-flex"><h5 class="mt-3" >More Afrikaans lessons    <i class="lni-arrow-right"></i></h5></router-link>
                     </div>
                 </div>
                 <div class="cust-modal-footer align-content-center mb-4">

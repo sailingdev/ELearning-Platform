@@ -9,7 +9,7 @@
                 <div class="row g-3">
                     <!-- Single Feature Area-->
                     <div v-for="n in 35" class="col-12 col-sm-6 col-lg-3">
-                        <router-link :to="{name:'Lesson'}">
+                        <router-link :to="{name:'lesson'}">
                         <div class="card feature-card">
                             <div class="card-body d-flex align-items-center row">
                                 <div class="fea-text col-10 col-sm-9 col-lg-9">
@@ -23,9 +23,7 @@
                         </div>
                         </router-link>
                     </div>
-                    <div class="text-center mt-5">
-                        <a class="let-us-know" href="#">Do you see an error on our website? Please let us know</a>
-                    </div>
+                    <the-contact-modal />
                 </div>
             </div>
         </div>
@@ -33,16 +31,16 @@
 </template>
 
 <script>
+    import TheContactModal from '../components/TheContactModal'
   export default {
-    name: 'LessonList'
+    name: 'LessonList',
+      components: {
+        TheContactModal
+      }
   }
 </script>
 
 <style lang="css" scoped>
-    .let-us-know {
-        font-weight: 600;
-    }
-
     .feature-card.active, .feature-card:hover, .feature-card:focus {
         border-color: unset;
         background-color: unset;

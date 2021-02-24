@@ -41,11 +41,9 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="text-center mt-5">
-                            <a class="let-us-know" href="#">Do you see an error on our website? Please let us know</a>
-                        </div>
+                        <the-contact-modal />
                         <div :style="style_lesson_full_name">
-                            <router-link :to="{name: 'Lessons'}" class="cursor-on d-flex"><h5 class="wow fadeInUp mt-3" data-wow-delay="200ms" data-wow-duration="1000ms">More Afrikaans lessons    <i class="lni-arrow-right"></i></h5></router-link>
+                            <router-link :to="{name: 'lesson-list'}" class="cursor-on d-flex"><h5 class="wow fadeInUp mt-3" data-wow-delay="200ms" data-wow-duration="1000ms">More Afrikaans lessons    <i class="lni-arrow-right"></i></h5></router-link>
                         </div>
                         <div class="row align-items-center justify-content-center wow fadeInUp" data-wow-delay="100ms" data-wow-duration="1000ms">
                             <div class="row g-3">
@@ -67,8 +65,9 @@
                                 </div>
                             </div>
                         </div>
+                        <the-contact-modal />
                         <div :style="style_lesson_full_name">
-                            <router-link :to="{name: 'Lessons'}" class="cursor-on d-flex"><h5 class="wow fadeInUp mt-3" data-wow-delay="200ms" data-wow-duration="1000ms">More Afrikaans lessons    <i class="lni-arrow-right"></i></h5></router-link>
+                            <router-link :to="{name: 'lesson-list'}" class="cursor-on d-flex"><h5 class="wow fadeInUp mt-3" data-wow-delay="200ms" data-wow-duration="1000ms">More Afrikaans lessons    <i class="lni-arrow-right"></i></h5></router-link>
                         </div>
                     </div>
                 </div>
@@ -78,11 +77,13 @@
 </template>
 
 <script>
+    import TheContactModal from '../components/TheContactModal'
     import TheLessonListModal from '../components/TheLessonListModal'
     export default {
         name: 'Lesson',
         components:{
-          TheLessonListModal
+          TheLessonListModal,
+            TheContactModal
         },
         data(){
             return {

@@ -28,10 +28,10 @@
                             <ul>
                                 <h5>&nbsp</h5>
                                 <li><a href="#" target="_blank">Terms &amp; Conditions</a></li>
-                                <li><a href="#" target="_blank">Contact</a></li>
+                                <li><a href="#" target="_blank">Contact Us</a></li>
                                 <li><a href="#" target="_blank">About Us</a></li>
                                 <li><a href="#" target="_blank">FAQ</a></li>
-                                <li><a href="#" target="_blank">Home</a></li>
+                                <li><router-link :to="{name: 'home'}">Home</router-link></li>
                             </ul>
                         </div>
                     </div>
@@ -57,14 +57,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-5">
-                        <!-- Footer Nav-->
-                        <div class="footer-nav">
-                            <ul class="d-flex">
-                                <li><a href="#" target="_blank">Privacy Policy</a></li>
-                                <li><a href="#" target="_blank">Terms &amp; Conditions</a></li>
-                                <li><a href="#" target="_blank">Get Support</a></li>
-                            </ul>
-                        </div>
+
                     </div>
                     <div class="col-12 col-lg-2">
                         <!-- Default dropup button-->
