@@ -14,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-//        \Illuminate\Support\Facades\URL::forceScheme('https');
+        \Illuminate\Support\Facades\URL::forceScheme('https');
     }
     /**
      * Register any application services.
