@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/example/public_html/app/
+    - export DEPLOYPATH=/home/lingofeen/public_html/app/
     - /bin/cp -R * $DEPLOYPATH
