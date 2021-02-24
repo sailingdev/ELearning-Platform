@@ -25,7 +25,7 @@
                     <!-- Single Shop Card-->
                     <div class="col-6 col-sm-6 col-lg-3" v-for="n in 20" :key="n">
                         <div class="card shop-card">
-                            <router-link :to="{name: 'category'}">
+                            <router-link :to="{name: 'home'}">
                                 <div class="product-img-wrap"><img class="card-img-top" src="frontend/img/language.jpg" alt="">
                                     <!-- Love Products--><a :class="n === 3 ? 'love-product active' : 'love-product'" href="#" data-toggle="tooltip" data-placement="right" title="Liked"><i class="lni-heart"></i></a>
                                 </div>
