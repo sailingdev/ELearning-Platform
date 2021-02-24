@@ -37,6 +37,11 @@ const router = new Router({
                     component: () => import('./views/Home.vue')
                 },
                 {
+                    path: '/category',
+                    name: 'Category',
+                    component: () => import('./views/Category.vue')
+                },
+                {
                     path: '/lesson-list',
                     name: 'Lessons',
                     component: () => import('./views/LessonList.vue')
