@@ -40821,7 +40821,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     // =============================================================================
     path: '',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./layouts/Main.vue */ "./resources/js/frontend/src/layouts/Main.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./layouts/Main.vue */ "./resources/js/frontend/src/layouts/Main.vue"));
     },
     children: [// =============================================================================
     // Page Routes
@@ -40830,14 +40830,15 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/',
       name: 'home',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/frontend/src/views/Home.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/frontend/src/views/Home.vue"));
+      }
+    }, {
+      path: '/category',
+      name: 'category',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/Category.vue */ "./resources/js/frontend/src/views/Category.vue"));
       }
     } // {
-    //     path: '/category',
-    //     name: 'category',
-    //     component: () => import('./views/Category.vue')
-    // },
-    // {
     //     path: '/lesson-list',
     //     name: 'lesson-list',
     //     component: () => import('./views/LessonList.vue')

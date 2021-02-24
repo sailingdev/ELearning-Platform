@@ -36,11 +36,11 @@ const router = new Router({
                     name: 'home',
                     component: () => import('./views/Home.vue')
                 },
-                // {
-                //     path: '/category',
-                //     name: 'category',
-                //     component: () => import('./views/Category.vue')
-                // },
+                {
+                    path: '/category',
+                    name: 'category',
+                    component: () => import('./views/Category.vue')
+                },
                 // {
                 //     path: '/lesson-list',
                 //     name: 'lesson-list',
