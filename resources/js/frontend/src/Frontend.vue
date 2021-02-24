@@ -9,7 +9,7 @@
 
 
 <template>
-  <div id="app" :class="vueAppClasses">
+  <div id="frontend" :class="vueAppClasses">
     <router-view @setAppClasses="setAppClasses" />
   </div>
 </template>
