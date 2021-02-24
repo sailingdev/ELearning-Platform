@@ -79,7 +79,7 @@ var render = function() {
   return _c(
     "section",
     {
-      staticClass: "service-area section-padding-120 bg-gray",
+      staticClass: "service-area section-padding-120",
       staticStyle: { "padding-bottom": "345px" }
     },
     [

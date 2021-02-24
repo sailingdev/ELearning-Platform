@@ -1,6 +1,6 @@
 <template>
     <!-- Category Area-->
-    <section class="service-area section-padding-120 bg-gray" style="padding-bottom: 345px">
+    <section class="service-area section-padding-120" style="padding-bottom: 345px">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-9 col-lg-7 col-xxl-6">
