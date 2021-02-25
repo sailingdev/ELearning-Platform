@@ -87,7 +87,7 @@ export default {
         AllRightReservedBy: 'All rights reserved by',
         AllRightReservedByName: 'MENG LANG',
         LearnAfrikaans: 'Learn Afrikaans',
-
+        LetUsKnow: 'Do you see an error on our website? Please let use know.',
         TheLanguageModal: {
             header: 'What language do you speak? | What language do you want to learn?'
         },
@@ -175,6 +175,7 @@ export default {
         AllRightReservedBy: '保留所有权利通过',
         AllRightReservedByName: '孟浪',
         LearnAfrikaans: '学习南非语',
+        LetUsKnow: '您在我们的网站上看到错误吗？ 请让使用知道。',
 
         TheLanguageModal: {
             header: '你说哪一种语言？ | 你想学哪门语言？'

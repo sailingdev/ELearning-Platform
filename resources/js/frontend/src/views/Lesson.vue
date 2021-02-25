@@ -5,12 +5,12 @@
             <div class="lesson-page">
                 <div class="wow fadeInUp" data-wow-delay="100ms" data-wow-duration="1000ms">
                     <a class="text-left cursor-on" v-on:click="selectLesson">
-                        <h7 class="dropdown-toggle">Learn {{language}} :: Lesson {{lesson_num}}   </h7>
+                        <i class="dropdown-toggle">Learn {{language}} :: Lesson {{lesson_num}}   </i>
                         <h5>Meeting Someone</h5>
                     </a>
                     <a class="text-left cursor-on mt-5" v-on:click="selectLesson">
                         <img class="selected-type" :src="'frontend/img/lesson-type/'+selected_type+'.svg'" width="30px" />
-                        <h7 class="dropdown-toggle">{{selected_type}} Lessons</h7>
+                        <i class="dropdown-toggle">{{selected_type}} Lessons</i>
                     </a>
                     <div class="mt-3 text-center">
                         <iframe src="https://h5p.org/h5p/embed/119355" width="600" height="300" frameborder="0" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>
@@ -41,10 +41,10 @@
                                 </div>
                             </a>
                         </div>
-                        <the-contact-modal />
                         <div :style="style_lesson_full_name">
                             <router-link :to="{name: 'lesson-list'}" class="cursor-on d-flex"><h5 class="wow fadeInUp mt-3" data-wow-delay="200ms" data-wow-duration="1000ms">More Afrikaans lessons    <i class="lni-arrow-right"></i></h5></router-link>
                         </div>
+                        <the-contact-modal />
                         <div class="row align-items-center justify-content-center wow fadeInUp" data-wow-delay="100ms" data-wow-duration="1000ms">
                             <div class="row g-3">
                                 <!-- Single Feature Area-->
@@ -65,10 +65,10 @@
                                 </div>
                             </div>
                         </div>
-                        <the-contact-modal />
                         <div :style="style_lesson_full_name">
                             <router-link :to="{name: 'lesson-list'}" class="cursor-on d-flex"><h5 class="wow fadeInUp mt-3" data-wow-delay="200ms" data-wow-duration="1000ms">More Afrikaans lessons    <i class="lni-arrow-right"></i></h5></router-link>
                         </div>
+                        <the-contact-modal />
                     </div>
                 </div>
             </div>
