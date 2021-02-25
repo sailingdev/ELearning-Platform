@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-2 social-group" :style="{'background-color': isColored}">
+    <div class="mt-2 social-group center" :style="{'background-color': isColored}">
         <a class="cursor-on item-3" @click="btn_open" :style="{color: status ? '#fff' : '#0811fb' }">
             <i :class="{fa:true, 'fa-share-alt':!status, 'fa-close': status}"></i>
         </a>

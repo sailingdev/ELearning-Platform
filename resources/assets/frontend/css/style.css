@@ -4374,10 +4374,14 @@ textarea.form-control {
 .item-3:hover {
     color: white !important;
 }
-.social-group > .item-1 {
+.item-1 {
     margin-top: -9px;
     padding: 5px;
 }
-.social-group > .item-2 {
+.item-2 {
     padding: 5px
+}
+.center {
+    margin-right: auto;
+    margin-left: auto;
 }
