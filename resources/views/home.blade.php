@@ -23,6 +23,11 @@
     <link rel="stylesheet" href="{{ asset(mix('frontend/css/style.css')) }}">
 </head>
 <body>
+
+<!-- Preloader-->
+<div class="preloader" id="preloader">
+    <div class="spinner-grow text-light" role="status"><span class="sr-only">Loading...</span></div>
+</div>
 <div id="frontend">
 
 </div>
