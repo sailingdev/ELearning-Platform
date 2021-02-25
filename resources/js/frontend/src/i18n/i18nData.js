@@ -12,6 +12,22 @@ export default {
             speakLang: 'I speak English',
             learnLang: 'I want to learn Afrikaans'
         },
+        Category: {
+            name: 'Categories',
+            title: 'What lesson do you want to learn?',
+            vocabulary: {
+                title: 'Vocabulary',
+                subtitle: 'Its crafted with the latest trend of design.'
+            },
+            grammar: {
+                title: 'Grammar',
+                subtitle: 'Its crafted with the latest trend of design.'
+            },
+            dialogues: {
+                title: 'Dialogues',
+                subtitle: 'Its crafted with the latest trend of design.'
+            }
+        },
         Contact: {
             name: 'Contact',
             title: 'Contact Us',
@@ -46,6 +62,11 @@ export default {
         },
         Blog: {
             name: 'Blog',
+            title: 'Blog',
+            recent_posts: 'Recent Posts',
+            popular_tags: 'Popular Tags',
+            heart: 'Like',
+            search: 'Search...'
         },
         Login: {
             name: 'Login',
@@ -79,6 +100,22 @@ export default {
             speakLang: '我说英语',
             learnLang: '我想学习南非荷兰语'
         },
+        Category: {
+            name: '分类目录',
+            title: '您想学习什么课程？',
+            vocabulary: {
+                title: '词汇',
+                subtitle: '它以最新的设计趋势精心打造。'
+            },
+            grammar: {
+                title: '语法',
+                subtitle: '它以最新的设计趋势精心打造。'
+            },
+            dialogues: {
+                title: '对话',
+                subtitle: '它以最新的设计趋势精心打造。'
+            }
+        },
         Contact: {
             name: '接触',
             title: '联系我们',
@@ -109,10 +146,15 @@ export default {
             level: '基本 | 标准 | 商业',
             per_type: '每月 | 每年',
             btn_choose: '选择计划',
-            functions: '1个月的使用 | 终身更新| 1网站许可 | 免费支持 | 下载新版本'
+            functions: ['1个月的使用', '终身更新', '1网站许可', '免费支持', '下载新版本']
         },
         Blog: {
             name: '最新消息',
+            title: '最新消息',
+            recent_posts: '最近的帖子',
+            popular_tags: '热门标签',
+            heart: '喜欢',
+            search: '搜寻...'
         },
         Login: {
             name: '登入',

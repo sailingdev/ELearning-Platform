@@ -5,7 +5,7 @@
             <div class="row justify-content-center wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1000ms">
                 <div class="col-12 col-md-9 col-lg-7 col-xxl-6">
                     <div class="section-heading text-center">
-                        <h2>Blog</h2>
+                        <h2>{{$t('Blog.title')}}</h2>
                     </div>
                 </div>
             </div>
@@ -43,22 +43,22 @@
                         <div class="single-widget-area mb-5">
                             <!-- Search Form-->
                             <form class="widget-form">
-                                <input class="form-control" type="search" placeholder="Search...">
+                                <input class="form-control" type="search" :placeholder="$t('Blog.search')">
                                 <button ><i class="fa fa-search"></i></button>
                             </form>
                         </div>
                         <!-- Single Widget Area-->
                         <div class="single-widget-area mb-5">
-                            <h4 class="widget-title mb-30">Categories</h4>
+                            <h4 class="widget-title mb-30">{{$t('Category.name')}}</h4>
                             <ul class="catagories-list pl-0">
-                                <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Vocabulary</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Grammar</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Dialogues</a></li>
+                                <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>{{$t('Category.vocabulary.title')}}</a></li>
+                                <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>{{$t('Category.grammar.title')}}</a></li>
+                                <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>{{$t('Category.dialogues.title')}}</a></li>
                             </ul>
                         </div>
                         <!-- Single Widget Area-->
                         <div class="single-widget-area mb-5">
-                            <h4 class="widget-title mb-30">Recent Posts</h4>
+                            <h4 class="widget-title mb-30">{{$t('Blog.recent_posts')}}</h4>
                             <!-- Single Recent Post-->
                             <div class="single-recent-post d-flex align-items-center">
                                 <div class="post-thumb"><a href="#"><img src="frontend/img/bg-img/sb1.jpg" alt=""></a></div>
@@ -104,7 +104,7 @@
                         </div>
                         <!-- Single Widget Area-->
                         <div class="single-widget-area">
-                            <h4 class="widget-title mb-30">Popular Tags        </h4>
+                            <h4 class="widget-title mb-30">{{$t('Blog.popular_tags')}}        </h4>
                             <ul class="popular-tags clearfix pl-0">
                                 <li><a href="#">business</a></li>
                                 <li><a href="#">agency</a></li>

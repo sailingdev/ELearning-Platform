@@ -5,7 +5,7 @@
             <div class="row justify-content-center wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1000ms">
                 <div class="col-12 col-md-9 col-lg-7 col-xxl-6">
                     <div class="section-heading text-center">
-                        <h2>What lesson do you want to learn?</h2>
+                        <h2>{{$t('Category.title')}}</h2>
                     </div>
                 </div>
             </div>
@@ -32,23 +32,28 @@
     name: 'Category',
       data(){
         return {
-            category: [
+        }
+      },
+      computed: {
+        category(){
+            let list =  [
                 {
-                    title: 'Vocabulary',
-                    subtitle: 'Its crafted with the latest trend of design.',
+                    title: this.$t('Category.vocabulary.title'),
+                    subtitle: this.$t('Category.vocabulary.subtitle'),
                     icon: 'book'
                 },
                 {
-                    title: 'Grammar',
-                    subtitle: 'Its crafted with the latest trend of design.',
+                    title: this.$t('Category.grammar.title'),
+                    subtitle: this.$t('Category.grammar.subtitle'),
                     icon: 'graduation'
                 },
                 {
-                    title: 'Dialogues',
-                    subtitle: 'Its crafted with the latest trend of design.',
+                    title:  this.$t('Category.dialogues.title'),
+                    subtitle: this.$t('Category.dialogues.subtitle'),
                     icon: 'support'
                 }
             ]
+            return list;
         }
       }
   }

@@ -10,7 +10,10 @@
                 </div>
             </div>
             <div class="row justify-content-center wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1000ms">
-                <div class="post--like-post"><a href="#"><i class="lni-heart"></i></a><span>267 Like</span></div>
+                <div class="post--like-post">
+                    <a href="#"><i class="lni-heart"></i></a><span>267 {{$t('Blog.heart')}}</span>
+                    <the-social-button />
+                </div>
                 <div class="col-12 col-sm-10 col-md-8">
                     <!-- Blog Details Area-->
                     <div class="single-blog-details-area"><img class="post-thumbnail mb-5" src="frontend/img/bg-img/blog20.jpg" alt="">
@@ -45,8 +48,11 @@
 </template>
 
 <script>
+    import TheSocialButton from '../../components/TheSocialButton.vue'
   export default {
-    name: 'BlogDetails'
+    name: 'BlogDetails',
+      components: {
+        TheSocialButton
+      }
   }
 </script>
-
