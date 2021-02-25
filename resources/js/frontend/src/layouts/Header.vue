@@ -24,12 +24,12 @@
                                             {{$t('LearnAfrikaans')}} <i class="lni lni-chevron-down-circle" style="font-weight: bold;"></i>
                                         </a>
                                     </li>
-                                    <li v-on:click="setMenuOn()"><router-link :to="{name: 'contact'}">{{$t('Contact')}}</router-link></li>
-                                    <li v-on:click="setMenuOn()"><router-link :to="{name: 'pricing'}">{{$t('Pricing')}}</router-link></li>
-                                    <li v-on:click="setMenuOn()"><router-link :to="{name: 'blog'}">{{$t('Blog')}}</router-link></li>
+                                    <li v-on:click="setMenuOn()"><router-link :to="{name: 'contact'}">{{$t('Contact.name')}}</router-link></li>
+                                    <li v-on:click="setMenuOn()"><router-link :to="{name: 'pricing'}">{{$t('Pricing.name')}}</router-link></li>
+                                    <li v-on:click="setMenuOn()"><router-link :to="{name: 'blog'}">{{$t('Blog.name')}}</router-link></li>
                                 </ul>
                                 <!-- Login Button-->
-                                <div class="login-btn-area ml-4 mt-4 mt-lg-0" v-on:click="setMenuOn()"><router-link class="btn saasbox-btn btn-sm  btn-full" :to="{name: 'login'}">{{$t('Login')}}</router-link></div>
+                                <div class="login-btn-area ml-4 mt-4 mt-lg-0" v-on:click="setMenuOn()"><router-link class="btn saasbox-btn btn-sm  btn-full" :to="{name: 'login'}">{{$t('Login.name')}}</router-link></div>
                             </div>
                         </div>
                     </nav>

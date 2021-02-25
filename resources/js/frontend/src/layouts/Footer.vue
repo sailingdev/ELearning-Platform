@@ -15,7 +15,7 @@
                             <p>{{$t('SignUpForEmailsContent')}}</p>
                             <div class="newsletter-form">
                                 <form action="#">
-                                    <input class="form-control" type="email" placeholder="Enter email &amp; press enter">
+                                    <input class="form-control" type="email" :placeholder="$t('EnterEmail')">
                                     <button class="btn d-none" type="submit">Go</button>
                                 </form>
                             </div>
@@ -27,11 +27,11 @@
                         <div class="footer-widget-area mb-70">
                             <ul>
                                 <h5>&nbsp</h5>
-                                <li><a href="#" target="_blank">{{$t('TermsConditions')}}</a></li>
-                                <li><a href="#" target="_blank">{{$t('Contact')}}</a></li>
-                                <li><a href="#" target="_blank">{{$t('AboutUs')}}</a></li>
-                                <li><a href="#" target="_blank">{{$t('FAQ')}}</a></li>
-                                <li><router-link :to="{name: 'home'}">{{$t('Home')}}</router-link></li>
+                                <li><a href="#" target="_blank">{{$t('TermsConditions.name')}}</a></li>
+                                <li><a href="#" target="_blank">{{$t('Contact.name')}}</a></li>
+                                <li><a href="#" target="_blank">{{$t('AboutUs.name')}}</a></li>
+                                <li><a href="#" target="_blank">{{$t('FAQ.name')}}</a></li>
+                                <li><router-link :to="{name: 'home'}">{{$t('Home.name')}}</router-link></li>
                             </ul>
                         </div>
                     </div>
@@ -40,8 +40,8 @@
                         <div class="footer-widget-area mb-70">
                             <h5>&nbsp</h5>
                             <ul>
-                                <li><a href="#" target="_blank">{{$t('SiteMap')}}</a></li>
-                                <li><a href="#" target="_blank">{{$t('Pricing')}}</a></li>
+                                <li><a href="#" target="_blank">{{$t('SiteMap.name')}}</a></li>
+                                <li><a href="#" target="_blank">{{$t('Pricing.name')}}</a></li>
                                 <li><a href="#" target="_blank"></a></li>
                             </ul>
                         </div>
