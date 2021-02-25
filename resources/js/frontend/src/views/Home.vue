@@ -4,18 +4,16 @@
         <div class="shop--area shop-fullwidth section-padding-120">
             <div class="container">
                 <the-language-modal :display=isShown :type="modal" @isClosed="closeModal" />
-                <h2 class="wow fadeInUp mt-3" data-wow-delay="200ms" data-wow-duration="1000ms">Learn a foreign language online for free</h2>
+                <h2 class="wow fadeInUp mt-3" data-wow-delay="200ms" data-wow-duration="1000ms">{{$t('Home.title')}}</h2>
                 <p class="mb-3 wow fadeInUp mt-5" data-wow-delay="300ms" data-wow-duration="1000ms">
-                    Teach yourself a foreign language. With LingoHut you can learn over 45 languages like Afrikaans, Arabic, Chinese, Dutch, English, French,
-                    German, Hindi, Italian, Japanese, Persian, Portuguese, Russian, Spanish or Turkish from your own language.
-                    LingoHut contains 125 lessons to learn useful vocabulary without prior knowledge. You will learn short sentences and words you use daily.
+                    {{$t('Home.subtitle')}}
                 </p>
                 <div class="row wow fadeInUp" data-wow-delay="400ms" data-wow-duration="1000ms">
                     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-4 mt-1">
-                    <button class="btn-border" v-on:click="selectLang(1)"> I speak english <i class="lni-arrow-down"></i></button>
+                    <button class="btn-border" v-on:click="selectLang(1)"> {{$t('Home.speakLang')}} <i class="lni-arrow-down"></i></button>
                     </div>
                     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-4 mt-1">
-                        <button class="btn-border" v-on:click="selectLang(2)"> I want to learn Afrikaans <i class="lni-arrow-down"></i></button>
+                        <button class="btn-border" v-on:click="selectLang(2)"> {{$t('Home.learnLang')}} <i class="lni-arrow-down"></i></button>
                     </div>
                     <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 mt-1">
                         <button class="btn btn-primary h-100" v-on:click="selectLang(2)" ><i class="lni-chevron-right"></i></button>
@@ -31,7 +29,7 @@
                                 </div>
                                 <div class="product-meta d-flex align-items-center justify-content-between p-4">
                                     <div class="product-name">
-                                        <h6>Learn Afrikaans</h6>
+                                        <h6>{{$t('LearnAfrikaans')}}</h6>
                                     </div>
                                     <div class="product-add-to-cart">
                                         <!-- Add To Cart--><a href="#"><i class="lni-play"></i></a>
