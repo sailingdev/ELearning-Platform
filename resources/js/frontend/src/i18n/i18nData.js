@@ -36,6 +36,13 @@ export default {
         },
         Pricing: {
             name: 'Pricing',
+            title: 'Pricing Plan',
+            type: 'Monthly | Yearly',
+            save: 'Save {count}%',
+            level: 'BASIC | STANDARD | BUSINESS',
+            per_type: 'per month | per year',
+            btn_choose: 'CHOOSE PLAN',
+            functions: ['1 Month Usage', 'Lifetime Updates', '1 Website License', 'Free Support', 'Download New Release']
         },
         Blog: {
             name: 'Blog',
@@ -95,7 +102,14 @@ export default {
             name: 'FAQ',
         },
         Pricing: {
-            name: '价钱',
+            name: '计价方案',
+            title: '计价方案',
+            type: '每月 | 每年',
+            save: '节省 {count}%',
+            level: '基本 | 标准 | 商业',
+            per_type: '每月 | 每年',
+            btn_choose: '选择计划',
+            functions: '1个月的使用 | 终身更新| 1网站许可 | 免费支持 | 下载新版本'
         },
         Blog: {
             name: '最新消息',
