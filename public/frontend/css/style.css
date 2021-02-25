@@ -4364,3 +4364,20 @@ textarea.form-control {
     cursor: pointer;
 }
 
+.social-group {
+    border-radius: 28px;
+    color: white;
+    height: 130px;
+    width: fit-content;
+}
+
+.item-3:hover {
+    color: white !important;
+}
+.social-group > .item-1 {
+    margin-top: -9px;
+    padding: 5px;
+}
+.social-group > .item-2 {
+    padding: 5px
+}

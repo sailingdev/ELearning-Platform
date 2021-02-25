@@ -155,7 +155,20 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "saasbox--blog--area section-padding-120" }, [
     _c("div", { staticClass: "container" }, [
-      _vm._m(0),
+      _c(
+        "div",
+        {
+          staticClass: "row justify-content-center wow fadeInUp",
+          attrs: { "data-wow-delay": "200ms", "data-wow-duration": "1000ms" }
+        },
+        [
+          _c("div", { staticClass: "col-12 col-md-9 col-lg-7 col-xxl-6" }, [
+            _c("div", { staticClass: "section-heading text-center" }, [
+              _c("h2", [_vm._v(_vm._s(_vm.$t("Blog.title")))])
+            ])
+          ])
+        ]
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "row justify-content-between" }, [
         _c(
@@ -171,7 +184,7 @@ var render = function() {
               _vm._l(5, function(n) {
                 return _c("div", { key: n, staticClass: "col-12" }, [
                   _c("div", { staticClass: "card blog-card" }, [
-                    _vm._m(1, true),
+                    _vm._m(0, true),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -243,35 +256,103 @@ var render = function() {
               0
             ),
             _vm._v(" "),
-            _vm._m(2)
+            _vm._m(1)
           ]
         ),
         _vm._v(" "),
-        _vm._m(3)
+        _c(
+          "div",
+          {
+            staticClass: "col-12 col-md-5 wow fadeInUp",
+            attrs: { "data-wow-delay": "400ms", "data-wow-duration": "1000ms" }
+          },
+          [
+            _c("div", { staticClass: "blog-sidebar-area" }, [
+              _c("div", { staticClass: "single-widget-area mb-5" }, [
+                _c("form", { staticClass: "widget-form" }, [
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "search",
+                      placeholder: _vm.$t("Blog.search")
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm._m(2)
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "single-widget-area mb-5" }, [
+                _c("h4", { staticClass: "widget-title mb-30" }, [
+                  _vm._v(_vm._s(_vm.$t("Category.name")))
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "catagories-list pl-0" }, [
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [
+                      _c("i", {
+                        staticClass: "fa fa-angle-double-right",
+                        attrs: { "aria-hidden": "true" }
+                      }),
+                      _vm._v(_vm._s(_vm.$t("Category.vocabulary.title")))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [
+                      _c("i", {
+                        staticClass: "fa fa-angle-double-right",
+                        attrs: { "aria-hidden": "true" }
+                      }),
+                      _vm._v(_vm._s(_vm.$t("Category.grammar.title")))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [
+                      _c("i", {
+                        staticClass: "fa fa-angle-double-right",
+                        attrs: { "aria-hidden": "true" }
+                      }),
+                      _vm._v(_vm._s(_vm.$t("Category.dialogues.title")))
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "single-widget-area mb-5" }, [
+                _c("h4", { staticClass: "widget-title mb-30" }, [
+                  _vm._v(_vm._s(_vm.$t("Blog.recent_posts")))
+                ]),
+                _vm._v(" "),
+                _vm._m(3),
+                _vm._v(" "),
+                _vm._m(4),
+                _vm._v(" "),
+                _vm._m(5),
+                _vm._v(" "),
+                _vm._m(6),
+                _vm._v(" "),
+                _vm._m(7),
+                _vm._v(" "),
+                _vm._m(8)
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "single-widget-area" }, [
+                _c("h4", { staticClass: "widget-title mb-30" }, [
+                  _vm._v(_vm._s(_vm.$t("Blog.popular_tags")) + "        ")
+                ]),
+                _vm._v(" "),
+                _vm._m(9)
+              ])
+            ])
+          ]
+        )
       ])
     ])
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "row justify-content-center wow fadeInUp",
-        attrs: { "data-wow-delay": "200ms", "data-wow-duration": "1000ms" }
-      },
-      [
-        _c("div", { staticClass: "col-12 col-md-9 col-lg-7 col-xxl-6" }, [
-          _c("div", { staticClass: "section-heading text-center" }, [
-            _c("h2", [_vm._v("Blog")])
-          ])
-        ])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -333,245 +414,183 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("button", [_c("i", { staticClass: "fa fa-search" })])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c(
       "div",
-      {
-        staticClass: "col-12 col-md-5 wow fadeInUp",
-        attrs: { "data-wow-delay": "400ms", "data-wow-duration": "1000ms" }
-      },
+      { staticClass: "single-recent-post d-flex align-items-center" },
       [
-        _c("div", { staticClass: "blog-sidebar-area" }, [
-          _c("div", { staticClass: "single-widget-area mb-5" }, [
-            _c("form", { staticClass: "widget-form" }, [
-              _c("input", {
-                staticClass: "form-control",
-                attrs: { type: "search", placeholder: "Search..." }
-              }),
-              _vm._v(" "),
-              _c("button", [_c("i", { staticClass: "fa fa-search" })])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "single-widget-area mb-5" }, [
-            _c("h4", { staticClass: "widget-title mb-30" }, [
-              _vm._v("Categories")
-            ]),
-            _vm._v(" "),
-            _c("ul", { staticClass: "catagories-list pl-0" }, [
-              _c("li", [
-                _c("a", { attrs: { href: "#" } }, [
-                  _c("i", {
-                    staticClass: "fa fa-angle-double-right",
-                    attrs: { "aria-hidden": "true" }
-                  }),
-                  _vm._v("Vocabulary")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "#" } }, [
-                  _c("i", {
-                    staticClass: "fa fa-angle-double-right",
-                    attrs: { "aria-hidden": "true" }
-                  }),
-                  _vm._v("Grammar")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "#" } }, [
-                  _c("i", {
-                    staticClass: "fa fa-angle-double-right",
-                    attrs: { "aria-hidden": "true" }
-                  }),
-                  _vm._v("Dialogues")
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "single-widget-area mb-5" }, [
-            _c("h4", { staticClass: "widget-title mb-30" }, [
-              _vm._v("Recent Posts")
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "single-recent-post d-flex align-items-center" },
-              [
-                _c("div", { staticClass: "post-thumb" }, [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("img", {
-                      attrs: { src: "frontend/img/bg-img/sb1.jpg", alt: "" }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "post-content" }, [
-                  _c("a", { staticClass: "post-title", attrs: { href: "#" } }, [
-                    _vm._v("Seven ways agency can improve your business.")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "post-date" }, [
-                    _vm._v("Sep 30, 2020")
-                  ])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "single-recent-post d-flex align-items-center" },
-              [
-                _c("div", { staticClass: "post-thumb" }, [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("img", {
-                      attrs: { src: "frontend/img/bg-img/sb2.jpg", alt: "" }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "post-content" }, [
-                  _c("a", { staticClass: "post-title", attrs: { href: "#" } }, [
-                    _vm._v("The reason why everyone love business.")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "post-date" }, [
-                    _vm._v("Sep 30, 2020")
-                  ])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "single-recent-post d-flex align-items-center" },
-              [
-                _c("div", { staticClass: "post-thumb" }, [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("img", {
-                      attrs: { src: "frontend/img/bg-img/sb3.jpg", alt: "" }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "post-content" }, [
-                  _c("a", { staticClass: "post-title", attrs: { href: "#" } }, [
-                    _vm._v("How to get people to like trend.")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "post-date" }, [
-                    _vm._v("Sep 30, 2020")
-                  ])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "single-recent-post d-flex align-items-center" },
-              [
-                _c("div", { staticClass: "post-thumb" }, [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("img", {
-                      attrs: { src: "frontend/img/bg-img/sb4.jpg", alt: "" }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "post-content" }, [
-                  _c("a", { staticClass: "post-title", attrs: { href: "#" } }, [
-                    _vm._v("Seven ways agency can improve your business.")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "post-date" }, [
-                    _vm._v("Sep 30, 2020")
-                  ])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "single-recent-post d-flex align-items-center" },
-              [
-                _c("div", { staticClass: "post-thumb" }, [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("img", {
-                      attrs: { src: "frontend/img/bg-img/sb5.jpg", alt: "" }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "post-content" }, [
-                  _c("a", { staticClass: "post-title", attrs: { href: "#" } }, [
-                    _vm._v("The reason why everyone love business.")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "post-date" }, [
-                    _vm._v("Sep 30, 2020")
-                  ])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "single-recent-post d-flex align-items-center" },
-              [
-                _c("div", { staticClass: "post-thumb" }, [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("img", {
-                      attrs: { src: "frontend/img/bg-img/sb6.jpg", alt: "" }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "post-content" }, [
-                  _c("a", { staticClass: "post-title", attrs: { href: "#" } }, [
-                    _vm._v("How to get people to like trend.")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "post-date" }, [
-                    _vm._v("Sep 30, 2020")
-                  ])
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "single-widget-area" }, [
-            _c("h4", { staticClass: "widget-title mb-30" }, [
-              _vm._v("Popular Tags        ")
-            ]),
-            _vm._v(" "),
-            _c("ul", { staticClass: "popular-tags clearfix pl-0" }, [
-              _c("li", [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("business")])
-              ]),
-              _vm._v(" "),
-              _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("agency")])]),
-              _vm._v(" "),
-              _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("studio")])]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("marketing")])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "#" } }, [
-                  _vm._v("internet technology")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("analytics")])
-              ])
-            ])
+        _c("div", { staticClass: "post-thumb" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("img", {
+              attrs: { src: "frontend/img/bg-img/sb1.jpg", alt: "" }
+            })
           ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "post-content" }, [
+          _c("a", { staticClass: "post-title", attrs: { href: "#" } }, [
+            _vm._v("Seven ways agency can improve your business.")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "post-date" }, [_vm._v("Sep 30, 2020")])
         ])
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "single-recent-post d-flex align-items-center" },
+      [
+        _c("div", { staticClass: "post-thumb" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("img", {
+              attrs: { src: "frontend/img/bg-img/sb2.jpg", alt: "" }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "post-content" }, [
+          _c("a", { staticClass: "post-title", attrs: { href: "#" } }, [
+            _vm._v("The reason why everyone love business.")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "post-date" }, [_vm._v("Sep 30, 2020")])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "single-recent-post d-flex align-items-center" },
+      [
+        _c("div", { staticClass: "post-thumb" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("img", {
+              attrs: { src: "frontend/img/bg-img/sb3.jpg", alt: "" }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "post-content" }, [
+          _c("a", { staticClass: "post-title", attrs: { href: "#" } }, [
+            _vm._v("How to get people to like trend.")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "post-date" }, [_vm._v("Sep 30, 2020")])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "single-recent-post d-flex align-items-center" },
+      [
+        _c("div", { staticClass: "post-thumb" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("img", {
+              attrs: { src: "frontend/img/bg-img/sb4.jpg", alt: "" }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "post-content" }, [
+          _c("a", { staticClass: "post-title", attrs: { href: "#" } }, [
+            _vm._v("Seven ways agency can improve your business.")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "post-date" }, [_vm._v("Sep 30, 2020")])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "single-recent-post d-flex align-items-center" },
+      [
+        _c("div", { staticClass: "post-thumb" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("img", {
+              attrs: { src: "frontend/img/bg-img/sb5.jpg", alt: "" }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "post-content" }, [
+          _c("a", { staticClass: "post-title", attrs: { href: "#" } }, [
+            _vm._v("The reason why everyone love business.")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "post-date" }, [_vm._v("Sep 30, 2020")])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "single-recent-post d-flex align-items-center" },
+      [
+        _c("div", { staticClass: "post-thumb" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("img", {
+              attrs: { src: "frontend/img/bg-img/sb6.jpg", alt: "" }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "post-content" }, [
+          _c("a", { staticClass: "post-title", attrs: { href: "#" } }, [
+            _vm._v("How to get people to like trend.")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "post-date" }, [_vm._v("Sep 30, 2020")])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "popular-tags clearfix pl-0" }, [
+      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("business")])]),
+      _vm._v(" "),
+      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("agency")])]),
+      _vm._v(" "),
+      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("studio")])]),
+      _vm._v(" "),
+      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("marketing")])]),
+      _vm._v(" "),
+      _c("li", [
+        _c("a", { attrs: { href: "#" } }, [_vm._v("internet technology")])
+      ]),
+      _vm._v(" "),
+      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("analytics")])])
+    ])
   }
 ]
 render._withStripped = true

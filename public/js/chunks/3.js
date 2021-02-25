@@ -343,9 +343,25 @@ var render = function() {
                 _vm._v(" "),
                 _c("p", [_vm._v(_vm._s(_vm.$t("SignUpForEmailsContent")))]),
                 _vm._v(" "),
-                _vm._m(2),
+                _c("div", { staticClass: "newsletter-form" }, [
+                  _c("form", { attrs: { action: "#" } }, [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "email",
+                        placeholder: _vm.$t("EnterEmail")
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      { staticClass: "btn d-none", attrs: { type: "submit" } },
+                      [_vm._v("Go")]
+                    )
+                  ])
+                ]),
                 _vm._v(" "),
-                _vm._m(3)
+                _vm._m(2)
               ])
             ]),
             _vm._v(" "),
@@ -359,25 +375,25 @@ var render = function() {
                     _vm._v(" "),
                     _c("li", [
                       _c("a", { attrs: { href: "#", target: "_blank" } }, [
-                        _vm._v(_vm._s(_vm.$t("TermsConditions")))
+                        _vm._v(_vm._s(_vm.$t("TermsConditions.name")))
                       ])
                     ]),
                     _vm._v(" "),
                     _c("li", [
                       _c("a", { attrs: { href: "#", target: "_blank" } }, [
-                        _vm._v(_vm._s(_vm.$t("Contact")))
+                        _vm._v(_vm._s(_vm.$t("Contact.name")))
                       ])
                     ]),
                     _vm._v(" "),
                     _c("li", [
                       _c("a", { attrs: { href: "#", target: "_blank" } }, [
-                        _vm._v(_vm._s(_vm.$t("AboutUs")))
+                        _vm._v(_vm._s(_vm.$t("AboutUs.name")))
                       ])
                     ]),
                     _vm._v(" "),
                     _c("li", [
                       _c("a", { attrs: { href: "#", target: "_blank" } }, [
-                        _vm._v(_vm._s(_vm.$t("FAQ")))
+                        _vm._v(_vm._s(_vm.$t("FAQ.name")))
                       ])
                     ]),
                     _vm._v(" "),
@@ -385,7 +401,7 @@ var render = function() {
                       "li",
                       [
                         _c("router-link", { attrs: { to: { name: "home" } } }, [
-                          _vm._v(_vm._s(_vm.$t("Home")))
+                          _vm._v(_vm._s(_vm.$t("Home.name")))
                         ])
                       ],
                       1
@@ -405,17 +421,17 @@ var render = function() {
                   _c("ul", [
                     _c("li", [
                       _c("a", { attrs: { href: "#", target: "_blank" } }, [
-                        _vm._v(_vm._s(_vm.$t("SiteMap")))
+                        _vm._v(_vm._s(_vm.$t("SiteMap.name")))
                       ])
                     ]),
                     _vm._v(" "),
                     _c("li", [
                       _c("a", { attrs: { href: "#", target: "_blank" } }, [
-                        _vm._v(_vm._s(_vm.$t("Pricing")))
+                        _vm._v(_vm._s(_vm.$t("Pricing.name")))
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(4)
+                    _vm._m(3)
                   ])
                 ])
               ]
@@ -490,23 +506,6 @@ var staticRenderFns = [
       { staticClass: "d-block mb-4", attrs: { href: "index.html" } },
       [_c("img", { attrs: { src: "img/core-img/logo-white.png", alt: "" } })]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "newsletter-form" }, [
-      _c("form", { attrs: { action: "#" } }, [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "email", placeholder: "Enter email & press enter" }
-        }),
-        _vm._v(" "),
-        _c("button", { staticClass: "btn d-none", attrs: { type: "submit" } }, [
-          _vm._v("Go")
-        ])
-      ])
-    ])
   },
   function() {
     var _vm = this
@@ -700,7 +699,7 @@ var render = function() {
                           _c(
                             "router-link",
                             { attrs: { to: { name: "contact" } } },
-                            [_vm._v(_vm._s(_vm.$t("Contact")))]
+                            [_vm._v(_vm._s(_vm.$t("Contact.name")))]
                           )
                         ],
                         1
@@ -719,7 +718,7 @@ var render = function() {
                           _c(
                             "router-link",
                             { attrs: { to: { name: "pricing" } } },
-                            [_vm._v(_vm._s(_vm.$t("Pricing")))]
+                            [_vm._v(_vm._s(_vm.$t("Pricing.name")))]
                           )
                         ],
                         1
@@ -738,7 +737,7 @@ var render = function() {
                           _c(
                             "router-link",
                             { attrs: { to: { name: "blog" } } },
-                            [_vm._v(_vm._s(_vm.$t("Blog")))]
+                            [_vm._v(_vm._s(_vm.$t("Blog.name")))]
                           )
                         ],
                         1
@@ -762,7 +761,7 @@ var render = function() {
                             staticClass: "btn saasbox-btn btn-sm  btn-full",
                             attrs: { to: { name: "login" } }
                           },
-                          [_vm._v(_vm._s(_vm.$t("Login")))]
+                          [_vm._v(_vm._s(_vm.$t("Login.name")))]
                         )
                       ],
                       1

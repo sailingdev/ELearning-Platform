@@ -41,21 +41,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Category',
   data: function data() {
-    return {
-      category: [{
-        title: 'Vocabulary',
-        subtitle: 'Its crafted with the latest trend of design.',
+    return {};
+  },
+  computed: {
+    category: function category() {
+      var list = [{
+        title: this.$t('Category.vocabulary.title'),
+        subtitle: this.$t('Category.vocabulary.subtitle'),
         icon: 'book'
       }, {
-        title: 'Grammar',
-        subtitle: 'Its crafted with the latest trend of design.',
+        title: this.$t('Category.grammar.title'),
+        subtitle: this.$t('Category.grammar.subtitle'),
         icon: 'graduation'
       }, {
-        title: 'Dialogues',
-        subtitle: 'Its crafted with the latest trend of design.',
+        title: this.$t('Category.dialogues.title'),
+        subtitle: this.$t('Category.dialogues.subtitle'),
         icon: 'support'
-      }]
-    };
+      }];
+      return list;
+    }
   }
 });
 
@@ -84,7 +88,20 @@ var render = function() {
     },
     [
       _c("div", { staticClass: "container" }, [
-        _vm._m(0),
+        _c(
+          "div",
+          {
+            staticClass: "row justify-content-center wow fadeInUp",
+            attrs: { "data-wow-delay": "200ms", "data-wow-duration": "1000ms" }
+          },
+          [
+            _c("div", { staticClass: "col-12 col-md-9 col-lg-7 col-xxl-6" }, [
+              _c("div", { staticClass: "section-heading text-center" }, [
+                _c("h2", [_vm._v(_vm._s(_vm.$t("Category.title")))])
+              ])
+            ])
+          ]
+        ),
         _vm._v(" "),
         _c(
           "div",
@@ -130,27 +147,7 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "row justify-content-center wow fadeInUp",
-        attrs: { "data-wow-delay": "200ms", "data-wow-duration": "1000ms" }
-      },
-      [
-        _c("div", { staticClass: "col-12 col-md-9 col-lg-7 col-xxl-6" }, [
-          _c("div", { staticClass: "section-heading text-center" }, [
-            _c("h2", [_vm._v("What lesson do you want to learn?")])
-          ])
-        ])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

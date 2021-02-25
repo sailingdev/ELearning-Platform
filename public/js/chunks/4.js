@@ -377,29 +377,24 @@ var render = function() {
               { staticClass: "row" },
               _vm._l(_vm.lesson_type_list, function(n) {
                 return _c("div", { staticClass: "col-12 col-sm-6 col-lg-4" }, [
-                  _c(
-                    "a",
-                    { staticClass: "cursor-on" },
-                    [
-                      _c("img", {
-                        staticClass: "lessong-type",
-                        attrs: {
-                          src: "frontend/img/lesson-type/" + n + ".svg",
-                          width: "62px"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "h",
-                        {
-                          staticClass: "text-black-50",
-                          staticStyle: { "font-size": "1.2em" }
-                        },
-                        [_vm._v(_vm._s(n))]
-                      )
-                    ],
-                    1
-                  )
+                  _c("a", { staticClass: "cursor-on" }, [
+                    _c("img", {
+                      staticClass: "lessong-type",
+                      attrs: {
+                        src: "frontend/img/lesson-type/" + n + ".svg",
+                        width: "62px"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "i",
+                      {
+                        staticClass: "text-black-50",
+                        staticStyle: { "font-size": "1.2em" }
+                      },
+                      [_vm._v(_vm._s(n))]
+                    )
+                  ])
                 ])
               }),
               0
@@ -433,7 +428,10 @@ var render = function() {
                 _vm._l(20, function(n) {
                   return _c(
                     "div",
-                    { staticClass: "col-12 col-sm-6 col-lg-6" },
+                    {
+                      staticClass: "col-12 col-sm-6 col-lg-6",
+                      on: { click: _vm.onCloseModal }
+                    },
                     [
                       _c("router-link", { attrs: { to: { name: "lesson" } } }, [
                         _c("div", { staticClass: "card feature-card" }, [
@@ -572,7 +570,7 @@ var render = function() {
                     on: { click: _vm.selectLesson }
                   },
                   [
-                    _c("h7", { staticClass: "dropdown-toggle" }, [
+                    _c("i", { staticClass: "dropdown-toggle" }, [
                       _vm._v(
                         "Learn " +
                           _vm._s(_vm.language) +
@@ -583,8 +581,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("h5", [_vm._v("Meeting Someone")])
-                  ],
-                  1
+                  ]
                 ),
                 _vm._v(" "),
                 _c(
@@ -605,11 +602,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("h7", { staticClass: "dropdown-toggle" }, [
+                    _c("i", { staticClass: "dropdown-toggle" }, [
                       _vm._v(_vm._s(_vm.selected_type) + " Lessons")
                     ])
-                  ],
-                  1
+                  ]
                 ),
                 _vm._v(" "),
                 _vm._m(0),
@@ -670,8 +666,6 @@ var render = function() {
                       )
                     }),
                     _vm._v(" "),
-                    _c("the-contact-modal"),
-                    _vm._v(" "),
                     _c(
                       "div",
                       { style: _vm.style_lesson_full_name },
@@ -702,6 +696,8 @@ var render = function() {
                       ],
                       1
                     ),
+                    _vm._v(" "),
+                    _c("the-contact-modal"),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -783,8 +779,6 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _c("the-contact-modal"),
-                    _vm._v(" "),
                     _c(
                       "div",
                       { style: _vm.style_lesson_full_name },
@@ -814,7 +808,9 @@ var render = function() {
                         )
                       ],
                       1
-                    )
+                    ),
+                    _vm._v(" "),
+                    _c("the-contact-modal")
                   ],
                   2
                 )

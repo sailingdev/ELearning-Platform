@@ -90,96 +90,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Pricing'
+  name: 'Pricing',
+  data: function data() {
+    return {
+      plan: {
+        amounts: {
+          m: [19, 29, 49],
+          y: [100, 200, 400]
+        },
+        percentage: 20
+      },
+      monthly: true,
+      price_icon: ['lni-pizza', 'lni-offer', 'lni-burger']
+    };
+  },
+  computed: {
+    savedCount: function savedCount() {
+      return this.plan.percentage;
+    },
+    amount: function amount() {
+      return this.plan.amounts;
+    },
+    isMonthly: function isMonthly() {
+      return this.monthly;
+    }
+  },
+  methods: {
+    setMonthly: function setMonthly(val) {
+      this.monthly = val;
+    }
+  }
 });
 
 /***/ }),
@@ -199,579 +140,392 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "section",
-      {
-        staticClass:
-          "saasbox-pricing-plan-area price2 section-padding-120 bg-gray"
-      },
-      [
-        _c("div", { staticClass: "container" }, [
-          _c(
-            "div",
-            {
-              staticClass: "row justify-content-center wow fadeInUp",
-              attrs: {
-                "data-wow-delay": "200ms",
-                "data-wow-duration": "1000ms"
-              }
-            },
-            [
-              _c("div", { staticClass: "col-12 col-md-9 col-lg-7 col-xxl-6" }, [
-                _c("div", { staticClass: "section-heading text-center" }, [
-                  _c("h2", [_vm._v("Pricing Plan")])
-                ])
+  return _c(
+    "section",
+    {
+      staticClass:
+        "saasbox-pricing-plan-area price2 section-padding-120 bg-gray"
+    },
+    [
+      _c("div", { staticClass: "container" }, [
+        _c(
+          "div",
+          {
+            staticClass: "row justify-content-center wow fadeInUp",
+            attrs: { "data-wow-delay": "200ms", "data-wow-duration": "1000ms" }
+          },
+          [
+            _c("div", { staticClass: "col-12 col-md-9 col-lg-7 col-xxl-6" }, [
+              _c("div", { staticClass: "section-heading text-center" }, [
+                _c("h2", [_vm._v(_vm._s(_vm.$t("Pricing.title")))])
               ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "row wow fadeInUp",
-              attrs: {
-                "data-wow-delay": "300ms",
-                "data-wow-duration": "1000ms"
-              }
-            },
-            [
-              _c("div", { staticClass: "col-12" }, [
-                _c("div", { staticClass: "pricing-table-switch mb-100" }, [
-                  _c(
-                    "ul",
-                    {
-                      staticClass:
-                        "nav nav-tabs border-bottom-0 justify-content-center",
-                      attrs: { id: "priceTab", role: "tablist" }
-                    },
-                    [
-                      _c("li", { staticClass: "nav-item" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "nav-link active",
-                            attrs: {
-                              id: "month--tab",
-                              "data-toggle": "tab",
-                              href: "#monthly",
-                              role: "tab",
-                              "aria-controls": "monthly",
-                              "aria-selected": "true"
-                            }
-                          },
-                          [_vm._v("Monthly")]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "nav-item" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "nav-link",
-                            attrs: {
-                              id: "yearly--tab",
-                              "data-toggle": "tab",
-                              href: "#profile",
-                              role: "tab",
-                              "aria-controls": "profile",
-                              "aria-selected": "false"
-                            }
-                          },
-                          [
-                            _c("span", { staticClass: "popular-badge" }, [
-                              _vm._v("Save 20%")
-                            ]),
-                            _vm._v("Yearly")
-                          ]
-                        )
-                      ])
-                    ]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-12" }, [
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "row wow fadeInUp",
+            attrs: { "data-wow-delay": "300ms", "data-wow-duration": "1000ms" }
+          },
+          [
+            _c("div", { staticClass: "col-12" }, [
+              _c("div", { staticClass: "pricing-table-switch mb-100" }, [
                 _c(
-                  "div",
+                  "ul",
                   {
-                    staticClass: "tab-content",
-                    attrs: { id: "priceTabContent" }
+                    staticClass:
+                      "nav nav-tabs border-bottom-0 justify-content-center",
+                    attrs: { id: "priceTab", role: "tablist" }
                   },
                   [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-pane fade show active",
-                        attrs: {
-                          id: "monthly",
-                          role: "tabpanel",
-                          "aria-labelledby": "month--tab"
-                        }
-                      },
-                      [
-                        _c(
-                          "div",
-                          { staticClass: "row g-0 justify-content-center" },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "col-12 col-sm-8 col-md-7 col-lg-4"
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  { staticClass: "card pricing-card mb-30" },
-                                  [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "pricing-heading d-flex align-items-center"
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "price-icon" },
-                                          [
-                                            _c("i", {
-                                              staticClass: "lni-pizza"
-                                            })
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("div", { staticClass: "price" }, [
-                                          _c("h5", [_vm._v("Basic")]),
-                                          _vm._v(" "),
-                                          _c("h2", [_vm._v("$19")]),
-                                          _c("span", [_vm._v("per month")])
-                                        ])
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "pricing-desc" }, [
-                                      _c("ul", { staticClass: "pl-0" }, [
-                                        _c("li", [_vm._v("1 Month Usage")]),
-                                        _vm._v(" "),
-                                        _c("li", [_vm._v("Lifetime Updates")]),
-                                        _vm._v(" "),
-                                        _c("li", { staticClass: "times" }, [
-                                          _vm._v("1 Website License")
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("li", { staticClass: "times" }, [
-                                          _vm._v("Free Support")
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("li", { staticClass: "times" }, [
-                                          _vm._v("Download New Release")
-                                        ])
-                                      ])
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "pricing-btn" }, [
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "btn saasbox-btn",
-                                          attrs: { href: "#" }
-                                        },
-                                        [_vm._v("Choose Plan")]
-                                      )
-                                    ])
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass: "col-12 col-sm-8 col-md-7 col-lg-4"
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "card pricing-card active mb-30"
-                                  },
-                                  [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "pricing-heading d-flex align-items-center"
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "price-icon" },
-                                          [
-                                            _c("i", {
-                                              staticClass: "lni-offer"
-                                            })
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("div", { staticClass: "price" }, [
-                                          _c("h5", [_vm._v("Standard")]),
-                                          _vm._v(" "),
-                                          _c("h2", [_vm._v("$29")]),
-                                          _c("span", [_vm._v("per month")])
-                                        ])
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "pricing-desc" }, [
-                                      _c("ul", { staticClass: "pl-0" }, [
-                                        _c("li", [_vm._v("1 Month Usage")]),
-                                        _vm._v(" "),
-                                        _c("li", [_vm._v("Lifetime Updates")]),
-                                        _vm._v(" "),
-                                        _c("li", [_vm._v("1 Website License")]),
-                                        _vm._v(" "),
-                                        _c("li", { staticClass: "times" }, [
-                                          _vm._v("Free Support")
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("li", { staticClass: "times" }, [
-                                          _vm._v("Download New Release")
-                                        ])
-                                      ])
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "pricing-btn" }, [
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "btn saasbox-btn",
-                                          attrs: { href: "#" }
-                                        },
-                                        [_vm._v("Choose Plan")]
-                                      )
-                                    ])
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass: "col-12 col-sm-8 col-md-7 col-lg-4"
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  { staticClass: "card pricing-card mb-30" },
-                                  [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "pricing-heading d-flex align-items-center"
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "price-icon" },
-                                          [
-                                            _c("i", {
-                                              staticClass: "lni-burger"
-                                            })
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("div", { staticClass: "price" }, [
-                                          _c("h5", [_vm._v("Business")]),
-                                          _vm._v(" "),
-                                          _c("h2", [_vm._v("$49")]),
-                                          _c("span", [_vm._v("per month")])
-                                        ])
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "pricing-desc" }, [
-                                      _c("ul", { staticClass: "pl-0" }, [
-                                        _c("li", [_vm._v("1 Month Usage")]),
-                                        _vm._v(" "),
-                                        _c("li", [_vm._v("Lifetime Updates")]),
-                                        _vm._v(" "),
-                                        _c("li", [_vm._v("1 Website License")]),
-                                        _vm._v(" "),
-                                        _c("li", [_vm._v("Free Support")]),
-                                        _vm._v(" "),
-                                        _c("li", [
-                                          _vm._v("Download New Release")
-                                        ])
-                                      ])
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "pricing-btn" }, [
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "btn saasbox-btn",
-                                          attrs: { href: "#" }
-                                        },
-                                        [_vm._v("Choose Plan")]
-                                      )
-                                    ])
-                                  ]
-                                )
-                              ]
-                            )
-                          ]
-                        )
-                      ]
-                    ),
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          class: {
+                            "nav-link": true,
+                            "cursor-on": true,
+                            active: _vm.isMonthly
+                          },
+                          attrs: {
+                            id: "month--tab",
+                            "data-toggle": "tab",
+                            "aria-controls": "monthly",
+                            "aria-selected": "true"
+                          },
+                          on: {
+                            click: function($event) {
+                              return _vm.setMonthly(true)
+                            }
+                          }
+                        },
+                        [_vm._v(_vm._s(_vm.$tc("Pricing.type", 1)))]
+                      )
+                    ]),
                     _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-pane fade",
-                        attrs: {
-                          id: "profile",
-                          role: "tabpanel",
-                          "aria-labelledby": "yearly--tab"
-                        }
-                      },
-                      [
-                        _c(
-                          "div",
-                          { staticClass: "row g-0 justify-content-center" },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "col-12 col-sm-8 col-md-7 col-lg-4"
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  { staticClass: "card pricing-card mb-30" },
-                                  [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "pricing-heading d-flex align-items-center"
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "price-icon" },
-                                          [
-                                            _c("i", {
-                                              staticClass: "lni-pizza"
-                                            })
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("div", { staticClass: "price" }, [
-                                          _c("h5", [_vm._v("Basic")]),
-                                          _vm._v(" "),
-                                          _c("h2", [_vm._v("$39")]),
-                                          _c("span", [_vm._v("per year")])
-                                        ])
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "pricing-desc" }, [
-                                      _c("ul", { staticClass: "pl-0" }, [
-                                        _c("li", [_vm._v("1 Month Usage")]),
-                                        _vm._v(" "),
-                                        _c("li", [_vm._v("Lifetime Updates")]),
-                                        _vm._v(" "),
-                                        _c("li", { staticClass: "times" }, [
-                                          _vm._v("1 Website License")
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("li", { staticClass: "times" }, [
-                                          _vm._v("Free Support")
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("li", { staticClass: "times" }, [
-                                          _vm._v("Download New Release")
-                                        ])
-                                      ])
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "pricing-btn" }, [
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "btn saasbox-btn",
-                                          attrs: { href: "#" }
-                                        },
-                                        [_vm._v("Choose Plan")]
-                                      )
-                                    ])
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass: "col-12 col-sm-8 col-md-7 col-lg-4"
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "card pricing-card active mb-30"
-                                  },
-                                  [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "pricing-heading d-flex align-items-center"
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "price-icon" },
-                                          [
-                                            _c("i", {
-                                              staticClass: "lni-offer"
-                                            })
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("div", { staticClass: "price" }, [
-                                          _c("h5", [_vm._v("Standard")]),
-                                          _vm._v(" "),
-                                          _c("h2", [_vm._v("$89")]),
-                                          _c("span", [_vm._v("per year")])
-                                        ])
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "pricing-desc" }, [
-                                      _c("ul", { staticClass: "pl-0" }, [
-                                        _c("li", [_vm._v("1 Month Usage")]),
-                                        _vm._v(" "),
-                                        _c("li", [_vm._v("Lifetime Updates")]),
-                                        _vm._v(" "),
-                                        _c("li", [_vm._v("1 Website License")]),
-                                        _vm._v(" "),
-                                        _c("li", { staticClass: "times" }, [
-                                          _vm._v("Free Support")
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("li", { staticClass: "times" }, [
-                                          _vm._v("Download New Release")
-                                        ])
-                                      ])
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "pricing-btn" }, [
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "btn saasbox-btn",
-                                          attrs: { href: "#" }
-                                        },
-                                        [_vm._v("Choose Plan")]
-                                      )
-                                    ])
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass: "col-12 col-sm-8 col-md-7 col-lg-4"
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  { staticClass: "card pricing-card mb-30" },
-                                  [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "pricing-heading d-flex align-items-center"
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "price-icon" },
-                                          [
-                                            _c("i", {
-                                              staticClass: "lni-burger"
-                                            })
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("div", { staticClass: "price" }, [
-                                          _c("h5", [_vm._v("Business")]),
-                                          _vm._v(" "),
-                                          _c("h2", [_vm._v("$149")]),
-                                          _c("span", [_vm._v("per year")])
-                                        ])
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "pricing-desc" }, [
-                                      _c("ul", { staticClass: "pl-0" }, [
-                                        _c("li", [_vm._v("1 Month Usage")]),
-                                        _vm._v(" "),
-                                        _c("li", [_vm._v("Lifetime Updates")]),
-                                        _vm._v(" "),
-                                        _c("li", [_vm._v("1 Website License")]),
-                                        _vm._v(" "),
-                                        _c("li", [_vm._v("Free Support")]),
-                                        _vm._v(" "),
-                                        _c("li", [
-                                          _vm._v("Download New Release")
-                                        ])
-                                      ])
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "pricing-btn" }, [
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "btn saasbox-btn",
-                                          attrs: { href: "#" }
-                                        },
-                                        [_vm._v("Choose Plan")]
-                                      )
-                                    ])
-                                  ]
-                                )
-                              ]
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          class: {
+                            "nav-link": true,
+                            "cursor-on": true,
+                            active: !_vm.isMonthly
+                          },
+                          attrs: {
+                            id: "yearly--tab",
+                            "data-toggle": "tab",
+                            "aria-controls": "profile",
+                            "aria-selected": "false"
+                          },
+                          on: {
+                            click: function($event) {
+                              return _vm.setMonthly(false)
+                            }
+                          }
+                        },
+                        [
+                          _c("span", { staticClass: "popular-badge" }, [
+                            _vm._v(
+                              _vm._s(
+                                _vm.$tc("Pricing.save", 1, {
+                                  count: _vm.savedCount
+                                })
+                              )
                             )
-                          ]
-                        )
-                      ]
-                    )
+                          ]),
+                          _vm._v(_vm._s(_vm.$tc("Pricing.type", 2)))
+                        ]
+                      )
+                    ])
                   ]
                 )
               ])
-            ]
-          )
-        ])
-      ]
-    )
-  }
-]
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-12" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "tab-content",
+                  attrs: { id: "priceTabContent" }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      class: {
+                        "tab-pane wow fadeInUp": true,
+                        "show active": _vm.isMonthly
+                      },
+                      attrs: {
+                        "data-wow-delay": "30ms",
+                        "data-wow-duration": "1000ms",
+                        id: "monthly",
+                        role: "tabpanel",
+                        "aria-labelledby": "month--tab"
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "row g-0 justify-content-center" },
+                        _vm._l(3, function(n) {
+                          return _c(
+                            "div",
+                            {
+                              key: n,
+                              staticClass: "col-12 col-sm-8 col-md-7 col-lg-4"
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  class: {
+                                    "card pricing-card mb-30": true,
+                                    active: n === 2
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "pricing-heading d-flex align-items-center"
+                                    },
+                                    [
+                                      _c("div", { staticClass: "price-icon" }, [
+                                        _c("i", {
+                                          class: _vm.price_icon[n - 1]
+                                        })
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "price" }, [
+                                        _c("h5", [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm.$tc("Pricing.level", n - 1)
+                                            )
+                                          )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("h2", [
+                                          _vm._v(
+                                            "$" + _vm._s(_vm.amount["m"][n - 1])
+                                          )
+                                        ]),
+                                        _c("span", [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm.$tc("Pricing.per_type", 1)
+                                            )
+                                          )
+                                        ])
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "pricing-desc" }, [
+                                    _c("ul", { staticClass: "pl-0" }, [
+                                      _c("li", [
+                                        _vm._v(
+                                          _vm._s(_vm.$t("Pricing.functions[0]"))
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("li", [
+                                        _vm._v(
+                                          _vm._s(_vm.$t("Pricing.functions[1]"))
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("li", { class: { times: n === 1 } }, [
+                                        _vm._v(
+                                          _vm._s(_vm.$t("Pricing.functions[2]"))
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("li", { class: { times: n != 3 } }, [
+                                        _vm._v(
+                                          _vm._s(_vm.$t("Pricing.functions[3]"))
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("li", { class: { times: n != 3 } }, [
+                                        _vm._v(
+                                          _vm._s(_vm.$t("Pricing.functions[4]"))
+                                        )
+                                      ])
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "pricing-btn" }, [
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "btn saasbox-btn",
+                                        attrs: { href: "#" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          _vm._s(_vm.$t("Pricing.btn_choose"))
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]
+                              )
+                            ]
+                          )
+                        }),
+                        0
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      class: {
+                        "tab-pane  wow fadeInUp": true,
+                        "show active": !_vm.isMonthly
+                      },
+                      attrs: {
+                        "data-wow-delay": "30ms",
+                        "data-wow-duration": "1000ms",
+                        id: "profile",
+                        role: "tabpanel",
+                        "aria-labelledby": "yearly--tab"
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "row g-0 justify-content-center" },
+                        _vm._l(3, function(n) {
+                          return _c(
+                            "div",
+                            {
+                              key: n,
+                              staticClass: "col-12 col-sm-8 col-md-7 col-lg-4"
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  class: {
+                                    "card pricing-card mb-30": true,
+                                    active: n === 2
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "pricing-heading d-flex align-items-center"
+                                    },
+                                    [
+                                      _c("div", { staticClass: "price-icon" }, [
+                                        _c("i", {
+                                          class: _vm.price_icon[n - 1]
+                                        })
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "price" }, [
+                                        _c("h5", [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm.$tc("Pricing.level", n - 1)
+                                            )
+                                          )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("h2", [
+                                          _vm._v(
+                                            "$" + _vm._s(_vm.amount["y"][n - 1])
+                                          )
+                                        ]),
+                                        _c("span", [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm.$tc("Pricing.per_type", 2)
+                                            )
+                                          )
+                                        ])
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "pricing-desc" }, [
+                                    _c("ul", { staticClass: "pl-0" }, [
+                                      _c("li", [
+                                        _vm._v(
+                                          _vm._s(_vm.$t("Pricing.functions[0]"))
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("li", [
+                                        _vm._v(
+                                          _vm._s(_vm.$t("Pricing.functions[1]"))
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("li", { class: { times: n === 1 } }, [
+                                        _vm._v(
+                                          _vm._s(_vm.$t("Pricing.functions[2]"))
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("li", { class: { times: n != 3 } }, [
+                                        _vm._v(
+                                          _vm._s(_vm.$t("Pricing.functions[3]"))
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("li", { class: { times: n != 3 } }, [
+                                        _vm._v(
+                                          _vm._s(_vm.$t("Pricing.functions[4]"))
+                                        )
+                                      ])
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "pricing-btn" }, [
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "btn saasbox-btn",
+                                        attrs: { href: "#" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          _vm._s(_vm.$t("Pricing.btn_choose"))
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]
+                              )
+                            ]
+                          )
+                        }),
+                        0
+                      )
+                    ]
+                  )
+                ]
+              )
+            ])
+          ]
+        )
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

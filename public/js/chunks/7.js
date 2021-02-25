@@ -69,8 +69,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Home',
@@ -188,7 +186,7 @@ var render = function() {
                   "data-wow-duration": "1000ms"
                 }
               },
-              [_vm._v("Learn a foreign language online for free")]
+              [_vm._v(_vm._s(_vm.$t("Home.title")))]
             ),
             _vm._v(" "),
             _c(
@@ -202,7 +200,9 @@ var render = function() {
               },
               [
                 _vm._v(
-                  "\n                Teach yourself a foreign language. With LingoHut you can learn over 45 languages like Afrikaans, Arabic, Chinese, Dutch, English, French,\n                German, Hindi, Italian, Japanese, Persian, Portuguese, Russian, Spanish or Turkish from your own language.\n                LingoHut contains 125 lessons to learn useful vocabulary without prior knowledge. You will learn short sentences and words you use daily.\n            "
+                  "\n                " +
+                    _vm._s(_vm.$t("Home.subtitle")) +
+                    "\n            "
                 )
               ]
             ),
@@ -232,7 +232,7 @@ var render = function() {
                         }
                       },
                       [
-                        _vm._v(" I speak english "),
+                        _vm._v(" " + _vm._s(_vm.$t("Home.speakLang")) + " "),
                         _c("i", { staticClass: "lni-arrow-down" })
                       ]
                     )
@@ -254,7 +254,7 @@ var render = function() {
                         }
                       },
                       [
-                        _vm._v(" I want to learn Afrikaans "),
+                        _vm._v(" " + _vm._s(_vm.$t("Home.learnLang")) + " "),
                         _c("i", { staticClass: "lni-arrow-down" })
                       ]
                     )
@@ -339,7 +339,9 @@ var render = function() {
                               },
                               [
                                 _c("div", { staticClass: "product-name" }, [
-                                  _c("h6", [_vm._v("Learn Afrikaans")])
+                                  _c("h6", [
+                                    _vm._v(_vm._s(_vm.$t("LearnAfrikaans")))
+                                  ])
                                 ]),
                                 _vm._v(" "),
                                 _c(

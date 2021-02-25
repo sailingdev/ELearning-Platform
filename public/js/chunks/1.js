@@ -189,7 +189,7 @@ var render = function() {
             }
           }
         },
-        [_vm._v("Do you see an error on our website? Please let us know")]
+        [_vm._v(_vm._s(_vm.$t("LetUsKnow")))]
       )
     ]),
     _vm._v(" "),
@@ -216,10 +216,140 @@ var render = function() {
               [_vm._v("×")]
             ),
             _vm._v(" "),
-            _c("h4", [_vm._v("Contact Us")])
+            _c("h4", [_vm._v(_vm._s(_vm.$t("Contact.title")))])
           ]),
           _vm._v(" "),
-          _vm._m(0),
+          _c(
+            "div",
+            {
+              staticClass:
+                "cust-modal-body mt-4 mb-3 row justify-content-between"
+            },
+            [
+              _c("div", { staticClass: "col-12 col-lg-5 col-xl-4" }, [
+                _c("div", { staticClass: "contact-side-info mb-80" }, [
+                  _c("h2", { staticClass: "mb-3" }, [
+                    _vm._v(_vm._s(_vm.$t("Contact.subtitle")))
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "mb-4" }, [
+                    _vm._v(_vm._s(_vm.$t("Contact.description")))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "contact-mini-card-wrapper" }, [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "contact-mini-card" }, [
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(_vm._s(_vm.$t("Contact.timescale")))])
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12 col-lg-7" }, [
+                _c("div", { staticClass: "contact-form mb-80" }, [
+                  _c(
+                    "form",
+                    {
+                      attrs: {
+                        id: "main_contact_form",
+                        action: "php/mail.php",
+                        method: "POST"
+                      }
+                    },
+                    [
+                      _c("div", { attrs: { id: "success_fail_info" } }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-12 col-lg-6" }, [
+                          _c("label", { attrs: { for: "name" } }, [
+                            _vm._v(_vm._s(_vm.$t("Contact.full_name")))
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            staticClass: "form-control mb-30",
+                            attrs: {
+                              id: "name",
+                              type: "text",
+                              placeholder: "Meng Lang",
+                              value: "",
+                              name: "name",
+                              required: ""
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-12 col-lg-6" }, [
+                          _c("label", { attrs: { for: "email" } }, [
+                            _vm._v(_vm._s(_vm.$t("Contact.email")))
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            staticClass: "form-control mb-30",
+                            attrs: {
+                              id: "email",
+                              type: "email",
+                              placeholder: "care.designingworld@gmail.com",
+                              name: "email",
+                              value: "",
+                              required: ""
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-12" }, [
+                          _c("label", { attrs: { for: "subject" } }, [
+                            _vm._v(_vm._s(_vm.$t("Contact.topics")))
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            staticClass: "form-control mb-30",
+                            attrs: {
+                              id: "topics",
+                              type: "text",
+                              placeholder: "Presale Questions",
+                              name: "topics",
+                              value: ""
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-12" }, [
+                          _c("label", { attrs: { for: "message" } }, [
+                            _vm._v(_vm._s(_vm.$t("Contact.message")))
+                          ]),
+                          _vm._v(" "),
+                          _c("textarea", {
+                            staticClass: "form-control mb-30",
+                            attrs: {
+                              id: "message",
+                              name: "message",
+                              placeholder: _vm.$t("Contact.content")
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-12 text-center" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn saasbox-btn w-100",
+                              attrs: { type: "submit" }
+                            },
+                            [_vm._v(_vm._s(_vm.$t("Contact.btn_send")))]
+                          )
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ]
+          ),
           _vm._v(" "),
           _c(
             "div",
@@ -249,152 +379,33 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "cust-modal-body mt-4 mb-3 row justify-content-between" },
-      [
-        _c("div", { staticClass: "col-12 col-lg-5 col-xl-4" }, [
-          _c("div", { staticClass: "contact-side-info mb-80" }, [
-            _c("h2", { staticClass: "mb-3" }, [
-              _vm._v("Let's talk about "),
-              _c("br"),
-              _vm._v(" all things!")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "mb-4" }, [
-              _vm._v(
-                "Write to us or give us a call. We will reply to you as soon as possible. But yes, it can take up to 24 hours."
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "contact-mini-card-wrapper" }, [
-              _c("div", { staticClass: "contact-mini-card" }, [
-                _c("div", { staticClass: "contact-mini-card-icon" }, [
-                  _c("i", { staticClass: "lni lni-envelope" })
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("example@domain.com")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "contact-mini-card" }, [
-                _c("div", { staticClass: "contact-mini-card-icon" }, [
-                  _c("i", { staticClass: "lni lni-headphone-alt" })
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("(+880) 145 2635896")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "contact-mini-card" }, [
-                _c("div", { staticClass: "contact-mini-card-icon" }, [
-                  _c("i", { staticClass: "lni lni-tag" })
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("We are open from 9am — 5pm business days.")])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-12 col-lg-7" }, [
-          _c("div", { staticClass: "contact-form mb-80" }, [
-            _c(
-              "form",
-              {
-                attrs: {
-                  id: "main_contact_form",
-                  action: "php/mail.php",
-                  method: "POST"
-                }
-              },
-              [
-                _c("div", { attrs: { id: "success_fail_info" } }),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-12 col-lg-6" }, [
-                    _c("label", { attrs: { for: "name" } }, [
-                      _vm._v("Full Name:")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "form-control mb-30",
-                      attrs: {
-                        id: "name",
-                        type: "text",
-                        placeholder: "Designing World",
-                        value: "",
-                        name: "name",
-                        required: ""
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-12 col-lg-6" }, [
-                    _c("label", { attrs: { for: "email" } }, [
-                      _vm._v("Email Address:")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "form-control mb-30",
-                      attrs: {
-                        id: "email",
-                        type: "email",
-                        placeholder: "care.designingworld@gmail.com",
-                        name: "email",
-                        value: "",
-                        required: ""
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-12" }, [
-                    _c("label", { attrs: { for: "subject" } }, [
-                      _vm._v("Topics:")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "form-control mb-30",
-                      attrs: {
-                        id: "topics",
-                        type: "text",
-                        placeholder: "Presale Questions",
-                        name: "topics",
-                        value: ""
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-12" }, [
-                    _c("label", { attrs: { for: "message" } }, [
-                      _vm._v("Message:")
-                    ]),
-                    _vm._v(" "),
-                    _c("textarea", {
-                      staticClass: "form-control mb-30",
-                      attrs: {
-                        id: "message",
-                        name: "message",
-                        placeholder: "Message"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-12 text-center" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn saasbox-btn w-100",
-                        attrs: { type: "submit" }
-                      },
-                      [_vm._v("Send Now")]
-                    )
-                  ])
-                ])
-              ]
-            )
-          ])
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "contact-mini-card" }, [
+      _c("div", { staticClass: "contact-mini-card-icon" }, [
+        _c("i", { staticClass: "lni lni-envelope" })
+      ]),
+      _vm._v(" "),
+      _c("p", [_vm._v("example@domain.com")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "contact-mini-card" }, [
+      _c("div", { staticClass: "contact-mini-card-icon" }, [
+        _c("i", { staticClass: "lni lni-headphone-alt" })
+      ]),
+      _vm._v(" "),
+      _c("p", [_vm._v("(+880) 145 2635896")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "contact-mini-card-icon" }, [
+      _c("i", { staticClass: "lni lni-tag" })
+    ])
   }
 ]
 render._withStripped = true
