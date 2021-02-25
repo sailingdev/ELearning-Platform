@@ -6,19 +6,27 @@
         <div class="cust-modal-content">
             <div class="cust-modal-header">
                 <span class="cust-close" v-on:click="onCloseModal">&times;</span>
-                <h4>{{header}}</h4>
+                <h4>{{$tc('TheLanguageModal.header', headerType)}}</h4>
             </div>
             <div class="cust-modal-body mt-4 mb-3">
 
             <!--  Flag Element -->
-                <div class="row">
+                <div v-if="headerType === 1" class="row">
+                    <div v-for="(flag, key) in langs" :key="key" class="col-xs-6 col-sm-4 col-md-4 col-lg-3 mt-1 mb-4 cursor-on" v-on:click="onCloseModal">
+                        <a v-on:click="setLocale(key)">
+                            <span :class="'flag-icon flag-icon-'+key"></span>
+                            <span>{{flag.name}}</span>
+                        </a>
+                    </div>
+                </div>
+                <!--  -->
+                <div v-else class="row">
                     <div v-for="(flag, key) in langs" :key="key" class="col-xs-6 col-sm-4 col-md-4 col-lg-3 mt-1 mb-4" v-on:click="onCloseModal">
                        <router-link :to="{name: isType }">
                            <span :class="'flag-icon flag-icon-'+key"></span>
                             <span>{{flag.name}}</span>
                        </router-link>
                     </div>
-
                 </div>
 
             </div>
@@ -46,8 +54,8 @@
             isShown(){
                 return this.display
             },
-            header(){
-                return this.type === 1? 'What language do you speak?' : 'What language do you want to learn?';
+            headerType(){
+                return this.type === 1 ? 1 : 2
             },
             isType(){
                 if (this.type === 1){
@@ -63,6 +71,9 @@
             onCloseModal(){
                 this.$emit('isClosed', true)
             },
+            setLocale(val){
+                this.$i18n.locale = val
+            }
         }
     }
 </script>

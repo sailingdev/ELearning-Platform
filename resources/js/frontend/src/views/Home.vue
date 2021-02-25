@@ -56,19 +56,6 @@
                 </ul>
             </nav>
         </div>
-<!--        &lt;!&ndash; Cool Facts Area&ndash;&gt;-->
-<!--        <section class="cta-area cta3 py-5">-->
-<!--            <div class="container">-->
-<!--                <div class="row align-items-center justify-content-between">-->
-<!--                    <div class="col-12 col-sm-8">-->
-<!--                        <div class="cta-text mb-4 mb-sm-0">-->
-<!--                            <h4 class="text-white mb-0">Let's start with the simple way to create a website.</h4>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-12 col-sm-4 text-sm-right"><a class="btn saasbox-btn white-btn" href="#">Buy Now</a></div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </section>-->
     </div>
 </template>
 

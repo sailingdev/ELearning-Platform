@@ -335,7 +335,19 @@ var render = function() {
       _c("footer", { staticClass: "footer-area footer2 section-padding-120" }, [
         _c("div", { staticClass: "container" }, [
           _c("div", { staticClass: "row justify-content-between" }, [
-            _vm._m(1),
+            _c("div", { staticClass: "col-12 col-sm-10 col-lg-3" }, [
+              _c("div", { staticClass: "footer-widget-area mb-70" }, [
+                _vm._m(1),
+                _vm._v(" "),
+                _c("p", [_vm._v(_vm._s(_vm.$t("SignUpForEmails")))]),
+                _vm._v(" "),
+                _c("p", [_vm._v(_vm._s(_vm.$t("SignUpForEmailsContent")))]),
+                _vm._v(" "),
+                _vm._m(2),
+                _vm._v(" "),
+                _vm._m(3)
+              ])
+            ]),
             _vm._v(" "),
             _c(
               "div",
@@ -345,19 +357,35 @@ var render = function() {
                   _c("ul", [
                     _c("h5", [_vm._v(" ")]),
                     _vm._v(" "),
-                    _vm._m(2),
+                    _c("li", [
+                      _c("a", { attrs: { href: "#", target: "_blank" } }, [
+                        _vm._v(_vm._s(_vm.$t("TermsConditions")))
+                      ])
+                    ]),
                     _vm._v(" "),
-                    _vm._m(3),
+                    _c("li", [
+                      _c("a", { attrs: { href: "#", target: "_blank" } }, [
+                        _vm._v(_vm._s(_vm.$t("Contact")))
+                      ])
+                    ]),
                     _vm._v(" "),
-                    _vm._m(4),
+                    _c("li", [
+                      _c("a", { attrs: { href: "#", target: "_blank" } }, [
+                        _vm._v(_vm._s(_vm.$t("AboutUs")))
+                      ])
+                    ]),
                     _vm._v(" "),
-                    _vm._m(5),
+                    _c("li", [
+                      _c("a", { attrs: { href: "#", target: "_blank" } }, [
+                        _vm._v(_vm._s(_vm.$t("FAQ")))
+                      ])
+                    ]),
                     _vm._v(" "),
                     _c(
                       "li",
                       [
                         _c("router-link", { attrs: { to: { name: "home" } } }, [
-                          _vm._v("Home")
+                          _vm._v(_vm._s(_vm.$t("Home")))
                         ])
                       ],
                       1
@@ -367,13 +395,46 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _vm._m(6)
+            _c(
+              "div",
+              { staticClass: "col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" },
+              [
+                _c("div", { staticClass: "footer-widget-area mb-70" }, [
+                  _c("h5", [_vm._v(" ")]),
+                  _vm._v(" "),
+                  _c("ul", [
+                    _c("li", [
+                      _c("a", { attrs: { href: "#", target: "_blank" } }, [
+                        _vm._v(_vm._s(_vm.$t("SiteMap")))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c("a", { attrs: { href: "#", target: "_blank" } }, [
+                        _vm._v(_vm._s(_vm.$t("Pricing")))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(4)
+                  ])
+                ])
+              ]
+            )
           ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "container" }, [
           _c("div", { staticClass: "row align-items-center" }, [
-            _vm._m(7),
+            _c("div", { staticClass: "col-12 col-md-6 col-lg-5" }, [
+              _c("div", { staticClass: "footer--content-text" }, [
+                _c("p", { staticClass: "mb-0" }, [
+                  _vm._v(_vm._s(_vm.$t("AllRightReservedBy")) + " "),
+                  _c("a", { attrs: { href: "#", target: "_blank" } }, [
+                    _vm._v(_vm._s(_vm.$t("AllRightReservedByName")))
+                  ])
+                ])
+              ])
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-12 col-md-6 col-lg-5" }),
             _vm._v(" "),
@@ -398,7 +459,7 @@ var render = function() {
                           }
                         }
                       },
-                      [_vm._v("Language")]
+                      [_vm._v(_vm._s(_vm.$t("Language")))]
                     )
                   ])
                 ]
@@ -424,142 +485,27 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 col-sm-10 col-lg-3" }, [
-      _c("div", { staticClass: "footer-widget-area mb-70" }, [
-        _c(
-          "a",
-          { staticClass: "d-block mb-4", attrs: { href: "index.html" } },
-          [
-            _c("img", {
-              attrs: { src: "img/core-img/logo-white.png", alt: "" }
-            })
-          ]
-        ),
+    return _c(
+      "a",
+      { staticClass: "d-block mb-4", attrs: { href: "index.html" } },
+      [_c("img", { attrs: { src: "img/core-img/logo-white.png", alt: "" } })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "newsletter-form" }, [
+      _c("form", { attrs: { action: "#" } }, [
+        _c("input", {
+          staticClass: "form-control",
+          attrs: { type: "email", placeholder: "Enter email & press enter" }
+        }),
         _vm._v(" "),
-        _c("p", [_vm._v("SIGN UP FOR EMAILS")]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v("We'll send you emails with advise, tips, and trends. ")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "newsletter-form" }, [
-          _c("form", { attrs: { action: "#" } }, [
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "email", placeholder: "Enter email & press enter" }
-            }),
-            _vm._v(" "),
-            _c(
-              "button",
-              { staticClass: "btn d-none", attrs: { type: "submit" } },
-              [_vm._v("Go")]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "footer-social-icon d-flex align-items-center" },
-          [
-            _c(
-              "a",
-              {
-                attrs: {
-                  href: "#",
-                  "data-toggle": "tooltip",
-                  "data-placement": "top",
-                  title: "Facbook"
-                }
-              },
-              [_c("i", { staticClass: "fa fa-facebook" })]
-            ),
-            _c(
-              "a",
-              {
-                attrs: {
-                  href: "#",
-                  "data-toggle": "tooltip",
-                  "data-placement": "top",
-                  title: "Twitter"
-                }
-              },
-              [_c("i", { staticClass: "fa fa-twitter" })]
-            ),
-            _c(
-              "a",
-              {
-                attrs: {
-                  href: "#",
-                  "data-toggle": "tooltip",
-                  "data-placement": "top",
-                  title: "Instagram"
-                }
-              },
-              [_c("i", { staticClass: "fa fa-instagram" })]
-            ),
-            _c(
-              "a",
-              {
-                attrs: {
-                  href: "#",
-                  "data-toggle": "tooltip",
-                  "data-placement": "top",
-                  title: "Linkedin"
-                }
-              },
-              [_c("i", { staticClass: "fa fa-linkedin" })]
-            ),
-            _c(
-              "a",
-              {
-                attrs: {
-                  href: "#",
-                  "data-toggle": "tooltip",
-                  "data-placement": "top",
-                  title: "Youtube"
-                }
-              },
-              [_c("i", { staticClass: "fa fa-youtube" })]
-            )
-          ]
-        )
+        _c("button", { staticClass: "btn d-none", attrs: { type: "submit" } }, [
+          _vm._v("Go")
+        ])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { attrs: { href: "#", target: "_blank" } }, [
-        _vm._v("Terms & Conditions")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { attrs: { href: "#", target: "_blank" } }, [
-        _vm._v("Contact Us")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { attrs: { href: "#", target: "_blank" } }, [_vm._v("About Us")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { attrs: { href: "#", target: "_blank" } }, [_vm._v("FAQ")])
     ])
   },
   function() {
@@ -568,27 +514,68 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" },
+      { staticClass: "footer-social-icon d-flex align-items-center" },
       [
-        _c("div", { staticClass: "footer-widget-area mb-70" }, [
-          _c("h5", [_vm._v(" ")]),
-          _vm._v(" "),
-          _c("ul", [
-            _c("li", [
-              _c("a", { attrs: { href: "#", target: "_blank" } }, [
-                _vm._v("Site Map")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("a", { attrs: { href: "#", target: "_blank" } }, [
-                _vm._v("Pricing")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [_c("a", { attrs: { href: "#", target: "_blank" } })])
-          ])
-        ])
+        _c(
+          "a",
+          {
+            attrs: {
+              href: "#",
+              "data-toggle": "tooltip",
+              "data-placement": "top",
+              title: "Facbook"
+            }
+          },
+          [_c("i", { staticClass: "fa fa-facebook" })]
+        ),
+        _c(
+          "a",
+          {
+            attrs: {
+              href: "#",
+              "data-toggle": "tooltip",
+              "data-placement": "top",
+              title: "Twitter"
+            }
+          },
+          [_c("i", { staticClass: "fa fa-twitter" })]
+        ),
+        _c(
+          "a",
+          {
+            attrs: {
+              href: "#",
+              "data-toggle": "tooltip",
+              "data-placement": "top",
+              title: "Instagram"
+            }
+          },
+          [_c("i", { staticClass: "fa fa-instagram" })]
+        ),
+        _c(
+          "a",
+          {
+            attrs: {
+              href: "#",
+              "data-toggle": "tooltip",
+              "data-placement": "top",
+              title: "Linkedin"
+            }
+          },
+          [_c("i", { staticClass: "fa fa-linkedin" })]
+        ),
+        _c(
+          "a",
+          {
+            attrs: {
+              href: "#",
+              "data-toggle": "tooltip",
+              "data-placement": "top",
+              title: "Youtube"
+            }
+          },
+          [_c("i", { staticClass: "fa fa-youtube" })]
+        )
       ]
     )
   },
@@ -596,16 +583,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 col-md-6 col-lg-5" }, [
-      _c("div", { staticClass: "footer--content-text" }, [
-        _c("p", { staticClass: "mb-0" }, [
-          _vm._v("All rights reserved by "),
-          _c("a", { attrs: { href: "#", target: "_blank" } }, [
-            _vm._v("Meng Lang")
-          ])
-        ])
-      ])
-    ])
+    return _c("li", [_c("a", { attrs: { href: "#", target: "_blank" } })])
   }
 ]
 render._withStripped = true
@@ -697,7 +675,9 @@ var render = function() {
                         [
                           _c("a", { on: { click: _vm.showModal } }, [
                             _vm._v(
-                              "\n                                        learn Afrikaans "
+                              "\n                                        " +
+                                _vm._s(_vm.$t("LearnAfrikaans")) +
+                                " "
                             ),
                             _c("i", {
                               staticClass: "lni lni-chevron-down-circle",
@@ -720,7 +700,7 @@ var render = function() {
                           _c(
                             "router-link",
                             { attrs: { to: { name: "contact" } } },
-                            [_vm._v("Contact")]
+                            [_vm._v(_vm._s(_vm.$t("Contact")))]
                           )
                         ],
                         1
@@ -739,7 +719,7 @@ var render = function() {
                           _c(
                             "router-link",
                             { attrs: { to: { name: "pricing" } } },
-                            [_vm._v("Pricing")]
+                            [_vm._v(_vm._s(_vm.$t("Pricing")))]
                           )
                         ],
                         1
@@ -758,7 +738,7 @@ var render = function() {
                           _c(
                             "router-link",
                             { attrs: { to: { name: "blog" } } },
-                            [_vm._v("Blog")]
+                            [_vm._v(_vm._s(_vm.$t("Blog")))]
                           )
                         ],
                         1
@@ -782,7 +762,7 @@ var render = function() {
                             staticClass: "btn saasbox-btn btn-sm  btn-full",
                             attrs: { to: { name: "login" } }
                           },
-                          [_vm._v("Login")]
+                          [_vm._v(_vm._s(_vm.$t("Login")))]
                         )
                       ],
                       1

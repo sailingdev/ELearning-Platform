@@ -41,6 +41,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'TheLanguageModal',
@@ -57,8 +65,8 @@ __webpack_require__.r(__webpack_exports__);
     isShown: function isShown() {
       return this.display;
     },
-    header: function header() {
-      return this.type === 1 ? 'What language do you speak?' : 'What language do you want to learn?';
+    headerType: function headerType() {
+      return this.type === 1 ? 1 : 2;
     },
     isType: function isType() {
       if (this.type === 1) {
@@ -73,6 +81,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     onCloseModal: function onCloseModal() {
       this.$emit('isClosed', true);
+    },
+    setLocale: function setLocale(val) {
+      this.$i18n.locale = val;
     }
   }
 });
@@ -159,33 +170,74 @@ var render = function() {
             [_vm._v("×")]
           ),
           _vm._v(" "),
-          _c("h4", [_vm._v(_vm._s(_vm.header))])
+          _c("h4", [
+            _vm._v(_vm._s(_vm.$tc("TheLanguageModal.header", _vm.headerType)))
+          ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "cust-modal-body mt-4 mb-3" }, [
-          _c(
-            "div",
-            { staticClass: "row" },
-            _vm._l(_vm.langs, function(flag, key) {
-              return _c(
+          _vm.headerType === 1
+            ? _c(
                 "div",
-                {
-                  key: key,
-                  staticClass: "col-xs-6 col-sm-4 col-md-4 col-lg-3 mt-1 mb-4",
-                  on: { click: _vm.onCloseModal }
-                },
-                [
-                  _c("router-link", { attrs: { to: { name: _vm.isType } } }, [
-                    _c("span", { class: "flag-icon flag-icon-" + key }),
-                    _vm._v(" "),
-                    _c("span", [_vm._v(_vm._s(flag.name))])
-                  ])
-                ],
-                1
+                { staticClass: "row" },
+                _vm._l(_vm.langs, function(flag, key) {
+                  return _c(
+                    "div",
+                    {
+                      key: key,
+                      staticClass:
+                        "col-xs-6 col-sm-4 col-md-4 col-lg-3 mt-1 mb-4 cursor-on",
+                      on: { click: _vm.onCloseModal }
+                    },
+                    [
+                      _c(
+                        "a",
+                        {
+                          on: {
+                            click: function($event) {
+                              return _vm.setLocale(key)
+                            }
+                          }
+                        },
+                        [
+                          _c("span", { class: "flag-icon flag-icon-" + key }),
+                          _vm._v(" "),
+                          _c("span", [_vm._v(_vm._s(flag.name))])
+                        ]
+                      )
+                    ]
+                  )
+                }),
+                0
               )
-            }),
-            0
-          )
+            : _c(
+                "div",
+                { staticClass: "row" },
+                _vm._l(_vm.langs, function(flag, key) {
+                  return _c(
+                    "div",
+                    {
+                      key: key,
+                      staticClass:
+                        "col-xs-6 col-sm-4 col-md-4 col-lg-3 mt-1 mb-4",
+                      on: { click: _vm.onCloseModal }
+                    },
+                    [
+                      _c(
+                        "router-link",
+                        { attrs: { to: { name: _vm.isType } } },
+                        [
+                          _c("span", { class: "flag-icon flag-icon-" + key }),
+                          _vm._v(" "),
+                          _c("span", [_vm._v(_vm._s(flag.name))])
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                }),
+                0
+              )
         ]),
         _vm._v(" "),
         _c(
