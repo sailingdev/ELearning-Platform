@@ -71,19 +71,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Home',
@@ -215,7 +202,7 @@ var render = function() {
               },
               [
                 _vm._v(
-                  "\n                    Teach yourself a foreign language. With LingoHut you can learn over 45 languages like Afrikaans, Arabic, Chinese, Dutch, English, French,\n                    German, Hindi, Italian, Japanese, Persian, Portuguese, Russian, Spanish or Turkish from your own language.\n                    LingoHut contains 125 lessons to learn useful vocabulary without prior knowledge. You will learn short sentences and words you use daily.\n                "
+                  "\n                Teach yourself a foreign language. With LingoHut you can learn over 45 languages like Afrikaans, Arabic, Chinese, Dutch, English, French,\n                German, Hindi, Italian, Japanese, Persian, Portuguese, Russian, Spanish or Turkish from your own language.\n                LingoHut contains 125 lessons to learn useful vocabulary without prior knowledge. You will learn short sentences and words you use daily.\n            "
                 )
               ]
             ),
