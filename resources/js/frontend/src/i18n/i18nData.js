@@ -70,12 +70,29 @@ export default {
         },
         Login: {
             name: 'Login',
+            title: 'Login',
+            welcome: 'Welcome Back!',
+            account_question: "Didn't have an account?",
+            signup: 'Sign Up',
+            keep: 'Keep me logged in',
+            forgot: 'Forgot Password?',
         },
+        Email: 'Email Address',
+        FullName: 'Fulll Name',
+        Password: 'Password',
+        Show: 'SHOW',
+        Hide: 'HIDE',
         Register: {
             name: 'Register',
+            title: 'Create your free account',
+            subtitle: 'Already have an account?',
+            btn_register:'REGISTER NOW'
         },
         ForgotPassword: {
             name: 'Forgot Password',
+            title: 'Forgot Password',
+            subtitle: 'Already have an account?',
+            btn_reset: 'RESET PASSWORD'
         },
         SiteMap: {
             name: 'Site Map',
@@ -158,12 +175,29 @@ export default {
         },
         Login: {
             name: '登入',
+            title: '登入',
+            welcome: '欢迎回来！',
+            account_question: "还没有帐号？",
+            signup: '报名',
+            keep: '保持登录状态',
+            forgot: '忘记密码?',
         },
+        FullName: '姓名:',
+        Email: '电子邮件地址:',
+        Password: '密码',
+        Show: '展示',
+        Hide: '隐藏',
         Register: {
             name: '寄存器',
+            title: '创建您的免费帐户。',
+            subtitle: '已经有帐号了？',
+            btn_register:'立即注册'
         },
         ForgotPassword: {
             name: '忘记密码',
+            title: '忘记密码',
+            subtitle: '已经有帐号了？',
+            btn_reset: '重设密码'
         },
         SiteMap: {
             name: '网站地图',
