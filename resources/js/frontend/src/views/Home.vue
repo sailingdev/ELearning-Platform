@@ -19,9 +19,9 @@
                         <button class="btn btn-primary h-100" v-on:click="selectLang(2)" ><i class="lni-chevron-right"></i></button>
                     </div>
                 </div>
-                <div class="wow fadeInUp row g-3 mt-5" data-wow-delay="500ms" data-wow-duration="1000ms">
-                    <!-- Single Shop Card-->
-                    <div class="col-6 col-sm-6 col-lg-3" v-for="n in 20" :key="n">
+                <div class="wow fadeInUp row g-4 mt-5" data-wow-delay="500ms" data-wow-duration="1000ms">
+                    <!-- Single lesson Card-->
+                    <div class="col-6 col-sm-6 col-lg-4" v-for="n in 6" :key="n">
                         <div class="card shop-card">
                             <router-link :to="{name: 'category'}">
                                 <div class="product-img-wrap"><img class="card-img-top" src="frontend/img/language.jpg" alt="">

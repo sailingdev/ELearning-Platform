@@ -49,7 +49,7 @@
                             <div class="row g-3">
                                 <!-- Single Feature Area-->
                                 <div v-for="n in 35" class="col-12 col-sm-6 col-lg-6">
-                                    <router-link :to="{name:'Lesson'}">
+                                    <router-link :to="{name:'lesson'}">
                                         <div class="card feature-card">
                                             <div class="card-body d-flex align-items-center row">
                                                 <div class="fea-text col-9 col-sm-9 col-lg-9">

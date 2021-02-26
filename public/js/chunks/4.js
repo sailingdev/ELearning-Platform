@@ -720,7 +720,7 @@ var render = function() {
                               [
                                 _c(
                                   "router-link",
-                                  { attrs: { to: { name: "Lesson" } } },
+                                  { attrs: { to: { name: "lesson" } } },
                                   [
                                     _c(
                                       "div",

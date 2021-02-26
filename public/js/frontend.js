@@ -43045,13 +43045,30 @@ __webpack_require__.r(__webpack_exports__);
       search: 'Search...'
     },
     Login: {
-      name: 'Login'
+      name: 'Login',
+      title: 'Login',
+      welcome: 'Welcome Back!',
+      account_question: "Didn't have an account?",
+      signup: 'Sign Up',
+      keep: 'Keep me logged in',
+      forgot: 'Forgot Password?'
     },
+    Email: 'Email Address',
+    FullName: 'Fulll Name',
+    Password: 'Password',
+    Show: 'SHOW',
+    Hide: 'HIDE',
     Register: {
-      name: 'Register'
+      name: 'Register',
+      title: 'Create your free account',
+      subtitle: 'Already have an account?',
+      btn_register: 'REGISTER NOW'
     },
     ForgotPassword: {
-      name: 'Forgot Password'
+      name: 'Forgot Password',
+      title: 'Forgot Password',
+      subtitle: 'Already have an account?',
+      btn_reset: 'RESET PASSWORD'
     },
     SiteMap: {
       name: 'Site Map'
@@ -43133,13 +43150,30 @@ __webpack_require__.r(__webpack_exports__);
       search: '搜寻...'
     },
     Login: {
-      name: '登入'
+      name: '登入',
+      title: '登入',
+      welcome: '欢迎回来！',
+      account_question: "还没有帐号？",
+      signup: '报名',
+      keep: '保持登录状态',
+      forgot: '忘记密码?'
     },
+    FullName: '姓名:',
+    Email: '电子邮件地址:',
+    Password: '密码',
+    Show: '展示',
+    Hide: '隐藏',
     Register: {
-      name: '寄存器'
+      name: '寄存器',
+      title: '创建您的免费帐户。',
+      subtitle: '已经有帐号了？',
+      btn_register: '立即注册'
     },
     ForgotPassword: {
-      name: '忘记密码'
+      name: '忘记密码',
+      title: '忘记密码',
+      subtitle: '已经有帐号了？',
+      btn_reset: '重设密码'
     },
     SiteMap: {
       name: '网站地图'
@@ -43269,19 +43303,19 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/',
       name: 'home',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/frontend/src/views/Home.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/frontend/src/views/Home.vue"));
       }
     }, {
       path: '/category',
       name: 'category',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/Category.vue */ "./resources/js/frontend/src/views/Category.vue"));
+        return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/Category.vue */ "./resources/js/frontend/src/views/Category.vue"));
       }
     }, {
       path: '/lesson-list',
       name: 'lesson-list',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ./views/LessonList.vue */ "./resources/js/frontend/src/views/LessonList.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(9)]).then(__webpack_require__.bind(null, /*! ./views/LessonList.vue */ "./resources/js/frontend/src/views/LessonList.vue"));
       }
     }, {
       path: '/lesson',
@@ -43293,43 +43327,43 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/contact',
       name: 'contact',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/Contact.vue */ "./resources/js/frontend/src/views/Contact.vue"));
+        return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/Contact.vue */ "./resources/js/frontend/src/views/Contact.vue"));
       }
     }, {
       path: '/pricing',
       name: 'pricing',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/Pricing.vue */ "./resources/js/frontend/src/views/Pricing.vue"));
+        return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./views/Pricing.vue */ "./resources/js/frontend/src/views/Pricing.vue"));
       }
     }, {
       path: '/blog',
       name: 'blog',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./views/blog/Blog.vue */ "./resources/js/frontend/src/views/blog/Blog.vue"));
+        return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./views/blog/Blog.vue */ "./resources/js/frontend/src/views/blog/Blog.vue"));
       }
     }, {
       path: '/blog-details',
       name: 'blog-details',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./views/blog/BlogDetails.vue */ "./resources/js/frontend/src/views/blog/BlogDetails.vue"));
+        return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/blog/BlogDetails.vue */ "./resources/js/frontend/src/views/blog/BlogDetails.vue"));
       }
     }, {
       path: '/login',
       name: 'login',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/auth/Login.vue */ "./resources/js/frontend/src/views/auth/Login.vue"));
+        return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/auth/Login.vue */ "./resources/js/frontend/src/views/auth/Login.vue"));
       }
     }, {
       path: '/register',
       name: 'register',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/auth/Register.vue */ "./resources/js/frontend/src/views/auth/Register.vue"));
+        return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./views/auth/Register.vue */ "./resources/js/frontend/src/views/auth/Register.vue"));
       }
     }, {
       path: '/forgot-password',
       name: 'forgot-password',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./views/auth/ForgotPassword.vue */ "./resources/js/frontend/src/views/auth/ForgotPassword.vue"));
+        return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/auth/ForgotPassword.vue */ "./resources/js/frontend/src/views/auth/ForgotPassword.vue"));
       }
     }]
   }]
