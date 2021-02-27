@@ -6,6 +6,8 @@
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags-->
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Title-->
     <title>E-Learning platform</title>
     <!-- Favicon-->
