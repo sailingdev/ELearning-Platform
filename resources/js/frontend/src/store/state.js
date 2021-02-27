@@ -6,25 +6,16 @@
   Author: Pixinvent
   Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
+import $ from "jquery";
 
-
-// /////////////////////////////////////////////
-// Helper
-// /////////////////////////////////////////////
-
-// *From Auth - Data will be received from auth provider
-
-
-
-// Check if device is touch device
-// This is used to remove perfect scrollbar from touch devices
-// Using Dynamic components
+let _token = $('meta[name="csrf-token"]').attr('content');
 
 // /////////////////////////////////////////////
 // State
 // /////////////////////////////////////////////
 const state = {
-
+    token: _token,
+    isLoggedIn : false,
 }
 
 export default state

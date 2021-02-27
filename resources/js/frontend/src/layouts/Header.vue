@@ -29,7 +29,9 @@
                                     <li v-on:click="setMenuOn()"><router-link :to="{name: 'blog'}">{{$t('Blog.name')}}</router-link></li>
                                 </ul>
                                 <!-- Login Button-->
-                                <div class="login-btn-area ml-4 mt-4 mt-lg-0" v-on:click="setMenuOn()"><router-link class="btn saasbox-btn btn-sm  btn-full" :to="{name: 'login'}">{{$t('Login.name')}}</router-link></div>
+                                <div class="login-btn-area ml-4 mt-4 mt-lg-0" v-on:click="setMenuOn()">
+                                    <router-link class="btn saasbox-btn btn-sm  btn-full" :to="{name: 'login'}">{{$t('Login.name')}}</router-link>
+                                </div>
                             </div>
                         </div>
                     </nav>
@@ -67,6 +69,9 @@
             },
           isShown(){
                 return this.display;
+          },
+          isLoggedIn(){
+                return this.$store.state.isLoggedIn
           }
       },
       methods: {

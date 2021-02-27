@@ -18,15 +18,16 @@
                             <p>{{$t('Login.account_question')}} <router-link class="ml-2" :to="{name: 'register'}">{{$t('Login.signup')}}</router-link></p>
                             <!-- Register Form-->
                             <div class="register-form my-5">
-                                <form>
+                                <label class="mb-1 text-danger">{{err_message}}</label>
+                                <form @focusin="hidden_err">
                                     <div class="form-group mb-3">
-                                        <input class="form-control rounded-0" type="email" :placeholder="$t('Email')" v-model="email" required>
+                                        <input class="form-control rounded-0" name="email" type="email" :placeholder="$t('Email')" v-model="email" required>
                                     </div>
                                     <div class="form-group mb-3">
                                         <label class="label-psswd" for="password"><span class="hide">{{$t('Hide')}}</span><span class="show">{{$t('Show')}}</span></label>
-                                        <input class="input-psswd form-control rounded-0" id="password" type="password" :placeholder="$t('Password')" psswd-shown="false" v-model="password" required>
+                                        <input class="input-psswd form-control rounded-0" name="password" id="password" type="password" :placeholder="$t('Password')" psswd-shown="false" v-model="password" required>
                                     </div>
-                                    <button class="btn saasbox-btn white-btn w-100" v-on:click="login"><i class="lni-unlock mr-2"></i>{{$t('Login.title')}}</button>
+                                    <button class="btn saasbox-btn white-btn w-100"  v-on:click="login"><i class="lni-unlock mr-2"></i>{{$t('Login.title')}}</button>
                                 </form>
                                 <div class="login-meta-data d-flex align-items-center justify-content-between">
                                     <div class="form-check mt-3">
@@ -49,8 +50,14 @@
         data(){
             return {
                 email: null,
-                password: null
+                password: null,
+                err: null
             }
+        },
+        computed: {
+          err_message(){
+              return this.err;
+          },
         },
         methods:{
             login(){
@@ -60,8 +67,14 @@
                 }
                 $('form').submit(false);
                 this.$store.dispatch('auth/login', payload)
+                    .then()
+                    .catch(e => {
+                        this.err = e.message;
+                    });
+            },
+            hidden_err(){
+                this.err = null
             }
-        }
-
+        },
     }
 </script>

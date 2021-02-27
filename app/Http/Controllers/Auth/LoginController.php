@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -18,22 +22,33 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
-
     /**
-     * Where to redirect users after login.
-     *
-     * @var string
+     * get token from user email and password
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\View\View
      */
-    protected $redirectTo = '/frontend';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function login(Request $request)
     {
-        $this->middleware('guest')->except('logout');
+        $validate = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+        if ($validate->fails()){
+            return response()->json($validate->errors(), 422);
+        }
+        $credential = $request->only('email', 'password');
+        if (!Auth::attempt($credential)) {
+            return response()->json(['message' => 'The provided credentials are incorrect'], 401);
+        }
+        $user = User::select('id', 'name', 'email', 'created_at')
+            ->where('email', "$request->email")
+            ->with(['roles' => function($role){
+                $role->select(['id'])->first();
+            }])->first();
+        return response()->json([
+            'accessToken' => $user->createToken($request->email, ['tortu'])->plainTextToken,
+            'userData' => $user
+        ]);
     }
+
 }

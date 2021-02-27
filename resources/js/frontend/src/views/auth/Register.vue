@@ -53,7 +53,7 @@
         methods: {
             register(){
                 let payload = {
-                        email: this.email,
+                    email: this.email,
                         name: this.full_name,
                         password: this.password,
                         password_confirmation: this.password
