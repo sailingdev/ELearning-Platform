@@ -1,17 +1,17 @@
 import auth from '../../http/request/auth'
 import axios from 'axios/index.js'
-import router from '../../../src/router'
+import router from '../../router.js'
 export default {
-    register({commit}, payload){
+    register ({commit}, payload) {
         return new Promise((resolve, reject) => {
-            auth.register(payload)
-                .then((response => {
-                    console.log(response)
-                    resolve()
-                }))
-                .catch((err) => {
-                    reject(err)
-                })
+        auth.register(payload)
+            .then((response => {
+                router.push(router.currentRoute.query.to || '/login')
+                resolve()
+            }))
+            .catch((err) => {
+                reject(err)
+            })
         })
     },
     login({commit}, payload){

@@ -17,8 +17,9 @@
                             <h4>{{$t('Register.title')}}</h4>
                             <p>{{$t('Register.subtitle')}}<router-link class="ml-2" :to="{name: 'login'}">{{$t('Login.name')}}</router-link></p>
                             <!-- Register Form-->
-                            <div class="register-form my-5">
-                                <form>
+                            <div  class="register-form my-5">
+                                <label class="mb-1 text-danger" >{{err_message}}</label>
+                                <form @focusin="remove_err">
                                     <div class="form-group mb-3">
                                         <input class="form-control rounded-0" type="email" :placeholder="$t('Email')" v-model="email" required>
                                     </div>
@@ -47,8 +48,14 @@
             return {
                 email: null,
                 full_name: null,
-                password: null
+                password: null,
+                err: null
             }
+        },
+        computed: {
+          err_message(){
+              return this.err;
+          }
         },
         methods: {
             register(){
@@ -60,6 +67,13 @@
                 }
                 $('form').submit(false)
                 this.$store.dispatch('auth/register', payload)
+                    .then()
+                    .catch(e => {
+                        this.err = e.message;
+                    })
+            },
+            remove_err(){
+                this.err = null
             }
         }
     }
