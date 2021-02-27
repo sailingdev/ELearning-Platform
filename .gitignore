@@ -10,4 +10,4 @@ npm-debug.log
 yarn-error.log
 /vuexy-shell-scripts
 /app/Providers/AppServiceProvider.php
-/.idea/
+/.idea
