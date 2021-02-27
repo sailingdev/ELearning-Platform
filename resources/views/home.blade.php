@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{asset(mix('frontend/css/bootstrap.min.css'))}}">
     <link rel="stylesheet" href="{{asset(mix('frontend/css/default/classy-nav.min.css'))}}">
     <link rel="stylesheet" href="{{asset(mix('frontend/css/animate.css'))}}">
-{{--    <link rel="stylesheet" href="{{asset(mix('frontend/css/owl.carousel.min.css'))}}">--}}
+    {{--    <link rel="stylesheet" href="{{asset(mix('frontend/css/owl.carousel.min.css'))}}">--}}
     <link rel="stylesheet" href="{{asset(mix('frontend/css/magnific-popup.css'))}}">
     <link rel="stylesheet" href="{{asset(mix('frontend/css/jquery.animatedheadline.css'))}}">
     <link rel="stylesheet" href="{{asset(mix('frontend/css/default/lineicons.min.css'))}}">
@@ -33,7 +33,7 @@
 </div>
 
 <!-- All JavaScript Files-->
-<script src="{{asset(mix('js/frontend.js'))}}"></script>
+<script src="{{asset(mix('js/frontend/frontend.js'))}}"></script>
 
 <script src="{{asset(mix('frontend/js/popper.min.js'))}}"></script>
 <script src="{{asset(mix('frontend/js/bootstrap.min.js'))}}"></script>

@@ -4,7 +4,7 @@
             <div class="container">
                 <div :class="breakpoint">
                     <nav class="classy-navbar navbar2 justify-content-between" id="saasboxNav">
-                        <!-- Logo--><router-link class="nav-brand mr-5" :to="{name: 'home'}"><img src="images/logo/logo.png" alt=""></router-link>
+                        <!-- Logo--><router-link class="nav-brand mr-5" :to="'/'"><img src="images/logo/logo.png" alt=""></router-link>
 
 
                         <!-- Navbar Toggler-->
