@@ -32,12 +32,12 @@ const router = new Router({
         // Theme Routes
         // =============================================================================
               {
-                path: '/',
+                path: '/admin/dashboard',
                 name: 'home',
                 component: () => import('./views/Home.vue')
               },
               {
-                path: '/page2',
+                path: '/admin/page2',
                 name: 'page-2',
                 component: () => import('./views/Page2.vue')
               },
@@ -46,31 +46,42 @@ const router = new Router({
     // =============================================================================
     // FULL PAGE LAYOUTS
     // =============================================================================
-        {
-            path: '',
-            component: () => import('@/layouts/full-page/FullPage.vue'),
-            children: [
-        // =============================================================================
-        // PAGES
-        // =============================================================================
-              {
-                path: '/pages/login',
-                name: 'page-login',
-                component: () => import('@/views/pages/Login.vue')
-              },
-              {
-                path: '/pages/error-404',
-                name: 'page-error-404',
-                component: () => import('@/views/pages/Error404.vue')
-              },
-            ]
-        },
+    //     {
+    //         path: '',
+    //         component: () => import('@/layouts/full-page/FullPage.vue'),
+    //         children: [
+    //     // =============================================================================
+    //     // PAGES
+    //     // =============================================================================
+    //           {
+    //             path: '/pages/login',
+    //             name: 'page-login',
+    //             component: () => import('@/views/pages/Login.vue')
+    //           },
+    //           {
+    //             path: '/pages/error-404',
+    //             name: 'page-error-404',
+    //             component: () => import('@/views/pages/Error404.vue')
+    //           },
+    //         ]
+    //     },
         // Redirect to 404 page, if no match found
-        {
-            path: '*',
-            redirect: '/pages/error-404'
-        }
+        // {
+        //     path: '*',
+        //     redirect: '/pages/error-404'
+        // }
     ],
+})
+
+function isAuthenticated (){
+    return localStorage.getItem('tortu_accessToken') && localStorage.getItem('tortu_userData')
+}
+
+router.beforeEach((to, from, next) => {
+    if (isAuthenticated() === null) {
+        window.location.href = "/"
+    } else
+        next()
 })
 
 router.afterEach(() => {
