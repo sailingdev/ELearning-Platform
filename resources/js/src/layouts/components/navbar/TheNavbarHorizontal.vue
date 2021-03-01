@@ -16,10 +16,10 @@
 
       <bookmarks :navbarColor="navbarColor" v-if="windowWidth >= 992" />
 
-      <router-link tag="div" to="/" class="vx-logo cursor-pointer mx-auto flex items-center">
+      <a tag="div" v-on:click="goHome" class="vx-logo cursor-pointer mx-auto flex items-center">
         <logo class="w-10 mr-4 fill-current text-primary" />
         <span class="vx-logo-text text-primary">Vuexy</span>
-      </router-link>
+      </a>
 
       <search-bar class="mr-4" />
 
@@ -81,7 +81,12 @@ export default {
     scrollY ()              { return this.$store.state.scrollY                                                                     },
     verticalNavMenuWidth () { return this.$store.state.verticalNavMenuWidth                                                        },
     windowWidth ()          { return this.$store.state.windowWidth                                                                 }
-  }
+  },
+    methods: {
+        goHome(){
+            window.location.href = "/lesson"
+        }
+    }
 }
 
 </script>

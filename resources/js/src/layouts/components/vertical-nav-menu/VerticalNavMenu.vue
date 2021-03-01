@@ -30,10 +30,10 @@
         <div class="header-sidebar flex items-end justify-between" slot="header">
 
           <!-- Logo -->
-          <router-link tag="div" class="vx-logo cursor-pointer flex items-center" to="/">
+          <a v-on:click="goHome" tag="div" class="vx-logo cursor-pointer flex items-center" to="/">
             <logo class="w-10 mr-4 fill-current text-primary" />
             <span class="vx-logo-text text-primary" v-show="isMouseEnter || !reduce" v-if="title">{{ title }}</span>
-          </router-link>
+          </a>
           <!-- /Logo -->
 
           <!-- Menu Buttons -->
@@ -211,6 +211,9 @@ export default {
     windowWidth ()  { this.setVerticalNavMenuWidth() }
   },
   methods: {
+      goHome(){
+          window.location.href = "/"
+      },
     onMenuSwipe (event) {
       if (event.direction === 4 && this.$vs.rtl) {
 

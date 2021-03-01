@@ -20,8 +20,8 @@ export default {
                 auth.login(payload)
                     .then((response) => {
                        if (response.data.userData){
-                           localStorage.setItem('accessToken', response.data.accessToken)
-                           localStorage.setItem('userData', response.data.userData)
+                           localStorage.setItem('tortu_accessToken', response.data.accessToken)
+                           localStorage.setItem('tortu_userData', response.data.userData)
                            if (response.data.userData.roles[0].id === 1){
                                window.location.href = "/admin/dashboard"
                            } else {
