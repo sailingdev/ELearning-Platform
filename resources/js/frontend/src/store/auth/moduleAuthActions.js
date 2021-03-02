@@ -21,8 +21,9 @@ export default {
                     .then((response) => {
                        if (response.data.userData){
                            localStorage.setItem('tortu_accessToken', response.data.accessToken)
-                           localStorage.setItem('tortu_userData', response.data.userData)
-                           if (response.data.userData.roles[0].id === 1){
+                           localStorage.setItem('tortu_userData', JSON.stringify(response.data.userData))
+                           commit('SET_LOGGEDIN', true)
+                           if (response.data.userData.role === "admin"){
                                window.location.href = "/admin/dashboard"
                            } else {
 

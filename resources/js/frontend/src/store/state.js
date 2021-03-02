@@ -8,14 +8,11 @@
 ==========================================================================================*/
 import $ from "jquery";
 
-let _token = $('meta[name="csrf-token"]').attr('content');
 
 // /////////////////////////////////////////////
 // State
 // /////////////////////////////////////////////
 const state = {
-    token: _token,
-    isLoggedIn : false,
 }
 
 export default state

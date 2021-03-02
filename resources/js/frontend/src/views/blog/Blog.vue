@@ -5,7 +5,7 @@
             <div class="row justify-content-center wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1000ms">
                 <div class="col-12 col-md-9 col-lg-7 col-xxl-6">
                     <div class="section-heading text-center">
-                        <h2>{{$t('blog-management.title')}}</h2>
+                        <h2>{{$t('Blog.title')}}</h2>
                     </div>
                 </div>
             </div>

@@ -133,12 +133,12 @@ const router = new Router({
     ],
 })
 
-function isAuthenticated (){
-    return localStorage.getItem('tortu_accessToken') && localStorage.getItem('tortu_userData')
-}
-
 router.beforeEach((to, from, next) => {
-    if (isAuthenticated() === null) {
+    let _token = localStorage.getItem('tortu_accessToken')
+    let userData = JSON.parse(localStorage.getItem('tortu_userData'))
+    let isAdmin = userData.role === 'admin'
+    let isUnAuthenticated = !_token && !userData
+    if (!isUnAuthenticated && !isAdmin) {
         window.location.href = "/"
     } else
         next()

@@ -42,12 +42,11 @@ class LoginController extends Controller
         }
         $user = User::select('id', 'name', 'email', 'created_at')
             ->where('email', "$request->email")
-            ->with(['roles' => function($role){
-                $role->select(['id'])->first();
-            }])->first();
+            ->first();
+        $user['role'] = Auth::user()->getRoleNames()->first();
         return response()->json([
             'accessToken' => $user->createToken($request->email, ['tortu'])->plainTextToken,
-            'userData' => $user
+            'userData' => $user,
         ]);
     }
 }
