@@ -1,6 +1,6 @@
 <template>
    <div class="vx-row ">
-       <div class="vx-col w-full lg:w-3/12 mb-base">
+       <div class="vx-col w-full lg:w-3/12 mb-base mw-32">
            <vx-card @focusin="onResetMSG">
                <p class="text-black mb-4">Properties</p>
 
@@ -10,7 +10,7 @@
 
 
                <!-- Cover Image upload section -->
-               <vs-upload limit="1" text="The cover image field is required" aria-required="true" ref="imgSubmit" action="http://localhost/" @change="onFilePicked" @on-success="successUpload" />
+               <vs-upload limit="1" text="The cover image field is required" aria-required="true" :show-upload-button="false" ref="imgSubmit" @change="onFilePicked" @on-success="successUpload" />
                <label class="mb-5" style="color: red;">{{ errMSG.cover_image }}</label>
 
                <!-- Category section   -->
@@ -36,7 +36,7 @@
        </div>
 
        <!-- Editor section  -->
-       <div class="vx-col w-full lg:w-9/12 mb-base">
+       <div class="vx-col w-full lg:w-8/12 mb-base">
            <vx-card @focusin="onResetMSG">
                <p class="text-grey mb-4">Build your blog page content.</p>
                <label class="" style="color: red;">{{ errMSG.content }}</label>
@@ -132,12 +132,15 @@
 
 <style >
     .ql-editor{
-        min-height:490px;
+        min-height:466px;
     }
     .con-img-upload {
         text-align: -webkit-center;
     }
     .con-input-upload {
         float: unset;
+    }
+    .mw-32{
+        min-width: 320px;
     }
 </style>
