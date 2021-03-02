@@ -1,11 +1,14 @@
 <template>
    <div class="vx-row ">
        <div class="vx-col w-full lg:w-3/12 mb-base">
-           <vx-card>
+           <vx-card @focusin="onResetMSG">
                <p class="text-black mb-4">Properties</p>
-               <vs-textarea v-model="title" label="Blog Title" class="w-full mt-5 mb-5" />
+               <label style="color: red;">{{ errMSG.title }}</label>
+               <vs-textarea v-model="title" label="Blog Title" class="w-full mt-3 mb-5" />
 
-                   <vs-upload limit="1" text="Upload Main Image" ref="imgSubmit" action="http://localhost/" @change="onFilePicked" @on-success="successUpload" />
+
+               <vs-upload limit="1" text="The cover image field is required" aria-required="true" ref="imgSubmit" action="http://localhost/" @change="onFilePicked" @on-success="successUpload" />
+               <label class="mb-5" style="color: red;">{{ errMSG.cover_image }}</label>
 
                <p class="text-grey mb-3">Catetory</p>
                <ul class="centerx mb-12">
@@ -27,8 +30,9 @@
            </vx-card>
        </div>
        <div class="vx-col w-full lg:w-9/12 mb-base">
-           <vx-card>
+           <vx-card @focusin="onResetMSG">
                <p class="text-grey mb-4">Build your blog page content.</p>
+               <label class="" style="color: red;">{{ errMSG.content }}</label>
                <quill-editor v-model="content" ></quill-editor>
            </vx-card>
        </div>
@@ -51,7 +55,10 @@
               content: `...`,
               category: 1,
               title: '',
-              cover_img: ''
+              cover_img: '',
+              err_title: '',
+              err_cover_image: '',
+              err_content: '',
           }
       },
       components: {
@@ -75,17 +82,44 @@
               this.$store.commit('SET_BEARER')
               this.$store.dispatch('blog/add_new', {config, data})
                 .catch(err => {
-                    this.erros = {}
                     if (err.response.status === 422){
-                        this.erros = err.response.data.errors;
+                        let errs = err.response.data.errors;
+                        for (const index in errs)
+                        {
+                            switch (index) {
+                                case 'title':
+                                    this.err_title = errs[index][0].replace(/[^a-zA-Z0-9 ]/g, "")
+                                    break
+                                case 'cover_image':
+                                    this.err_cover_image = errs[index][0].replace(/[^a-zA-Z0-9 ]/g, "")
+                                    break
+                                case 'content':
+                                    this.err_content = errs[index][0].replace(/[^a-zA-Z0-9 ]/g, "")
+                                    break
+                            }
+                        }
                     }
-                    console.log(this.erros)
                 })
+              this.flag = 1
           },
           onFilePicked(event){
               this.cover_img = event
+          },
+          onResetMSG(){
+              this.err_cover_image = ''
+              this.err_title = ''
+              this.err_content = ''
           }
       },
+      computed: {
+        errMSG(){
+            return {
+                title: this.err_title,
+                cover_image: this.err_cover_image,
+                content: this.err_content
+            }
+        }
+      }
   }
 </script>
 
