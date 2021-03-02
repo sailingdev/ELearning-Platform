@@ -90,10 +90,7 @@
               this.display = true
           },
           logout(){
-              localStorage.removeItem('tortu_userData')
-              localStorage.removeItem('tortu_accessToken')
-              this.$store.commit('auth/SET_LOGGEDIN', false)
-              this.$router.push({name: 'home'})
+              this.$store.dispatch('auth/logout')
           }
       }
   }

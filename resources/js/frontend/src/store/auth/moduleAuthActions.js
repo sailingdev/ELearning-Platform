@@ -50,5 +50,21 @@ export default {
                     reject(err)
                 })
         })
+    },
+    logout({commit}, payload){
+        commit('SET_BEARER', localStorage.getItem('tortu_accessToken'))
+        return new Promise((resolve, reject) => {
+            auth.logout(payload)
+                .then((response) => {
+                    localStorage.removeItem('tortu_userData')
+                    localStorage.removeItem('tortu_accessToken')
+                    commit('SET_LOGGEDIN', false)
+                    router.push(router.currentRoute.query.to || "/" )
+                    resolve()
+                })
+                .catch((err) => {
+                    reject(err)
+                })
+        })
     }
 }
