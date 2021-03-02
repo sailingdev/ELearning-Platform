@@ -31,5 +31,7 @@
     "/frontend/css/jquery.animatedheadline.css": "/frontend/css/jquery.animatedheadline.css",
     "/frontend/css/default/lineicons.min.css": "/frontend/css/default/lineicons.min.css",
     "/frontend/css/font-awesome.min.css": "/frontend/css/font-awesome.min.css",
-    "/frontend/css/flag-icon.min.css": "/frontend/css/flag-icon.min.css"
+    "/frontend/css/flag-icon.min.css": "/frontend/css/flag-icon.min.css",
+    "/js/frontend/frontend.js": "/js/frontend/frontend.js",
+    "/js/admin/app.js": "/js/admin/app.js"
 }
