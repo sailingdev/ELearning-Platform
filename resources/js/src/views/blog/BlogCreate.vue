@@ -3,13 +3,17 @@
        <div class="vx-col w-full lg:w-3/12 mb-base">
            <vx-card @focusin="onResetMSG">
                <p class="text-black mb-4">Properties</p>
+
+               <!-- Title section -->
                <label style="color: red;">{{ errMSG.title }}</label>
                <vs-textarea v-model="title" label="Blog Title" class="w-full mt-3 mb-5" />
 
 
+               <!-- Cover Image upload section -->
                <vs-upload limit="1" text="The cover image field is required" aria-required="true" ref="imgSubmit" action="http://localhost/" @change="onFilePicked" @on-success="successUpload" />
                <label class="mb-5" style="color: red;">{{ errMSG.cover_image }}</label>
 
+               <!-- Category section   -->
                <p class="text-grey mb-3">Catetory</p>
                <ul class="centerx mb-12">
                    <li>
@@ -27,8 +31,11 @@
                         <vs-button class="btn btn-primary justify-end" @click.prevent="onSubmit" >Submit</vs-button>
                    </form>
                </div>
+
            </vx-card>
        </div>
+
+       <!-- Editor section  -->
        <div class="vx-col w-full lg:w-9/12 mb-base">
            <vx-card @focusin="onResetMSG">
                <p class="text-grey mb-4">Build your blog page content.</p>
