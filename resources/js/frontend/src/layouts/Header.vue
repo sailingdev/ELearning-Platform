@@ -29,8 +29,11 @@
                                     <li v-on:click="setMenuOn()"><router-link :to="{name: 'blog'}">{{$t('Blog.name')}}</router-link></li>
                                 </ul>
                                 <!-- Login Button-->
-                                <div class="login-btn-area ml-4 mt-4 mt-lg-0" v-on:click="setMenuOn()">
-                                    <router-link class="btn saasbox-btn btn-sm  btn-full" :to="{name:isLoggedIn ? 'logout' : 'login' }">{{$t(isLoggedIn ? 'Login.name' : 'Logout')}}</router-link>
+                                <div v-if="!isLoggedIn"  class="login-btn-area ml-4 mt-4 mt-lg-0" v-on:click="setMenuOn()">
+                                    <router-link class="btn saasbox-btn btn-sm  btn-full" :to="{name:'login' }">{{$t('Login.name')}}</router-link>
+                                </div>
+                                <div v-else class="login-btn-area ml-4 mt-4 mt-lg-0" v-on:click="setMenuOn()">
+                                    <a class="btn saasbox-btn btn-sm  btn-full" v-on:click="logout()">{{$t('Logout')}}</a>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +74,9 @@
                 return this.display;
           },
           isLoggedIn(){
-                return this.$store.state.auth.isLoggedIn
+                let isLoggedIn = this.$store.state.auth.isLoggedIn
+                let isAccessToken = !localStorage.getItem('tortu_accessToken')
+                return isLoggedIn || !isAccessToken
           }
       },
       methods: {
@@ -83,6 +88,12 @@
           },
           showModal(){
               this.display = true
+          },
+          logout(){
+              localStorage.removeItem('tortu_userData')
+              localStorage.removeItem('tortu_accessToken')
+              this.$store.commit('auth/SET_LOGGEDIN', false)
+              this.$router.push({name: 'home'})
           }
       }
   }
