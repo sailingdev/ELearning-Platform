@@ -62,21 +62,25 @@
               this.$vs.notify({color:'success',title:'Upload Success',text:'Lorem ipsum dolor sit amet, consectetur'})
           },
           onSubmit(){
-            const config = {
-                headers: {
-                    'content-type': 'multipart/form-data'
+                const config = {
+                    headers: {
+                        'content-type': 'multipart/form-data'
+                    }
                 }
-            }
               let data = new FormData()
               data.append('title', this.title)
               data.append('category', this.category)
               data.append('content', this.content)
-              data.append('cover_img', this.cover_img)
-              let payload = {
-                config, data
-              }
+              data.append('cover_image', this.cover_img)
               this.$store.commit('SET_BEARER')
-              this.$store.dispatch('blog/add_new', payload)
+              this.$store.dispatch('blog/add_new', {config, data})
+                .catch(err => {
+                    this.erros = {}
+                    if (err.response.status === 422){
+                        this.erros = err.response.data.errors;
+                    }
+                    console.log(this.erros)
+                })
           },
           onFilePicked(event){
               this.cover_img = event

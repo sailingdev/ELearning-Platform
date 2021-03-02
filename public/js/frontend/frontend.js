@@ -38887,6 +38887,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../axios */ "./resources/js/frontend/src/http/axios/index.js");
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  config: function config() {
+    var token = localStorage.getItem('tortu_accessToken');
+    var config = {
+      headers: {
+        'X-XSRF-TOKEN': token
+      }
+    };
+    return config;
+  },
   register: function register(payload) {
     var name = payload.name,
         email = payload.email,
@@ -38912,6 +38921,9 @@ __webpack_require__.r(__webpack_exports__);
     return _axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/password/email', {
       email: email
     });
+  },
+  logout: function logout(payload) {
+    return _axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/logout', {});
   }
 });
 
@@ -39514,6 +39526,21 @@ __webpack_require__.r(__webpack_exports__);
     return new Promise(function (resolve, reject) {
       _http_request_auth__WEBPACK_IMPORTED_MODULE_0__["default"].forgot_password(payload).then(function (response) {
         console.log(response);
+        resolve();
+      })["catch"](function (err) {
+        reject(err);
+      });
+    });
+  },
+  logout: function logout(_ref4, payload) {
+    var commit = _ref4.commit;
+    commit('SET_BEARER', localStorage.getItem('tortu_accessToken'));
+    return new Promise(function (resolve, reject) {
+      _http_request_auth__WEBPACK_IMPORTED_MODULE_0__["default"].logout(payload).then(function (response) {
+        localStorage.removeItem('tortu_userData');
+        localStorage.removeItem('tortu_accessToken');
+        commit('SET_LOGGEDIN', false);
+        _router_js__WEBPACK_IMPORTED_MODULE_2__["default"].push(_router_js__WEBPACK_IMPORTED_MODULE_2__["default"].currentRoute.query.to || "/");
         resolve();
       })["catch"](function (err) {
         reject(err);

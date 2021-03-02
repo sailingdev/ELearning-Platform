@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class BlogController extends Controller
 {
@@ -31,11 +32,19 @@ class BlogController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
-        dd($request);
+        $this->validate($request, [
+            'title' => 'required|string|max:255',
+            'category' => 'required|max:1',
+            'cover_image' => 'required|string',
+            'content' => 'required|string|min:200'
+        ]);
+
+
+
     }
 
     /**

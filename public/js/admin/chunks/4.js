@@ -55,7 +55,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 // require styles
 
 
@@ -66,8 +65,9 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       content: "...",
-      category: "1",
-      title: ''
+      category: 1,
+      title: '',
+      cover_img: ''
     };
   },
   components: {
@@ -80,6 +80,36 @@ __webpack_require__.r(__webpack_exports__);
         title: 'Upload Success',
         text: 'Lorem ipsum dolor sit amet, consectetur'
       });
+    },
+    onSubmit: function onSubmit() {
+      var _this = this;
+
+      var config = {
+        headers: {
+          'content-type': 'multipart/form-data'
+        }
+      };
+      var data = new FormData();
+      data.append('title', this.title);
+      data.append('category', this.category);
+      data.append('content', this.content);
+      data.append('cover_image', this.cover_img);
+      this.$store.commit('SET_BEARER');
+      this.$store.dispatch('blog/add_new', {
+        config: config,
+        data: data
+      })["catch"](function (err) {
+        _this.erros = {};
+
+        if (err.response.status === 422) {
+          _this.erros = err.response.data.errors;
+        }
+
+        console.log(_this.erros);
+      });
+    },
+    onFilePicked: function onFilePicked(event) {
+      this.cover_img = event;
     }
   }
 });
@@ -98,7 +128,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".ql-editor{\n  min-height:490px;\n}\n", ""]);
+exports.push([module.i, ".ql-editor{\n  min-height:490px;\n}\n[dir] .con-img-upload {\n  text-align: -webkit-center;\n}\n[dir] .con-input-upload {\n  float: unset;\n}\n", ""]);
 
 // exports
 
@@ -153,7 +183,7 @@ var render = function() {
   return _c("div", { staticClass: "vx-row " }, [
     _c(
       "div",
-      { staticClass: "vx-col w-full lg:w-1/5 mb-base" },
+      { staticClass: "vx-col w-full lg:w-3/12 mb-base" },
       [
         _c(
           "vx-card",
@@ -173,12 +203,13 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("vs-upload", {
+              ref: "imgSubmit",
               attrs: {
                 limit: "1",
                 text: "Upload Main Image",
-                action: "https://jsonplaceholder.typicode.com/posts/"
+                action: "http://localhost/"
               },
-              on: { "on-success": _vm.successUpload }
+              on: { change: _vm.onFilePicked, "on-success": _vm.successUpload }
             }),
             _vm._v(" "),
             _c("p", { staticClass: "text-grey mb-3" }, [_vm._v("Catetory")]),
@@ -248,18 +279,28 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "text-right" },
-              [
-                _c(
-                  "vs-button",
-                  { staticClass: "btn btn-primary justify-end" },
-                  [_vm._v("Submit")]
-                )
-              ],
-              1
-            )
+            _c("div", { staticClass: "text-right" }, [
+              _c(
+                "form",
+                { attrs: { enctype: "multipart/form-data" } },
+                [
+                  _c(
+                    "vs-button",
+                    {
+                      staticClass: "btn btn-primary justify-end",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.onSubmit($event)
+                        }
+                      }
+                    },
+                    [_vm._v("Submit")]
+                  )
+                ],
+                1
+              )
+            ])
           ],
           1
         )
@@ -269,7 +310,7 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "vx-col w-full lg:w-4/5 mb-base" },
+      { staticClass: "vx-col w-full lg:w-9/12 mb-base" },
       [
         _c(
           "vx-card",
@@ -286,9 +327,7 @@ var render = function() {
                 },
                 expression: "content"
               }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "flex justify-between flex-wrap" })
+            })
           ],
           1
         )

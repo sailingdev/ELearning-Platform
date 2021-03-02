@@ -59805,6 +59805,22 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vue_select__WEBPACK_IMPORTE
 
 /***/ }),
 
+/***/ "./resources/js/src/http/axios/index.js":
+/*!**********************************************!*\
+  !*** ./resources/js/src/http/axios/index.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _axios_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../axios.js */ "./resources/js/src/axios.js");
+
+_axios_js__WEBPACK_IMPORTED_MODULE_0__["default"].defaults.withCredentials = true;
+/* harmony default export */ __webpack_exports__["default"] = (_axios_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/***/ }),
+
 /***/ "./resources/js/src/i18n/i18n.js":
 /*!***************************************!*\
   !*** ./resources/js/src/i18n/i18n.js ***!
@@ -60158,7 +60174,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       meta: {
         breadcrumb: [{
           title: 'Home',
-          url: "/admin/dashboard"
+          url: '/admin/dashboard'
         }, {
           title: 'Blog',
           active: false
@@ -60177,10 +60193,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       meta: {
         breadcrumb: [{
           title: 'Home',
-          url: "/admin/dashboard"
+          url: '/admin/dashboard'
         }, {
           title: 'Blog',
-          url: "/admin/blog/list"
+          url: '/admin/blog/list'
         }, {
           title: 'Create',
           active: true
@@ -60196,7 +60212,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       meta: {
         breadcrumb: [{
           title: 'Home',
-          url: "/admin/dashboard"
+          url: '/admin/dashboard'
         }, {
           title: 'Blog Tag',
           active: false
@@ -60215,15 +60231,15 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       meta: {
         breadcrumb: [{
           title: 'Home',
-          url: "/admin/dashboard"
+          url: '/admin/dashboard'
         }, {
           title: 'User',
-          url: "/admin/user/list"
+          url: '/admin/user/list'
         }, {
           title: 'list',
           active: true
         }],
-        pageTitle: "User List"
+        pageTitle: 'User List'
       }
     }, {
       path: '/admin/membership/list',
@@ -60234,15 +60250,15 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       meta: {
         breadcrumb: [{
           title: 'Home',
-          url: "/admin/dashboard"
+          url: '/admin/dashboard'
         }, {
           title: 'Membership',
-          url: "/admin/user/list"
+          url: '/admin/user/list'
         }, {
           title: 'list',
           active: true
         }],
-        pageTitle: "Membership Plan"
+        pageTitle: 'Membership Plan'
       }
     }]
   } // =============================================================================
@@ -60280,11 +60296,16 @@ router.beforeEach(function (to, from, next) {
   var userData = JSON.parse(localStorage.getItem('tortu_userData'));
 
   if (_token && userData) {
-    if (_token.length > 0 && userData.length > 0) {
-      if (userData.role && userData.role === 'admin') next();
+    if (_token.length > 0 && Object.keys(userData).length > 0) {
+      if (userData.role && userData.role === 'admin') {
+        next();
+        return;
+      }
     }
   }
 
+  localStorage.removeItem('tortu_accessToken');
+  localStorage.removeItem('tortu_userData');
   window.location.href = "/";
 });
 router.afterEach(function () {
@@ -60292,7 +60313,7 @@ router.afterEach(function () {
   var appLoading = document.getElementById('loading-bg');
 
   if (appLoading) {
-    appLoading.style.display = "none";
+    appLoading.style.display = 'none';
   }
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
@@ -60398,7 +60419,23 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony import */ var _http_axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../http/axios */ "./resources/js/src/http/axios/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  add_new: function add_new(_ref, payload) {
+    var commit = _ref.commit;
+    var data = payload.data,
+        config = payload.config;
+    return new Promise(function (resolve, reject) {
+      _http_axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/blog', data, config).then(function (response) {
+        console.log(response);
+        resolve();
+      })["catch"](function (err) {
+        reject(err);
+      });
+    });
+  }
+});
 
 /***/ }),
 
@@ -60559,6 +60596,7 @@ var getters = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _http_axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../http/axios */ "./resources/js/src/http/axios/index.js");
 /*=========================================================================================
   File Name: mutations.js
   Description: Vuex Store - mutations
@@ -60567,6 +60605,7 @@ __webpack_require__.r(__webpack_exports__);
   Author: Pixinvent
   Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
+
 var mutations = {
   // /////////////////////////////////////////////
   // COMPONENTS
@@ -60665,6 +60704,11 @@ var mutations = {
 
 
     localStorage.setItem("userInfo", JSON.stringify(userInfo));
+  },
+  SET_BEARER: function SET_BEARER(state) {
+    var _token = localStorage.getItem('tortu_accessToken');
+
+    !_token ? window.location.href('/') : _http_axios__WEBPACK_IMPORTED_MODULE_0__["default"].defaults.headers.common['Authorization'] = "Bearer ".concat(_token);
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (mutations);
