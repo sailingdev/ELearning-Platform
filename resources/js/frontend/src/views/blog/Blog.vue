@@ -43,7 +43,7 @@
                         <div class="single-widget-area mb-5">
                             <!-- Search Form-->
                             <form class="widget-form">
-                                <input class="form-control" type="search" :placeholder="$t('blog-management.search')">
+                                <input class="form-control" type="search" :placeholder="$t('Blog.search')">
                                 <button ><i class="fa fa-search"></i></button>
                             </form>
                         </div>
@@ -58,7 +58,7 @@
                         </div>
                         <!-- Single Widget Area-->
                         <div class="single-widget-area mb-5">
-                            <h4 class="widget-title mb-30">{{$t('blog-management.recent_posts')}}</h4>
+                            <h4 class="widget-title mb-30">{{$t('Blog.recent_posts')}}</h4>
                             <!-- Single Recent Post-->
                             <div class="single-recent-post d-flex align-items-center">
                                 <div class="post-thumb"><a href="#"><img src="frontend/img/bg-img/sb1.jpg" alt=""></a></div>
@@ -104,7 +104,7 @@
                         </div>
                         <!-- Single Widget Area-->
                         <div class="single-widget-area">
-                            <h4 class="widget-title mb-30">{{$t('blog-management.popular_tags')}}        </h4>
+                            <h4 class="widget-title mb-30">{{$t('Blog.popular_tags')}}        </h4>
                             <ul class="popular-tags clearfix pl-0">
                                 <li><a href="#">business</a></li>
                                 <li><a href="#">agency</a></li>

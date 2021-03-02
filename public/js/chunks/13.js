@@ -274,7 +274,7 @@ var render = function() {
                     staticClass: "form-control",
                     attrs: {
                       type: "search",
-                      placeholder: _vm.$t("blog-management.search")
+                      placeholder: _vm.$t("Blog.search")
                     }
                   }),
                   _vm._v(" "),
@@ -322,7 +322,7 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "single-widget-area mb-5" }, [
                 _c("h4", { staticClass: "widget-title mb-30" }, [
-                  _vm._v(_vm._s(_vm.$t("blog-management.recent_posts")))
+                  _vm._v(_vm._s(_vm.$t("Blog.recent_posts")))
                 ]),
                 _vm._v(" "),
                 _vm._m(3),
@@ -340,9 +340,7 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "single-widget-area" }, [
                 _c("h4", { staticClass: "widget-title mb-30" }, [
-                  _vm._v(
-                    _vm._s(_vm.$t("blog-management.popular_tags")) + "        "
-                  )
+                  _vm._v(_vm._s(_vm.$t("Blog.popular_tags")) + "        ")
                 ]),
                 _vm._v(" "),
                 _vm._m(9)
