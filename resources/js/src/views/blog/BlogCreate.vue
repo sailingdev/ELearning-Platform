@@ -1,11 +1,11 @@
 <template>
    <div class="vx-row ">
-       <div class="vx-col w-full lg:w-1/5 mb-base">
+       <div class="vx-col w-full lg:w-3/12 mb-base">
            <vx-card>
                <p class="text-black mb-4">Properties</p>
                <vs-textarea v-model="title" label="Blog Title" class="w-full mt-5 mb-5" />
 
-                   <vs-upload limit="1" text="Upload Main Image" action="https://jsonplaceholder.typicode.com/posts/" @on-success="successUpload" />
+                   <vs-upload limit="1" text="Upload Main Image" ref="imgSubmit" action="http://localhost/" @change="onFilePicked" @on-success="successUpload" />
 
                <p class="text-grey mb-3">Catetory</p>
                <ul class="centerx mb-12">
@@ -20,17 +20,16 @@
                    </li>
                </ul>
                <div class="text-right">
-                   <vs-button class="btn btn-primary justify-end">Submit</vs-button>
+                   <form enctype="multipart/form-data">
+                        <vs-button class="btn btn-primary justify-end" @click.prevent="onSubmit" >Submit</vs-button>
+                   </form>
                </div>
            </vx-card>
        </div>
-       <div class="vx-col w-full lg:w-4/5 mb-base">
+       <div class="vx-col w-full lg:w-9/12 mb-base">
            <vx-card>
                <p class="text-grey mb-4">Build your blog page content.</p>
                <quill-editor v-model="content" ></quill-editor>
-               <div class="flex justify-between flex-wrap">
-
-               </div>
            </vx-card>
        </div>
    </div>
@@ -50,8 +49,9 @@
       data() {
           return {
               content: `...`,
-              category: "1",
-              title: ''
+              category: 1,
+              title: '',
+              cover_img: ''
           }
       },
       components: {
@@ -60,13 +60,39 @@
       methods: {
           successUpload(){
               this.$vs.notify({color:'success',title:'Upload Success',text:'Lorem ipsum dolor sit amet, consectetur'})
+          },
+          onSubmit(){
+            const config = {
+                headers: {
+                    'content-type': 'multipart/form-data'
+                }
+            }
+              let data = new FormData()
+              data.append('title', this.title)
+              data.append('category', this.category)
+              data.append('content', this.content)
+              data.append('cover_img', this.cover_img)
+              let payload = {
+                config, data
+              }
+              this.$store.commit('SET_BEARER')
+              this.$store.dispatch('blog/add_new', payload)
+          },
+          onFilePicked(event){
+              this.cover_img = event
           }
-      }
+      },
   }
 </script>
 
 <style >
     .ql-editor{
         min-height:490px;
+    }
+    .con-img-upload {
+        text-align: -webkit-center;
+    }
+    .con-input-upload {
+        float: unset;
     }
 </style>

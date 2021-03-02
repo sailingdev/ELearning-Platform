@@ -42,7 +42,7 @@ const router = new Router({
                 component: () => import('./views/blog/BlogList.vue'),
                   meta: {
                     breadcrumb: [
-                        {title: 'Home', url: "/admin/dashboard"},
+                        {title: 'Home', url: '/admin/dashboard'},
                         {title: 'Blog', active: false},
                         {title: 'List', active: true}
                     ],
@@ -55,8 +55,8 @@ const router = new Router({
                     component: () => import('./views/blog/BlogCreate.vue'),
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: "/admin/dashboard"},
-                            {title: 'Blog', url: "/admin/blog/list"},
+                            {title: 'Home', url: '/admin/dashboard'},
+                            {title: 'Blog', url: '/admin/blog/list'},
                             {title: 'Create', active: true}
                         ],
                         pageTitle: 'Blog Create'
@@ -68,7 +68,7 @@ const router = new Router({
                     component: () => import('./views/blog/Tag.vue'),
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: "/admin/dashboard"},
+                            {title: 'Home', url: '/admin/dashboard'},
                             {title: 'Blog Tag', active: false},
                             {title: 'List', active: true}
                         ],
@@ -81,11 +81,11 @@ const router = new Router({
                     component: ()=> import('./views/user/UserList.vue'),
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: "/admin/dashboard"},
-                            {title: 'User', url: "/admin/user/list"},
+                            {title: 'Home', url: '/admin/dashboard'},
+                            {title: 'User', url: '/admin/user/list'},
                             {title: 'list', active: true}
                         ],
-                        pageTitle: "User List"
+                        pageTitle: 'User List'
                     }
                 },
                 {
@@ -94,15 +94,15 @@ const router = new Router({
                     component: ()=> import('./views/user/UserList.vue'),
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: "/admin/dashboard"},
-                            {title: 'Membership', url: "/admin/user/list"},
+                            {title: 'Home', url: '/admin/dashboard'},
+                            {title: 'Membership', url: '/admin/user/list'},
                             {title: 'list', active: true}
                         ],
-                        pageTitle: "Membership Plan"
+                        pageTitle: 'Membership Plan'
                     }
-                },
-            ],
-        },
+                }
+            ]
+        }
     // =============================================================================
     // FULL PAGE LAYOUTS
     // =============================================================================
@@ -130,18 +130,23 @@ const router = new Router({
         //     path: '*',
         //     redirect: '/pages/error-404'
         // }
-    ],
+    ]
 })
 
 router.beforeEach((to, from, next) => {
     let _token = localStorage.getItem('tortu_accessToken')
     let userData = JSON.parse(localStorage.getItem('tortu_userData'))
+
     if (_token && userData){
-        if (_token.length > 0 && userData.length > 0) {
-            if (userData.role && userData.role === 'admin')
+        if (_token.length > 0 && Object.keys(userData).length > 0) {
+            if (userData.role && userData.role === 'admin') {
                 next()
+                return
+            }
         }
     }
+    localStorage.removeItem('tortu_accessToken')
+    localStorage.removeItem('tortu_userData')
     window.location.href = "/"
 })
 
@@ -149,7 +154,7 @@ router.afterEach(() => {
   // Remove initial loading
   const appLoading = document.getElementById('loading-bg')
     if (appLoading) {
-        appLoading.style.display = "none";
+        appLoading.style.display = 'none'
     }
 })
 

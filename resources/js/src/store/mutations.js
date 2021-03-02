@@ -8,6 +8,8 @@
 ==========================================================================================*/
 
 
+import axios from '../http/axios'
+
 const mutations = {
 
 
@@ -115,6 +117,10 @@ const mutations = {
     // Store data in localStorage
     localStorage.setItem("userInfo", JSON.stringify(userInfo))
   },
+    SET_BEARER(state){
+        let _token = localStorage.getItem('tortu_accessToken')
+        !_token ? window.location.href('/') : axios.defaults.headers.common['Authorization'] =  `Bearer ${_token}`
+    },
 }
 
 export default mutations
