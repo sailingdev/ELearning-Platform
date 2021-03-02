@@ -32,6 +32,8 @@ import '../themeConfig.js'
 // Globally Registered Components
 import './globalComponents.js'
 
+// i18n
+import i18n from './i18n/i18n.js'
 
 // Vue Router
 import router from './router'
@@ -61,5 +63,6 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
+    i18n,
   render: h => h(App)
 }).$mount('#app')

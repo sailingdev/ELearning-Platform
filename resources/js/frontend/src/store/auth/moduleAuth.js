@@ -1,4 +1,4 @@
-import state from './moduleAuthStates'
+import state from './moduleAuthState'
 import getters from './moduleAuthGetters'
 import actions from './moduleAuthActions'
 import mutations from './moduleAuthMutations'

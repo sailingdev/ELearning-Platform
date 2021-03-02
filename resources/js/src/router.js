@@ -33,14 +33,74 @@ const router = new Router({
         // =============================================================================
               {
                 path: '/admin/dashboard',
-                name: 'home',
+                name: 'dashboard',
                 component: () => import('./views/Home.vue')
               },
               {
-                path: '/admin/page2',
-                name: 'page-2',
-                component: () => import('./views/Page2.vue')
+                path: '/admin/blog/list',
+                name: 'blog',
+                component: () => import('./views/blog/BlogList.vue'),
+                  meta: {
+                    breadcrumb: [
+                        {title: 'Home', url: "/admin/dashboard"},
+                        {title: 'Blog', active: false},
+                        {title: 'List', active: true}
+                    ],
+                      pageTitle: 'Blog List'
+                  }
               },
+                {
+                    path: '/admin/blog/create',
+                    name: 'blog-create',
+                    component: () => import('./views/blog/BlogCreate.vue'),
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: "/admin/dashboard"},
+                            {title: 'Blog', url: "/admin/blog/list"},
+                            {title: 'Create', active: true}
+                        ],
+                        pageTitle: 'Blog Create'
+                    }
+                },
+                {
+                    path: '/admin/blog/tags',
+                    name: 'blog-tag',
+                    component: () => import('./views/blog/Tag.vue'),
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: "/admin/dashboard"},
+                            {title: 'Blog Tag', active: false},
+                            {title: 'List', active: true}
+                        ],
+                        pageTitle: 'Blog Tags'
+                    }
+                },
+                {
+                    path: '/admin/user/list',
+                    name: 'user-list',
+                    component: ()=> import('./views/user/UserList.vue'),
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: "/admin/dashboard"},
+                            {title: 'User', url: "/admin/user/list"},
+                            {title: 'list', active: true}
+                        ],
+                        pageTitle: "User List"
+                    }
+                },
+                {
+                    path: '/admin/membership/list',
+                    name: 'membership-list',
+                    component: ()=> import('./views/user/UserList.vue'),
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: "/admin/dashboard"},
+                            {title: 'Membership', url: "/admin/user/list"},
+                            {title: 'list', active: true}
+                        ],
+                        pageTitle: "Membership Plan"
+                    }
+                },
             ],
         },
     // =============================================================================

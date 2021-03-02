@@ -12,13 +12,48 @@ export default [
   {
     url: "/admin/dashboard",
     name: "Dashboard",
-    slug: "Dashboard",
+    slug: "dashboard",
     icon: "HomeIcon",
+    i18n: 'Dashboard'
   },
-  {
-    url: "/admin/page2",
-    name: "Page 2",
-    slug: "page2",
-    icon: "FileIcon",
-  }
+    {
+        url: null,
+        name: 'Blog',
+        icon: 'CheckSquareIcon',
+        i18n: 'Blog',
+        submenu: [
+            {
+                url: '/admin/blog/list',
+                name: 'Blog',
+                slug: 'blog-list',
+                i18n: 'Blog'
+            },
+            // {
+            //     url: '/admin/blog/tags',
+            //     name: 'Tags',
+            //     slug: 'blog-tag',
+            //     i18n: 'Tags'
+            // }
+        ]
+    },
+    {
+        url: null,
+        name: 'User',
+        icon: 'UserIcon',
+        i18n: 'User',
+        submenu: [
+            {
+                url: '/admin/user/list',
+                name: 'User',
+                slug: 'user-list',
+                i18n: 'User'
+            },
+            {
+                url: '/admin/membership/list',
+                name: 'Membership',
+                slug: 'membership-list',
+                i18n: 'Membership'
+            }
+        ]
+    }
 ]

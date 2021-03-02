@@ -26,7 +26,7 @@
                                     </li>
                                     <li v-on:click="setMenuOn()"><router-link :to="{name: 'contact'}">{{$t('Contact.name')}}</router-link></li>
                                     <li v-on:click="setMenuOn()"><router-link :to="{name: 'pricing'}">{{$t('Pricing.name')}}</router-link></li>
-                                    <li v-on:click="setMenuOn()"><router-link :to="{name: 'blog'}">{{$t('Blog.name')}}</router-link></li>
+                                    <li v-on:click="setMenuOn()"><router-link :to="{name: 'blog'}">{{$t('blog-management.name')}}</router-link></li>
                                 </ul>
                                 <!-- Login Button-->
                                 <div class="login-btn-area ml-4 mt-4 mt-lg-0" v-on:click="setMenuOn()">

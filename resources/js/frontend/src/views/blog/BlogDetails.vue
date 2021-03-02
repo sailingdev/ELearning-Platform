@@ -1,5 +1,5 @@
 <template>
-    <!-- Blog Details Area -->
+    <!-- blog-management Details Area -->
     <div class="saasbox--blog--area section-padding-120">
         <div class="container">
             <div class="row justify-content-center">
@@ -11,11 +11,11 @@
             </div>
             <div class="row justify-content-center wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1000ms">
                 <div class="post--like-post">
-                    <a href="#"><i class="lni-heart"></i></a><span>267 {{$t('Blog.heart')}}</span>
+                    <a href="#"><i class="lni-heart"></i></a><span>267 {{$t('blog-management.heart')}}</span>
                     <the-social-button />
                 </div>
                 <div class="col-12 col-sm-10 col-md-8">
-                    <!-- Blog Details Area-->
+                    <!-- blog-management Details Area-->
                     <div class="single-blog-details-area"><img class="post-thumbnail mb-5" src="frontend/img/bg-img/blog20.jpg" alt="">
                         <div class="post-date mb-2">Oct 1, 2019</div>
                         <h2 class="mb-3">Seven ways agency can improve your business</h2>

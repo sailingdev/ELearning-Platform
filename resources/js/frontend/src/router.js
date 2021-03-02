@@ -62,12 +62,12 @@ const router = new Router({
                     component: () => import('./views/Pricing.vue')
                 },
                 {
-                    path: '/blog',
+                    path: '/blog-management',
                     name: 'blog',
                     component: () => import('./views/blog/Blog.vue')
                 },
                 {
-                    path: '/blog-details',
+                    path: '/blog-management-details',
                     name: 'blog-details',
                     component: () => import('./views/blog/BlogDetails.vue')
                 },

@@ -1,18 +1,18 @@
 <template>
-    <!--  Blog Area  -->
+    <!--  blog-management Area  -->
     <div class="saasbox--blog--area section-padding-120">
         <div class="container">
             <div class="row justify-content-center wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1000ms">
                 <div class="col-12 col-md-9 col-lg-7 col-xxl-6">
                     <div class="section-heading text-center">
-                        <h2>{{$t('Blog.title')}}</h2>
+                        <h2>{{$t('blog-management.title')}}</h2>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-between">
                 <div class="col-12 col-md-6 wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1000ms">
                     <div class="row g-5">
-                        <!-- Single Blog Post-->
+                        <!-- Single blog-management Post-->
                         <div v-for="n in 5" :key="n" class="col-12">
                             <div class="card blog-card"><a href="#"><img class="card-img-top" src="frontend/img/bg-img/blog7.jpg" alt=""></a>
                                 <div class="post-content p-4"><a class="d-block text-muted mb-2" href="#">Sep 15, 2020</a><router-link class="post-title d-block mb-3" :to="{name: 'blog-details'}">
@@ -43,7 +43,7 @@
                         <div class="single-widget-area mb-5">
                             <!-- Search Form-->
                             <form class="widget-form">
-                                <input class="form-control" type="search" :placeholder="$t('Blog.search')">
+                                <input class="form-control" type="search" :placeholder="$t('blog-management.search')">
                                 <button ><i class="fa fa-search"></i></button>
                             </form>
                         </div>
@@ -58,7 +58,7 @@
                         </div>
                         <!-- Single Widget Area-->
                         <div class="single-widget-area mb-5">
-                            <h4 class="widget-title mb-30">{{$t('Blog.recent_posts')}}</h4>
+                            <h4 class="widget-title mb-30">{{$t('blog-management.recent_posts')}}</h4>
                             <!-- Single Recent Post-->
                             <div class="single-recent-post d-flex align-items-center">
                                 <div class="post-thumb"><a href="#"><img src="frontend/img/bg-img/sb1.jpg" alt=""></a></div>
@@ -104,7 +104,7 @@
                         </div>
                         <!-- Single Widget Area-->
                         <div class="single-widget-area">
-                            <h4 class="widget-title mb-30">{{$t('Blog.popular_tags')}}        </h4>
+                            <h4 class="widget-title mb-30">{{$t('blog-management.popular_tags')}}        </h4>
                             <ul class="popular-tags clearfix pl-0">
                                 <li><a href="#">business</a></li>
                                 <li><a href="#">agency</a></li>

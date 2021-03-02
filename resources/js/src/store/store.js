@@ -16,6 +16,9 @@ import getters from "./getters"
 import mutations from "./mutations"
 import actions from "./actions"
 
+import moduleBlogManagement from './blog-management/moduleBlogManagement'
+import moduleUserManagement from './user-management/moduleUserManagement'
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -23,5 +26,9 @@ export default new Vuex.Store({
     mutations,
     state,
     actions,
+    modules: {
+        blog: moduleBlogManagement,
+        user: moduleUserManagement
+    },
     strict: process.env.NODE_ENV !== 'production'
 })
