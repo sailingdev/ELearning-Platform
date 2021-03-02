@@ -39568,9 +39568,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var userData = JSON.parse(localStorage.getItem('tortu_userData'));
 /* harmony default export */ __webpack_exports__["default"] = ({
-  userData: userData,
+  userData: '',
   isLoggedIn: false
 });
 

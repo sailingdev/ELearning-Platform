@@ -168,6 +168,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Header',
@@ -196,7 +199,9 @@ __webpack_require__.r(__webpack_exports__);
       return this.display;
     },
     isLoggedIn: function isLoggedIn() {
-      return this.$store.state.auth.isLoggedIn;
+      var isLoggedIn = this.$store.state.auth.isLoggedIn;
+      var isAccessToken = !localStorage.getItem('tortu_accessToken');
+      return isLoggedIn || !isAccessToken;
     }
   },
   methods: {
@@ -208,6 +213,14 @@ __webpack_require__.r(__webpack_exports__);
     },
     showModal: function showModal() {
       this.display = true;
+    },
+    logout: function logout() {
+      localStorage.removeItem('tortu_userData');
+      localStorage.removeItem('tortu_accessToken');
+      this.$store.commit('auth/SET_LOGGEDIN', false);
+      this.$router.push({
+        name: 'home'
+      });
     }
   }
 });
@@ -746,36 +759,54 @@ var render = function() {
                       )
                     ]),
                     _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "login-btn-area ml-4 mt-4 mt-lg-0",
-                        on: {
-                          click: function($event) {
-                            return _vm.setMenuOn()
-                          }
-                        }
-                      },
-                      [
-                        _c(
-                          "router-link",
+                    !_vm.isLoggedIn
+                      ? _c(
+                          "div",
                           {
-                            staticClass: "btn saasbox-btn btn-sm  btn-full",
-                            attrs: {
-                              to: { name: _vm.isLoggedIn ? "logout" : "login" }
+                            staticClass: "login-btn-area ml-4 mt-4 mt-lg-0",
+                            on: {
+                              click: function($event) {
+                                return _vm.setMenuOn()
+                              }
                             }
                           },
                           [
-                            _vm._v(
-                              _vm._s(
-                                _vm.$t(_vm.isLoggedIn ? "Login.name" : "Logout")
-                              )
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "btn saasbox-btn btn-sm  btn-full",
+                                attrs: { to: { name: "login" } }
+                              },
+                              [_vm._v(_vm._s(_vm.$t("Login.name")))]
+                            )
+                          ],
+                          1
+                        )
+                      : _c(
+                          "div",
+                          {
+                            staticClass: "login-btn-area ml-4 mt-4 mt-lg-0",
+                            on: {
+                              click: function($event) {
+                                return _vm.setMenuOn()
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn saasbox-btn btn-sm  btn-full",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.logout()
+                                  }
+                                }
+                              },
+                              [_vm._v(_vm._s(_vm.$t("Logout")))]
                             )
                           ]
                         )
-                      ],
-                      1
-                    )
                   ])
                 ])
               ],

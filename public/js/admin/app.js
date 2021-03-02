@@ -60278,12 +60278,14 @@ router.beforeEach(function (to, from, next) {
   var _token = localStorage.getItem('tortu_accessToken');
 
   var userData = JSON.parse(localStorage.getItem('tortu_userData'));
-  var isAdmin = userData.role === 'admin';
-  var isUnAuthenticated = !_token && !userData;
 
-  if (!isUnAuthenticated && !isAdmin) {
-    window.location.href = "/";
-  } else next();
+  if (_token && userData) {
+    if (_token.length > 0 && userData.length > 0) {
+      if (userData.role && userData.role === 'admin') next();
+    }
+  }
+
+  window.location.href = "/";
 });
 router.afterEach(function () {
   // Remove initial loading
