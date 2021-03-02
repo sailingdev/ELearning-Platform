@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,5 +13,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Route::get('/admin/{any}', 'ApplicationController')->where('any', '.*');
+Route::redirect('/admin', '/admin/dashboard');
+Route::get('/admin/{any}', 'ApplicationController')->where('any', '.*');
+//Route::get('/app', 'HomeController')->name('frontend');
 Route::get('/{any}', 'HomeController')->where('any', '.*');
+//Route::redirect('/', 'app');
