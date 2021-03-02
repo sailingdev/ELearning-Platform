@@ -49,4 +49,11 @@ class LoginController extends Controller
             'userData' => $user,
         ]);
     }
+
+    public function logout(Request $request){
+        $user = Auth::user();
+        $id = $user->id;
+        $user->tokens()->where('id', $id)->delete();
+        return response()->json(200);
+    }
 }
