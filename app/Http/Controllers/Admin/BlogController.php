@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Blog;
 use App\Http\Controllers\Controller;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -44,12 +45,24 @@ class BlogController extends Controller
             'content' => 'required|string'
         ]);
 
-
-        $file_name = time().'_'.$request->cover_image->getClientOriginalName();
-        $file_path = $request->file('file')->storeAs('uploads', $file_name, 'public');
-        dd($file_path);
-
-
+        try {
+            $blog = new Blog;
+            $extension = $request->cover_image->extension();
+            $img_name = time().'.'.$extension;
+            $img_src = $request->file('cover_image')->storeAs('/uploads/blog', $img_name, 'public');
+            $blog->title = $request['title'];
+            $blog->cover_image = '/storage/'.$img_src;
+            $blog->category_id = $request['category'];
+            $blog->content = $request['content'];
+            $blog->save();
+            return response()->json([
+                'message' => 'successfully created.'
+            ], 201);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => $e->getMessage()
+            ], $e->getCode());
+        }
     }
 
     /**
