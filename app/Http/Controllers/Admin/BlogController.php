@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Blog;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -39,9 +40,14 @@ class BlogController extends Controller
         $this->validate($request, [
             'title' => 'required|string|max:255',
             'category' => 'required|max:1',
-            'cover_image' => 'required|string',
-            'content' => 'required|string|min:200'
+            'cover_image' => 'required|image',
+            'content' => 'required|string'
         ]);
+
+
+        $file_name = time().'_'.$request->cover_image->getClientOriginalName();
+        $file_path = $request->file('file')->storeAs('uploads', $file_name, 'public');
+        dd($file_path);
 
 
     }

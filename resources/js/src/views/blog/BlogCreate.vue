@@ -10,8 +10,17 @@
 
 
                <!-- Cover Image upload section -->
-               <vs-upload limit="1" text="The cover image field is required" aria-required="true" :show-upload-button="false" ref="imgSubmit" @change="onFilePicked" @on-success="successUpload" />
-               <label class="mb-5" style="color: red;">{{ errMSG.cover_image }}</label>
+               <div class="mb-5" style="min-height: 200px">
+                   <div v-if="!image_src">
+                       <p class="text-grey mb-3">Select cover image.</p>
+                       <input type="file" @change="onFileChange">
+                       <label v-if="errMSG.cover_image" class="mb-5" style="color: red;">{{ errMSG.cover_image }}</label>
+                   </div>
+                   <div v-else>
+                       <img class="cover_img" :src="image_src" />
+                       <button @click="removeImage">Remove image</button>
+                   </div>
+               </div>
 
                <!-- Category section   -->
                <p class="text-grey mb-3">Catetory</p>
@@ -59,10 +68,11 @@
     name: 'BlogCreate',
       data() {
           return {
+              image_src: '',
               content: `...`,
               category: 1,
               title: '',
-              cover_img: '',
+              cover_image: '',
               err_title: '',
               err_cover_image: '',
               err_content: '',
@@ -72,45 +82,59 @@
           quillEditor,
       },
       methods: {
-          successUpload(){
-              this.$vs.notify({color:'success',title:'Upload Success',text:'Lorem ipsum dolor sit amet, consectetur'})
+          onFileChange(e) {
+              var files = e.target.files || e.dataTransfer.files;
+              if (!files.length)
+                  return;
+              this.cover_image = files[0]
+              this.createImage(files[0]);
+          },
+          createImage(file) {
+              var image = new Image();
+              var reader = new FileReader();
+              var vm = this;
+
+              reader.onload = (e) => {
+                  vm.image_src = e.target.result;
+              };
+              reader.readAsDataURL(file);
+          },
+          removeImage: function (e) {
+              this.image_src = '';
           },
           onSubmit(){
-                const config = {
-                    headers: {
-                        'content-type': 'multipart/form-data'
-                    }
-                }
+              const config = {
+                  headers: {
+                      'content-type': 'multipart/form-data'
+                  }
+              }
               let data = new FormData()
               data.append('title', this.title)
               data.append('category', this.category)
               data.append('content', this.content)
-              data.append('cover_image', this.cover_img)
+              data.append('cover_image', this.cover_image)
               this.$store.commit('SET_BEARER')
               this.$store.dispatch('blog/add_new', {config, data})
-                .catch(err => {
-                    if (err.response.status === 422){
-                        let errs = err.response.data.errors;
-                        for (const index in errs)
-                        {
-                            switch (index) {
-                                case 'title':
-                                    this.err_title = errs[index][0].replace(/[^a-zA-Z0-9 ]/g, "")
-                                    break
-                                case 'cover_image':
-                                    this.err_cover_image = errs[index][0].replace(/[^a-zA-Z0-9 ]/g, "")
-                                    break
-                                case 'content':
-                                    this.err_content = errs[index][0].replace(/[^a-zA-Z0-9 ]/g, "")
-                                    break
-                            }
-                        }
-                    }
-                })
+                  .catch(err => {
+                      if (err.response.status === 422){
+                          let errs = err.response.data.errors;
+                          for (const index in errs)
+                          {
+                              switch (index) {
+                              case 'title':
+                                  this.err_title = errs[index][0].replace(/[^a-zA-Z0-9 ]/g, "")
+                                  break
+                              case 'cover_image':
+                                  this.err_cover_image = errs[index][0].replace(/[^a-zA-Z0-9 ]/g, "")
+                                  break
+                              case 'content':
+                                  this.err_content = errs[index][0].replace(/[^a-zA-Z0-9 ]/g, "")
+                                  break
+                              }
+                          }
+                      }
+                  })
               this.flag = 1
-          },
-          onFilePicked(event){
-              this.cover_img = event
           },
           onResetMSG(){
               this.err_cover_image = ''
@@ -142,5 +166,12 @@
     }
     .mw-32{
         min-width: 320px;
+    }
+    .cover_img {
+        width: 100%;
+        margin: auto;
+        display: block;
+        margin-bottom: 10px;
+        border-radius: 5px;
     }
 </style>
