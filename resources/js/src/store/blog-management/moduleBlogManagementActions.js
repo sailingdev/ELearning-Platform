@@ -6,12 +6,12 @@ export default {
         return new Promise((resolve, reject)=> {
             axios.post('/api/blog', data, config)
                 .then((response) => {
-                    console.log(response)
-                    resolve()
+                    resolve(response)
                 })
                 .catch((err) => {
                     reject(err)
                 })
         })
-    }
+    },
+
 }

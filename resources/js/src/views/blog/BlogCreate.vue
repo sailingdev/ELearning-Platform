@@ -5,16 +5,19 @@
                <p class="text-black mb-4">Properties</p>
 
                <!-- Title section -->
-               <label style="color: red;">{{ errMSG.title }}</label>
+               <vs-alert :active="!!errMSG.title" color="danger" icon-pack="feather" icon="icon-info">
+                   <span>{{ errMSG.title }}</span>
+               </vs-alert>
                <vs-textarea v-model="title" label="Blog Title" class="w-full mt-3 mb-5" />
-
 
                <!-- Cover Image upload section -->
                <div class="mb-5" style="min-height: 200px">
                    <div v-if="!image_src">
+                       <vs-alert :active="!!errMSG.cover_image" color="danger" icon-pack="feather" icon="icon-info">
+                           <span>{{ errMSG.cover_image }}</span>
+                       </vs-alert>
                        <p class="text-grey mb-3">Select cover image.</p>
                        <input type="file" @change="onFileChange">
-                       <label v-if="errMSG.cover_image" class="mb-5" style="color: red;">{{ errMSG.cover_image }}</label>
                    </div>
                    <div v-else>
                        <img class="cover_img" :src="image_src" />
@@ -48,7 +51,9 @@
        <div class="vx-col w-full lg:w-8/12 mb-base">
            <vx-card @focusin="onResetMSG">
                <p class="text-grey mb-4">Build your blog page content.</p>
-               <label class="" style="color: red;">{{ errMSG.content }}</label>
+               <vs-alert class="mb-1" :active="!!errMSG.content" color="danger" icon-pack="feather" icon="icon-info">
+                   <span>{{errMSG.content}}</span>
+               </vs-alert>
                <quill-editor v-model="content" ></quill-editor>
            </vx-card>
        </div>
@@ -69,7 +74,7 @@
       data() {
           return {
               image_src: '',
-              content: `...`,
+              content: ``,
               category: 1,
               title: '',
               cover_image: '',
@@ -115,6 +120,10 @@
               data.append('cover_image', this.cover_image)
               this.$store.commit('SET_BEARER')
               this.$store.dispatch('blog/add_new', {config, data})
+                  .then(() => {
+                      this.successAlert()
+                      this.$router.push(this.$router.currentRoute.query.to || '/admin/blog/list')
+                  })
                   .catch(err => {
                       if (err.response.status === 422){
                           let errs = err.response.data.errors;
@@ -134,13 +143,19 @@
                           }
                       }
                   })
-              this.flag = 1
           },
           onResetMSG(){
               this.err_cover_image = ''
               this.err_title = ''
               this.err_content = ''
-          }
+          },
+          successAlert(){
+              this.$vs.notify({
+                  color:'success',
+                  title:'Successfully Created !',
+                  text:'A blog is successfully created.'
+              })
+          },
       },
       computed: {
         errMSG(){
