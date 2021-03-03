@@ -1,5 +1,5 @@
 <template>
-    <div id="data-list-list-view" class="data-list-container">
+    <div id="data-list-thumb-view" class="data-list-container">
         <vs-table ref="table" multiple v-model="selected" pagination :max-items="itemsPerPage" search :data="blogs">
 
             <div slot="header" class="flex flex-wrap-reverse items-center flex-grow justify-between">
@@ -20,13 +20,6 @@
                                 <span class="flex items-center">
                                   <feather-icon icon="TrashIcon" svgClasses="h-4 w-4" class="mr-2" />
                                   <span>Delete</span>
-                                </span>
-                            </vs-dropdown-item>
-
-                            <vs-dropdown-item>
-                                <span class="flex items-center">
-                                  <feather-icon icon="ArchiveIcon" svgClasses="h-4 w-4" class="mr-2" />
-                                  <span>Archive</span>
                                 </span>
                             </vs-dropdown-item>
 
@@ -80,6 +73,7 @@
 
             <template slot="thead">
                 <vs-th sort-key="id" >Nor</vs-th>
+                <vs-th sort-key="cover_image">Cover Image</vs-th>
                 <vs-th sort-key="name">Title</vs-th>
                 <vs-th sort-key="category">Category</vs-th>
                 <vs-th sort-key="created_at">Created at</vs-th>
@@ -92,10 +86,12 @@
                     <vs-td>
                         <p class="product-name font-medium truncate">{{ indextr +1 }}</p>
                     </vs-td>
+                    <vs-td class="img-container">
+                        <img :src="tr.img" class="product-img" />
+                    </vs-td>
                     <vs-td>
                         <p class="product-name font-medium truncate">{{ tr.title }}</p>
                     </vs-td>
-
                     <vs-td>
                         <vs-chip :color="getCategoryColor(tr.category.id)" class="product-order-status">{{ tr.category.name }}</vs-chip>
                     </vs-td>
@@ -178,50 +174,16 @@
             },
         },
         mounted () {
-            // this.isMounted = true
-            // console.log(this.$store.state.dataList)
+            this.$store.commit('SET_BEARER')
+            this.$store.dispatch('blog/index')
         }
     }
 
 </script>
 
 <style lang="scss" >
-    #data-list-list-view {
+    #data-list-thumb-view {
         .vs-con-table {
-
-            /*
-              Below media-queries is fix for responsiveness of action buttons
-              Note: If you change action buttons or layout of this page, Please remove below style
-            */
-            @media (max-width: 689px) {
-                .vs-table--search {
-                    margin-left: 0;
-                    max-width: unset;
-                    width: 100%;
-
-                    .vs-table--search-input {
-                        width: 100%;
-                    }
-                }
-            }
-
-            @media (max-width: 461px) {
-                .items-per-page-handler {
-                    display: none;
-                }
-            }
-
-            @media (max-width: 341px) {
-                .data-list-btn-container {
-                    width: 100%;
-
-                    .dd-actions,
-                    .btn-add-new {
-                        width: 100%;
-                        margin-right: 0 !important;
-                    }
-                }
-            }
 
             .product-name {
                 max-width: 23rem;
@@ -229,7 +191,7 @@
 
             .vs-table--header {
                 display: flex;
-                flex-wrap: wrap;
+                flex-wrap: wrap-reverse;
                 margin-left: 1.5rem;
                 margin-right: 1.5rem;
                 > span {
@@ -260,10 +222,11 @@
                 border-spacing: 0 1.3rem;
                 padding: 0 1rem;
 
+
                 tr{
                     box-shadow: 0 4px 20px 0 rgba(0,0,0,.05);
                     td{
-                        padding: 20px;
+                        padding: 10px;
                         &:first-child{
                             border-top-left-radius: .5rem;
                             border-bottom-left-radius: .5rem;
@@ -271,6 +234,19 @@
                         &:last-child{
                             border-top-right-radius: .5rem;
                             border-bottom-right-radius: .5rem;
+                        }
+                        &.img-container {
+                            // width: 1rem;
+                            // background: #fff;
+
+                            span {
+                                display: flex;
+                                justify-content: flex-start;
+                            }
+
+                            .product-img {
+                                height: 110px;
+                            }
                         }
                     }
                     td.td-check{

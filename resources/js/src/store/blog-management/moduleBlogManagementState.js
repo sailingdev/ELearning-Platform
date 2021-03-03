@@ -4,6 +4,7 @@ export default {
             id: 1,
             title: 'How to improve your hearing?',
             created_at: '2020-12-1 10:12:00',
+            updated_at: '2020-11-1 11:12:11',
             category: {
                 id: 1,
                 name: 'vocabulary'

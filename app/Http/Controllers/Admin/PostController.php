@@ -2,22 +2,27 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Blog;
+use App\Post;
 use App\Http\Controllers\Controller;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class BlogController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
-        //
+        $post = Post::select(['id', 'title', 'cover_image', 'category_id', 'created_at', 'updated_at'])
+            ->with('categories')
+            ->get();
+        return response()->json([
+            'dataList' => $post
+        ], 200);
     }
 
     /**
@@ -46,15 +51,15 @@ class BlogController extends Controller
         ]);
 
         try {
-            $blog = new Blog;
+            $post = new Post;
             $extension = $request->cover_image->extension();
             $img_name = time().'.'.$extension;
             $img_src = $request->file('cover_image')->storeAs('/uploads/blog', $img_name, 'public');
-            $blog->title = $request['title'];
-            $blog->cover_image = '/storage/'.$img_src;
-            $blog->category_id = $request['category'];
-            $blog->content = $request['content'];
-            $blog->save();
+            $post->title = $request['title'];
+            $post->cover_image = '/storage/'.$img_src;
+            $post->category_id = $request['category'];
+            $post->content = $request['content'];
+            $post->save();
             return response()->json([
                 'message' => 'successfully created.'
             ], 201);
