@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     /**
-     * Get the comments for the blog post.
+     * Get the posts for the category.
      */
     public function posts(){
-        return $this->hasMany('App\Post');
+        return $this->hasMany(Post::class);
     }
 }

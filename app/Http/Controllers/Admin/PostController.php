@@ -17,9 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post = Post::select(['id', 'title', 'cover_image', 'category_id', 'created_at', 'updated_at'])
-            ->with('categories')
-            ->get();
+        $post = Post::select(['id', 'cover_image', 'title', 'category_id', 'created_at', 'updated_at'])->with('category:id,name')->get();
         return response()->json([
             'dataList' => $post
         ], 200);

@@ -119,7 +119,7 @@
               data.append('content', this.content)
               data.append('cover_image', this.cover_image)
               this.$store.commit('SET_BEARER')
-              this.$store.dispatch('blog/add_new', {config, data})
+              this.$store.dispatch('blog/store', {config, data})
                   .then(() => {
                       this.successAlert()
                       this.$router.push(this.$router.currentRoute.query.to || '/admin/blog/list')
