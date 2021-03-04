@@ -60,8 +60,23 @@ const router = new Router({
                             {title: 'Create', active: true}
                         ],
                         pageTitle: 'Blog Create'
-                    }
+                    },
                 },
+                {
+                    path: '/admin/blog/edit/:id',
+                    name: 'blog-edit',
+                    component: () => import('./views/blog/BlogEdit.vue'),
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/admin/dashboard'},
+                            {title: 'Blog', url: '/admin/blog/list'},
+                            {title: 'Edit', active: true}
+                        ],
+                        pageTitle: 'Blog Edit'
+                    },
+                    props: true
+                },
+
                 {
                     path: '/admin/blog/tags',
                     name: 'blog-tag',
