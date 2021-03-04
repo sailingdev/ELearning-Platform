@@ -5,7 +5,10 @@ export default {
         return new Promise((resolve, reject) => {
             axios.get('/api/post')
                 .then(res => {
-
+                    if (res.data.dataList){
+                        commit('SET_DATALIST', res.data.dataList);
+                        resolve()
+                    } else reject(res)
                 })
                 .catch(err => {
                     reject(err)

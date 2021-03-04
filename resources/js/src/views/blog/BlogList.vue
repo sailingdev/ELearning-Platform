@@ -77,6 +77,7 @@
                 <vs-th sort-key="name">Title</vs-th>
                 <vs-th sort-key="category">Category</vs-th>
                 <vs-th sort-key="created_at">Created at</vs-th>
+                <vs-th sort-key="created_at">Updated at</vs-th>
                 <vs-th>Action</vs-th>
             </template>
 
@@ -87,7 +88,7 @@
                         <p class="product-name font-medium truncate">{{ indextr +1 }}</p>
                     </vs-td>
                     <vs-td class="img-container">
-                        <img :src="tr.img" class="product-img" />
+                        <img :src="tr.cover_image" class="product-img" alt="cover_image" />
                     </vs-td>
                     <vs-td>
                         <p class="product-name font-medium truncate">{{ tr.title }}</p>
@@ -95,9 +96,11 @@
                     <vs-td>
                         <vs-chip :color="getCategoryColor(tr.category.id)" class="product-order-status">{{ tr.category.name }}</vs-chip>
                     </vs-td>
-
                     <vs-td>
-                        <p class="product-name font-medium truncate">{{ tr.created_at }}</p>
+                        <p class="product-name font-medium truncate">{{  formatDate(tr.created_at) }}</p>
+                    </vs-td>
+                    <vs-td>
+                        <p class="product-name font-medium truncate">{{ formatDate(tr.updated_at) }}</p>
                     </vs-td>
 
                     <vs-td class="whitespace-no-wrap">
@@ -172,6 +175,10 @@
                     text: 'The selected image was successfully deleted'
                 })
             },
+            formatDate(data){
+                let dt = new Date(data)
+                return dt.getFullYear() +'-'+ dt.getMonth() +'-'+dt.getDate()+' '+dt.getHours() +':'+dt.getMinutes()+':'+dt.getSeconds()
+            }
         },
         mounted () {
             this.$store.commit('SET_BEARER')
