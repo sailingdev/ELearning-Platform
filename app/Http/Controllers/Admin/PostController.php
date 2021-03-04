@@ -72,11 +72,20 @@ class PostController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show($id)
     {
-        //
+            $row = Post::find($id);
+            if ($row){
+                $post = $row->select('title', 'category_id', 'content', 'cover_image')->firstOrFail();
+                return response()->json([
+                    'post' => $post
+                ], 200);
+            }
+            return response()->json([
+                'message' => "provided index is invalid."
+            ], 400);
     }
 
     /**
