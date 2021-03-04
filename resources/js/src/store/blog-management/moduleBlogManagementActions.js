@@ -27,4 +27,15 @@ export default {
                 })
         })
     },
+    show({commit}, payload){
+        return new Promise((resolve, reject) => {
+            axios.get(`/api/post/${payload}`)
+                .then( res => {
+                    resolve(res.data.post)
+                })
+                .catch(err => {
+                    reject(err)
+                })
+        })
+    }
 }

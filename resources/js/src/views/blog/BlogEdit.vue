@@ -70,11 +70,14 @@
     import { quillEditor } from 'vue-quill-editor'
 
   export default {
-      name: 'BlogCreate',
-        data() {
+    name: 'BlogEdit',
+      props: {
+        id: String
+      },
+      data() {
           return {
               image_src: '',
-              content: ``,
+              content: '',
               category: 1,
               title: '',
               cover_image: '',
@@ -164,8 +167,18 @@
                 cover_image: this.err_cover_image,
                 content: this.err_content
             }
-        }
+        },
       },
+      mounted(){
+          this.$store.commit('SET_BEARER')
+          this.$store.dispatch('blog/show', this.id).then( post => {
+              this.image_src = post.cover_image
+              this.content = post.content
+              this.category = post.category_id
+              this.title = post.title
+              this.content = post.content
+          })
+      }
   }
 </script>
 

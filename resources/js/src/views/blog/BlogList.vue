@@ -1,6 +1,6 @@
 <template>
     <div id="data-list-thumb-view" class="data-list-container">
-        <vs-table ref="table" multiple v-model="selected" pagination :max-items="itemsPerPage" search :data="blogs">
+        <vs-table ref="table" multiple v-model="selected" pagination :max-items="itemsPerPage" search :data="posts">
 
             <div slot="header" class="flex flex-wrap-reverse items-center flex-grow justify-between">
 
@@ -50,7 +50,7 @@
                 <!-- ITEMS PER PAGE -->
                 <vs-dropdown vs-trigger-click class="cursor-pointer mb-4 mr-4 items-per-page-handler">
                     <div class="p-4 border border-solid d-theme-border-grey-light rounded-full d-theme-dark-bg cursor-pointer flex items-center justify-between font-medium">
-                        <span class="mr-2">{{ currentPage * itemsPerPage - (itemsPerPage - 1) }} - {{ blogs.length - currentPage * itemsPerPage > 0 ? currentPage * itemsPerPage : blogs.length }} of {{ queriedItems }}</span>
+                        <span class="mr-2">{{ currentPage * itemsPerPage - (itemsPerPage - 1) }} - {{ posts.length - currentPage * itemsPerPage > 0 ? currentPage * itemsPerPage : posts.length }} of {{ queriedItems }}</span>
                         <feather-icon icon="ChevronDownIcon" svgClasses="h-4 w-4" />
                     </div>
                     <vs-dropdown-menu>
@@ -104,8 +104,8 @@
                     </vs-td>
 
                     <vs-td class="whitespace-no-wrap">
-                        <feather-icon icon="EyeIcon" svgClasses="w-5 h-5 hover:text-success stroke-current" class="mr-2" @click.stop="editData(tr)" />
-                        <feather-icon icon="EditIcon" svgClasses="w-5 h-5 hover:text-primary stroke-current" @click.stop="editData(tr)" />
+                        <feather-icon icon="EyeIcon" svgClasses="w-5 h-5 hover:text-success stroke-current" class="mr-2" @click.stop="editData(tr.id)" />
+                        <feather-icon icon="EditIcon" svgClasses="w-5 h-5 hover:text-primary stroke-current" @click.stop="editData(tr.id)" />
                         <feather-icon icon="TrashIcon" svgClasses="w-5 h-5 hover:text-danger stroke-current" class="ml-2" @click.stop="deleteData(tr.id)" />
                     </vs-td>
                 </vs-tr>
@@ -136,8 +136,8 @@
                 }
                 return 0
             },
-            blogs () {
-                return this.$store.state.blog.dataList
+            posts () {
+                return this.$store.state.blog.postList
             },
             queriedItems () {
                 // return this.$refs.table ? this.$refs.table.queriedResults.length : this.products.length
@@ -158,10 +158,8 @@
                 })
                 // this.$store.dispatch('dataList/removeItem', id).catch(err => { console.error(err) })
             },
-            editData (data) {
-                // this.sidebarData = JSON.parse(JSON.stringify(this.blankData))
-                // this.sidebarData = data
-                // this.toggleDataSidebar(true)
+            editData (id) {
+                this.$router.push(this.$router.currentRoute.query.to || `/admin/blog/edit/${id}`)
             },
             getCategoryColor (id) {
                 if (id === 2) return 'success'
