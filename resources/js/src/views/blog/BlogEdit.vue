@@ -116,13 +116,15 @@
                       'content-type': 'multipart/form-data'
                   }
               }
+              const id = this.id
               let data = new FormData()
               data.append('title', this.title)
               data.append('category', this.category)
               data.append('content', this.content)
               data.append('cover_image', this.cover_image)
+              data.append('_method', 'PUT')
               this.$store.commit('SET_BEARER')
-              this.$store.dispatch('blog/store', {config, data})
+              this.$store.dispatch('blog/update', {config, id, data})
                   .then(() => {
                       this.successAlert()
                       this.$router.push(this.$router.currentRoute.query.to || '/admin/blog/list')
@@ -155,8 +157,8 @@
           successAlert(){
               this.$vs.notify({
                   color:'success',
-                  title:'Successfully Created !',
-                  text:'A blog is successfully created.'
+                  title:'Successfully Updated !',
+                  text:'A blog is successfully updated.'
               })
           },
       },

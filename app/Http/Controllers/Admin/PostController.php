@@ -6,7 +6,9 @@ use App\Post;
 use App\Http\Controllers\Controller;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -104,11 +106,45 @@ class PostController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|string|max:255',
+            'category' => 'required|max:1',
+            'cover_image' => 'nullable|image',
+            'content' => 'required|string',
+        ]);
+
+        $row = Post::find($id);
+        if ($row){
+            try {
+                $row->title = $request['title'];
+                $row->category_id = $request['category'];
+                $row->content = $request['content'];
+                if ($request->cover_image){
+                    $extension = $request->cover_image->extension();
+                    $oldImg_name = Str::replaceFirst('/storage', '', $row->cover_image);
+                    Storage::delete($oldImg_name);
+                    $img_name = time().'.'.$extension;
+                    $img_src = $request->file('cover_image')->storeAs('/uploads/blog', $img_name, 'public');
+                    $row->cover_image = '/storage/'.$img_src;
+                }
+                $row->update();
+                return response()->json([
+                    'message' => 'successfully updated.'
+                ], 201);
+            } catch (Exception $e) {
+                return response()->json([
+                    'message' => $e->getMessage()
+                ], $e->getCode());
+            }
+        } else {
+            return response()->json([
+                'message' => 'provided index is invalid.'
+            ], 400);
+        }
     }
 
     /**

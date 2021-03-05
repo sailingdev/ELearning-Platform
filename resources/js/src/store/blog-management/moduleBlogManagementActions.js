@@ -37,5 +37,17 @@ export default {
                     reject(err)
                 })
         })
+    },
+    update({commit}, payload){
+        const { config, id, data } = payload
+        return new Promise((resolve, reject) => {
+            axios.post(`/api/post/${id}`, data, config)
+                .then(res => {
+                    resolve(res)
+                })
+                .catch(err => {
+                    reject(err)
+                })
+        })
     }
 }

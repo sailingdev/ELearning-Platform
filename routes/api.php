@@ -24,5 +24,6 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::post('/logout', 'Auth\LoginController@Logout');
 });
 Route::group(['middleware' => ['auth:sanctum', 'role:admin']],function(){
-   Route::resource('post', 'Admin\PostController');
+    Route::put('/post/{$id}', 'Admin\PostController@update');
+    Route::resource('post', 'Admin\PostController');
 });
