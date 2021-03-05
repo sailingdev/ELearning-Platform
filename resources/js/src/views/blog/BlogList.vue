@@ -17,26 +17,11 @@
                         <vs-dropdown-menu>
 
                             <vs-dropdown-item>
-                                <span class="flex items-center">
+                                <span class="flex items-center" @click.stop="deleteAll">
                                   <feather-icon icon="TrashIcon" svgClasses="h-4 w-4" class="mr-2" />
                                   <span>Delete</span>
                                 </span>
                             </vs-dropdown-item>
-
-                            <vs-dropdown-item>
-                                <span class="flex items-center">
-                                  <feather-icon icon="FileIcon" svgClasses="h-4 w-4" class="mr-2" />
-                                  <span>Print</span>
-                                </span>
-                            </vs-dropdown-item>
-
-                            <vs-dropdown-item>
-                                <span class="flex items-center">
-                                  <feather-icon icon="SaveIcon" svgClasses="h-4 w-4" class="mr-2" />
-                                  <span>Another Action</span>
-                                </span>
-                            </vs-dropdown-item>
-
                         </vs-dropdown-menu>
                     </vs-dropdown>
 
@@ -83,12 +68,12 @@
 
             <template slot-scope="{data}">
                 <tbody>
-                <vs-tr :data="tr" :key="indextr" v-for="(tr, indextr) in data">
+                <vs-tr :data="tr" :key="tr.id" v-for="(tr, indextr) in data">
                     <vs-td>
                         <p class="product-name font-medium truncate">{{ indextr +1 }}</p>
                     </vs-td>
                     <vs-td class="img-container">
-                        <img :src="tr.cover_image" class="product-img" alt="cover_image" />
+                        <img :src="tr.cover_image" class="product-img " alt="cover_image"/>
                     </vs-td>
                     <vs-td>
                         <p class="product-name font-medium truncate">{{ tr.title }}</p>
@@ -106,7 +91,7 @@
                     <vs-td class="whitespace-no-wrap">
                         <feather-icon icon="EyeIcon" svgClasses="w-5 h-5 hover:text-success stroke-current" class="mr-2" @click.stop="editData(tr.id)" />
                         <feather-icon icon="EditIcon" svgClasses="w-5 h-5 hover:text-primary stroke-current" @click.stop="editData(tr.id)" />
-                        <feather-icon icon="TrashIcon" svgClasses="w-5 h-5 hover:text-danger stroke-current" class="ml-2" @click.stop="deleteData(tr.id)" />
+                        <feather-icon icon="TrashIcon" svgClasses="w-5 h-5 hover:text-danger stroke-current" class="ml-2" @click.stop="confirmDelete(tr.id)" />
                     </vs-td>
                 </vs-tr>
                 </tbody>
@@ -123,10 +108,7 @@
                 selected: [],
                 itemsPerPage: 4,
                 isMounted: false,
-
-                // Data Sidebar
-                addNewDataSidebar: false,
-                sidebarData: {}
+                ids: null,
             }
         },
         computed: {
@@ -140,7 +122,7 @@
                 return this.$store.state.blog.postList
             },
             queriedItems () {
-                // return this.$refs.table ? this.$refs.table.queriedResults.length : this.products.length
+                return this.$refs.table ? this.$refs.table.queriedResults.length : this.$store.state.blog.postList.length
             }
         },
         methods: {
@@ -148,39 +130,63 @@
                 // this.sidebarData = {}
                 // this.toggleDataSidebar(true)
             },
-            deleteData (id) {
+            confirmDelete (ids) {
+                this.ids = ids
                 this.$vs.dialog({
                     type: 'confirm',
                     color: 'danger',
-                    title: `Confirm`,
-                    text: 'Cake sesame snaps cupcake gingerbread danish I love gingerbread. Apple pie pie jujubes chupa chups.',
-                    accept: this.acceptAlert
+                    title: `Delete`,
+                    text: 'Are you sure you want to delete the selected post?',
+                    accept: this.deleteData,
                 })
-                // this.$store.dispatch('dataList/removeItem', id).catch(err => { console.error(err) })
+            },
+            deleteData(){
+                let ids = this.ids
+                this.$store.dispatch('blog/destroy', {ids})
+                    .then(res => {
+                        this.acceptAlert(true)
+                        this.selected = []
+                    })
+                    .catch(err => this.acceptAlert(false))
             },
             editData (id) {
                 this.$router.push(this.$router.currentRoute.query.to || `/admin/blog/edit/${id}`)
+            },
+            deleteAll(){
+                let ids = this.selected.map((e)=> {
+                  return e.id
+                })
+                if (ids.length > 0){
+                    this.confirmDelete(ids)
+                } else {
+                    this.$vs.notify({
+                        color: 'warning',
+                        title: 'Warning !',
+                        text: "No image is selected."
+                    })
+                }
             },
             getCategoryColor (id) {
                 if (id === 2) return 'success'
                 if (id === 3)  return 'warning'
                 return 'primary'
             },
-            acceptAlert() {
+            acceptAlert(flag) {
                 this.$vs.notify({
-                    color: 'danger',
+                    color: flag? 'success' : 'warning',
                     title: 'Deleted image',
-                    text: 'The selected image was successfully deleted'
+                    text: flag? 'The selected image was successfully deleted.' : "The selected image wasn't deleted."
                 })
             },
             formatDate(data){
                 let dt = new Date(data)
                 return dt.getFullYear() +'-'+ dt.getMonth() +'-'+dt.getDate()+' '+dt.getHours() +':'+dt.getMinutes()+':'+dt.getSeconds()
-            }
+            },
         },
         mounted () {
             this.$store.commit('SET_BEARER')
             this.$store.dispatch('blog/index')
+            this.isMounted = true
         }
     }
 

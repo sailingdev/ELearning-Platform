@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Post;
 use App\Http\Controllers\Controller;
-use Exception;
+
+use http\Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -19,10 +20,17 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post = Post::select(['id', 'cover_image', 'title', 'category_id', 'created_at', 'updated_at'])->with('category:id,name')->get();
-        return response()->json([
-            'dataList' => $post
-        ], 200);
+        try {
+            $post = Post::select(['id', 'cover_image', 'title', 'category_id', 'created_at', 'updated_at'])->with('category:id,name')->get();
+            return response()->json([
+                'dataList' => $post
+            ], 200);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => $e->getMessage(),
+            ], $e->getCode());
+        }
+
     }
 
     /**
@@ -125,7 +133,7 @@ class PostController extends Controller
                 $row->content = $request['content'];
                 if ($request->cover_image){
                     $extension = $request->cover_image->extension();
-                    $oldImg_name = Str::replaceFirst('/storage', '', $row->cover_image);
+                    $oldImg_name = Str::replaceFirst('/storage','/public',  $row->cover_image);
                     Storage::delete($oldImg_name);
                     $img_name = time().'.'.$extension;
                     $img_src = $request->file('cover_image')->storeAs('/uploads/blog', $img_name, 'public');
@@ -134,7 +142,7 @@ class PostController extends Controller
                 $row->update();
                 return response()->json([
                     'message' => 'successfully updated.'
-                ], 201);
+                ], 204);
             } catch (Exception $e) {
                 return response()->json([
                     'message' => $e->getMessage()
@@ -150,11 +158,28 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  array  $id
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {
-        //
+        try{
+            $items = Str::of((string)$id)->explode(',');
+            foreach($items as $i){
+                $row = Post::find($i);
+                $img_name = Str::replaceFirst('/storage','/public',  $row->cover_image);
+                Storage::delete($img_name);
+            }
+            Post::destroy($items);
+            $dataList = Post::select(['id', 'cover_image', 'title', 'category_id', 'created_at', 'updated_at'])->with('category:id,name')->get();
+            return response()->json([
+                'message' => 'Successfully deleted.',
+                'dataList' => $dataList
+            ], 200);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => $e->getMessage()
+            ], $e->getcode());
+        }
     }
 }

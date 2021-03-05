@@ -49,5 +49,16 @@ export default {
                     reject(err)
                 })
         })
+    },
+    destroy({commit}, payload){
+        const {ids} = payload
+        return new Promise((resolve, reject)=> {
+            axios.delete(`/api/post/${ids}`)
+                .then(res => {
+                    commit('SET_DATALIST', res.data.dataList)
+                    resolve()
+                })
+                .catch(err => reject())
+        })
     }
 }
