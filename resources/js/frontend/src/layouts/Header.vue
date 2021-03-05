@@ -47,6 +47,7 @@
 
 <script>
     import TheLanguageModal from '../components/TheLanguageModal'
+    import router from '../router'
   export default {
     name: 'Header',
       data(){
@@ -75,8 +76,7 @@
           },
           isLoggedIn(){
                 let isLoggedIn = this.$store.state.auth.isLoggedIn
-                let isAccessToken = !localStorage.getItem('tortu_accessToken')
-                return isLoggedIn || !isAccessToken
+                return isLoggedIn
           }
       },
       methods: {
@@ -90,8 +90,13 @@
               this.display = true
           },
           logout(){
-              this.$store.dispatch('auth/logout')
+              this.$store.dispatch('auth/logout').then(res => {
+                  this.$router.push(this.$router.currentRoute.query.to || '/').then().catch(err => {})
+              })
           }
+      },
+      mounted () {
+        this.$store.commit('auth/SET_LOGGEDIN', !!localStorage.getItem('tortu_accessToken'))
       }
   }
 </script>

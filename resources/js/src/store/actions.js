@@ -7,6 +7,8 @@
   Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
 
+import auth from '../http/request/auth'
+import router from '../router'
 const actions = {
 
     // /////////////////////////////////////////////
@@ -48,6 +50,22 @@ const actions = {
 
     updateUserInfo({ commit }, payload) {
       commit('UPDATE_USER_INFO', payload)
+    },
+
+    logout({commit}){
+        commit('SET_BEARER', localStorage.getItem('tortu_accessToken'))
+        return new Promise((resolve, reject) => {
+            auth.logout()
+                .then((response) => {
+                    localStorage.removeItem('tortu_userData')
+                    localStorage.removeItem('tortu_accessToken')
+                    router.push('/login').catch(() => {})
+                    resolve()
+                })
+                .catch((err) => {
+                    reject(err)
+                })
+        })
     }
 }
 

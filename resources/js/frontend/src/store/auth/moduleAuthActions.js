@@ -59,7 +59,6 @@ export default {
                     localStorage.removeItem('tortu_userData')
                     localStorage.removeItem('tortu_accessToken')
                     commit('SET_LOGGEDIN', false)
-                    router.push(router.currentRoute.query.to || "/" )
                     resolve()
                 })
                 .catch((err) => {

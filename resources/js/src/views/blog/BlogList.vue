@@ -73,7 +73,9 @@
                         <p class="product-name font-medium truncate">{{ indextr +1 }}</p>
                     </vs-td>
                     <vs-td class="img-container">
-                        <img :src="tr.cover_image" class="product-img " alt="cover_image"/>
+                        <div  class="product-img" >
+                            <img :src="tr.cover_image" width="200px" alt="cover_image"/>
+                        </div>
                     </vs-td>
                     <vs-td>
                         <p class="product-name font-medium truncate">{{ tr.title }}</p>
