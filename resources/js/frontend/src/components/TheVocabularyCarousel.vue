@@ -156,7 +156,7 @@ Repeat out loud
                 this.isPlayable_temp = !this.isPlayable_temp
                 this.audioControl()
             },
-            previous () {
+            previous (val) {
                 this.currentSlide = val === 0 ? this.slides.length - 1 : val -1
             },
             next (val) {
