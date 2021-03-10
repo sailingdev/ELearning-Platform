@@ -4385,3 +4385,38 @@ textarea.form-control {
     margin-right: auto;
     margin-left: auto;
 }
+
+
+.btn-lesson-carousel-arrow {
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    top: 90px;
+    display: block;
+    width: 56px;
+    height: 62px;
+    margin-top: -10px;
+    padding: 0 0 10px;
+    cursor: pointer;
+    color: transparent;
+    border: none;
+    outline: 0;
+    background: 0 0;
+    z-index: 2;
+}
+.btn-lesson-carousel-arrow:focus {
+    outline: unset;
+}
+.arrow-next {
+    right: 0;
+}
+.btn-lesson-carousel-arrow>i:before {
+    background-color: #00bcd4;
+    font-size: 20px;
+    line-height: 1;
+    color: #fff;
+    padding: 16px;
+    border-radius: 50%;
+    box-shadow: 0 6px 6px 0 rgb(0 0 0 / 20%);
+    transition: opacity .5s ease;
+}
