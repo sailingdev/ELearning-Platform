@@ -108,7 +108,7 @@
 </template>
 
 <script>
-    import TheQuizCategory from './TheQuizCategory'
+    import TheQuizCategory from './TheVocabularyLessonQuizCategory'
     export default {
         name: 'TheVocabularyCarousel',
         components: {TheQuizCategory},
