@@ -19,6 +19,7 @@ import actions from "./actions"
 Vue.use(Vuex)
 
 import moduleAuth from './auth/moduleAuth'
+import moduleLesson from './lesson/moduleLesson'
 
 export default new Vuex.Store({
     getters,
@@ -26,7 +27,8 @@ export default new Vuex.Store({
     state,
     actions,
     modules: {
-        auth: moduleAuth
+        auth: moduleAuth,
+        lesson: moduleLesson
     },
     strict: process.env.NODE_ENV !== 'production'
 })

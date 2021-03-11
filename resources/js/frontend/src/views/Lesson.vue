@@ -13,7 +13,8 @@
                         <i class="dropdown-toggle">{{selected_type}} Lessons</i>
                     </a>
                     <div class="mt-3 text-center">
-                        <the-vocabulary-carousel />
+<!--                        <the-vocabulary-carousel />-->
+                        <the-listening-game />
 <!--                        <iframe src="https://h5p.org/h5p/embed/119355" width="600" height="300" frameborder="0" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>-->
 <!--                        <img src="frontend/img/bg-img/4.png" width="600px"/>-->
                     </div>
@@ -80,10 +81,12 @@
 <script>
     import TheContactModal from '../components/TheContactModal'
     import TheLessonListModal from '../components/TheLessonListModal'
-    import TheVocabularyCarousel from '../components/TheVocabularyCarousel'
+    import TheVocabularyCarousel from './lesson/TheVocabularyLesson'
+    import TheListeningGame from './lesson/TheListeningGame'
     export default {
         name: 'Lesson',
         components:{
+            TheListeningGame,
           TheLessonListModal,
             TheContactModal,
             TheVocabularyCarousel
