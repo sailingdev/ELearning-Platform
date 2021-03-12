@@ -20,4 +20,9 @@ export default {
         newArray.push(itemTemp)
         return newArray
     },
+    getRandomData: (state) =>(id) => {
+        const dataList = state.dataList
+        let index = Math.floor(Math.random() * dataList.length)
+        return dataList[index]
+    }
 }
