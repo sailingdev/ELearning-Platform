@@ -77,7 +77,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <the-fill-the-blank-review :matchingScore="scoreList" :active="active" @playAgain="playAgain" />
+                                <the-review :matchingScore="scoreList" :active="active" @playAgain="playAgain" />
                             </div>
                         </div>
                         <button class="slick-next slick-arrow lni-arrow-right lni-bold" aria-label="Previous"
@@ -101,7 +101,7 @@
 </template>
 
 <script>
-  import TheFillTheBlankReview from './TheFillTheBlankReview'
+  import TheReview from './TheReview'
 
   export default {
     name: 'TheFillTheBlanks',
@@ -109,7 +109,7 @@
           return this.initialData()
       },
       components:{
-          TheFillTheBlankReview
+          TheReview
       },
       methods: {
           startOverlay(){

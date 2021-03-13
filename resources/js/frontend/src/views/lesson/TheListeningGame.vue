@@ -66,7 +66,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <the-listening-review :scoreList="scoreList" :active="isActive" @playAgain="playAgain" />
+                                <the-review :scoreList="scoreList" :active="isActive" @playAgain="playAgain" />
                             </div>
                         </div>
                         <button class="slick-next slick-arrow lni-arrow-right lni-bold" aria-label="Previous"
@@ -90,14 +90,14 @@
 </template>
 
 <script>
-    import TheListeningReview from './TheListeningReview'
+    import TheReview from './TheReview'
   export default {
     name: 'TheListeningGame',
       data(){
         return this.initialData()
       },
       components:{
-        TheListeningReview
+          TheReview
       },
       methods: {
           startOverlay(){

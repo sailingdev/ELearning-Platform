@@ -18,7 +18,7 @@
                                 <h4></h4>
                                 <p class="text-black-50">Right: {{right}}</p>
                                 <p class="text-black-50">Wrong: {{wrong}}</p>
-                                <p class="text-black-50">Skipped: {{skipped}}</p>
+                                <p v-if="skipped > 0" class="text-black-50">Skipped: {{skipped}}</p>
                             </div>
                             <div class="slide-button multi-choice-try-again-button mb-5" @click="playAgain">
                                 <i class="lni-reload"></i>
@@ -34,10 +34,10 @@
 
 <script>
   export default {
-    name: 'TheListeningReview',
-      props: {
+    name: 'TheReview',
+      props:{
           scoreList: Array,
-          active: Boolean
+          active: Boolean,
       },
       methods:{
           playAgain(){
@@ -52,7 +52,7 @@
       },
       computed:{
           score(){
-              return Math.round(this.right * 100 / this.skipped)
+              return Math.round(this.right * 100 / this.scoreList.length)
           },
           right(){
               return this.getCount(1)
