@@ -6121,3 +6121,17 @@ figure {
 /*        right: 40%*/
 /*    }*/
 /*}*/
+.confirmTextBtn{
+    padding: 1px 22px;
+    color: white;
+}
+.normal {
+    background-color: #00bcd4;
+}
+.correct {
+    background-color: #65c100
+}
+
+.incorrect {
+    background-color: #ff3f5f
+}

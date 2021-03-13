@@ -24,7 +24,7 @@
                                 type="button" aria-disabled="true" :style="{display: previousBtn}" @click="direction(0)"
                         >
                         </button>
-                        <div class="slick-list draggable" style="padding: 0px 20px;">
+                        <div class="slick-list draggable" style="padding: 0px 20px; max-height: 340px;">
                             <div class="slick-track"
                                  :style="{opacity: 1, width: '12200px', transform: translate3d, transition: 'transform 500ms ease 0s'}">
                                 <div v-for="(item, index) in this.dataList" :key="index" :class="{'slick-slide':true, 'slick-current slick-center': index === currentSlide}"
@@ -34,7 +34,7 @@
                                              style="width: 100%; display: inline-block;">
                                             <div id="view25" class="border-slide game">
                                                 <div class="inner-slide size-slide listen-game"
-                                                     style="min-height: 472px;">
+                                                     style="min-height: 200px;">
                                                     <div
                                                         class="multi-choice-question-area card-background">
                                                         <div class="listening-slide-number">
@@ -53,12 +53,23 @@
                                                     <div class="multi-choice-container">
                                                         <div class="multi-choice-answer-area">
                                                             <div class="click-answer-text text-left">
-                                                                Select an answer
+                                                                Type an answer
                                                             </div>
-                                                            <div v-for="(val, i) in getDataList" :key="i" :ref="`item_${val.id}`" :style="{'pointer-events':pointerEvents}" :class="'slick-disabled spalan-text answer-area ' + activeColor(val.id)" :aria-disabled="true" @click="review(val.id)">
-                                                                {{val.title}}
+                                                            <div class="row" style="padding-top: 30px">
+                                                                <div class="col-md-9" style="text-align: right">
+                                                                        <input type="text" name="`fillTheBlank_${index}`" :id="`fillTheBlank_${index}`" style="width: 80%" v-model="inputtedText" />
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <div class="slide-button yes"
+                                                                         data-value="1" >
+                                                                        <div class="text-area">
+                                                                            <span :class="{'confirmTextBtn cursor-on':true, normal:confirmTextBtn === null, correct:confirmTextBtn === 1, incorrect:confirmTextBtn ===0  }" @click.stop="review">
+                                                                                <i :class="{'lni-spell-check': confirmTextBtn === null, 'lni-check-mark-circle': confirmTextBtn === 1, 'lni-close': confirmTextBtn === 0}"></i>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -66,11 +77,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <the-listening-review :scoreList="scoreList" :active="isActive" @playAgain="playAgain" />
+                                <the-fill-the-blank-review :matchingScore="scoreList" :active="active" @playAgain="playAgain" />
                             </div>
                         </div>
                         <button class="slick-next slick-arrow lni-arrow-right lni-bold" aria-label="Previous"
-                                      type="button" aria-disabled="true" :style="{display:nextBtn}" @click="direction(1)"
+                                type="button" aria-disabled="true" :style="{display:nextBtn}" @click="direction(1)"
                         >
                         </button>
                     </div>
@@ -90,32 +101,35 @@
 </template>
 
 <script>
-    import TheListeningReview from './TheListeningReview'
+  import TheFillTheBlankReview from './TheFillTheBlankReview'
+
   export default {
-    name: 'TheListeningGame',
+    name: 'TheFillTheBlanks',
       data(){
-        return this.initialData()
+          return this.initialData()
       },
       components:{
-        TheListeningReview
+          TheFillTheBlankReview
       },
       methods: {
           startOverlay(){
               this.isStartOverlay = false
           },
           direction(isNext){
+              let currentSlide = this.currentSlide
               if(this.audio) {
                   this.audio.pause()
                   this.audio.currentTime = 0
               }
               this.isRight = null
-              if(isNext === 1) this.next(this.currentSlide)
-              if (isNext === 0) this.previous(this.currentSlide)
-              if (isNext === 2) this.continue(this.currentSlide)
-        },
+              this.inputtedText = ''
+              if(isNext === 1) this.next(currentSlide)
+              if (isNext === 0) this.previous(currentSlide)
+              if (isNext === 2) this.continue(currentSlide)
+          },
           next(val){
               this.scoreList.push(2)
-            this.currentSlide = val >= this.dataList.length ?  this.dataList.length : val + 1
+              this.currentSlide = val >= this.dataList.length ?  this.dataList.length : val + 1
           },
           previous(val){
               this.scoreList.pop()
@@ -125,22 +139,22 @@
               this.currentSlide = val >= this.dataList.length ?  this.dataList.length : val + 1
           },
           playAudio(index){
-            let audio = this.$refs.audio[index]
-            audio.src = this.dataList[index].src
+              let audio = this.$refs.audio[index]
+              audio.src = this.dataList[index].src
               audio.play()
           },
           onEnded(){
               if(this.isRight !== null){
-                  this.direction(2)
+                  this.direction(true)
               }
           },
-          review(id){
-             let realId = this.dataList[this.currentSlide].id
-              this.selectedId = id
-              this.realId = realId
-              this.isRight = id === realId ? 1 : 0
-              id === realId ? this.scoreList.push(1) : this.scoreList.push(0)
-              this.playAudio(this.currentSlide)
+          review(){
+              let realText = this.dataList[this.currentSlide].title
+              this.isRight = realText === this.inputtedText ? 1 : 0
+              this.isRight === 1 ? this.scoreList.push(1) : this.scoreList.push(0)
+              setTimeout(()=>{
+                  this.direction(2)
+              }, 400)
           },
           playAgain(){
               Object.assign(this.$data, this.initialData())
@@ -153,6 +167,7 @@
                   isStartOverlay: true,
                   isRight: null,
                   audio: null,
+                  inputtedText: '',
                   scoreList: []    //    0:wrong, 1:right, 2:skipped
               }
           },
@@ -161,7 +176,7 @@
           translate3d(){
               let val = -610 * this.currentSlide
               return `translate3d(${val}px, 0px, 0px)`
-        },
+          },
           previousBtn(){
               return this.currentSlide === 0 ? 'none' : 'block'
           },
@@ -172,23 +187,12 @@
           startOverlayBtn(){
               return this.isStartOverlay ? 'block' : 'none'
           },
-          getDataList(){
-              return this.currentSlide < this.dataList.length && this.$store.getters['lesson/getListeningList'](this.currentSlide)
+          confirmTextBtn(){
+              return this.isRight
           },
-          activeColor(){
-              return id => {
-                      if (this.isRight === null) return ''
-                      if (this.selectedId === id && this.isRight === 0) return 'wrong'
-                      if (this.realId === id && this.isRight === 0) return 'right'
-                      if (this.selectedId === id && this.isRight === 1) return 'right'
-              }
-          },
-          pointerEvents(){
-              return this.isRight === null ? 'unset' : 'none'
-          },
-          isActive(){
+          active(){
               return this.currentSlide === this.dataList.length
-          }
+          },
       },
   }
 </script>

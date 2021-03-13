@@ -34,10 +34,10 @@
 
 <script>
   export default {
-    name: 'TheListeningReview',
-      props: {
+    name: 'TheFillTheBlankReview',
+      props:{
           scoreList: Array,
-          active: Boolean
+          active: Boolean,
       },
       methods:{
           playAgain(){
