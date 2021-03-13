@@ -31,7 +31,7 @@
 
 <script>
   export default {
-    name: 'TheQuizCategory',
+    name: 'TheVocabularyLessonQuizCategory',
       data(){
           return {
               lesson_type_list: ['Speak Words', 'Listening game', 'Matching game', 'Concentration game']

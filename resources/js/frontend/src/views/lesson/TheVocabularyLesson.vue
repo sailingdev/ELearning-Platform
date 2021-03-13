@@ -84,7 +84,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <the-quiz-category />
+                                <the-vocabulary-lesson-quiz-category />
                             </div>
                         </div>
                         <button class="slick-next slick-arrow lni-arrow-right lni-bold" aria-label="Next" type="button"
@@ -108,10 +108,10 @@
 </template>
 
 <script>
-    import TheQuizCategory from './TheVocabularyLessonQuizCategory'
+    import TheVocabularyLessonQuizCategory from './TheVocabularyLessonQuizCategory'
     export default {
-        name: 'TheVocabularyCarousel',
-        components: {TheQuizCategory},
+        name: 'TheVocabularyLesson',
+        components: {TheVocabularyLessonQuizCategory},
         data () {
             return {
                 dataList: this.$store.state.lesson.dataList,
