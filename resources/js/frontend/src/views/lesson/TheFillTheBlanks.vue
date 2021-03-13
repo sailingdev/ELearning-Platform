@@ -77,7 +77,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <the-review :matchingScore="scoreList" :active="active" @playAgain="playAgain" />
+                                <the-review :scoreList="scoreList" :active="active" @playAgain="playAgain" />
                             </div>
                         </div>
                         <button class="slick-next slick-arrow lni-arrow-right lni-bold" :disabled="isNextDisabled" aria-label="Previous"
