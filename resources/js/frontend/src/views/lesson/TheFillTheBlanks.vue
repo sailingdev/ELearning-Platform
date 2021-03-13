@@ -80,7 +80,7 @@
                                 <the-review :matchingScore="scoreList" :active="active" @playAgain="playAgain" />
                             </div>
                         </div>
-                        <button class="slick-next slick-arrow lni-arrow-right lni-bold" aria-label="Previous"
+                        <button class="slick-next slick-arrow lni-arrow-right lni-bold" :disabled="isNextDisabled" aria-label="Previous"
                                 type="button" aria-disabled="true" :style="{display:nextBtn}" @click="direction(1)"
                         >
                         </button>
@@ -193,6 +193,9 @@
           active(){
               return this.currentSlide === this.dataList.length
           },
+          isNextDisabled(){
+              return this.selectedId !== null
+          }
       },
   }
 </script>
