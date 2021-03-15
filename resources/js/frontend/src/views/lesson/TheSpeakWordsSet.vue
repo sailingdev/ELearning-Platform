@@ -1,0 +1,139 @@
+<template>
+    <div class="min-height-container lesson-position">
+        <div id="modal-lesson-area"></div>
+        <div id="slide-modal-body">
+            <div class="html-lesson-content">
+                <div id="slide-view">
+                    <div id="slide-header">
+                        <div class="slide-header-text"></div>
+                        <div class="slide-header-sample">SLIDE HEADER<br>HERE</div>
+                    </div>
+                    <div id="lesson-carousel" style="" class="slick-initialized slick-slider">
+                        <button class="slick-prev slick-arrow lni-arrow-left lni-bold" aria-label="Previous"
+                                type="button" aria-disabled="true" :style="{display: previousBtn}" @click="direction(0)"
+                        >
+                        </button>
+                        <div class="slick-list draggable" style="padding: 0px 20px; max-height: 340px;">
+                            <div class="slick-track"
+                                 :style="{opacity: 1, width: '12200px', transform: translate3d, transition: 'transform 500ms ease 0s'}">
+                                <div v-for="(item, index) in this.dataList" :key="index" :class="{'slick-slide':true, 'slick-current slick-center': index === currentSlide}"
+                                     data-slick-index="11" aria-hidden="true" style="width: 610px;">
+                                    <div>
+                                        <div class="lesson-slide"
+                                             style="width: 100%; display: inline-block;">
+                                            <div id="view25" class="border-slide game">
+                                                <div class="inner-slide size-slide listen-game">
+                                                    <div
+                                                        class="multi-choice-question-area card-background" style="min-height: 200px;">
+                                                        <div class="listening-slide-number">
+                                                            {{index +1}}/{{dataList.length}}
+                                                        </div>
+                                                        <div class="listening-careful-area">
+                                                            {{item.title}}
+                                                        </div>
+                                                        <the-speech-to-text :answer="item.title" :lang_="en" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <the-review :scoreList="scoreList" :active="active" @playAgain="playAgain" />
+                            </div>
+                        </div>
+                        <button class="slick-next slick-arrow lni-arrow-right lni-bold" :disabled="isNextDisabled" aria-label="Previous"
+                                type="button" aria-disabled="true" :style="{display:nextBtn}" @click="direction(1)"
+                        >
+                        </button>
+                    </div>
+                    <div id="slide-footer">
+                    </div>
+                </div>
+                <div class="start-overlay" :style="{display: startOverlayBtn}">
+                    <button class=" start-icon-wrapper" aria-label="Click here" @click="startOverlay" >
+                        <i class="lni-play"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    import TheReview from './TheReview'
+    import TheSpeechToText from './TheSpeechToText'
+  export default {
+    name: 'TheSpeakWordsSet',
+      data(){
+        return this.initialData()
+      },
+      components:{
+        TheReview,
+          TheSpeechToText
+      },
+      methods:{
+          startOverlay(){
+              this.isStartOverlay = false
+          },
+          direction(isNext){
+              let currentSlide = this.currentSlide
+              if(this.audio) {
+                  this.audio.pause()
+                  this.audio.currentTime = 0
+              }
+              this.isRight = null
+              this.inputtedText = ''
+              if(isNext === 1) this.next(currentSlide)
+              if (isNext === 0) this.previous(currentSlide)
+              if (isNext === 2) this.continue(currentSlide)
+          },
+          next(val){
+              this.scoreList.push(2)
+              this.currentSlide = val >= this.dataList.length ?  this.dataList.length : val + 1
+          },
+          previous(val){
+              this.scoreList.pop()
+              this.currentSlide = val <= 0 ?  0 : val - 1
+          },
+          playAgain(){
+              Object.assign(this.$data, this.initialData())
+          },
+          initialData(){
+              return {
+                  dataList: this.$store.state.lesson.dataList,
+                  currentSlide: 0,
+                  selectedId: null,
+                  isStartOverlay: true,
+                  isRight: null,
+                  scoreList: []    //    0:wrong, 1:right, 2:skipped
+              }
+          },
+      },
+      computed:{
+          translate3d(){
+              let val = -610 * this.currentSlide
+              return `translate3d(${val}px, 0px, 0px)`
+          },
+          previousBtn(){
+              return this.currentSlide === 0 ? 'none' : 'block'
+          },
+          nextBtn(){
+              if(this.isStartOverlay) return 'none'
+              return this.currentSlide ===this.dataList.length ? 'none' : 'block'
+          },
+          startOverlayBtn(){
+              return this.isStartOverlay ? 'block' : 'none'
+          },
+          isNextDisabled(){
+              return this.selectedId !== null
+          },
+          active(){
+              return this.currentSlide === this.dataList.length
+          },
+      }
+  }
+</script>
+
+<style scoped>
+
+</style>

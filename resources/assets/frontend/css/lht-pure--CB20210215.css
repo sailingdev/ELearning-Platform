@@ -6135,3 +6135,12 @@ figure {
 .incorrect {
     background-color: #ff3f5f
 }
+.speech-to-text {
+    border-radius: 20px;
+    padding: 5px 18px;
+    color: white;
+    box-shadow: 0 6px 6px 0 rgb(0 0 0 / 20%);
+}
+.speech-to-text:hover {
+    background-color: #00BCF1;
+}
