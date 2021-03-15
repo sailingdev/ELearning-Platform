@@ -31,7 +31,7 @@
                                                         <div class="listening-careful-area">
                                                             {{item.title}}
                                                         </div>
-                                                        <the-speech-to-text :lang_="zh-cn" :answer="item.title" />
+                                                        <the-speech-to-text :lang_="'en-US'" :answer="item.title" />
                                                     </div>
                                                 </div>
                                             </div>

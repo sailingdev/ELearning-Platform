@@ -66,7 +66,8 @@
                 }
             },
             review(){
-                // console.log(this.answer.toLowerCase().replace(/[^a-zA-Z1-9' ]/, "").trim())
+                // console.log(this.answer.toLowerCase())
+                // console.log(this.answer.toLowerCase().replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '').trim())
                 // console.log(this.transcription_.toLowerCase().trim())
                 this.isTrue = this.answer.toLowerCase().replace(/[^a-zA-Z1-9' ]/, "").trim() === this.transcription_.toLowerCase().trim()
             }
