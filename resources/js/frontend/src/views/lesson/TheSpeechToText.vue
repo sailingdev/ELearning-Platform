@@ -1,10 +1,14 @@
 <template>
-    <div class="mt-5">
+    <div class="mt-3">
+        <p>
+            <span :style="{'font-size': '27px', color: getResult ? 'yellow': '#d2d2d2'}">
+                <i v-if="getResult !== null" class="lni-star-filled"></i>
+            </span>
+        </p>
         <span class="cursor-on speech-to-text" :style="{'background-color': isRecording?'#ff3f5f':'#00bcd4'}" @click.stop="startSpeechToTxt">
             <i class="lni-mic" > </i>
             {{textContent}}
         </span>
-        <p>{{transcription_}}</p>
     </div>
 </template>
 
@@ -15,20 +19,24 @@
     export default {
         name: 'TheSpeechToText',
         props:{
-            answer: Text,
-            lang_: Text
+            answer: String,
+            lang_: {
+                type: String,
+                default: 'en-US'
+            }
         },
         data() {
             return {
                 runtimeTranscription_: "",
                 transcription_: [],
-                recording: false
+                recording: false,
+                isTrue: null
             };
         },
         methods: {
-            startSpeechToTxt() {
+            startSpeechToTxt () {
                 // initialisation of voicereco
-                this.recording = !this.recording
+
                 window.SpeechRecognition =
                     window.SpeechRecognition ||
                     window.webkitSpeechRecognition;
@@ -46,21 +54,35 @@
                 });
                 // end of transcription
                 recognition.addEventListener("end", () => {
-                    this.transcription_.push(this.runtimeTranscription_);
+                    this.transcription_ = this.runtimeTranscription_
                     this.runtimeTranscription_ = "";
                     recognition.stop();
-                    this.recording = !this.recording
+                    this.recording = false
+                    this.review()
                 });
-                recognition.start();
+                if (!this.recording){
+                    this.recording = true
+                    recognition.start();
+                }
             },
-
+            review(){
+                console.log(this.answer.toLowerCase().replace(/[^a-zA-Z1-9' ]/, "").trim())
+                console.log(this.transcription_.toLowerCase().trim())
+                this.isTrue = this.answer.toLowerCase().replace(/[^a-zA-Z1-9' ]/, "").trim() === this.transcription_.toLowerCase().trim()
+            }
         },
         computed:{
             isRecording(){
                 return this.recording
             },
             textContent(){
-                return this.recording ? 'Listening...' : 'Push to speak'
+                if (this.isTrue === null){
+                    return this.recording ? 'Listening...' : 'Push to speak'
+                } else
+                    return this.recording ? 'Listening...' : 'Try Again'
+            },
+            getResult(){
+                return this.isTrue
             }
         }
     }

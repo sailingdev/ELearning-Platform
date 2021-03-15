@@ -31,14 +31,14 @@
                                                         <div class="listening-careful-area">
                                                             {{item.title}}
                                                         </div>
-                                                        <the-speech-to-text :answer="item.title" :lang_="en" />
+                                                        <the-speech-to-text :answer="item.title" />
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <the-review :scoreList="scoreList" :active="active" @playAgain="playAgain" />
+<!--                                <the-review :scoreList="scoreList" :active="active" @playAgain="playAgain" />-->
                             </div>
                         </div>
                         <button class="slick-next slick-arrow lni-arrow-right lni-bold" :disabled="isNextDisabled" aria-label="Previous"
@@ -119,7 +119,7 @@
           },
           nextBtn(){
               if(this.isStartOverlay) return 'none'
-              return this.currentSlide ===this.dataList.length ? 'none' : 'block'
+              return this.currentSlide ===this.dataList.length -1 ? 'none' : 'block'
           },
           startOverlayBtn(){
               return this.isStartOverlay ? 'block' : 'none'
