@@ -55,6 +55,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // require styles
 
 
@@ -64,22 +89,39 @@ __webpack_require__.r(__webpack_exports__);
   name: 'BlogCreate',
   data: function data() {
     return {
-      content: "...",
+      image_src: '',
+      content: "",
       category: 1,
       title: '',
-      cover_img: ''
+      cover_image: '',
+      err_title: '',
+      err_cover_image: '',
+      err_content: ''
     };
   },
   components: {
     quillEditor: vue_quill_editor__WEBPACK_IMPORTED_MODULE_3__["quillEditor"]
   },
   methods: {
-    successUpload: function successUpload() {
-      this.$vs.notify({
-        color: 'success',
-        title: 'Upload Success',
-        text: 'Lorem ipsum dolor sit amet, consectetur'
-      });
+    onFileChange: function onFileChange(e) {
+      var files = e.target.files || e.dataTransfer.files;
+      if (!files.length) return;
+      this.cover_image = files[0];
+      this.createImage(files[0]);
+    },
+    createImage: function createImage(file) {
+      var image = new Image();
+      var reader = new FileReader();
+      var vm = this;
+
+      reader.onload = function (e) {
+        vm.image_src = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    },
+    removeImage: function removeImage(e) {
+      this.image_src = '';
     },
     onSubmit: function onSubmit() {
       var _this = this;
@@ -93,23 +135,57 @@ __webpack_require__.r(__webpack_exports__);
       data.append('title', this.title);
       data.append('category', this.category);
       data.append('content', this.content);
-      data.append('cover_image', this.cover_img);
+      data.append('cover_image', this.cover_image);
       this.$store.commit('SET_BEARER');
-      this.$store.dispatch('blog/add_new', {
+      this.$store.dispatch('blog/store', {
         config: config,
         data: data
+      }).then(function () {
+        _this.successAlert();
+
+        _this.$router.push(_this.$router.currentRoute.query.to || '/admin/blog/list');
       })["catch"](function (err) {
-        _this.erros = {};
-
         if (err.response.status === 422) {
-          _this.erros = err.response.data.errors;
-        }
+          var errs = err.response.data.errors;
 
-        console.log(_this.erros);
+          for (var index in errs) {
+            switch (index) {
+              case 'title':
+                _this.err_title = errs[index][0].replace(/[^a-zA-Z0-9 ]/g, "");
+                break;
+
+              case 'cover_image':
+                _this.err_cover_image = errs[index][0].replace(/[^a-zA-Z0-9 ]/g, "");
+                break;
+
+              case 'content':
+                _this.err_content = errs[index][0].replace(/[^a-zA-Z0-9 ]/g, "");
+                break;
+            }
+          }
+        }
       });
     },
-    onFilePicked: function onFilePicked(event) {
-      this.cover_img = event;
+    onResetMSG: function onResetMSG() {
+      this.err_cover_image = '';
+      this.err_title = '';
+      this.err_content = '';
+    },
+    successAlert: function successAlert() {
+      this.$vs.notify({
+        color: 'success',
+        title: 'Successfully Created !',
+        text: 'A blog is successfully created.'
+      });
+    }
+  },
+  computed: {
+    errMSG: function errMSG() {
+      return {
+        title: this.err_title,
+        cover_image: this.err_cover_image,
+        content: this.err_content
+      };
     }
   }
 });
@@ -128,7 +204,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".ql-editor{\n  min-height:490px;\n}\n[dir] .con-img-upload {\n  text-align: -webkit-center;\n}\n[dir] .con-input-upload {\n  float: unset;\n}\n", ""]);
+exports.push([module.i, ".ql-editor{\n  min-height:466px;\n}\n[dir] .con-img-upload {\n  text-align: -webkit-center;\n}\n[dir] .con-input-upload {\n  float: unset;\n}\n.mw-32{\n  min-width: 320px;\n}\n.cover_img {\n  width: 100%;\n  display: block;\n}\n[dir] .cover_img {\n  margin: auto;\n  margin-bottom: 10px;\n  border-radius: 5px;\n}\n", ""]);
 
 // exports
 
@@ -183,15 +259,29 @@ var render = function() {
   return _c("div", { staticClass: "vx-row " }, [
     _c(
       "div",
-      { staticClass: "vx-col w-full lg:w-3/12 mb-base" },
+      { staticClass: "vx-col w-full lg:w-3/12 mb-base mw-32" },
       [
         _c(
           "vx-card",
+          { on: { focusin: _vm.onResetMSG } },
           [
             _c("p", { staticClass: "text-black mb-4" }, [_vm._v("Properties")]),
             _vm._v(" "),
+            _c(
+              "vs-alert",
+              {
+                attrs: {
+                  active: !!_vm.errMSG.title,
+                  color: "danger",
+                  "icon-pack": "feather",
+                  icon: "icon-info"
+                }
+              },
+              [_c("span", [_vm._v(_vm._s(_vm.errMSG.title))])]
+            ),
+            _vm._v(" "),
             _c("vs-textarea", {
-              staticClass: "w-full mt-5 mb-5",
+              staticClass: "w-full mt-3 mb-5",
               attrs: { label: "Blog Title" },
               model: {
                 value: _vm.title,
@@ -202,15 +292,50 @@ var render = function() {
               }
             }),
             _vm._v(" "),
-            _c("vs-upload", {
-              ref: "imgSubmit",
-              attrs: {
-                limit: "1",
-                text: "Upload Main Image",
-                action: "http://localhost/"
-              },
-              on: { change: _vm.onFilePicked, "on-success": _vm.successUpload }
-            }),
+            _c(
+              "div",
+              { staticClass: "mb-5", staticStyle: { "min-height": "200px" } },
+              [
+                !_vm.image_src
+                  ? _c(
+                      "div",
+                      [
+                        _c(
+                          "vs-alert",
+                          {
+                            attrs: {
+                              active: !!_vm.errMSG.cover_image,
+                              color: "danger",
+                              "icon-pack": "feather",
+                              icon: "icon-info"
+                            }
+                          },
+                          [_c("span", [_vm._v(_vm._s(_vm.errMSG.cover_image))])]
+                        ),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "text-grey mb-3" }, [
+                          _vm._v("Select cover image.")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          attrs: { type: "file" },
+                          on: { change: _vm.onFileChange }
+                        })
+                      ],
+                      1
+                    )
+                  : _c("div", [
+                      _c("img", {
+                        staticClass: "cover_img",
+                        attrs: { src: _vm.image_src }
+                      }),
+                      _vm._v(" "),
+                      _c("button", { on: { click: _vm.removeImage } }, [
+                        _vm._v("Remove image")
+                      ])
+                    ])
+              ]
+            ),
             _vm._v(" "),
             _c("p", { staticClass: "text-grey mb-3" }, [_vm._v("Catetory")]),
             _vm._v(" "),
@@ -310,14 +435,29 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "vx-col w-full lg:w-9/12 mb-base" },
+      { staticClass: "vx-col w-full lg:w-8/12 mb-base" },
       [
         _c(
           "vx-card",
+          { on: { focusin: _vm.onResetMSG } },
           [
             _c("p", { staticClass: "text-grey mb-4" }, [
               _vm._v("Build your blog page content.")
             ]),
+            _vm._v(" "),
+            _c(
+              "vs-alert",
+              {
+                staticClass: "mb-1",
+                attrs: {
+                  active: !!_vm.errMSG.content,
+                  color: "danger",
+                  "icon-pack": "feather",
+                  icon: "icon-info"
+                }
+              },
+              [_c("span", [_vm._v(_vm._s(_vm.errMSG.content))])]
+            ),
             _vm._v(" "),
             _c("quill-editor", {
               model: {

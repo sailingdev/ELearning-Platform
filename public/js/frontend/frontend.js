@@ -39291,7 +39291,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     // =============================================================================
     path: '',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./layouts/Main.vue */ "./resources/js/frontend/src/layouts/Main.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./layouts/Main.vue */ "./resources/js/frontend/src/layouts/Main.vue"));
     },
     children: [// =============================================================================
     // Page Routes
@@ -39318,7 +39318,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/lesson',
       name: 'lesson',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./views/Lesson.vue */ "./resources/js/frontend/src/views/Lesson.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./views/Lesson.vue */ "./resources/js/frontend/src/views/Lesson.vue"));
       }
     }, {
       path: '/contact',
@@ -39540,7 +39540,6 @@ __webpack_require__.r(__webpack_exports__);
         localStorage.removeItem('tortu_userData');
         localStorage.removeItem('tortu_accessToken');
         commit('SET_LOGGEDIN', false);
-        _router_js__WEBPACK_IMPORTED_MODULE_2__["default"].push(_router_js__WEBPACK_IMPORTED_MODULE_2__["default"].currentRoute.query.to || "/");
         resolve();
       })["catch"](function (err) {
         reject(err);
@@ -39634,6 +39633,158 @@ var getters = {
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (getters);
+
+/***/ }),
+
+/***/ "./resources/js/frontend/src/store/lesson/moduleLesson.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/frontend/src/store/lesson/moduleLesson.js ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _moduleLessonState_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./moduleLessonState.js */ "./resources/js/frontend/src/store/lesson/moduleLessonState.js");
+/* harmony import */ var _moduleLessonGetteres_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moduleLessonGetteres.js */ "./resources/js/frontend/src/store/lesson/moduleLessonGetteres.js");
+/* harmony import */ var _moduleLessonMutations_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./moduleLessonMutations.js */ "./resources/js/frontend/src/store/lesson/moduleLessonMutations.js");
+/* harmony import */ var _moduleLessonActions_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./moduleLessonActions.js */ "./resources/js/frontend/src/store/lesson/moduleLessonActions.js");
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: _moduleLessonState_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+  getters: _moduleLessonGetteres_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+  mutations: _moduleLessonMutations_js__WEBPACK_IMPORTED_MODULE_2__["default"],
+  actions: _moduleLessonActions_js__WEBPACK_IMPORTED_MODULE_3__["default"]
+});
+
+/***/ }),
+
+/***/ "./resources/js/frontend/src/store/lesson/moduleLessonActions.js":
+/*!***********************************************************************!*\
+  !*** ./resources/js/frontend/src/store/lesson/moduleLessonActions.js ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/frontend/src/store/lesson/moduleLessonGetteres.js":
+/*!************************************************************************!*\
+  !*** ./resources/js/frontend/src/store/lesson/moduleLessonGetteres.js ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  getListeningList: function getListeningList(state) {
+    return function (id) {
+      var dataList = state.dataList;
+      var flag = true;
+      var newArray = [];
+      var keys = [];
+
+      while (flag) {
+        var _index = Math.floor(Math.random() * dataList.length);
+
+        var randomItem = dataList[_index];
+
+        if (_index !== id && !keys.includes(_index)) {
+          newArray.push(randomItem);
+          keys.push(_index);
+        }
+
+        flag = newArray.length < 4;
+      } // push Answer item as random key.
+
+
+      var index = Math.floor(Math.random() * newArray.length);
+      var itemTemp = newArray[index];
+      newArray[index] = dataList[id];
+      newArray.push(itemTemp);
+      return newArray;
+    };
+  },
+  getRandomData: function getRandomData(state) {
+    return function (id) {
+      var dataList = state.dataList;
+      var index = Math.floor(Math.random() * dataList.length);
+      return dataList[index];
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/frontend/src/store/lesson/moduleLessonMutations.js":
+/*!*************************************************************************!*\
+  !*** ./resources/js/frontend/src/store/lesson/moduleLessonMutations.js ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/frontend/src/store/lesson/moduleLessonState.js":
+/*!*********************************************************************!*\
+  !*** ./resources/js/frontend/src/store/lesson/moduleLessonState.js ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  dataList: [{
+    id: 1,
+    src: 'storage/uploads/course/1.mp3',
+    title: 'Hello',
+    subtitle: '你好'
+  }, {
+    id: 2,
+    src: 'storage/uploads/course/2.mp3',
+    title: 'Good afternoon',
+    subtitle: '下午好'
+  }, {
+    id: 3,
+    src: 'storage/uploads/course/3.mp3',
+    title: 'What is your name?',
+    subtitle: '你叫什么名字?'
+  }, {
+    id: 4,
+    src: 'storage/uploads/course/4.mp3',
+    title: 'Sorry, I did not hear you',
+    subtitle: '抱歉，我没听到你的声音'
+  }, {
+    id: 5,
+    src: 'storage/uploads/course/5.mp3',
+    title: 'My name is Tortu',
+    subtitle: '我叫Tortu'
+  }, {
+    id: 6,
+    src: 'storage/uploads/course/6.mp3',
+    title: 'How are you ?',
+    subtitle: '你好吗?'
+  }, {
+    id: 7,
+    src: 'storage/uploads/course/7.mp3',
+    title: 'And you?',
+    subtitle: '你呢?'
+  }]
+});
 
 /***/ }),
 
@@ -39803,6 +39954,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./mutations */ "./resources/js/frontend/src/store/mutations.js");
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./actions */ "./resources/js/frontend/src/store/actions.js");
 /* harmony import */ var _auth_moduleAuth__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./auth/moduleAuth */ "./resources/js/frontend/src/store/auth/moduleAuth.js");
+/* harmony import */ var _lesson_moduleLesson__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./lesson/moduleLesson */ "./resources/js/frontend/src/store/lesson/moduleLesson.js");
 /*=========================================================================================
   File Name: store.js
   Description: Vuex store
@@ -39819,13 +39971,15 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
+
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   getters: _getters__WEBPACK_IMPORTED_MODULE_3__["default"],
   mutations: _mutations__WEBPACK_IMPORTED_MODULE_4__["default"],
   state: _state__WEBPACK_IMPORTED_MODULE_2__["default"],
   actions: _actions__WEBPACK_IMPORTED_MODULE_5__["default"],
   modules: {
-    auth: _auth_moduleAuth__WEBPACK_IMPORTED_MODULE_6__["default"]
+    auth: _auth_moduleAuth__WEBPACK_IMPORTED_MODULE_6__["default"],
+    lesson: _lesson_moduleLesson__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
   strict: "development" !== 'production'
 }));

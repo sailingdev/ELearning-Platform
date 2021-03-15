@@ -59821,6 +59821,40 @@ _axios_js__WEBPACK_IMPORTED_MODULE_0__["default"].defaults.withCredentials = tru
 
 /***/ }),
 
+/***/ "./resources/js/src/http/request/auth/index.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/src/http/request/auth/index.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../axios */ "./resources/js/src/http/axios/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  config: function config() {
+    var token = localStorage.getItem('tortu_accessToken');
+    var config = {
+      headers: {
+        'X-XSRF-TOKEN': token
+      }
+    };
+    return config;
+  },
+  forgot_password: function forgot_password(payload) {
+    var email = payload.email;
+    return _axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/password/email', {
+      email: email
+    });
+  },
+  logout: function logout() {
+    return _axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/logout', {});
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/src/i18n/i18n.js":
 /*!***************************************!*\
   !*** ./resources/js/src/i18n/i18n.js ***!
@@ -60154,7 +60188,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     // =============================================================================
     path: '',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(3), __webpack_require__.e(1)]).then(__webpack_require__.bind(null, /*! ./layouts/main/Main.vue */ "./resources/js/src/layouts/main/Main.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(3), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./layouts/main/Main.vue */ "./resources/js/src/layouts/main/Main.vue"));
     },
     children: [// =============================================================================
     // Theme Routes
@@ -60163,13 +60197,13 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/admin/dashboard',
       name: 'dashboard',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/src/views/Home.vue"));
+        return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/src/views/Home.vue"));
       }
     }, {
       path: '/admin/blog/list',
       name: 'blog',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/blog/BlogList.vue */ "./resources/js/src/views/blog/BlogList.vue"));
+        return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/blog/BlogList.vue */ "./resources/js/src/views/blog/BlogList.vue"));
       },
       meta: {
         breadcrumb: [{
@@ -60188,7 +60222,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/admin/blog/create',
       name: 'blog-create',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./views/blog/BlogCreate.vue */ "./resources/js/src/views/blog/BlogCreate.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./views/blog/BlogCreate.vue */ "./resources/js/src/views/blog/BlogCreate.vue"));
       },
       meta: {
         breadcrumb: [{
@@ -60204,10 +60238,30 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
         pageTitle: 'Blog Create'
       }
     }, {
+      path: '/admin/blog/edit/:id',
+      name: 'blog-edit',
+      component: function component() {
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ./views/blog/BlogEdit.vue */ "./resources/js/src/views/blog/BlogEdit.vue"));
+      },
+      meta: {
+        breadcrumb: [{
+          title: 'Home',
+          url: '/admin/dashboard'
+        }, {
+          title: 'Blog',
+          url: '/admin/blog/list'
+        }, {
+          title: 'Edit',
+          active: true
+        }],
+        pageTitle: 'Blog Edit'
+      },
+      props: true
+    }, {
       path: '/admin/blog/tags',
       name: 'blog-tag',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/blog/Tag.vue */ "./resources/js/src/views/blog/Tag.vue"));
+        return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./views/blog/Tag.vue */ "./resources/js/src/views/blog/Tag.vue"));
       },
       meta: {
         breadcrumb: [{
@@ -60226,7 +60280,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/admin/user/list',
       name: 'user-list',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./views/user/UserList.vue */ "./resources/js/src/views/user/UserList.vue"));
+        return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./views/user/UserList.vue */ "./resources/js/src/views/user/UserList.vue"));
       },
       meta: {
         breadcrumb: [{
@@ -60245,7 +60299,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/admin/membership/list',
       name: 'membership-list',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./views/user/UserList.vue */ "./resources/js/src/views/user/UserList.vue"));
+        return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./views/user/UserList.vue */ "./resources/js/src/views/user/UserList.vue"));
       },
       meta: {
         breadcrumb: [{
@@ -60329,6 +60383,8 @@ router.afterEach(function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _http_request_auth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../http/request/auth */ "./resources/js/src/http/request/auth/index.js");
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../router */ "./resources/js/src/router.js");
 /*=========================================================================================
   File Name: actions.js
   Description: Vuex Store - actions
@@ -60337,6 +60393,8 @@ __webpack_require__.r(__webpack_exports__);
   Author: Pixinvent
   Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
+
+
 var actions = {
   // /////////////////////////////////////////////
   // COMPONENTS
@@ -60377,6 +60435,20 @@ var actions = {
   updateUserInfo: function updateUserInfo(_ref7, payload) {
     var commit = _ref7.commit;
     commit('UPDATE_USER_INFO', payload);
+  },
+  logout: function logout(_ref8) {
+    var commit = _ref8.commit;
+    commit('SET_BEARER', localStorage.getItem('tortu_accessToken'));
+    return new Promise(function (resolve, reject) {
+      _http_request_auth__WEBPACK_IMPORTED_MODULE_0__["default"].logout().then(function (response) {
+        localStorage.removeItem('tortu_userData');
+        localStorage.removeItem('tortu_accessToken');
+        _router__WEBPACK_IMPORTED_MODULE_1__["default"].push('/login')["catch"](function () {});
+        resolve();
+      })["catch"](function (err) {
+        reject(err);
+      });
+    });
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (actions);
@@ -60422,16 +60494,63 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _http_axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../http/axios */ "./resources/js/src/http/axios/index.js");
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  add_new: function add_new(_ref, payload) {
+  index: function index(_ref) {
     var commit = _ref.commit;
+    return new Promise(function (resolve, reject) {
+      _http_axios__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/post').then(function (res) {
+        if (res.data.dataList) {
+          commit('SET_DATALIST', res.data.dataList);
+          resolve();
+        } else reject(res);
+      })["catch"](function (err) {
+        reject(err);
+      });
+    });
+  },
+  store: function store(_ref2, payload) {
+    var commit = _ref2.commit;
     var data = payload.data,
         config = payload.config;
     return new Promise(function (resolve, reject) {
-      _http_axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/blog', data, config).then(function (response) {
-        console.log(response);
-        resolve();
+      _http_axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/post', data, config).then(function (res) {
+        resolve(res);
       })["catch"](function (err) {
         reject(err);
+      });
+    });
+  },
+  show: function show(_ref3, payload) {
+    var commit = _ref3.commit;
+    return new Promise(function (resolve, reject) {
+      _http_axios__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/post/".concat(payload)).then(function (res) {
+        resolve(res.data.post);
+      })["catch"](function (err) {
+        reject(err);
+      });
+    });
+  },
+  update: function update(_ref4, payload) {
+    var commit = _ref4.commit;
+    var config = payload.config,
+        id = payload.id,
+        data = payload.data;
+    return new Promise(function (resolve, reject) {
+      _http_axios__WEBPACK_IMPORTED_MODULE_0__["default"].post("/api/post/".concat(id), data, config).then(function (res) {
+        resolve(res);
+      })["catch"](function (err) {
+        reject(err);
+      });
+    });
+  },
+  destroy: function destroy(_ref5, payload) {
+    var commit = _ref5.commit;
+    var ids = payload.ids;
+    return new Promise(function (resolve, reject) {
+      _http_axios__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"]("/api/post/".concat(ids)).then(function (res) {
+        commit('SET_DATALIST', res.data.dataList);
+        resolve();
+      })["catch"](function (err) {
+        return reject();
       });
     });
   }
@@ -60461,7 +60580,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  SET_DATALIST: function SET_DATALIST(state, dataList) {
+    state.postList = dataList;
+  }
+});
 
 /***/ }),
 
@@ -60475,79 +60598,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  dataList: [{
-    id: 1,
-    title: 'How to improve your hearing?',
-    created_at: '2020-12-1 10:12:00',
-    category: {
-      id: 1,
-      name: 'vocabulary'
-    },
-    tags: [{
-      id: 1,
-      name: 'business'
-    }, {
-      id: 2,
-      name: 'agency'
-    }, {
-      id: 3,
-      name: 'studio'
-    }, {
-      id: 4,
-      name: 'marketing'
-    }]
-  }, {
-    id: 2,
-    title: 'How to improve your hearing?',
-    created_at: '2020-12-1 10:12:00',
-    category: {
-      id: 2,
-      name: 'grammar'
-    },
-    tags: [{
-      id: 1,
-      name: 'business'
-    }, {
-      id: 2,
-      name: 'agency'
-    }, {
-      id: 4,
-      name: 'marketing'
-    }]
-  }, {
-    id: 3,
-    title: 'How to improve your hearing?',
-    created_at: '2020-12-1 10:12:00',
-    category: {
-      id: 3,
-      name: 'dialogues'
-    },
-    tags: [{
-      id: 1,
-      name: 'business'
-    }, {
-      id: 3,
-      name: 'studio'
-    }, {
-      id: 4,
-      name: 'marketing'
-    }]
-  }, {
-    id: 4,
-    title: 'How to improve your hearing?',
-    created_at: '2020-12-1 10:12:00',
-    category: {
-      id: 2,
-      name: 'grammar'
-    },
-    tags: [{
-      id: 1,
-      name: 'business'
-    }, {
-      id: 2,
-      name: 'agency'
-    }]
-  }]
+  postList: []
 });
 
 /***/ }),
