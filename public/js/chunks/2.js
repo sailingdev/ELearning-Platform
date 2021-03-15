@@ -1242,8 +1242,8 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     review: function review() {
-      console.log(this.answer.toLowerCase().replace(/[^a-zA-Z1-9' ]/, "").trim());
-      console.log(this.transcription_.toLowerCase().trim());
+      // console.log(this.answer.toLowerCase().replace(/[^a-zA-Z1-9' ]/, "").trim())
+      // console.log(this.transcription_.toLowerCase().trim())
       this.isTrue = this.answer.toLowerCase().replace(/[^a-zA-Z1-9' ]/, "").trim() === this.transcription_.toLowerCase().trim();
     }
   },
@@ -3930,7 +3930,10 @@ var render = function() {
                                             ),
                                             _vm._v(" "),
                                             _c("the-speech-to-text", {
-                                              attrs: { answer: item.title }
+                                              attrs: {
+                                                lang_: _vm.zh - _vm.cn,
+                                                answer: item.title
+                                              }
                                             })
                                           ],
                                           1
