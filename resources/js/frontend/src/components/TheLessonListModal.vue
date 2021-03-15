@@ -16,8 +16,8 @@ emit: Boolean isClosed
                 <div class="cust-modal-body mt-4 mb-3">
                     <!-- quiz area -->
                    <div class="row">
-                       <div v-for="n in lesson_type_list"  class="col-12 col-sm-6 col-lg-4">
-                           <a class="cursor-on"><img class="lessong-type" :src="'frontend/img/lesson-type/'+n+'.svg'" width="62px"/> <i class="text-black-50" style="font-size: 1.2em">{{n}}</i></a>
+                       <div v-for="n in lesson_type_list" v-if="n !== selected_type"  class="col-12 col-sm-6 col-lg-4">
+                           <a class="cursor-on"><img class="lessong-type" :src="'frontend/img/lesson-type/'+n+'.svg'" width="62px"/> <i class="text-black-50" style="font-style: inherit; font-size: 1.2em">{{n}}</i></a>
                        </div>
                    </div>
 
@@ -63,7 +63,8 @@ emit: Boolean isClosed
         },
         data(){
             return {
-                lesson_type_list: ['Speak Words', 'Tic-tac-toe', 'Matching game', 'Concentration game'],
+                selected_type: 'Vocabulary',
+                lesson_type_list: ['Vocabulary','Speak Words', 'Tic-tac-toe', 'Matching game', 'Concentration game'],
                 style_lesson_full_name: {
                     'padding-left': '21px',
                     'padding-right': '10px',

@@ -84,7 +84,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <the-vocabulary-lesson-quiz-category />
+                                <the-vocabulary-lesson-quiz-category @setQuiz = 'setQuiz' />
                             </div>
                         </div>
                         <button class="slick-next slick-arrow lni-arrow-right lni-bold" aria-label="Next" type="button"
@@ -186,6 +186,9 @@
                     this.timeDelay()
                 }
             },
+            setQuiz(type){
+                this.$emit('setQuiz', type)
+            }
         },
         computed: {
             translated3d () {

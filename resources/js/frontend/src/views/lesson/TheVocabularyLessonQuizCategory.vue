@@ -14,7 +14,7 @@
                             <div class="intro-section" style="padding: 20px 104px 16px;">
                                 <div class="row">
                                     <div v-for="item in lesson_type_list" class="col-md-3" style="text-align: -webkit-center;">
-                                        <img width="62px" class="cursor-on" @click.stop=""  :src="`frontend/img/lesson-type/${item}.svg`" />
+                                        <img width="62px" class="cursor-on" @click.stop="setQuiz(item)"  :src="`frontend/img/lesson-type/${item}.svg`" />
                                     </div>
                                 </div>
                                 <p class="mt-5 cursor-on">Lesson 2: Meeting Someone</p>
@@ -36,6 +36,11 @@
           return {
               lesson_type_list: ['Speak Words', 'Listening game', 'Matching game', 'Concentration game']
           }
+      },
+      methods:{
+        setQuiz(type){
+            this.$emit('setQuiz', type)
+        }
       }
   }
 </script>

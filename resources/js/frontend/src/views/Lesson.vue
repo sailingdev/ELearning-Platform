@@ -13,16 +13,14 @@
                         <i class="dropdown-toggle">{{selected_type}} Lessons</i>
                     </a>
                     <div class="mt-3 text-center">
-<!--                        <the-vocabulary-carousel />-->
-<!--                        <the-listening-game />-->
-<!--                        <the-matching-game />-->
-<!--                        <the-fill-the-blanks />-->
-                            <the-speak-words-set />
-                        <!--                        <iframe src="https://h5p.org/h5p/embed/119355" width="600" height="300" frameborder="0" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>-->
-<!--                        <img src="frontend/img/bg-img/4.png" width="600px"/>-->
+                        <the-vocabulary-lesson v-if="selected_type === 'Vocabulary'" @setQuiz = "setQuiz" />
+                        <the-listening-game v-if="selected_type === 'Listening game'" />
+                        <the-matching-game v-if="selected_type === 'Matching game'" />
+                        <the-fill-the-blanks v-if="selected_type === 'Concentration game'" />
+                        <the-speak-words-set v-if="selected_type === 'Speak Words'" />
                     </div>
                     <div class="d-flex justify-content-center mt-2 mb-5">
-                        <a v-for="n in lesson_type_list" class="cursor-on"><img class="lesson-type" :src="'frontend/img/lesson-type/'+n+'.svg'" width="62px"/></a>
+                        <a v-for="n in lesson_type_list" v-if="n !== selected_type" class="cursor-on" @click.stop="setQuiz(n)"><img class="lesson-type" :src="'frontend/img/lesson-type/'+n+'.svg'" width="62px"/></a>
                     </div>
                 </div>
                 <div :style="style_lesson_full_name">
@@ -105,12 +103,12 @@
                 language: 'Afrikaans',
                 lesson_num: 1,
                 selected_type: 'Vocabulary',
-                lesson_type_list: ['Speak Words', 'Listening game', 'Matching game', 'Concentration game'],
+                lesson_type_list: ['Vocabulary', 'Speak Words', 'Listening game', 'Matching game', 'Concentration game'],
                 style_lesson_full_name: {
                     'padding-left': '21px',
                     'padding-right': '10px'
                 },
-                display: false
+                display: false,
             }
         },
         computed:{
@@ -125,6 +123,9 @@
             selectLesson(){
                 this.display = true;
             },
+            setQuiz(type){
+                this.selected_type = type
+            }
         }
     }
 </script>
