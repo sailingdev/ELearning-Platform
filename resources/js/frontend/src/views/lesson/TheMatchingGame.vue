@@ -118,7 +118,7 @@
         },
           review(isYes){
               this.isRotatable = true
-              if (isYes && this.isTrue ){
+              if (isYes === this.isTrue ){
                   this.matchingScore.right +=1
               } else {
                   this.matchingScore.wrong +=1
@@ -127,7 +127,7 @@
               if(isYes) {
                   this.answer = this.isTrue ? 1 : 2
               } else
-                  this.answer = this.isTrue ? 3 : 4
+                  this.answer = this.isTrue ? 4 : 3
 
               setTimeout(()=>{
                   this.next()
