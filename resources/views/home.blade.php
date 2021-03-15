@@ -11,7 +11,7 @@
     <!-- Title-->
     <title>E-Learning platform</title>
     <!-- Favicon-->
-{{--    <link rel="icon" href="img/core-img/favicon.ico">--}}
+    <link rel="icon" href="img/core-img/favicon.ico">
 <!-- Core Stylesheet-->
     <link rel="stylesheet" href="{{asset(mix('frontend/css/bootstrap.min.css'))}}">
     <link rel="stylesheet" href="{{asset(mix('frontend/css/default/classy-nav.min.css'))}}">
