@@ -1,7 +1,7 @@
 <template>
     <div class="shop--area shop-fullwidth section-padding-120">
         <div class="container">
-            <the-lesson-list-modal :display="isShown" @isClosed="closeModal"/>
+            <the-lesson-list-modal :display="isShown" :selected_type="selected_type" @setQuiz="setQuiz" @isClosed="closeModal"/>
             <div class="lesson-page">
                 <div class="wow fadeInUp" data-wow-delay="100ms" data-wow-duration="1000ms">
                     <a class="text-left cursor-on" v-on:click="selectLesson">
@@ -10,17 +10,17 @@
                     </a>
                     <a class="text-left cursor-on mt-5" v-on:click="selectLesson">
                         <img class="selected-type" :src="'frontend/img/lesson-type/'+selected_type+'.svg'" width="30px" />
-                        <i class="dropdown-toggle">{{selected_type}} Lessons</i>
+                        <i class="dropdown-toggle" style="font-style: inherit;">{{selected_type}}</i>
                     </a>
                     <div class="mt-3 text-center">
-                        <the-vocabulary-lesson v-if="selected_type === 'Vocabulary'" @setQuiz = "setQuiz" />
+                        <the-vocabulary-lesson v-if="selected_type === 'Vocabulary lesson'" @setQuiz = "setQuiz" />
                         <the-listening-game v-if="selected_type === 'Listening game'" />
                         <the-matching-game v-if="selected_type === 'Matching game'" />
-                        <the-fill-the-blanks v-if="selected_type === 'Concentration game'" />
+                        <the-fill-the-blanks v-if="selected_type === 'Fill the blank'" />
                         <the-speak-words-set v-if="selected_type === 'Speak Words'" />
                     </div>
                     <div class="d-flex justify-content-center mt-2 mb-5">
-                        <a v-for="n in lesson_type_list" v-if="n !== selected_type" class="cursor-on" @click.stop="setQuiz(n)"><img class="lesson-type" :src="'frontend/img/lesson-type/'+n+'.svg'" width="62px"/></a>
+                        <a v-for="n in lesson_type_list" v-if="n !== selected_type" class="cursor-on" @click.stop="setQuiz(n)"><img class="lesson-type" :title="n" :src="'frontend/img/lesson-type/'+n+'.svg'" width="62px"/></a>
                     </div>
                 </div>
                 <div :style="style_lesson_full_name">
@@ -102,8 +102,8 @@
             return {
                 language: 'Afrikaans',
                 lesson_num: 1,
-                selected_type: 'Vocabulary',
-                lesson_type_list: ['Vocabulary', 'Speak Words', 'Listening game', 'Matching game', 'Concentration game'],
+                selected_type: 'Vocabulary lesson',
+                lesson_type_list: ['Vocabulary lesson', 'Speak Words', 'Listening game', 'Matching game', 'Fill the blank'],
                 style_lesson_full_name: {
                     'padding-left': '21px',
                     'padding-right': '10px'

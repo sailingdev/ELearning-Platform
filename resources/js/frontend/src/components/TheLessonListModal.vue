@@ -17,7 +17,7 @@ emit: Boolean isClosed
                     <!-- quiz area -->
                    <div class="row">
                        <div v-for="n in lesson_type_list" v-if="n !== selected_type"  class="col-12 col-sm-6 col-lg-4">
-                           <a class="cursor-on"><img class="lessong-type" :src="'frontend/img/lesson-type/'+n+'.svg'" width="62px"/> <i class="text-black-50" style="font-style: inherit; font-size: 1.2em">{{n}}</i></a>
+                           <a class="cursor-on" @click.stop="setQuiz(n)"><img class="lessong-type" :title="n" :src="'frontend/img/lesson-type/'+n+'.svg'" width="62px"/> <i class="text-black-50" style="font-style: inherit; font-size: 1.2em">{{n}}</i></a>
                        </div>
                    </div>
 
@@ -59,12 +59,12 @@ emit: Boolean isClosed
     export default {
         name: 'TheLessonListModal',
         props: {
-            display: Boolean
+            display: Boolean,
+            selected_type: String
         },
         data(){
             return {
-                selected_type: 'Vocabulary',
-                lesson_type_list: ['Vocabulary','Speak Words', 'Tic-tac-toe', 'Matching game', 'Concentration game'],
+                lesson_type_list: ['Vocabulary lesson','Speak Words', 'Listening game', 'Matching game', 'Fill the blank'],
                 style_lesson_full_name: {
                     'padding-left': '21px',
                     'padding-right': '10px',
@@ -83,6 +83,10 @@ emit: Boolean isClosed
             onCloseModal(){
                 this.$emit('isClosed', true)
             },
+            setQuiz(type){
+                this.$emit('setQuiz', type)
+                this.onCloseModal()
+            }
         }
     }
 </script>
