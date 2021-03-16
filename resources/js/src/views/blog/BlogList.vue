@@ -74,7 +74,7 @@
                     </vs-td>
                     <vs-td class="img-container">
                         <div  class="product-img" >
-                            <img :src="tr.cover_image" width="200px" alt="cover_image"/>
+                            <img  :src="tr.cover_image" title="Cover Image" alt="cover_image"/>
                         </div>
                     </vs-td>
                     <vs-td>
@@ -259,6 +259,10 @@
 
                             .product-img {
                                 height: 110px;
+                                img {
+                                    max-height: 110px;
+                                    max-width: 200px;
+                                }
                             }
                         }
                     }
