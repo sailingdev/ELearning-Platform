@@ -1,8 +1,5 @@
 <template>
-    <div class="min-height-container lesson-position">
-        <div id="modal-lesson-area"></div>
-        <div id="slide-modal-body">
-            <div class="html-lesson-content">
+    <div class="html-lesson-content">
                 <div id="slide-view">
                     <div id="slide-header">
                         <div class="slide-header-text"></div>
@@ -50,13 +47,11 @@
                     </div>
                 </div>
                 <div class="start-overlay" :style="{display: startOverlayBtn}">
-                    <button class=" start-icon-wrapper" aria-label="Click here" @click="startOverlay" >
+                    <button class=" btn saasbox-btn btn-sm" aria-label="Click here" @click="startOverlay" >
                         <i class="lni-play"></i>
                     </button>
                 </div>
             </div>
-        </div>
-    </div>
 </template>
 
 <script>

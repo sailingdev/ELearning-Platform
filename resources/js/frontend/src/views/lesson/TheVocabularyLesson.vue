@@ -1,19 +1,5 @@
 <template>
-    <div class="min-height-container lesson-position">
-        <div class="social-media-share">
-            <div class="share-closed"><i class="icon-share"></i></div>
-            <div class="share-open">
-                <div class="share-email"><i class="icon-mail-alt"></i></div>
-                <div class="share-facebook"><i class="icon-facebook"></i></div>
-                <div class="share-cancel"><i class="icon-cancel"></i></div>
-            </div>
-        </div>
-        <div id="loading-view-overlay" style="display: none;">
-            <div class="loader">Loading ....</div>
-        </div>
-        <div id="modal-lesson-area"></div>
-        <div id="slide-modal-body">
-            <div class="html-lesson-content">
+    <div class="html-lesson-content">
                 <div id="slide-view">
                     <div id="slide-header">
                         <div class="slide-header-text"></div>
@@ -98,13 +84,11 @@
                     </div>
                 </div>
                 <div class="start-overlay" :style="{'display': startOverlayBtn}">
-                    <button class=" start-icon-wrapper" aria-label="Click here" @click="startOverlay">
+                    <button class=" btn saasbox-btn btn-sm" aria-label="Click here" @click="startOverlay">
                         <i class="lni-play"></i>
                     </button>
                 </div>
             </div>
-        </div>
-    </div>
 </template>
 
 <script>
@@ -156,7 +140,7 @@
                 setTimeout(()=> {
                     this.isPlayable = true
                     this.audioControl()
-                }, 700)
+                }, 1500)
             },
             audioControl () {
                 let audio = this.$refs.audio[this.currentSlide]

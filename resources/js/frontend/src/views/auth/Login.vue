@@ -5,13 +5,10 @@
             <div class="wow fadeInUp breadcrumb-title" data-wow-delay="200ms" data-wow-duration="1000ms">
                 <h1>{{$t('Login.title')}}</h1>
             </div>
-            <div class="row align-items-center justify-content-between wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1000ms">
+            <div class="row align-items-center justify-content-center wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1000ms">
                 <!-- Register Thumbnail-->
-                <div class="col-12 col-lg-6">
-                    <div class="register-thumbnail mb-50"><img src="frontend/img/bg-img/hero-3.png" alt=""></div>
-                </div>
                 <!-- Register Card-->
-                <div class="col-12 col-lg-6">
+                <div class="col-12 col-lg-7">
                     <div class="card register-card bg-gray p-1 p-sm-4 mb-50">
                         <div class="card-body">
                             <h4>{{$t('Login.welcome')}}</h4>

@@ -13,11 +13,16 @@
                         <i class="dropdown-toggle" style="font-style: inherit;">{{selected_type}}</i>
                     </a>
                     <div class="mt-3 text-center">
-                        <the-vocabulary-lesson v-if="selected_type === 'Vocabulary lesson'" @setQuiz = "setQuiz" />
-                        <the-listening-game v-if="selected_type === 'Listening game'" />
-                        <the-matching-game v-if="selected_type === 'Matching game'" />
-                        <the-fill-the-blanks v-if="selected_type === 'Fill the blank'" />
-                        <the-speak-words-set v-if="selected_type === 'Speak Words'" />
+                        <div class="min-height-container lesson-position">
+                            <div id="modal-lesson-area"></div>
+                            <div id="slide-modal-body">
+                                <the-vocabulary-lesson v-if="selected_type === 'Vocabulary lesson'" @setQuiz = "setQuiz" />
+                                <the-listening-game v-if="selected_type === 'Listening game'" />
+                                <the-matching-game v-if="selected_type === 'Matching game'" />
+                                <the-fill-the-blanks v-if="selected_type === 'Fill the blank'" />
+                                <the-speak-words-set v-if="selected_type === 'Speak Words'" />
+                            </div>
+                        </div>
                     </div>
                     <div class="d-flex justify-content-center mt-2 mb-5">
                         <a v-for="n in lesson_type_list" v-if="n !== selected_type" class="cursor-on" @click.stop="setQuiz(n)"><img class="lesson-type" :title="n" :src="'frontend/img/lesson-type/'+n+'.svg'" width="62px"/></a>

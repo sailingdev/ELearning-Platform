@@ -52,9 +52,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Login',
   data: function data() {
@@ -123,13 +120,11 @@ var render = function() {
           "div",
           {
             staticClass:
-              "row align-items-center justify-content-between wow fadeInUp",
+              "row align-items-center justify-content-center wow fadeInUp",
             attrs: { "data-wow-delay": "300ms", "data-wow-duration": "1000ms" }
           },
           [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-12 col-lg-6" }, [
+            _c("div", { staticClass: "col-12 col-lg-7" }, [
               _c(
                 "div",
                 { staticClass: "card register-card bg-gray p-1 p-sm-4 mb-50" },
@@ -297,18 +292,7 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 col-lg-6" }, [
-      _c("div", { staticClass: "register-thumbnail mb-50" }, [
-        _c("img", { attrs: { src: "frontend/img/bg-img/hero-3.png", alt: "" } })
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
