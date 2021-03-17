@@ -9,6 +9,11 @@
     </svg>
   </span>
 </template>
+<script>
+    export default {
+        name: 'Logo'
+    }
+</script>
 <style>
     tspan {
         white-space: pre

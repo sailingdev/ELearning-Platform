@@ -16,7 +16,7 @@
                         <button class="btn-border" v-on:click="selectLang(2)"> {{$t('Home.learnLang')}} <i class="lni-arrow-down"></i></button>
                     </div>
                     <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 mt-1">
-                        <button class="btn btn-primary h-100" v-on:click="selectLang(2)" ><i class="lni-chevron-right"></i></button>
+                        <button class="btn btn-pink h-100" v-on:click="selectLang(2)" ><i class="lni-chevron-right"></i></button>
                     </div>
                 </div>
                 <div class="wow fadeInUp row g-4 mt-5" data-wow-delay="500ms" data-wow-duration="1000ms">

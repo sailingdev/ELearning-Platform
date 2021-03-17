@@ -6219,3 +6219,11 @@ textarea.form-control {
     box-shadow: 0 6px 6px 0 rgb(0 0 0 / 20%);
     transition: opacity .5s ease;
 }
+
+.btn-pink {
+    background-color: #9D21B2;
+    border-color: #9D21B2;
+}
+.btn-pink i {
+    color: white;
+}

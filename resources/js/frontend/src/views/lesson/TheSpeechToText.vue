@@ -5,7 +5,7 @@
                 <i v-if="getResult !== null" class="lni-star-filled"></i>
             </span>
         </p>
-        <span class="cursor-on speech-to-text" :style="{'background-color': isRecording?'#ff3f5f':'#00bcd4'}" @click.stop="startSpeechToTxt">
+        <span class="cursor-on speech-to-text" :style="{'background-color': isRecording?'#ff3f5f':'#9D21B2'}" @click.stop="startSpeechToTxt">
             <i class="lni-mic" > </i>
             {{textContent}}
         </span>

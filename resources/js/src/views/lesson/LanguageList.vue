@@ -95,7 +95,7 @@
             return role => role === 'Own' ? 'success' : 'danger'
         },
           getImg(){
-            return img => require(`@assets/images/flags/${img}.svg`)
+            return img => require(`@assets/frontend/flags/4x3/${img}.svg`)
           },
       },
       mounted(){
