@@ -4,8 +4,7 @@
             <div class="container">
                 <div :class="breakpoint">
                     <nav class="classy-navbar navbar2 justify-content-between" id="saasboxNav">
-                        <!-- Logo--><router-link class="nav-brand mr-5" :to="'/'"><img src="images/logo/logo.png" alt=""></router-link>
-
+                        <!-- Logo--><router-link class="nav-brand mr-5" :to="'/'"><Logo /></router-link>
 
                         <!-- Navbar Toggler-->
                         <div class="classy-navbar-toggler" v-on:click="setMenuOn()"><span class="navbarToggler" ><span></span><span></span><span></span><span></span></span></div>
@@ -47,7 +46,7 @@
 
 <script>
     import TheLanguageModal from '../components/TheLanguageModal'
-    import router from '../router'
+    import Logo from '../components/Logo'
   export default {
     name: 'Header',
       data(){
@@ -59,7 +58,8 @@
         }
       },
       components:{
-        TheLanguageModal
+        TheLanguageModal,
+          Logo
       },
       computed: {
             breakpoint(){

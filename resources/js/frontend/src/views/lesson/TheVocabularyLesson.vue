@@ -140,7 +140,7 @@
                 setTimeout(()=> {
                     this.isPlayable = true
                     this.audioControl()
-                }, 1500)
+                }, 3000)
             },
             audioControl () {
                 let audio = this.$refs.audio[this.currentSlide]

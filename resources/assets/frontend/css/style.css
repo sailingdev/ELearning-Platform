@@ -385,12 +385,12 @@ textarea:invalid {
     padding: 0 1rem;
     height: 36px;
     line-height: 36px;
-    background-color: #fdd76e;
-    color: #0b0757;
+    background-color: #00bcd4;
+    color: #ffffff;
     font-size: 13px; }
-.saasbox-btn.btn-sm:hover, .saasbox-btn.btn-sm:focus {
-    background-color: #0b0757;
-    color: #ffffff; }
+/*.saasbox-btn.btn-sm:hover, .saasbox-btn.btn-sm:focus {*/
+/*    background-color: #0492a5;*/
+/*    color: #ffffff; }*/
 
 .saasbox-btn-2 {
     padding: 0;
