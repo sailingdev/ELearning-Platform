@@ -127,7 +127,7 @@ var render = function() {
             staticClass: "wow fadeInUp mt-3",
             attrs: { "data-wow-delay": "200ms", "data-wow-duration": "1000ms" }
           },
-          [_vm._v("Free German lessons")]
+          [_vm._v("Free German lesson")]
         ),
         _vm._v(" "),
         _c(
@@ -138,7 +138,7 @@ var render = function() {
           },
           [
             _vm._v(
-              "\n            Teach yourself German. Learn with 125 free lessons. There is no risk and no contract. Learn to speak German. Totally free!\n        "
+              "\n            Teach yourself German. Learn with 125 free lesson. There is no risk and no contract. Learn to speak German. Totally free!\n        "
             )
           ]
         ),
@@ -246,7 +246,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   null,
   "76e963f1",
   null
-  
+
 )
 
 /* hot reload */
@@ -266,7 +266,7 @@ component.options.__file = "resources/js/frontend/src/views/LessonList.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LessonList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./LessonList.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/frontend/src/views/LessonList.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LessonList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LessonList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 /***/ }),
 

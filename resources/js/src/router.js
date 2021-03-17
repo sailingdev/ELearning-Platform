@@ -115,6 +115,30 @@ const router = new Router({
                         ],
                         pageTitle: 'Membership Plan'
                     }
+                },
+                {
+                    path: '/admin/lesson/list',
+                    name: 'lesson-list',
+                    component: () => import('./views/lesson/LessonList.vue'),
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/admin/dashboard'},
+                            {title: 'Lessons', active: true}
+                        ],
+                        pageTitle: 'Lessons'
+                    }
+                },
+                {
+                    path: '/admin/language/list',
+                    name: 'language-list',
+                    component: () => import('./views/lesson/LanguageList.vue'),
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/admin/dashboard'},
+                            {title: 'Languages', active: true}
+                        ],
+                        pageTitle: 'Languages'
+                    }
                 }
             ]
         }

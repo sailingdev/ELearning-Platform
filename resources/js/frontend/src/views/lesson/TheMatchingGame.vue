@@ -4,10 +4,10 @@
            <div id="slide-view">
                <div id="lesson-carousel" style="" class="slick-initialized slick-slider">
                    <div class="slick-list draggable" style="padding: 0px;">
-                       <div class="slick-track"
-                            style="opacity: 1; width: 650px; transform: translate3d(0px, 0px, 0px);">
+                       <div class="slick-track "
+                            :style="{opacity: 1, width: `${translateWidth}px`, transform:  'translate3d(0px, 0px, 0px)'}">
                            <div class="slick-slide slick-current slick-center"
-                                data-slick-index="0" aria-hidden="true" style="width: 650px;">
+                                data-slick-index="0" aria-hidden="true">
                                <div>
                                    <div class="lesson-slide"
                                         style="width: 100%; display: inline-block;">
@@ -146,6 +146,27 @@
           }
       },
       computed: {
+          translateWidth () {
+              let width = window.innerWidth
+              let val = 0
+              switch (true) {
+              case (width >= 768):
+                  val = 610
+                  break
+              case (374 > width && width >= 360):
+                  val =  300
+                  break
+              case (410 > width && width >= 375):
+                  val = 311
+                  break
+              case (479 > width && width >= 411):
+                  val = 351
+                  break
+              case (767 > width && width >= 480):
+                  val = 480
+              }
+              return val
+          },
           getRandomData(){
               let randomData = this.$store.getters['lesson/getRandomData'](this.currentSlide)
               let index = this.currentSlide

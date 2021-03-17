@@ -36,23 +36,43 @@ export default [
             // }
         ]
     },
+    // {
+    //     url: null,
+    //     name: 'User',
+    //     icon: 'UserIcon',
+    //     i18n: 'User',
+    //     submenu: [
+    //         {
+    //             url: '/admin/user/list',
+    //             name: 'User',
+    //             slug: 'user-list',
+    //             i18n: 'User'
+    //         },
+    //         {
+    //             url: '/admin/membership/list',
+    //             name: 'Membership',
+    //             slug: 'membership-list',
+    //             i18n: 'Membership'
+    //         }
+    //     ]
+    // },
     {
         url: null,
-        name: 'User',
-        icon: 'UserIcon',
-        i18n: 'User',
+        name: 'Lessons',
+        icon: 'HeadphonesIcon',
+        i18n: 'Lessons',
         submenu: [
             {
-                url: '/admin/user/list',
-                name: 'User',
-                slug: 'user-list',
-                i18n: 'User'
+                url: '/admin/lesson/list',
+                name: 'List',
+                slug: 'lesson-list',
+                i18n: 'List'
             },
             {
-                url: '/admin/membership/list',
-                name: 'Membership',
-                slug: 'membership-list',
-                i18n: 'Membership'
+                url: '/admin/language/list',
+                name: 'languages',
+                slug: 'language-list',
+                i18n: 'Languages'
             }
         ]
     }

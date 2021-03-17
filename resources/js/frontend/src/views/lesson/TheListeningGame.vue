@@ -14,7 +14,7 @@
                             <div class="slick-track"
                                  :style="{opacity: 1, width: '12200px', transform: translate3d, transition: 'transform 500ms ease 0s'}">
                                 <div v-for="(item, index) in this.dataList" :key="index" :class="{'slick-slide':true, 'slick-current slick-center': index === currentSlide}"
-                                     data-slick-index="11" aria-hidden="true" style="width: 610px;">
+                                     data-slick-index="11" aria-hidden="true">
                                     <div>
                                         <div class="lesson-slide"
                                              style="width: 100%; display: inline-block;">
@@ -143,10 +143,27 @@
           },
       },
       computed: {
-          translate3d(){
-              let val = -610 * this.currentSlide
+          translate3d () {
+              let width = window.innerWidth
+              let val = 0
+              switch (true) {
+              case (width >= 768):
+                  val = -610 * this.currentSlide
+                  break
+              case (374 > width && width >= 360):
+                  val = -300 * this.currentSlide
+                  break
+              case (410 > width && width >= 375):
+                  val = -311 * this.currentSlide
+                  break
+              case (479 > width && width >= 411):
+                  val = -352 * this.currentSlide
+                  break
+              case (767 > width && width >= 480):
+                  val = -480 * this.currentSlide
+              }
               return `translate3d(${val}px, 0px, 0px)`
-        },
+          },
           previousBtn(){
               return this.currentSlide === 0 ? 'none' : 'block'
           },

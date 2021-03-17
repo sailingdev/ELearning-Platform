@@ -5,7 +5,7 @@
             <div class="lesson-page">
                 <div class="wow fadeInUp" data-wow-delay="100ms" data-wow-duration="1000ms">
                     <a class="text-left cursor-on" v-on:click="selectLesson">
-                        <i class="dropdown-toggle">Learn {{language}} :: Lesson {{lesson_num}}   </i>
+                        <i class="dropdown-toggle" style="font-style: inherit;">Learn {{language}} :: Lesson {{lesson_num}}   </i>
                         <h5>Meeting Someone</h5>
                     </a>
                     <a class="text-left cursor-on mt-5" v-on:click="selectLesson">

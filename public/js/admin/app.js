@@ -60188,7 +60188,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     // =============================================================================
     path: '',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(3), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./layouts/main/Main.vue */ "./resources/js/src/layouts/main/Main.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(4), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./layouts/main/Main.vue */ "./resources/js/src/layouts/main/Main.vue"));
     },
     children: [// =============================================================================
     // Theme Routes
@@ -60197,13 +60197,13 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/admin/dashboard',
       name: 'dashboard',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/src/views/Home.vue"));
+        return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/src/views/Home.vue"));
       }
     }, {
       path: '/admin/blog/list',
       name: 'blog',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/blog/BlogList.vue */ "./resources/js/src/views/blog/BlogList.vue"));
+        return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./views/blog/BlogList.vue */ "./resources/js/src/views/blog/BlogList.vue"));
       },
       meta: {
         breadcrumb: [{
@@ -60222,7 +60222,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/admin/blog/create',
       name: 'blog-create',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./views/blog/BlogCreate.vue */ "./resources/js/src/views/blog/BlogCreate.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ./views/blog/BlogCreate.vue */ "./resources/js/src/views/blog/BlogCreate.vue"));
       },
       meta: {
         breadcrumb: [{
@@ -60241,7 +60241,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/admin/blog/edit/:id',
       name: 'blog-edit',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ./views/blog/BlogEdit.vue */ "./resources/js/src/views/blog/BlogEdit.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./views/blog/BlogEdit.vue */ "./resources/js/src/views/blog/BlogEdit.vue"));
       },
       meta: {
         breadcrumb: [{
@@ -60261,7 +60261,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/admin/blog/tags',
       name: 'blog-tag',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./views/blog/Tag.vue */ "./resources/js/src/views/blog/Tag.vue"));
+        return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./views/blog/Tag.vue */ "./resources/js/src/views/blog/Tag.vue"));
       },
       meta: {
         breadcrumb: [{
@@ -60313,6 +60313,38 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
           active: true
         }],
         pageTitle: 'Membership Plan'
+      }
+    }, {
+      path: '/admin/lesson/list',
+      name: 'lesson-list',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/lesson/LessonList.vue */ "./resources/js/src/views/lesson/LessonList.vue"));
+      },
+      meta: {
+        breadcrumb: [{
+          title: 'Home',
+          url: '/admin/dashboard'
+        }, {
+          title: 'Lessons',
+          active: true
+        }],
+        pageTitle: 'Lessons'
+      }
+    }, {
+      path: '/admin/language/list',
+      name: 'language-list',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./views/lesson/LanguageList.vue */ "./resources/js/src/views/lesson/LanguageList.vue"));
+      },
+      meta: {
+        breadcrumb: [{
+          title: 'Home',
+          url: '/admin/dashboard'
+        }, {
+          title: 'Languages',
+          active: true
+        }],
+        pageTitle: 'Languages'
       }
     }]
   } // =============================================================================
@@ -60638,6 +60670,113 @@ var getters = {
 
 /***/ }),
 
+/***/ "./resources/js/src/store/lesson-management/moduleLessonManagement.actions.js":
+/*!************************************************************************************!*\
+  !*** ./resources/js/src/store/lesson-management/moduleLessonManagement.actions.js ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _http_axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../http/axios */ "./resources/js/src/http/axios/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  storeLanguage: function storeLanguage(_ref, payload) {
+    var commit = _ref.commit;
+    console.log(payload); // return new Promise((resolve, reject)=> {
+    //
+    // })
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/lesson-management/moduleLessonManagement.getters.js":
+/*!************************************************************************************!*\
+  !*** ./resources/js/src/store/lesson-management/moduleLessonManagement.getters.js ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/lesson-management/moduleLessonManagement.js":
+/*!****************************************************************************!*\
+  !*** ./resources/js/src/store/lesson-management/moduleLessonManagement.js ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _moduleLessonManagement_state__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./moduleLessonManagement.state */ "./resources/js/src/store/lesson-management/moduleLessonManagement.state.js");
+/* harmony import */ var _moduleLessonManagement_getters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moduleLessonManagement.getters */ "./resources/js/src/store/lesson-management/moduleLessonManagement.getters.js");
+/* harmony import */ var _moduleLessonManagement_mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./moduleLessonManagement.mutations */ "./resources/js/src/store/lesson-management/moduleLessonManagement.mutations.js");
+/* harmony import */ var _moduleLessonManagement_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./moduleLessonManagement.actions */ "./resources/js/src/store/lesson-management/moduleLessonManagement.actions.js");
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: _moduleLessonManagement_state__WEBPACK_IMPORTED_MODULE_0__["default"],
+  getters: _moduleLessonManagement_getters__WEBPACK_IMPORTED_MODULE_1__["default"],
+  mutations: _moduleLessonManagement_mutations__WEBPACK_IMPORTED_MODULE_2__["default"],
+  actions: _moduleLessonManagement_actions__WEBPACK_IMPORTED_MODULE_3__["default"]
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/lesson-management/moduleLessonManagement.mutations.js":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/src/store/lesson-management/moduleLessonManagement.mutations.js ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/lesson-management/moduleLessonManagement.state.js":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/src/store/lesson-management/moduleLessonManagement.state.js ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  lang: [{
+    name: 'English',
+    role: ['Own', 'To Learn'],
+    img: 'us',
+    id: 1
+  }, {
+    name: 'Portuguese',
+    role: ['To Learn'],
+    img: 'ad',
+    id: 2
+  }],
+  langRole: [{
+    label: 'Own Language',
+    value: 1
+  }, {
+    label: 'Language To Learn',
+    value: 2
+  }]
+});
+
+/***/ }),
+
 /***/ "./resources/js/src/store/mutations.js":
 /*!*********************************************!*\
   !*** ./resources/js/src/store/mutations.js ***!
@@ -60868,6 +61007,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./actions */ "./resources/js/src/store/actions.js");
 /* harmony import */ var _blog_management_moduleBlogManagement__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./blog-management/moduleBlogManagement */ "./resources/js/src/store/blog-management/moduleBlogManagement.js");
 /* harmony import */ var _user_management_moduleUserManagement__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./user-management/moduleUserManagement */ "./resources/js/src/store/user-management/moduleUserManagement.js");
+/* harmony import */ var _lesson_management_moduleLessonManagement__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./lesson-management/moduleLessonManagement */ "./resources/js/src/store/lesson-management/moduleLessonManagement.js");
 /*=========================================================================================
   File Name: store.js
   Description: Vuex store
@@ -60884,6 +61024,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   getters: _getters__WEBPACK_IMPORTED_MODULE_3__["default"],
@@ -60892,7 +61033,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
   actions: _actions__WEBPACK_IMPORTED_MODULE_5__["default"],
   modules: {
     blog: _blog_management_moduleBlogManagement__WEBPACK_IMPORTED_MODULE_6__["default"],
-    user: _user_management_moduleUserManagement__WEBPACK_IMPORTED_MODULE_7__["default"]
+    user: _user_management_moduleUserManagement__WEBPACK_IMPORTED_MODULE_7__["default"],
+    lesson: _lesson_management_moduleLessonManagement__WEBPACK_IMPORTED_MODULE_8__["default"]
   },
   strict: "development" !== 'production'
 }));

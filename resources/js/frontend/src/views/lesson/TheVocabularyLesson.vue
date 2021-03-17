@@ -13,11 +13,11 @@
                         </button>
                         <div class="slick-list draggable" style="padding: 0px 20px;">
                             <div class="slick-track"
-                                 :style="{opacity: 1, width: '9760px', transform: translated3d , 'transition': 'transform 500ms ease 0s'}">
+                                 :style="{opacity: 1, width: '9760px', transform: translate3d , 'transition': 'transform 500ms ease 0s'}">
                                 <div v-for="(item, index) in dataList" :key="index"
                                      :class="{'slick-slide':true, 'slick-current slick-center': index === currentSlide }"
                                      data-slick-index="1" aria-hidden="true"
-                                     style="width: 610px;" tabindex="-1">
+                                     tabindex="-1">
                                     <div>
                                         <div class="lesson-slide"
                                              style="width: 100%; display: inline-block;">
@@ -101,11 +101,11 @@
                 dataList: this.$store.state.lesson.dataList,
                 currentSlide: 0,
                 currentAudio: null,
-                isPlayable: true,
-                isPlayable_temp: true,
+                isPlayable: false,
+                isPlayable_temp: true,   // for play button class
                 isDirection: true,
                 isStartOverlay: true,
-                isNextStatus: 0
+                isNextStatus: 0,
             }
         },
         methods: {
@@ -126,6 +126,7 @@
             directPlay(isOnce){
                 if(isOnce)  this.isDirection = false
                 this.isPlayable_temp = !this.isPlayable_temp
+                this.isPlayable = !this.isPlayable
                 this.audioControl()
             },
             previous (val) {
@@ -140,12 +141,12 @@
                 setTimeout(()=> {
                     this.isPlayable = true
                     this.audioControl()
-                }, 3000)
+                }, 2500)
             },
             audioControl () {
                 let audio = this.$refs.audio[this.currentSlide]
                 if (audio){
-                    if(this.isPlayable)
+                    if(this.isPlayable && !this.isPlayable_temp)
                         audio.play()
                     else {
                         audio.pause()
@@ -166,7 +167,7 @@
                     this.isDirection = true
                 } else if (this.isNextStatus === 2){
                     this.directionPlay(true)
-                } else {
+                } else if (!this.isPlayable_temp) {
                     this.timeDelay()
                 }
             },
@@ -175,8 +176,25 @@
             }
         },
         computed: {
-            translated3d () {
-                let val = -610 * this.currentSlide
+            translate3d () {
+                let width = window.innerWidth
+                let val = 0
+                switch (true) {
+                    case (width >= 768):
+                        val = -610 * this.currentSlide
+                        break
+                    case (374 > width && width >= 360):
+                        val = -300 * this.currentSlide
+                        break
+                    case (410 > width && width >= 375):
+                        val = -311 * this.currentSlide
+                        break
+                    case (479 > width && width >= 411):
+                        val = -352 * this.currentSlide
+                        break
+                    case (767 > width && width >= 480):
+                        val = -480 * this.currentSlide
+                }
                 return `translate3d(${val}px, 0px, 0px)`
             },
             audioBtnClass () {

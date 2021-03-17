@@ -1,6 +1,6 @@
 <template>
     <div :class="{'slick-slide':true, 'slick-current slick-center':isActive}"
-         data-slick-index="0" aria-hidden="true" style="width: 610px;">
+         data-slick-index="0" aria-hidden="true">
         <div>
             <div class="lesson-slide"
                  style="width: 100%; display: inline-block;">
