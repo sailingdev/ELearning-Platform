@@ -268,7 +268,7 @@ var render = function() {
                     _c(
                       "button",
                       {
-                        staticClass: "btn btn-primary h-100",
+                        staticClass: "btn btn-pink h-100",
                         on: {
                           click: function($event) {
                             return _vm.selectLang(2)

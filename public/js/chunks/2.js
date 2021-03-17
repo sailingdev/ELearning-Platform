@@ -3988,7 +3988,7 @@ var render = function() {
       "span",
       {
         staticClass: "cursor-on speech-to-text",
-        style: { "background-color": _vm.isRecording ? "#ff3f5f" : "#00bcd4" },
+        style: { "background-color": _vm.isRecording ? "#ff3f5f" : "#9D21B2" },
         on: {
           click: function($event) {
             $event.stopPropagation()
