@@ -31,26 +31,6 @@ class LanguageController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function show($id)
-    {
-        $row = Language::find($id)->with('language_roles')->get();
-        if ($row){
-            return response()->json([
-                'dataList'=>$row
-            ], 200);
-        } else {
-            return response()->json([
-                'message'=>'The provided index is invalid.'
-            ], 400);
-        }
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request

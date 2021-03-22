@@ -71,6 +71,7 @@
       },
       methods: {
           acceptAlert(){
+              this.$store.commit('SET_BEARER')
               const link = this.isRemove ? 'destroyLanguage' : 'updateLanguage'
               const payload = {
                   id: this.id != null ? this.id : this.currentLang.value,
@@ -114,6 +115,7 @@
               return array
           },
           validation(){
+              if (this.isRemove) return true
               return (this.own || this.to_learn) && this.currentLang != null
           }
       },
