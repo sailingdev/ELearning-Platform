@@ -31,30 +31,6 @@ class LanguageController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param Language ID
-     * @param LanguageRole ID
-     * @return \Illuminate\Http\JsonResponse
-     * @throws \Illuminate\Validation\ValidationException
-     */
-    public function store(Request $request)
-    {
-
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  int $id
@@ -72,17 +48,6 @@ class LanguageController extends Controller
                 'message'=>'The provided index is invalid.'
             ], 400);
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Language  $language
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Language $language)
-    {
-        //
     }
 
     /**
@@ -108,7 +73,10 @@ class LanguageController extends Controller
         $row = Language::find($id);
         if ($row){
             try {
-                $row->language_roles()->attach($request['lang_role_id']);
+                $roles = [];
+                if ($request['is_own']) array_push($roles, 1);
+                if ($request['is_to_learn']) array_push($roles, 2);
+                $row->language_roles()->sync($roles);
                 $languages = Language::with('language_roles')->get();
                 return response()->json([
                     'dataList'=>$languages

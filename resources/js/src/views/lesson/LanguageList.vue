@@ -29,81 +29,79 @@
 
                 <vs-td :data="data[indextr].img">
                     <span class="cursor-pointer flex items-center i18n-locale">
-                      <img class="h-4 w-5" :src="getImg(data[indextr].img)" :alt="data[indextr].name " />
+                      <img class="h-4 w-5" :src="getImg(data[indextr].key)" :alt="data[indextr].name " />
                       <span class="hidden sm:block ml-2">{{ data[indextr].name }}</span>
                     </span>
                 </vs-td>
 
                 <vs-td :data="data[indextr].role">
-                    <vs-chip transparent v-for="(item, index) in data[indextr].role" :key="index" :color="roleColor(item)">
-                        {{ item }}
+                    <vs-chip transparent v-for="(item, index) in data[indextr].language_roles" :key="index" :color="roleColor(item)">
+                        {{ item.name }}
                     </vs-chip>
                 </vs-td>
 
                 <vs-td>
-                    <feather-icon icon="EditIcon" svgClasses="w-5 h-5 hover:text-primary stroke-current" class="cursor-pointer" />
-                    <feather-icon icon="TrashIcon" svgClasses="w-5 h-5 hover:text-danger stroke-current" class="ml-2 cursor-pointer"  />
+                    <feather-icon icon="EditIcon" svgClasses="w-5 h-5 hover:text-primary stroke-current" class="cursor-pointer" @click="edit(tr.id)" />
+                    <feather-icon icon="TrashIcon" svgClasses="w-5 h-5 hover:text-danger stroke-current" class="ml-2 cursor-pointer" @click="remove(tr.id)" />
                 </vs-td>
             </vs-tr>
         </template>
     </vs-table>
-
+        <language-block :active="isActive" :id="selectedID" :isRemove="isRemove" @deActive="close"/>
     </div>
 </template>
 
 <script>
-    import vSelect from 'vue-select'
-    import languageList from '../../LanguageList'
+  import LanguageBlock from './LanguageBlock.vue'
+  import { mapGetters } from 'vuex'
   export default {
       name: 'LanguageList',
       components:{
-        vSelect
+          LanguageBlock
       },
       data(){
         return {
-            dataList: this.$store.state.lesson.lang,
-            role: this.$store.state.lesson.langRole,
             val: '',
             activeEdit: false,
             activeRemove: false,
             list: [],
-
+            isActive: false,
+            selectedID: null,
+            isRemove: false
         }
       },
       methods:{
-          acceptAlert(){
-              this.$store.dispatch('lesson/storeLanguage')
-              this.$vs.notify({
-                  color:'success',
-                  title:'Accept Selected',
-                  text:'Lorem ipsum dolor sit amet, consectetur'
-              })
-          },
-          close(){
-              this.$vs.notify({
-                  color:'danger',
-                  title:'Closed',
-                  text:'You close a dialog!'
-              })
+          close(val){
+              this.selectedID = null
+              this.isRemove = false
+              this.isActive = val
           },
           addNew(){
-              this.activeEdit = true
+              this.isActive = true
+          },
+          edit(id){
+              this.selectedID = id
+              this.isActive = true
+          },
+          remove(id){
+            this.isRemove = true
+            this.edit(id)
           }
       },
       computed: {
         roleColor(){
-            return role => role === 'Own' ? 'success' : 'danger'
+            return role => role.id === 1 ? 'success' : 'danger'
         },
           getImg(){
             return img => require(`@assets/frontend/flags/4x3/${img}.svg`)
           },
+          ...mapGetters({
+              dataList: 'lesson/dataList'
+          })
       },
       mounted(){
-          for (const [key, value] of Object.entries(languageList)) {
-              this.list.push({label: value.name, value: key})
-          }
+          this.$store.dispatch('lesson/indexLanguage')
       }
-
   }
 </script>
 
