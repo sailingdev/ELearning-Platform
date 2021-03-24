@@ -120,13 +120,6 @@ const router = new Router({
                     path: '/admin/lesson/list',
                     name: 'lesson-list',
                     component: () => import('./views/lesson/LessonList.vue'),
-                    meta: {
-                        breadcrumb: [
-                            {title: 'Home', url: '/admin/dashboard'},
-                            {title: 'Lessons', active: true}
-                        ],
-                        pageTitle: 'Lessons'
-                    }
                 },
                 {
                     path: '/admin/language/list',
