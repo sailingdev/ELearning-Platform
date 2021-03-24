@@ -60188,7 +60188,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     // =============================================================================
     path: '',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(4), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./layouts/main/Main.vue */ "./resources/js/src/layouts/main/Main.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(4), __webpack_require__.e(3), __webpack_require__.e(12)]).then(__webpack_require__.bind(null, /*! ./layouts/main/Main.vue */ "./resources/js/src/layouts/main/Main.vue"));
     },
     children: [// =============================================================================
     // Theme Routes
@@ -60318,17 +60318,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/admin/lesson/list',
       name: 'lesson-list',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/lesson/LessonList.vue */ "./resources/js/src/views/lesson/LessonList.vue"));
-      },
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/admin/dashboard'
-        }, {
-          title: 'Lessons',
-          active: true
-        }],
-        pageTitle: 'Lessons'
+        return Promise.all(/*! import() */[__webpack_require__.e(4), __webpack_require__.e(11)]).then(__webpack_require__.bind(null, /*! ./views/lesson/LessonList.vue */ "./resources/js/src/views/lesson/LessonList.vue"));
       }
     }, {
       path: '/admin/language/list',
@@ -60679,14 +60669,71 @@ var getters = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _http_axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../http/axios */ "./resources/js/src/http/axios/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _http_axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../http/axios */ "./resources/js/src/http/axios/index.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  storeLanguage: function storeLanguage(_ref, payload) {
+  indexLanguage: function indexLanguage(_ref) {
     var commit = _ref.commit;
-    console.log(payload); // return new Promise((resolve, reject)=> {
-    //
-    // })
+    return new Promise(function (resolve, reject) {
+      _http_axios__WEBPACK_IMPORTED_MODULE_1__["default"].get('/api/language').then(function (res) {
+        commit('SET_LANGUAGE_LIST', res.data.dataList);
+        resolve();
+      })["catch"](function (err) {
+        reject(err);
+      });
+    });
+  },
+  updateLanguage: function updateLanguage(_ref2, payload) {
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      var commit, is_own, is_to_learn;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              commit = _ref2.commit;
+              is_own = payload.is_own, is_to_learn = payload.is_to_learn;
+              return _context.abrupt("return", new Promise(function (resolve, reject) {
+                _http_axios__WEBPACK_IMPORTED_MODULE_1__["default"].put("/api/language/".concat(payload.id), {
+                  is_own: is_own,
+                  is_to_learn: is_to_learn
+                }).then(function (res) {
+                  if (res.status === 201) {
+                    commit('SET_LANGUAGE_LIST', res.data.dataList);
+                    resolve();
+                  } else reject(res.data.message);
+                })["catch"](function (err) {
+                  reject(err);
+                });
+              }));
+
+            case 3:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  },
+  destroyLanguage: function destroyLanguage(_ref3, payload) {
+    var commit = _ref3.commit;
+    return new Promise(function (resolve, reject) {
+      _http_axios__WEBPACK_IMPORTED_MODULE_1__["default"]["delete"]("/api/language/".concat(payload.id)).then(function (res) {
+        if (res.status === 200) {
+          commit('SET_LANGUAGE_LIST', res.data.dataList);
+          resolve();
+        } else reject(res.data.message);
+      })["catch"](function (err) {
+        return reject(err);
+      });
+    });
   }
 });
 
@@ -60701,7 +60748,39 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  currentLang: function currentLang(state) {
+    var list = state.lang;
+    var res = null;
+
+    if (state.current_lang_id != null) {
+      var lang = list.filter(function (item) {
+        return item.id === state.current_lang_id;
+      })[0];
+
+      if (Object.keys(lang).length > 0) {
+        res = {};
+        res.label = lang.name;
+        res.value = lang.id;
+        res.own = false;
+        res.to_learn = false;
+        lang.language_roles.filter(function (item) {
+          item.id === 1 ? res.own = true : res.to_learn = true;
+        });
+      }
+    }
+
+    return res;
+  },
+  dataList: function dataList(state) {
+    return state.lang.filter(function (item) {
+      return item.language_roles.length > 0;
+    });
+  },
+  all: function all(state) {
+    return state.lang;
+  }
+});
 
 /***/ }),
 
@@ -60741,7 +60820,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  SET_CURRENT_LANG_ID: function SET_CURRENT_LANG_ID(state, payload) {
+    state.current_lang_id = payload;
+  },
+  SET_LANGUAGE_LIST: function SET_LANGUAGE_LIST(state, payload) {
+    state.lang = payload;
+  }
+});
 
 /***/ }),
 
@@ -60755,24 +60841,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  lang: [{
-    name: 'English',
-    role: ['Own', 'To Learn'],
-    img: 'us',
-    id: 1
-  }, {
-    name: 'Portuguese',
-    role: ['To Learn'],
-    img: 'ad',
-    id: 2
-  }],
-  langRole: [{
-    label: 'Own Language',
-    value: 1
-  }, {
-    label: 'Language To Learn',
-    value: 2
-  }]
+  lang: [],
+  current_lang_id: ''
 });
 
 /***/ }),

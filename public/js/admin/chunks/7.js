@@ -149,6 +149,7 @@ __webpack_require__.r(__webpack_exports__);
         color: 'danger',
         title: "Delete",
         text: 'Are you sure you want to delete the selected post?',
+        close: true,
         accept: this.deleteData
       });
     },

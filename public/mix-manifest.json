@@ -1,12 +1,12 @@
 {
-    "/js/app.js": "/js/app.js",
+    "/js/admin/app.js": "/js/admin/app.js",
     "/css/app.css": "/css/app.css",
     "/css/main.css": "/css/main.css",
-    "/js/frontend.js": "/js/frontend.js",
     "/css/vuesax.css": "/css/vuesax.css",
     "/css/iconfont.css": "/css/iconfont.css",
     "/css/material-icons/material-icons.css": "/css/material-icons/material-icons.css",
     "/css/prism-tomorrow.css": "/css/prism-tomorrow.css",
+    "/js/frontend/frontend.js": "/js/frontend/frontend.js",
     "/frontend/js/popper.min.js": "/frontend/js/popper.min.js",
     "/frontend/js/bootstrap.min.js": "/frontend/js/bootstrap.min.js",
     "/frontend/js/jquery.min.js": "/frontend/js/jquery.min.js",
@@ -31,7 +31,5 @@
     "/frontend/css/jquery.animatedheadline.css": "/frontend/css/jquery.animatedheadline.css",
     "/frontend/css/default/lineicons.min.css": "/frontend/css/default/lineicons.min.css",
     "/frontend/css/font-awesome.min.css": "/frontend/css/font-awesome.min.css",
-    "/frontend/css/flag-icon.min.css": "/frontend/css/flag-icon.min.css",
-    "/js/frontend/frontend.js": "/js/frontend/frontend.js",
-    "/js/admin/app.js": "/js/admin/app.js"
+    "/frontend/css/flag-icon.min.css": "/frontend/css/flag-icon.min.css"
 }

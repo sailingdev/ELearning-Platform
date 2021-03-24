@@ -1,5 +1,147 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[2],{
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/lesson/LanguageBlock.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/lesson/LanguageBlock.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'LanguageBlock',
+  components: {
+    vSelect: vue_select__WEBPACK_IMPORTED_MODULE_0___default.a
+  },
+  props: {
+    active: {
+      type: Boolean,
+      "default": false
+    },
+    id: {
+      type: Number,
+      "default": null
+    },
+    isRemove: {
+      type: Boolean,
+      "default": false
+    }
+  },
+  data: function data() {
+    return {
+      activePrompt: false,
+      langType: [],
+      currentLang: null,
+      to_learn: false,
+      own: false
+    };
+  },
+  watch: {
+    active: function active(newVal, oldVal) {
+      this.activePrompt = newVal;
+    },
+    activePrompt: function activePrompt(newVal, oldVal) {
+      !newVal && this.$emit('deActive', newVal);
+    },
+    id: function id(newVal, oldVal) {
+      if (newVal !== null) {
+        this.$store.commit('lesson/SET_CURRENT_LANG_ID', newVal);
+        this.currentLang = this.$store.getters['lesson/currentLang'];
+        this.own = this.currentLang.own;
+        this.to_learn = this.currentLang.to_learn;
+      }
+    }
+  },
+  methods: {
+    acceptAlert: function acceptAlert() {
+      var _this = this;
+
+      this.$store.commit('SET_BEARER');
+      var link = this.isRemove ? 'destroyLanguage' : 'updateLanguage';
+      var payload = {
+        id: this.id != null ? this.id : this.currentLang.value,
+        currentLang: this.currentLang,
+        is_own: this.own,
+        is_to_learn: this.to_learn
+      };
+      this.$store.dispatch("lesson/".concat(link), payload).then(function (res) {
+        _this.$vs.notify({
+          color: 'success',
+          title: _this.isRemove ? 'Delete' : 'Update',
+          text: "Successfully ".concat(_this.isRemove ? 'deleted' : 'updated', " !")
+        });
+      })["catch"](function (err) {
+        _this.$vs.notify({
+          color: 'danger',
+          title: _this.isRemove ? 'Delete' : 'Update',
+          text: err.response.data.message
+        });
+      });
+      this.currentLang = null;
+      this.to_learn = this.own = false;
+      console.log(this.to_learn);
+    },
+    close: function close() {
+      this.$emit('deActive', false);
+    }
+  },
+  computed: {
+    title: function title() {
+      return this.id ? 'Edit language' : 'Add language';
+    },
+    list: function list() {
+      var array = [];
+      var langs = this.$store.getters['lesson/all'];
+      langs.filter(function (item) {
+        return array.push({
+          label: item.name,
+          value: item.id
+        });
+      });
+      return array;
+    },
+    validation: function validation() {
+      if (this.isRemove) return true;
+      return (this.own || this.to_learn) && this.currentLang != null;
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/lesson/LanguageList.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/lesson/LanguageList.vue?vue&type=script&lang=js& ***!
@@ -9,20 +151,13 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
-/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _LanguageList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../LanguageList */ "./resources/js/src/LanguageList/index.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+/* harmony import */ var _LanguageBlock_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LanguageBlock.vue */ "./resources/js/src/views/lesson/LanguageBlock.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 //
 //
@@ -82,42 +217,41 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'LanguageList',
   components: {
-    vSelect: vue_select__WEBPACK_IMPORTED_MODULE_0___default.a
+    LanguageBlock: _LanguageBlock_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
-      dataList: this.$store.state.lesson.lang,
-      role: this.$store.state.lesson.langRole,
       val: '',
       activeEdit: false,
       activeRemove: false,
-      list: []
+      list: [],
+      isActive: false,
+      selectedID: null,
+      isRemove: false
     };
   },
   methods: {
-    acceptAlert: function acceptAlert() {
-      this.$store.dispatch('lesson/storeLanguage');
-      this.$vs.notify({
-        color: 'success',
-        title: 'Accept Selected',
-        text: 'Lorem ipsum dolor sit amet, consectetur'
-      });
-    },
-    close: function close() {
-      this.$vs.notify({
-        color: 'danger',
-        title: 'Closed',
-        text: 'You close a dialog!'
-      });
+    close: function close(val) {
+      this.selectedID = null;
+      this.isRemove = false;
+      this.isActive = val;
     },
     addNew: function addNew() {
-      this.activeEdit = true;
+      this.isActive = true;
+    },
+    edit: function edit(id) {
+      this.selectedID = id;
+      this.isActive = true;
+    },
+    remove: function remove(id) {
+      this.isRemove = true;
+      this.edit(id);
     }
   },
-  computed: {
+  computed: _objectSpread({
     roleColor: function roleColor() {
       return function (role) {
-        return role === 'Own' ? 'success' : 'danger';
+        return role.id === 1 ? 'success' : 'danger';
       };
     },
     getImg: function getImg() {
@@ -125,20 +259,138 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         return __webpack_require__("./resources/assets/frontend/flags/4x3 sync recursive ^\\.\\/.*\\.svg$")("./".concat(img, ".svg"));
       };
     }
-  },
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
+    dataList: 'lesson/dataList'
+  })),
   mounted: function mounted() {
-    for (var _i = 0, _Object$entries = Object.entries(_LanguageList__WEBPACK_IMPORTED_MODULE_1__["default"]); _i < _Object$entries.length; _i++) {
-      var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
-          key = _Object$entries$_i[0],
-          value = _Object$entries$_i[1];
-
-      this.list.push({
-        label: value.name,
-        value: key
-      });
-    }
+    this.$store.dispatch('lesson/indexLanguage');
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/lesson/LanguageBlock.vue?vue&type=template&id=78338c68&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/lesson/LanguageBlock.vue?vue&type=template&id=78338c68&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "vs-prompt",
+    {
+      attrs: {
+        "is-valid": _vm.validation,
+        color: _vm.isRemove ? "danger" : "primary",
+        title: _vm.title,
+        active: _vm.activePrompt
+      },
+      on: {
+        cancel: _vm.close,
+        accept: _vm.acceptAlert,
+        close: _vm.close,
+        "update:active": function($event) {
+          _vm.activePrompt = $event
+        }
+      }
+    },
+    [
+      !_vm.isRemove
+        ? _c(
+            "div",
+            [
+              _c("v-select", {
+                attrs: { options: _vm.list },
+                model: {
+                  value: _vm.currentLang,
+                  callback: function($$v) {
+                    _vm.currentLang = $$v
+                  },
+                  expression: "currentLang"
+                }
+              }),
+              _vm._v(" "),
+              _c("ul", { staticClass: "demo-alignment" }, [
+                _c(
+                  "li",
+                  [
+                    _c(
+                      "vs-checkbox",
+                      {
+                        model: {
+                          value: _vm.own,
+                          callback: function($$v) {
+                            _vm.own = $$v
+                          },
+                          expression: "own"
+                        }
+                      },
+                      [_vm._v("Own")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  [
+                    _c(
+                      "vs-checkbox",
+                      {
+                        model: {
+                          value: _vm.to_learn,
+                          callback: function($$v) {
+                            _vm.to_learn = $$v
+                          },
+                          expression: "to_learn"
+                        }
+                      },
+                      [_vm._v("To Learn")]
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "vs-alert",
+                {
+                  staticClass: "mt-10",
+                  attrs: {
+                    color: "warning",
+                    title: "Warning",
+                    active: !_vm.validation
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n            The language roles should be selected.\n        "
+                  )
+                ]
+              )
+            ],
+            1
+          )
+        : _c("div", [
+            _c("span", [
+              _vm._v("Are you sure you want to delete the selected language?")
+            ])
+          ])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
 
 /***/ }),
 
@@ -193,7 +445,7 @@ var render = function() {
                             _c("img", {
                               staticClass: "h-4 w-5",
                               attrs: {
-                                src: _vm.getImg(data[indextr].img),
+                                src: _vm.getImg(data[indextr].key),
                                 alt: data[indextr].name
                               }
                             }),
@@ -210,7 +462,10 @@ var render = function() {
                       _c(
                         "vs-td",
                         { attrs: { data: data[indextr].role } },
-                        _vm._l(data[indextr].role, function(item, index) {
+                        _vm._l(data[indextr].language_roles, function(
+                          item,
+                          index
+                        ) {
                           return _c(
                             "vs-chip",
                             {
@@ -223,7 +478,7 @@ var render = function() {
                             [
                               _vm._v(
                                 "\n                    " +
-                                  _vm._s(item) +
+                                  _vm._s(item.name) +
                                   "\n                "
                               )
                             ]
@@ -241,6 +496,11 @@ var render = function() {
                               icon: "EditIcon",
                               svgClasses:
                                 "w-5 h-5 hover:text-primary stroke-current"
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.edit(tr.id)
+                              }
                             }
                           }),
                           _vm._v(" "),
@@ -250,6 +510,11 @@ var render = function() {
                               icon: "TrashIcon",
                               svgClasses:
                                 "w-5 h-5 hover:text-danger stroke-current"
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.remove(tr.id)
+                              }
                             }
                           })
                         ],
@@ -321,7 +586,16 @@ var render = function() {
           )
         ],
         2
-      )
+      ),
+      _vm._v(" "),
+      _c("language-block", {
+        attrs: {
+          active: _vm.isActive,
+          id: _vm.selectedID,
+          isRemove: _vm.isRemove
+        },
+        on: { deActive: _vm.close }
+      })
     ],
     1
   )
@@ -3461,226 +3735,72 @@ module.exports = "/images/zw.svg?02ec4110f07b67d8c3df86c60970594f";
 
 /***/ }),
 
-/***/ "./resources/js/src/LanguageList/index.js":
-/*!************************************************!*\
-  !*** ./resources/js/src/LanguageList/index.js ***!
-  \************************************************/
+/***/ "./resources/js/src/views/lesson/LanguageBlock.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/src/views/lesson/LanguageBlock.vue ***!
+  \*********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var langs = {
-  'za': {
-    name: 'Afrikaans',
-    title: 'Ek praat Afrikaans'
-  },
-  'id': {
-    name: 'Bahasa Indonesia',
-    title: 'Saya berbahasa Indonesia'
-  },
-  'es-ca': {
-    name: 'Català',
-    title: 'Parlo català'
-  },
-  'dk': {
-    name: 'Dansk',
-    title: 'Jeg taler dansk'
-  },
-  'de': {
-    name: 'Deutsch',
-    title: 'Ich spreche Deutsch'
-  },
-  'ee': {
-    name: 'Eesti',
-    title: 'Ma räägin eesti keelt'
-  },
-  'us': {
-    name: 'English',
-    title: 'I speak English'
-  },
-  'es': {
-    name: 'Español',
-    title: 'Hablo español'
-  },
-  'fr': {
-    name: 'Français',
-    title: 'Je parle français'
-  },
-  'es-ga': {
-    name: 'Galego',
-    title: 'Falo galego'
-  },
-  'hr': {
-    name: 'Hrvatski',
-    title: 'Govorim hrvatski'
-  },
-  'it': {
-    name: 'Italiano',
-    title: 'Parlo italiano'
-  },
-  'tz': {
-    name: 'Kiswahili',
-    title: 'Ninazungumza Kiswahili'
-  },
-  'lv': {
-    name: 'Latviešu',
-    title: 'Es runāju latviski'
-  },
-  'lt': {
-    name: 'Lietuvių kalba',
-    title: 'Aš kalbu lietuviškai'
-  },
-  'ro': {
-    name: 'Limba română',
-    title: 'Vorbesc limba română'
-  },
-  'hu': {
-    name: 'Magyar',
-    title: 'Magyarul beszélek'
-  },
-  'ms': {
-    name: 'Melayu',
-    title: 'Saya bertutur dalam bahasa Melayu'
-  },
-  'nl': {
-    name: 'Nederlands',
-    title: 'Ik spreek Nederlands'
-  },
-  'no': {
-    name: 'Norsk',
-    title: 'Jeg snakker norsk'
-  },
-  'pl': {
-    name: 'Polski',
-    title: 'Mówię po polsku'
-  },
-  'pt': {
-    name: 'Português',
-    title: 'Eu falo português'
-  },
-  'al': {
-    name: 'Shqip',
-    title: 'Unë flas anglisht'
-  },
-  'sk': {
-    name: 'Slovenčina',
-    title: 'Hovorím po slovensky'
-  },
-  'sl': {
-    name: 'Slovenščina',
-    title: 'Govorim slovensko'
-  },
-  'rs': {
-    name: 'Srpski jezik',
-    title: 'Ja govorim srpski'
-  },
-  'fi': {
-    name: 'Suomi',
-    title: 'Puhun suomea'
-  },
-  'se': {
-    name: 'Svenska',
-    title: 'Jag talar svenska'
-  },
-  'ph': {
-    name: 'Tagalog',
-    title: 'Nagsasalita ako ng Tagalog'
-  },
-  'vn': {
-    name: 'Tiếng Việt',
-    title: 'Tôi nói tiếng Việt'
-  },
-  'tr': {
-    name: 'Türkçe',
-    title: 'Türkçe konuşuyorum'
-  },
-  'is': {
-    name: 'Íslenska',
-    title: 'Ég tala íslensku'
-  },
-  'cz': {
-    name: 'Čeština',
-    title: 'Mluvím česky'
-  },
-  'gr': {
-    name: 'Ελληνικά',
-    title: 'Μιλάω Ελληνικά'
-  },
-  'by': {
-    name: 'Беларуская',
-    title: 'Я размаўляю па-беларуску'
-  },
-  'bg': {
-    name: 'Български език',
-    title: 'Аз говоря български език'
-  },
-  'mk': {
-    name: 'Македонски',
-    title: 'Зборувам македонски'
-  },
-  'ru': {
-    name: 'Русский',
-    title: 'Я говорю по-русски'
-  },
-  'ua': {
-    name: 'Українська',
-    title: 'Я розмовляю українською'
-  },
-  'am': {
-    name: 'Հայերեն',
-    title: 'Ես խոսում եմ հայերեն'
-  },
-  'il': {
-    name: 'עברית',
-    title: 'אני מדבר עברית'
-  },
-  'pk': {
-    name: 'اردو',
-    title: 'میں اردو بولتا/بولتی ہوں'
-  },
-  'sa': {
-    name: 'اللغة العربية',
-    title: 'أنا أتحدث العربية'
-  },
-  'ir': {
-    name: 'فارسی',
-    title: 'من فارسی صحبت می‌کنم'
-  },
-  'in': {
-    name: 'हिंदी',
-    title: 'मैं हिंदी बोलता/बोलती हूँ'
-  },
-  'panjab': {
-    name: 'ਪੰਜਾਬੀ',
-    title: 'ਮੈਂ ਪੰਜਾਬੀ ਬੋਲਦਾ/ਬੋਲਦੀ ਹਾਂ'
-  },
-  'th': {
-    name: 'ภาษาไทย',
-    title: 'ผมพูดภาษาไทย / ฉันพูดภาษาไทย'
-  },
-  'ge': {
-    name: 'ქართული',
-    title: 'მე ვლაპარაკობ ქართულად'
-  },
-  'et': {
-    name: 'አማርኛ',
-    title: 'አማርኛ እናገራለሁ'
-  },
-  'cn': {
-    name: '中文',
-    title: '我说中文'
-  },
-  'jp': {
-    name: '日本語',
-    title: '私は日本語を話します'
-  },
-  'kr': {
-    name: '한국어',
-    title: '저는 한국어를 합니다.'
-  }
-};
-/* harmony default export */ __webpack_exports__["default"] = (langs);
+/* harmony import */ var _LanguageBlock_vue_vue_type_template_id_78338c68_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LanguageBlock.vue?vue&type=template&id=78338c68&scoped=true& */ "./resources/js/src/views/lesson/LanguageBlock.vue?vue&type=template&id=78338c68&scoped=true&");
+/* harmony import */ var _LanguageBlock_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LanguageBlock.vue?vue&type=script&lang=js& */ "./resources/js/src/views/lesson/LanguageBlock.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _LanguageBlock_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _LanguageBlock_vue_vue_type_template_id_78338c68_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _LanguageBlock_vue_vue_type_template_id_78338c68_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "78338c68",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/src/views/lesson/LanguageBlock.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/src/views/lesson/LanguageBlock.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/src/views/lesson/LanguageBlock.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LanguageBlock_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./LanguageBlock.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/lesson/LanguageBlock.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LanguageBlock_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/src/views/lesson/LanguageBlock.vue?vue&type=template&id=78338c68&scoped=true&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/src/views/lesson/LanguageBlock.vue?vue&type=template&id=78338c68&scoped=true& ***!
+  \****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LanguageBlock_vue_vue_type_template_id_78338c68_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./LanguageBlock.vue?vue&type=template&id=78338c68&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/lesson/LanguageBlock.vue?vue&type=template&id=78338c68&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LanguageBlock_vue_vue_type_template_id_78338c68_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LanguageBlock_vue_vue_type_template_id_78338c68_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 
