@@ -65,8 +65,12 @@
             !newVal && this.$emit('deActive', newVal)
           },
           id(newVal, oldVal){
-              this.$store.commit('lesson/SET_CURRENT_LANG_ID', newVal)
-              this.currentLang = this.$store.getters['lesson/currentLang']
+            if(newVal !== null){
+                this.$store.commit('lesson/SET_CURRENT_LANG_ID', newVal)
+                this.currentLang = this.$store.getters['lesson/currentLang']
+                this.own = this.currentLang.own
+                this.to_learn = this.currentLang.to_learn
+            }
           }
       },
       methods: {
@@ -94,14 +98,12 @@
                           text: err.response.data.message
                       })
                   })
+              this.currentLang = null
+              this.to_learn = this.own = false
+              console.log(this.to_learn)
           },
           close(){
               this.$emit('deActive', false)
-              this.$vs.notify({
-                  color:'danger',
-                  title:'Closed',
-                  text:'You close a dialog!'
-              })
           },
       },
       computed:{
