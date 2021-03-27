@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLanguageHasRolesTable extends Migration
+class CreateCoursesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,8 @@ class CreateLanguageHasRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('language_has_roles', function (Blueprint $table) {
+        Schema::create('courses', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('language_id')->constrained('languages');
             $table->foreignId('language_role_id')->constrained('language_roles');
         });
@@ -26,6 +27,6 @@ class CreateLanguageHasRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('language_has_roles');
+        Schema::dropIfExists('courses');
     }
 }

@@ -8,6 +8,6 @@ class LanguageRole extends Model
 {
     public function languages()
     {
-        return $this->belongsToMany(Language::class, 'language_has_roles');
+        return $this->belongsToMany(Language::class, 'courses');
     }
 }

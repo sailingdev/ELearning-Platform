@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoryTable extends Migration
+class CreateLessonPartsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class CreateCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('lesson_parts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->foreignId('lesson_id')->constrained('lessons');
+            $table->string('title');
+            $table->string('subtitle');
+            $table->string('src');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +30,6 @@ class CreateCategoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category');
+        Schema::dropIfExists('lesson_parts');
     }
 }
