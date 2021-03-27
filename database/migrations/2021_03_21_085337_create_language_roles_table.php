@@ -16,7 +16,6 @@ class CreateLanguageRolesTable extends Migration
         Schema::create('language_roles', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->timestamps();
         });
     }
 
