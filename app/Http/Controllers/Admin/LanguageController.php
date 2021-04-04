@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Language;
-use App\LanguageRole;
 use http\Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -54,9 +53,13 @@ class LanguageController extends Controller
         if ($row){
             try {
                 $roles = [];
+                $course = new CourseController();
                 if ($request['is_own']) array_push($roles, 1);
                 if ($request['is_to_learn']) array_push($roles, 2);
-                $row->language_roles()->sync($roles);
+                $res = $row->language_roles()->sync($roles);
+                if (count($res['detached']) > 0) $course->destroy($id, $res['detached']);
+                if (count($res['attached']) > 0) $course->store($id, $res['attached']);
+
                 $languages = Language::with('language_roles')->get();
                 return response()->json([
                     'dataList'=>$languages
@@ -84,6 +87,9 @@ class LanguageController extends Controller
         $row = Language::find($id);
         if ($row){
             $row->language_roles()->detach();
+            $course = new CourseController();
+            $detached = [1,2];
+            $course->destroy($id, $detached);
             return response()->json([
                 'dataList'=>Language::with('language_roles')->get()
             ], 200);
@@ -93,4 +99,8 @@ class LanguageController extends Controller
             ], 400);
         }
     }
+
+    /**
+     * Assign course
+     */
 }
