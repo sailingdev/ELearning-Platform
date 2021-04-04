@@ -11,6 +11,6 @@ class Language extends Model
      */
     public function language_roles()
     {
-        return $this->belongsToMany(LanguageRole::class, 'courses', 'language_id', 'language_role_id');
+        return $this->belongsToMany(LanguageRole::class, 'language_has_roles', 'language_id', 'language_role_id');
     }
 }

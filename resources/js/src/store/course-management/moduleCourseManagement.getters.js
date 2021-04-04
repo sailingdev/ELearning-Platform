@@ -23,5 +23,8 @@ export default {
     },
     all(state){
         return state.lang
+    },
+    courses(state){
+        return state.courses
     }
 }

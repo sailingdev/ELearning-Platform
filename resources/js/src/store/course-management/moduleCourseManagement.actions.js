@@ -37,5 +37,19 @@ export default {
                 })
                 .catch(err => reject(err))
         })
+    },
+
+    indexCourse({commit}){
+        return new Promise((resolve, reject) => {
+            axios.get('/api/course').then(res=>{
+                if (res.status === 200){
+                    commit('SET_COURSE_LIST', res.data.dataList)
+                    resolve()
+                } else reject(res.data.message)
+            }).catch(err => reject(err))
+        })
+    },
+    showCourse({commit}){
+
     }
 }

@@ -96,11 +96,12 @@
             return img => require(`@assets/frontend/flags/4x3/${img}.svg`)
           },
           ...mapGetters({
-              dataList: 'lesson/dataList'
+              dataList: 'course/dataList'
           })
       },
       mounted(){
-          this.$store.dispatch('lesson/indexLanguage')
+          this.$store.commit('SET_BEARER')
+          this.$store.dispatch('course/indexLanguage')
       }
   }
 </script>

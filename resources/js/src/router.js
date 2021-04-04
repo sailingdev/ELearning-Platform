@@ -117,14 +117,14 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/admin/lesson/list',
+                    path: '/admin/course/list',
                     name: 'lesson-list',
-                    component: () => import('./views/lesson/LessonList.vue'),
+                    component: () => import('./views/course/LessonList.vue'),
                 },
                 {
                     path: '/admin/language/list',
                     name: 'language-list',
-                    component: () => import('./views/lesson/LanguageList.vue'),
+                    component: () => import('./views/course/LanguageList.vue'),
                     meta: {
                         breadcrumb: [
                             {title: 'Home', url: '/admin/dashboard'},

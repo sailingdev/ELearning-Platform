@@ -10,6 +10,7 @@
             <vs-divider class="d-theme-border-grey-light m-0" />
             <component :is="scrollbarTag" class="chat-scroll-area pt-4" :settings="settings" :key="$vs.rtl">
                 <div class="chat__contacts">
+                    <lesson-tree />
                 </div>
             </component>
         </vs-sidebar>
@@ -22,7 +23,6 @@
                 <lesson-navbar :isSidebarCollapsed="!clickNotClose" @openContactsSidebar ="toggleChatSidebar(true)" ></lesson-navbar>
             </div>
             <component :is="scrollbarTag" class="chat-content-scroll-area border border-solid d-theme-border-grey-light" :settings="settings" ref="chatLogPS" :key="$vs.rtl">
-
             </component>
         </div>
 
@@ -30,12 +30,14 @@
 </template>
 
 <script>
-    import LessonNavbar from './LessonNavbar'
+    import LessonNavbar from './LessonNavbar';
+    import LessonTree from './LessonTree';
     import VuePerfectScrollbar from 'vue-perfect-scrollbar'
     export default {
         name: 'LessonList',
         components: {
             LessonNavbar,
+            LessonTree,
             VuePerfectScrollbar
         },
         data () {
@@ -46,12 +48,13 @@
                     maxScrollbarLength : 60,
                     wheelSpeed         : 0.70
                 },
+                data: [],
             }
         },
         watch: {
             windowWidth () {
                 this.setSidebarWidth()
-            }
+            },
         },
         computed: {
             scrollbarTag(){
@@ -64,6 +67,7 @@
         created(){
           this.setSidebarWidth()
         },
+
         methods: {
             toggleChatSidebar (value = false) {
                 if (!value && this.clickNotClose) return

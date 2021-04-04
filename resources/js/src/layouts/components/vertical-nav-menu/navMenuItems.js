@@ -63,7 +63,7 @@ export default [
         i18n: 'Lessons',
         submenu: [
             {
-                url: '/admin/lesson/list',
+                url: '/admin/course/list',
                 name: 'List',
                 slug: 'lesson-list',
                 i18n: 'List'

@@ -18,7 +18,7 @@ import actions from "./actions"
 
 import moduleBlogManagement from './blog-management/moduleBlogManagement'
 import moduleUserManagement from './user-management/moduleUserManagement'
-import moduleLessonManagement from './lesson-management/moduleLessonManagement'
+import moduleCourseManagement from './course-management/moduleCourseManagement'
 
 Vue.use(Vuex)
 
@@ -30,7 +30,7 @@ export default new Vuex.Store({
     modules: {
         blog: moduleBlogManagement,
         user: moduleUserManagement,
-        lesson: moduleLessonManagement
+        course: moduleCourseManagement
     },
     strict: process.env.NODE_ENV !== 'production'
 })

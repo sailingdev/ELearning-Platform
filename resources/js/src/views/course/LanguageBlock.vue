@@ -66,8 +66,8 @@
           },
           id(newVal, oldVal){
             if(newVal !== null){
-                this.$store.commit('lesson/SET_CURRENT_LANG_ID', newVal)
-                this.currentLang = this.$store.getters['lesson/currentLang']
+                this.$store.commit('course/SET_CURRENT_LANG_ID', newVal)
+                this.currentLang = this.$store.getters['course/currentLang']
                 this.own = this.currentLang.own
                 this.to_learn = this.currentLang.to_learn
             }
@@ -83,7 +83,7 @@
                   is_own: this.own,
                   is_to_learn: this.to_learn
               }
-              this.$store.dispatch(`lesson/${link}`, payload)
+              this.$store.dispatch(`course/${link}`, payload)
                   .then(res=>{
                       this.$vs.notify({
                           color:'success',
@@ -112,7 +112,7 @@
           },
           list(){
               let array = []
-              let langs = this.$store.getters['lesson/all']
+              let langs = this.$store.getters['course/all']
               langs.filter(item => array.push({label: item.name, value: item.id}))
               return array
           },

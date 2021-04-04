@@ -15,8 +15,10 @@ class CreateCoursesTable extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('language_id')->constrained('languages');
-            $table->foreignId('language_role_id')->constrained('language_roles');
+            $table->foreignId('category_id')->constrained('categories');
+            $table->foreignId('own_id')->constrained('languages');
+            $table->foreignId('to_learn_id')->constrained('languages');
+            $table->timestamps();
         });
     }
 
