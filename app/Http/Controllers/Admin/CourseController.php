@@ -51,7 +51,7 @@ class CourseController extends Controller
 
     private function get_to_learn_list($id)
     {
-        return Course::select('courses.id as id', 'languages.name as text')
+        return Course::select('courses.id as course_id', 'languages.name as text')
             ->where('courses.category_id','=', $this->category)
             ->where('own_id', '=', $id)
             ->leftJoin('languages', 'languages.id', '=', 'courses.to_learn_id')
