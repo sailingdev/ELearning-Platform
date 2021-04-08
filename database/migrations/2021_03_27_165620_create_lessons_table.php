@@ -16,7 +16,6 @@ class CreateLessonsTable extends Migration
         Schema::create('lessons', function (Blueprint $table) {
             $table->id();
             $table->foreignId('course_id')->constrained('courses');
-            $table->foreignId('category_id')->constrained('categories');
             $table->string('title');
             $table->timestamps();
         });

@@ -23,5 +23,6 @@ Route::group(['middleware' => ['auth:sanctum', 'role:admin']],function(){
     Route::resource('post', 'Admin\PostController');
     Route::put('/language/{$id}', 'Admin\LanguageController@update');
     Route::resource('language', 'Admin\LanguageController');
-    Route::resource('/course', 'Admin\CourseController');
+    Route::resource('course', 'Admin\CourseController');
+    Route::resource('lesson', 'Admin\LessonController');
 });

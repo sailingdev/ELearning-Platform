@@ -25,7 +25,6 @@ class CourseController extends Controller
      */
     public function index()
     {
-//        $categories = Category::select('id', 'name as text')->get();
         $categories = Category::select('id', 'name as text')->get();
         foreach ($categories as $category) {
             $this->category = $category->id;
@@ -51,11 +50,27 @@ class CourseController extends Controller
 
     private function get_to_learn_list($id)
     {
-        return Course::select('courses.id as course_id', 'languages.name as text')
+        $courses = Course::select('courses.id as id', 'languages.name as text')
             ->where('courses.category_id','=', $this->category)
             ->where('own_id', '=', $id)
             ->leftJoin('languages', 'languages.id', '=', 'courses.to_learn_id')
             ->get();
+        foreach ($courses as $course){
+            $course['type'] = 'course';
+            $course['children'] = $this->get_lessons($course['id']);
+        }
+        return $courses;
+    }
+
+    private function get_lessons($course_id)
+    {
+        $lessons = Lesson::select('id', 'title as text')
+            ->where('course_id', '=', $course_id)
+            ->get();
+        foreach ($lessons as $lesson){
+            $lesson['type'] = 'lesson';
+        }
+        return $lessons;
     }
 
     /**

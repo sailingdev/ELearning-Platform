@@ -70871,22 +70871,6 @@ __webpack_require__.r(__webpack_exports__);
     state.lang = payload;
   },
   SET_COURSE_LIST: function SET_COURSE_LIST(state, payload) {
-    // let dataList = [];
-    //
-    // payload.filter(res => {
-    //     let el = {};
-    //     let children = [];
-    //     el.text = res.name;
-    //     res.courses.filter(course => {
-    //         let item = {};
-    //         item.text = course.name;
-    //         item.id = course.id;
-    //         item.type = 'course'
-    //         children.push(item);
-    //     });
-    //     el.children = children;
-    //     dataList.push(el);
-    // });
     state.courses = payload;
   }
 });
@@ -71326,6 +71310,119 @@ var getters = {
 
 /***/ }),
 
+/***/ "./resources/js/src/store/lesson-management/moduleLessonManagement.js":
+/*!****************************************************************************!*\
+  !*** ./resources/js/src/store/lesson-management/moduleLessonManagement.js ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _moduleLessonManagementState__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./moduleLessonManagementState */ "./resources/js/src/store/lesson-management/moduleLessonManagementState.js");
+/* harmony import */ var _moduleLessonManagementGetters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moduleLessonManagementGetters */ "./resources/js/src/store/lesson-management/moduleLessonManagementGetters.js");
+/* harmony import */ var _moduleLessonManagementActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./moduleLessonManagementActions */ "./resources/js/src/store/lesson-management/moduleLessonManagementActions.js");
+/* harmony import */ var _moduleLessonManagementMutations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./moduleLessonManagementMutations */ "./resources/js/src/store/lesson-management/moduleLessonManagementMutations.js");
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: _moduleLessonManagementState__WEBPACK_IMPORTED_MODULE_0__["default"],
+  getters: _moduleLessonManagementGetters__WEBPACK_IMPORTED_MODULE_1__["default"],
+  actions: _moduleLessonManagementActions__WEBPACK_IMPORTED_MODULE_2__["default"],
+  mutations: _moduleLessonManagementMutations__WEBPACK_IMPORTED_MODULE_3__["default"]
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/lesson-management/moduleLessonManagementActions.js":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/src/store/lesson-management/moduleLessonManagementActions.js ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _http_axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../http/axios */ "./resources/js/src/http/axios/index.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  store: function store(_ref, payload) {
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      var commit, res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              commit = _ref.commit;
+              _context.next = 3;
+              return _http_axios__WEBPACK_IMPORTED_MODULE_1__["default"].post('/api/lesson', payload);
+
+            case 3:
+              res = _context.sent;
+              return _context.abrupt("return", res.status);
+
+            case 5:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/lesson-management/moduleLessonManagementGetters.js":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/src/store/lesson-management/moduleLessonManagementGetters.js ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/lesson-management/moduleLessonManagementMutations.js":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/src/store/lesson-management/moduleLessonManagementMutations.js ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/lesson-management/moduleLessonManagementState.js":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/src/store/lesson-management/moduleLessonManagementState.js ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
 /***/ "./resources/js/src/store/mutations.js":
 /*!*********************************************!*\
   !*** ./resources/js/src/store/mutations.js ***!
@@ -71557,6 +71654,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blog_management_moduleBlogManagement__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./blog-management/moduleBlogManagement */ "./resources/js/src/store/blog-management/moduleBlogManagement.js");
 /* harmony import */ var _user_management_moduleUserManagement__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./user-management/moduleUserManagement */ "./resources/js/src/store/user-management/moduleUserManagement.js");
 /* harmony import */ var _course_management_moduleCourseManagement__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./course-management/moduleCourseManagement */ "./resources/js/src/store/course-management/moduleCourseManagement.js");
+/* harmony import */ var _lesson_management_moduleLessonManagement__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./lesson-management/moduleLessonManagement */ "./resources/js/src/store/lesson-management/moduleLessonManagement.js");
 /*=========================================================================================
   File Name: store.js
   Description: Vuex store
@@ -71565,6 +71663,7 @@ __webpack_require__.r(__webpack_exports__);
   Author: Pixinvent
   Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
+
 
 
 
@@ -71583,7 +71682,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
   modules: {
     blog: _blog_management_moduleBlogManagement__WEBPACK_IMPORTED_MODULE_6__["default"],
     user: _user_management_moduleUserManagement__WEBPACK_IMPORTED_MODULE_7__["default"],
-    course: _course_management_moduleCourseManagement__WEBPACK_IMPORTED_MODULE_8__["default"]
+    course: _course_management_moduleCourseManagement__WEBPACK_IMPORTED_MODULE_8__["default"],
+    lesson: _lesson_management_moduleLessonManagement__WEBPACK_IMPORTED_MODULE_9__["default"]
   },
   strict: "development" !== 'production'
 }));

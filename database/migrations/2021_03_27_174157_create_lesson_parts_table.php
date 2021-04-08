@@ -17,7 +17,7 @@ class CreateLessonPartsTable extends Migration
             $table->id();
             $table->foreignId('lesson_id')->constrained('lessons');
             $table->string('title');
-            $table->string('subtitle');
+            $table->string('sub_title');
             $table->string('src');
             $table->timestamps();
         });
