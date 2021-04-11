@@ -19,10 +19,13 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::post('/logout', 'Auth\LoginController@Logout');
 });
 Route::group(['middleware' => ['auth:sanctum', 'role:admin']],function(){
-    Route::put('/post/{$id}', 'Admin\PostController@update');
-    Route::resource('post', 'Admin\PostController');
-    Route::put('/language/{$id}', 'Admin\LanguageController@update');
-    Route::resource('language', 'Admin\LanguageController');
     Route::resource('course', 'Admin\CourseController');
+    Route::resource('post', 'Admin\PostController');
+    Route::put('/post/{$id}', 'Admin\PostController@update');
+    Route::resource('language', 'Admin\LanguageController');
+    Route::put('/language/{$id}', 'Admin\LanguageController@update');
     Route::resource('lesson', 'Admin\LessonController');
+    Route::put('/lesson/{$id}', 'Admin\LessonController@update');
+    Route::resource('/lesson-part', 'Admin\LessonPartController');
+    Route::put('/lesson-part/{$id}', 'Admin\LessonPartController@update');
 });

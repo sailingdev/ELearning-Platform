@@ -56,6 +56,7 @@ Vue.use(VueHammer)
 import 'prismjs'
 import 'prismjs/themes/prism-tomorrow.css'
 
+window.moment = require('moment');
 
 // Vue select css
 // Note: In latest version you have to add it separately

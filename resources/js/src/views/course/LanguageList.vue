@@ -40,9 +40,9 @@
                     </vs-chip>
                 </vs-td>
 
-                <vs-td>
-                    <feather-icon icon="EditIcon" svgClasses="w-5 h-5 hover:text-primary stroke-current" class="cursor-pointer" @click="edit(tr.id)" />
-                    <feather-icon icon="TrashIcon" svgClasses="w-5 h-5 hover:text-danger stroke-current" class="ml-2 cursor-pointer" @click="remove(tr.id)" />
+                <vs-td class="vs-align-center">
+                    <feather-icon icon="EditIcon" svgClasses="w-5 h-5 hover:text-primary stroke-current" class="cursor-pointer  p-1" @click="edit(tr.id)" />
+                    <feather-icon icon="TrashIcon" svgClasses="w-5 h-5 hover:text-danger stroke-current" class="cursor-pointer  p-1" @click="remove(tr.id)" />
                 </vs-td>
             </vs-tr>
         </template>

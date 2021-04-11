@@ -1,6 +1,6 @@
 <template>
     <div v-if="dataReady">
-        <v-jstree :data="lessons" @item-click="itemClick" whole-row show-checkbox></v-jstree>
+        <v-jstree :data="lessons" @item-click="itemClick"></v-jstree>
     </div>
 </template>
 
@@ -101,9 +101,6 @@
           }
         },
         methods: {
-            myCheckedFunction: function (nodeId, state) {
-                console.log(`is ${nodeId} selected ? ${state}`)
-            },
             deleteNodeFunction: function (node) {
                 const nodePath = this.$refs['my-tree'].findNodePath(node.id)
                 const parentNodeId = nodePath.slice(-2, -1)[0]
@@ -136,8 +133,19 @@
                 }
             },
             itemClick (node) {
-                if (node.model.type !== undefined && node.model.type === 'course'){
-                    this.$store.dispatch('course/showCourse')
+                console.log('Node Clicked', node)
+                switch (node.model.type) {
+                    case 'course':
+                        this.$emit('itemId', node.model.id);
+                        this.$emit('selectedCourse');
+                        break;
+                    case 'lesson':
+                        this.$emit('itemId', node.model.id);
+                        this.$emit('selectedLesson', node.model.id);
+                        break;
+                    case undefined:
+                        this.$emit('itemId', null);
+                        this.$emit('selectedOthers');
                 }
             }
         },

@@ -62,45 +62,51 @@ class LessonController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param \App\Lesson $lesson
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function show($id)
+    public function show(Lesson $lesson)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $parts = $lesson->lesson_parts()->get();
+        return response()->json([
+            'lesson_parts'=>$parts
+        ], 200);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  \App\Lesson $lesson
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Lesson $lesson)
     {
-        //
+        $validate = Validator::make($request->all(), [
+            'name'=>'required'
+        ]);
+        if ($validate->fails()){
+            return response()->json($validate->errors(), 422);
+        }
+        $lesson->title = $request['name'];
+        $lesson->save();
+        return response()->json([
+            'message'=>'success'
+        ],204);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param \App\Lesson $lesson
+     * @return \Illuminate\Http\JsonResponse
+     *
      */
-    public function destroy($id)
+    public function destroy(Lesson $lesson)
     {
-        //
+        $lesson->delete();
+        return response()->json([
+            'message'=>'success'
+        ], 200);
     }
 }

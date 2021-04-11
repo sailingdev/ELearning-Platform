@@ -15,7 +15,7 @@ class CreateLessonPartsTable extends Migration
     {
         Schema::create('lesson_parts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('lesson_id')->constrained('lessons');
+            $table->foreignId('lesson_id')->constrained('lessons')->onDelete('cascade');
             $table->string('title');
             $table->string('sub_title');
             $table->string('src');

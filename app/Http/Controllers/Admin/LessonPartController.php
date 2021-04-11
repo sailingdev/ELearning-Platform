@@ -58,6 +58,7 @@ class LessonPartController extends Controller
         $part->lesson_id = $request['id'];
         $part->src = '/storage/'.$src;
         $part->save();
+        $part->type = 'lesson_part';
         return response()->json([
             'lesson_part'=>$part,
         ], 201);
@@ -75,36 +76,49 @@ class LessonPartController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\LessonPart  $lessonPart
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(LessonPart $lessonPart)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\LessonPart  $lessonPart
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, LessonPart $lessonPart)
     {
-        //
+        $validate = Validator::make($request->all(), [
+            'title'=>'required',
+            'sub_title'=>'required',
+            'audio'=>'required|file',
+        ]);
+        $extension = $request['audio']->extension();
+        if($validate->fails()){
+            return response()->json($validate->errors(), 422);
+        } elseif ($extension !== 'mp3' && $extension !== 'wav'){
+            return response()->json('Audio must be mp3, wav file.', 422);
+        }
+        $name = time().'.'.$extension;
+        $src = $request->file('audio')->storeAs('/uploads/course', $name, 'public');
+        $lessonPart->title = $request['title'];
+        $lessonPart->sub_title = $request['sub_title'];
+        $lessonPart->lesson_id = $request['id'];
+        $lessonPart->src = '/storage/'.$src;
+        $lessonPart->save();
+        $lessonPart->type = 'lesson_part';
+        return response()->json([
+            'lesson_part'=>$lessonPart,
+        ], 204);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\LessonPart  $lessonPart
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy(LessonPart $lessonPart)
     {
-        //
+        $lessonPart->delete();
+        return response()->json([
+            'message'=>'success'
+        ], 200);
     }
 }

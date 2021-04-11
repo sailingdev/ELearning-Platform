@@ -490,9 +490,10 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "vs-td",
+                        { staticClass: "vs-align-center" },
                         [
                           _c("feather-icon", {
-                            staticClass: "cursor-pointer",
+                            staticClass: "cursor-pointer  p-1",
                             attrs: {
                               icon: "EditIcon",
                               svgClasses:
@@ -506,7 +507,7 @@ var render = function() {
                           }),
                           _vm._v(" "),
                           _c("feather-icon", {
-                            staticClass: "ml-2 cursor-pointer",
+                            staticClass: "cursor-pointer  p-1",
                             attrs: {
                               icon: "TrashIcon",
                               svgClasses:
