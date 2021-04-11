@@ -112,8 +112,10 @@
           },
           list(){
               let array = []
-              let langs = this.$store.getters['course/all']
-              langs.filter(item => array.push({label: item.name, value: item.id}))
+              let langs = this.$store.getters['course/all'];
+              if (langs.length > 0){
+                  langs.filter(item => array.push({label: item.name, value: item.id}));
+              }
               return array
           },
           validation(){
