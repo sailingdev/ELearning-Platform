@@ -6,7 +6,7 @@
         name: 'home',
         mounted(){
             let _token = localStorage.getItem('tortu_accessToken')
-            console.log(`Authorization: Bearer ${_token}`)
+            // console.log(`Authorization: Bearer ${_token}`)
         }
     }
 </script>
