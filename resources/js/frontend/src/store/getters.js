@@ -33,7 +33,7 @@ const getters = {
     },
     currentPost(state){
       return state.currentPost
-    }
+    },
 }
 
 export default getters

@@ -39336,13 +39336,13 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/blog-management',
       name: 'blog',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ./views/blog/Blog.vue */ "./resources/js/frontend/src/views/blog/Blog.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(5), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ./views/blog/Blog.vue */ "./resources/js/frontend/src/views/blog/Blog.vue"));
       }
     }, {
       path: '/blog-management-details/:id',
       name: 'blog-details',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(15)]).then(__webpack_require__.bind(null, /*! ./views/blog/BlogDetails.vue */ "./resources/js/frontend/src/views/blog/BlogDetails.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(5), __webpack_require__.e(15)]).then(__webpack_require__.bind(null, /*! ./views/blog/BlogDetails.vue */ "./resources/js/frontend/src/views/blog/BlogDetails.vue"));
       }
     }, {
       path: '/login',

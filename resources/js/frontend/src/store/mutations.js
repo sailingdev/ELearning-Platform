@@ -124,7 +124,7 @@ const mutations = {
     },
     SET_CURRENT_POST(state, payload){
       state.currentPost = payload;
-    }
+    },
 }
 
 export default mutations
