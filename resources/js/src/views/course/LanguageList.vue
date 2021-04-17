@@ -106,6 +106,21 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+    input[type=file]::-webkit-file-upload-button {
+        border: 2px solid #7367F0;
+        padding: .2em .4em;
+        border-radius: .2em;
+        background-color: #7367F0;
+        color: white;
+        transition: 1s;
+    }
 
+    input[type=file]::file-selector-button {
+        border: 2px solid #7367F0;
+        padding: .2em .4em;
+        border-radius: .2em;
+        background-color: #7367F0;
+        transition: 1s;
+    }
 </style>

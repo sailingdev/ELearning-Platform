@@ -27,7 +27,13 @@ const getters = {
 
   scrollbarTag: state => {
     return state.is_touch_device ? 'div' : 'VuePerfectScrollbar'
-  }
+  },
+    posts(state){
+      return state.posts;
+    },
+    currentPost(state){
+      return state.currentPost
+    }
 }
 
 export default getters

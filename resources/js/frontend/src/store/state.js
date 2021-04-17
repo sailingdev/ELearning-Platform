@@ -13,6 +13,8 @@ import $ from "jquery";
 // State
 // /////////////////////////////////////////////
 const state = {
+    posts: [],
+    currentPost:{}
 }
 
 export default state

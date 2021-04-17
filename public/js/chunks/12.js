@@ -1,1 +1,269 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[12],{60:function(t,i,s){"use strict";s.r(i);var e={name:"TheSocialButton",data:function(){return{status:!1}},computed:{isOpened:function(){return!1===this.status?"none":"block"},isColored:function(){return this.status?"#0811fb":"#fff"}},methods:{btn_open:function(){this.status=!this.status}}},a=s(0),o={name:"BlogDetails",components:{TheSocialButton:Object(a.a)(e,(function(){var t=this,i=t.$createElement,s=t._self._c||i;return s("div",{staticClass:"mt-2 social-group center",style:{"background-color":t.isColored}},[s("a",{staticClass:"cursor-on item-3",style:{color:t.status?"#fff":"#0811fb"},on:{click:t.btn_open}},[s("i",{class:{fa:!0,"fa-share-alt":!t.status,"fa-close":t.status}})]),t._v(" "),s("div",{staticClass:"item-1 cursor-on",style:{display:t.isOpened}},[s("i",{staticClass:"lni-facebook-filled"})]),t._v(" "),s("div",{staticClass:"item-2 cursor-on",style:{display:t.isOpened}},[s("i",{staticClass:"lni-twitter-filled"})])])}),[],!1,null,"f168bbda",null).exports}},l=Object(a.a)(o,(function(){var t=this,i=t.$createElement,s=t._self._c||i;return s("div",{staticClass:"saasbox--blog--area section-padding-120"},[s("div",{staticClass:"container"},[t._m(0),t._v(" "),s("div",{staticClass:"row justify-content-center wow fadeInUp",attrs:{"data-wow-delay":"300ms","data-wow-duration":"1000ms"}},[s("div",{staticClass:"post--like-post"},[t._m(1),s("span",[t._v("267 "+t._s(t.$t("blog-management.heart")))]),t._v(" "),s("the-social-button")],1),t._v(" "),t._m(2)])])])}),[function(){var t=this.$createElement,i=this._self._c||t;return i("div",{staticClass:"row justify-content-center"},[i("div",{staticClass:"col-12 col-md-9 col-lg-7 col-xxl-6"},[i("div",{staticClass:"section-heading text-center"},[i("h2")])])])},function(){var t=this.$createElement,i=this._self._c||t;return i("a",{attrs:{href:"#"}},[i("i",{staticClass:"lni-heart"})])},function(){var t=this,i=t.$createElement,s=t._self._c||i;return s("div",{staticClass:"col-12 col-sm-10 col-md-8"},[s("div",{staticClass:"single-blog-details-area"},[s("img",{staticClass:"post-thumbnail mb-5",attrs:{src:"frontend/img/bg-img/blog20.jpg",alt:""}}),t._v(" "),s("div",{staticClass:"post-date mb-2"},[t._v("Oct 1, 2019")]),t._v(" "),s("h2",{staticClass:"mb-3"},[t._v("Seven ways agency can improve your business")]),t._v(" "),s("div",{staticClass:"post-meta mb-5"},[s("a",{staticClass:"post-author",attrs:{href:"#"}},[t._v("By Nazrul")]),s("a",{staticClass:"post-tutorial",attrs:{href:"#"}},[t._v("Creative Agency")])]),t._v(" "),s("p",[t._v("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, animi, numquam. Nam suscipit iste enim deleniti vitae facere earum doloribus, tempora alias quas voluptatibus aut, voluptates qui nihil, quisquam quos.")]),t._v(" "),s("p",[t._v("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quibusdam, nam porro cupiditate itaque doloribus commodi aut mollitia repellendus. Cum consequuntur nihil, itaque numquam aspernatur nisi quo soluta tempora rem?")]),t._v(" "),s("p",[t._v("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet tempore officia, ab, pariatur harum quae cupiditate quia nisi atque qui tempora quis neque, molestiae doloribus repudiandae excepturi cum vero similique, aliquid laboriosam. Tempore vitae, quod rem architecto eum a dolores eveniet dolor aperiam hic alias suscipit, animi.")]),t._v(" "),s("h4",{staticClass:"mb-3"},[t._v("The reason why everyone love business.")]),t._v(" "),s("p",[t._v("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente enim eligendi natus ratione, quia, illo reiciendis voluptas nostrum expedita eum libero. Officiis sapiente non, totam numquam dolor. Dolores qui impedit voluptatem accusamus odio modi mollitia reiciendis quod tenetur accusantium optio soluta excepturi adipisci quidem nobis, totam reprehenderit consectetur omnis, nemo ea voluptatum.")]),t._v(" "),s("p",[t._v("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur aliquam mollitia accusantium debitis dolore soluta temporibus, laborum, fuga tempora adipisci molestias. Nobis similique nulla eveniet incidunt reprehenderit nam, accusantium asperiores iure. Quas voluptatem, facere facilis repellat!")]),t._v(" "),s("p",[t._v("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis asperiores, quo suscipit quaerat deserunt ullam et ab, dolor, architecto totam culpa temporibus. Quo, quidem. Molestiae, deserunt impedit neque.")])]),t._v(" "),s("div",{staticClass:"post-tag-share-button d-sm-flex align-items-center justify-content-between my-5"},[s("div",{staticClass:"post-tag pb-5"},[s("ul",{staticClass:"d-flex align-items-center pl-0"},[s("li",[s("a",{attrs:{href:"#"}},[t._v("agency")])]),t._v(" "),s("li",[s("a",{attrs:{href:"#"}},[t._v("business")])]),t._v(" "),s("li",[s("a",{attrs:{href:"#"}},[t._v("studio")])])])]),t._v(" "),s("div",{staticClass:"share-button pb-5"},[s("a",{attrs:{href:"#"}},[s("i",{staticClass:"fa fa-facebook"})]),s("a",{attrs:{href:"#"}},[s("i",{staticClass:"fa fa-twitter"})]),s("a",{attrs:{href:"#"}},[s("i",{staticClass:"fa fa-pinterest"})])])])])}],!1,null,null,null);i.default=l.exports}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[12],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/frontend/src/views/auth/ForgotPassword.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/frontend/src/views/auth/ForgotPassword.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'ForgetPassword',
+  data: function data() {
+    return {
+      email: null
+    };
+  },
+  methods: {
+    reset_pass: function reset_pass() {
+      $('form').submit(false);
+      var payload = {
+        email: this.email
+      };
+      this.$store.dispatch('auth/forgot_password', payload);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/frontend/src/views/auth/ForgotPassword.vue?vue&type=template&id=5705b90c&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/frontend/src/views/auth/ForgotPassword.vue?vue&type=template&id=5705b90c&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "register-area section-padding-120-70 banner-mt" },
+    [
+      _c("div", { staticClass: "container" }, [
+        _c(
+          "div",
+          {
+            staticClass: "wow fadeInUp breadcrumb-title",
+            attrs: { "data-wow-delay": "200ms", "data-wow-duration": "1000ms" }
+          },
+          [_c("h1", [_vm._v(_vm._s(_vm.$t("ForgotPassword.title")))])]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "row align-items-center justify-content-between wow fadeInUp",
+            attrs: { "data-wow-delay": "300ms", "data-wow-duration": "1000ms" }
+          },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-12 col-lg-6" }, [
+              _c(
+                "div",
+                { staticClass: "card register-card bg-gray p-1 p-sm-4 mb-50" },
+                [
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("h4", [_vm._v(_vm._s(_vm.$t("ForgotPassword.title")))]),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      [
+                        _vm._v(_vm._s(_vm.$t("ForgotPassword.subtitle"))),
+                        _c(
+                          "router-link",
+                          {
+                            staticClass: "ml-2",
+                            attrs: { to: { name: "login" } }
+                          },
+                          [_vm._v(_vm._s(_vm.$t("Login.name")))]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "register-form my-5" }, [
+                      _c("form", [
+                        _c("div", { staticClass: "form-group mb-3" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.email,
+                                expression: "email"
+                              }
+                            ],
+                            staticClass: "form-control rounded-0",
+                            attrs: {
+                              type: "email",
+                              placeholder: _vm.$t("Email"),
+                              required: ""
+                            },
+                            domProps: { value: _vm.email },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.email = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn saasbox-btn white-btn w-100",
+                            on: { click: _vm.reset_pass }
+                          },
+                          [
+                            _c("i", { staticClass: "lni-lock mr-2" }),
+                            _vm._v(_vm._s(_vm.$t("ForgotPassword.btn_reset")))
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ]
+        )
+      ])
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 col-lg-6" }, [
+      _c("div", { staticClass: "register-thumbnail mb-50" }, [
+        _c("img", { attrs: { src: "frontend/img/bg-img/hero-3.png", alt: "" } })
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/frontend/src/views/auth/ForgotPassword.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/frontend/src/views/auth/ForgotPassword.vue ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ForgotPassword_vue_vue_type_template_id_5705b90c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ForgotPassword.vue?vue&type=template&id=5705b90c&scoped=true& */ "./resources/js/frontend/src/views/auth/ForgotPassword.vue?vue&type=template&id=5705b90c&scoped=true&");
+/* harmony import */ var _ForgotPassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ForgotPassword.vue?vue&type=script&lang=js& */ "./resources/js/frontend/src/views/auth/ForgotPassword.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ForgotPassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ForgotPassword_vue_vue_type_template_id_5705b90c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ForgotPassword_vue_vue_type_template_id_5705b90c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "5705b90c",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/frontend/src/views/auth/ForgotPassword.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/frontend/src/views/auth/ForgotPassword.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/frontend/src/views/auth/ForgotPassword.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ForgotPassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./ForgotPassword.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/frontend/src/views/auth/ForgotPassword.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ForgotPassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/frontend/src/views/auth/ForgotPassword.vue?vue&type=template&id=5705b90c&scoped=true&":
+/*!************************************************************************************************************!*\
+  !*** ./resources/js/frontend/src/views/auth/ForgotPassword.vue?vue&type=template&id=5705b90c&scoped=true& ***!
+  \************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ForgotPassword_vue_vue_type_template_id_5705b90c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./ForgotPassword.vue?vue&type=template&id=5705b90c&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/frontend/src/views/auth/ForgotPassword.vue?vue&type=template&id=5705b90c&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ForgotPassword_vue_vue_type_template_id_5705b90c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ForgotPassword_vue_vue_type_template_id_5705b90c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);

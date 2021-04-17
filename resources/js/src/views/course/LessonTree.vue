@@ -95,11 +95,6 @@
                 }
             }
         },
-        watch: {
-          dataReady(){
-              console.log(this.lessons)
-          }
-        },
         methods: {
             deleteNodeFunction: function (node) {
                 const nodePath = this.$refs['my-tree'].findNodePath(node.id)

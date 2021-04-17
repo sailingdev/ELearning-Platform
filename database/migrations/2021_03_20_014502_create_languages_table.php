@@ -18,6 +18,7 @@ class CreateLanguagesTable extends Migration
             $table->string('key');
             $table->string('name');
             $table->string('title');
+            $table->text('cover_image')->nullable();
             $table->timestamps();
         });
     }

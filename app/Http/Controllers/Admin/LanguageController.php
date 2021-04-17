@@ -39,23 +39,34 @@ class LanguageController extends Controller
     public function update(Request $request, $id)
     {
         $validate = Validator::make($request->all(), [
-            'is_own' => 'required|boolean',
-            'is_to_learn' => 'required|boolean',
+            'is_own' => 'required|in:true,false',
+            'is_to_learn' => 'required|in:true,false',
+            'cover_image' => 'nullable|image'
         ]);
         if ($validate->fails()){
             return response()->json($validate->errors(), 422);
         }
-        if ($request->is_own == false && $request->is_to_learn == false)
+        $is_own = filter_var($request->is_own, FILTER_VALIDATE_BOOLEAN);
+        $is_to_learn = filter_var($request->is_to_learn, FILTER_VALIDATE_BOOLEAN);
+        if ($is_own == false && $is_to_learn == false)
             return response()->json([
                 'message'=>'Language role was not selected.'
             ], 400);
         $row = Language::find($id);
         if ($row){
             try {
+                if ($request->cover_image !== null){
+                    $extension = $request->cover_image->extension();
+                    $img_name = time().'.'.$extension;
+                    $img_src = $request->file('cover_image')->storeAs('/uploads/language', $img_name, 'public');
+                    $row->cover_image = '/storage/'.$img_src;
+                    $row->save();
+                }
+
                 $roles = [];
                 $course = new CourseController();
-                if ($request['is_own']) array_push($roles, 1);
-                if ($request['is_to_learn']) array_push($roles, 2);
+                if ($is_own) array_push($roles, 1);
+                if ($is_to_learn) array_push($roles, 2);
                 $res = $row->language_roles()->sync($roles);
                 if (count($res['detached']) > 0) $course->destroy($id, $res['detached']);
                 if (count($res['attached']) > 0) $course->store($id, $res['attached']);

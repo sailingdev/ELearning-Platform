@@ -6,7 +6,7 @@
   Author: Pixinvent
   Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
-
+import axios from 'axios/index.js';
 const actions = {
 
     // /////////////////////////////////////////////
@@ -48,6 +48,34 @@ const actions = {
 
     updateUserInfo({ commit }, payload) {
       commit('UPDATE_USER_INFO', payload)
+    },
+
+    ////////////////////////////////////////////////
+    // Blog page
+    ////////////////////////////////////////////////
+    getPosts({ commit }){
+        return new Promise((resolve, reject) => {
+            axios.get('/api/blog').then(res => {
+                if (res.status === 200){
+                    commit('SET_POSTS', res.data.dataList);
+                    resolve();
+                }
+            }).catch(err => {
+                console.log(err)
+                reject();
+            });
+        })
+    },
+    showPost({commit}, payload){
+        return new Promise((resolve, reject)=>{
+            axios.post(`/api/blog`, {id: payload}).then(res => {
+                commit('SET_CURRENT_POST', res.data.dataList);
+                resolve();
+            }).catch(err => {
+                console.log(err);
+                reject();
+            });
+        })
     }
 }
 

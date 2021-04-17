@@ -10,15 +10,15 @@
                 </div>
             </div>
             <div class="row justify-content-between">
-                <div class="col-12 col-md-6 wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1000ms">
+                <div class="col-12 col-md-8 wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1000ms">
                     <div class="row g-5">
                         <!-- Single blog-management Post-->
-                        <div v-for="n in 5" :key="n" class="col-12">
-                            <div class="card blog-card"><a href="#"><img class="card-img-top" src="frontend/img/bg-img/blog7.jpg" alt=""></a>
-                                <div class="post-content p-4"><a class="d-block text-muted mb-2" href="#">Sep 15, 2020</a><router-link class="post-title d-block mb-3" :to="{name: 'blog-details'}">
-                                    <h4>Seven ways agency can improve your business.</h4></router-link>
-                                    <p>It's crafted with the latest trend of design & coded with all modern approaches.</p>
-                                    <div class="post-meta d-flex align-items-center justify-content-between"><router-link class="post-author" :to="{name: 'blog-details'}"><img src="frontend/img/bg-img/t1.png" alt=""></router-link><span class="text-muted">2 min read</span></div>
+                        <div v-for="post in posts" :key="post.id" class="col-12">
+                            <div class="card blog-card"><a href="#"><img class="card-img-top" :src="post.cover_image" alt=""></a>
+                                <div class="post-content p-4"><a class="d-block text-muted mb-2" href="#">{{post.updated_at}}</a><router-link class="post-title d-block mb-3" :to="`/blog-management-details/${post.id}`">
+                                    <h4>{{post.title}}</h4></router-link>
+                                    <p></p>
+                                    <div class="post-meta d-flex align-items-center justify-content-between"><router-link class="post-author" :to="`/blog-management-details/${post.id}`"><img src="frontend/img/bg-img/t1.png" alt=""></router-link><span class="text-muted">2 min read</span></div>
                                 </div>
                             </div>
                         </div>
@@ -37,7 +37,7 @@
                         </nav>
                     </div>
                 </div>
-                <div class="col-12 col-md-5 wow fadeInUp" data-wow-delay="400ms" data-wow-duration="1000ms">
+                <div class="col-12 col-md-3 wow fadeInUp" data-wow-delay="400ms" data-wow-duration="1000ms">
                     <div class="blog-sidebar-area">
                         <!-- Single Widget Area-->
                         <div class="single-widget-area mb-5">
@@ -56,64 +56,64 @@
                                 <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>{{$t('Category.dialogues.title')}}</a></li>
                             </ul>
                         </div>
-                        <!-- Single Widget Area-->
-                        <div class="single-widget-area mb-5">
-                            <h4 class="widget-title mb-30">{{$t('Blog.recent_posts')}}</h4>
-                            <!-- Single Recent Post-->
-                            <div class="single-recent-post d-flex align-items-center">
-                                <div class="post-thumb"><a href="#"><img src="frontend/img/bg-img/sb1.jpg" alt=""></a></div>
-                                <div class="post-content"><a class="post-title" href="#">Seven ways agency can improve your business.</a>
-                                    <p class="post-date">Sep 30, 2020</p>
-                                </div>
-                            </div>
-                            <!-- Single Recent Post-->
-                            <div class="single-recent-post d-flex align-items-center">
-                                <div class="post-thumb"><a href="#"><img src="frontend/img/bg-img/sb2.jpg" alt=""></a></div>
-                                <div class="post-content"><a class="post-title" href="#">The reason why everyone love business.</a>
-                                    <p class="post-date">Sep 30, 2020</p>
-                                </div>
-                            </div>
-                            <!-- Single Recent Post-->
-                            <div class="single-recent-post d-flex align-items-center">
-                                <div class="post-thumb"><a href="#"><img src="frontend/img/bg-img/sb3.jpg" alt=""></a></div>
-                                <div class="post-content"><a class="post-title" href="#">How to get people to like trend.</a>
-                                    <p class="post-date">Sep 30, 2020</p>
-                                </div>
-                            </div>
-                            <!-- Single Recent Post-->
-                            <div class="single-recent-post d-flex align-items-center">
-                                <div class="post-thumb"><a href="#"><img src="frontend/img/bg-img/sb4.jpg" alt=""></a></div>
-                                <div class="post-content"><a class="post-title" href="#">Seven ways agency can improve your business.</a>
-                                    <p class="post-date">Sep 30, 2020</p>
-                                </div>
-                            </div>
-                            <!-- Single Recent Post-->
-                            <div class="single-recent-post d-flex align-items-center">
-                                <div class="post-thumb"><a href="#"><img src="frontend/img/bg-img/sb5.jpg" alt=""></a></div>
-                                <div class="post-content"><a class="post-title" href="#">The reason why everyone love business.</a>
-                                    <p class="post-date">Sep 30, 2020</p>
-                                </div>
-                            </div>
-                            <!-- Single Recent Post-->
-                            <div class="single-recent-post d-flex align-items-center">
-                                <div class="post-thumb"><a href="#"><img src="frontend/img/bg-img/sb6.jpg" alt=""></a></div>
-                                <div class="post-content"><a class="post-title" href="#">How to get people to like trend.</a>
-                                    <p class="post-date">Sep 30, 2020</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Single Widget Area-->
-                        <div class="single-widget-area">
-                            <h4 class="widget-title mb-30">{{$t('Blog.popular_tags')}}        </h4>
-                            <ul class="popular-tags clearfix pl-0">
-                                <li><a href="#">business</a></li>
-                                <li><a href="#">agency</a></li>
-                                <li><a href="#">studio</a></li>
-                                <li><a href="#">marketing</a></li>
-                                <li><a href="#">internet technology</a></li>
-                                <li><a href="#">analytics</a></li>
-                            </ul>
-                        </div>
+<!--                        &lt;!&ndash; Single Widget Area&ndash;&gt;-->
+<!--                        <div class="single-widget-area mb-5">-->
+<!--                            <h4 class="widget-title mb-30">{{$t('Blog.recent_posts')}}</h4>-->
+<!--                            &lt;!&ndash; Single Recent Post&ndash;&gt;-->
+<!--                            <div class="single-recent-post d-flex align-items-center">-->
+<!--                                <div class="post-thumb"><a href="#"><img src="frontend/img/bg-img/sb1.jpg" alt=""></a></div>-->
+<!--                                <div class="post-content"><a class="post-title" href="#">Seven ways agency can improve your business.</a>-->
+<!--                                    <p class="post-date">Sep 30, 2020</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            &lt;!&ndash; Single Recent Post&ndash;&gt;-->
+<!--                            <div class="single-recent-post d-flex align-items-center">-->
+<!--                                <div class="post-thumb"><a href="#"><img src="frontend/img/bg-img/sb2.jpg" alt=""></a></div>-->
+<!--                                <div class="post-content"><a class="post-title" href="#">The reason why everyone love business.</a>-->
+<!--                                    <p class="post-date">Sep 30, 2020</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            &lt;!&ndash; Single Recent Post&ndash;&gt;-->
+<!--                            <div class="single-recent-post d-flex align-items-center">-->
+<!--                                <div class="post-thumb"><a href="#"><img src="frontend/img/bg-img/sb3.jpg" alt=""></a></div>-->
+<!--                                <div class="post-content"><a class="post-title" href="#">How to get people to like trend.</a>-->
+<!--                                    <p class="post-date">Sep 30, 2020</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            &lt;!&ndash; Single Recent Post&ndash;&gt;-->
+<!--                            <div class="single-recent-post d-flex align-items-center">-->
+<!--                                <div class="post-thumb"><a href="#"><img src="frontend/img/bg-img/sb4.jpg" alt=""></a></div>-->
+<!--                                <div class="post-content"><a class="post-title" href="#">Seven ways agency can improve your business.</a>-->
+<!--                                    <p class="post-date">Sep 30, 2020</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            &lt;!&ndash; Single Recent Post&ndash;&gt;-->
+<!--                            <div class="single-recent-post d-flex align-items-center">-->
+<!--                                <div class="post-thumb"><a href="#"><img src="frontend/img/bg-img/sb5.jpg" alt=""></a></div>-->
+<!--                                <div class="post-content"><a class="post-title" href="#">The reason why everyone love business.</a>-->
+<!--                                    <p class="post-date">Sep 30, 2020</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            &lt;!&ndash; Single Recent Post&ndash;&gt;-->
+<!--                            <div class="single-recent-post d-flex align-items-center">-->
+<!--                                <div class="post-thumb"><a href="#"><img src="frontend/img/bg-img/sb6.jpg" alt=""></a></div>-->
+<!--                                <div class="post-content"><a class="post-title" href="#">How to get people to like trend.</a>-->
+<!--                                    <p class="post-date">Sep 30, 2020</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; Single Widget Area&ndash;&gt;-->
+<!--                        <div class="single-widget-area">-->
+<!--                            <h4 class="widget-title mb-30">{{$t('Blog.popular_tags')}}        </h4>-->
+<!--                            <ul class="popular-tags clearfix pl-0">-->
+<!--                                <li><a href="#">business</a></li>-->
+<!--                                <li><a href="#">agency</a></li>-->
+<!--                                <li><a href="#">studio</a></li>-->
+<!--                                <li><a href="#">marketing</a></li>-->
+<!--                                <li><a href="#">internet technology</a></li>-->
+<!--                                <li><a href="#">analytics</a></li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
                     </div>
                 </div>
             </div>
@@ -122,8 +122,16 @@
 </template>
 
 <script>
+    import { mapGetters } from 'vuex';
+    import moment from 'moment';
   export default {
-    name: 'Blog'
+    name: 'Blog',
+      computed: {
+        ...mapGetters(['posts'])
+      },
+      mounted(){
+        this.$store.dispatch('getPosts');
+      }
   }
 </script>
 

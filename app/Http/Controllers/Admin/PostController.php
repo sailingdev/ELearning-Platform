@@ -30,7 +30,6 @@ class PostController extends Controller
                 'message' => $e->getMessage(),
             ], $e->getCode());
         }
-
     }
 
     /**

@@ -67,7 +67,7 @@ const router = new Router({
                     component: () => import('./views/blog/Blog.vue')
                 },
                 {
-                    path: '/blog-management-details',
+                    path: '/blog-management-details/:id',
                     name: 'blog-details',
                     component: () => import('./views/blog/BlogDetails.vue')
                 },

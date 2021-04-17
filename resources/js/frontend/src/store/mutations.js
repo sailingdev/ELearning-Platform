@@ -115,6 +115,16 @@ const mutations = {
     // Store data in localStorage
     localStorage.setItem("userInfo", JSON.stringify(userInfo))
   },
+
+    ////////////////////////////////////
+    // blog page
+    ////////////////////////////////////
+    SET_POSTS(state, payload){
+      state.posts = payload;
+    },
+    SET_CURRENT_POST(state, payload){
+      state.currentPost = payload;
+    }
 }
 
 export default mutations

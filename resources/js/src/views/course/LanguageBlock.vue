@@ -17,6 +17,11 @@
                     <vs-checkbox v-model="to_learn" >To Learn</vs-checkbox>
                 </li>
             </ul>
+            <vs-alert color="rgb(41, 147, 138)" title="Please select cover image" class="mt-5" :active="to_learn">
+                <div class=" mt-2 section_upload">
+                    <input type="file" id="fileUpload" @change="onFileChange" /> <br/>
+                </div>
+            </vs-alert>
             <vs-alert color="warning" title="Warning" class="mt-10" :active="!validation">
                 The language roles should be selected.
             </vs-alert>
@@ -55,6 +60,7 @@
             currentLang:null,
             to_learn: false,
             own: false,
+            cover_image: ''
         }
       },
       watch: {
@@ -74,15 +80,31 @@
           }
       },
       methods: {
-          acceptAlert(){
-              this.$store.commit('SET_BEARER')
+          onFileChange(e){
+              var files = e.target.files || e.dataTransfer.files;
+              if (!files.length)
+                  return;
+              this.cover_image = files[0]
+          },
+          acceptAlert(e){
               const link = this.isRemove ? 'destroyLanguage' : 'updateLanguage'
-              const payload = {
-                  id: this.id != null ? this.id : this.currentLang.value,
-                  currentLang: this.currentLang,
-                  is_own: this.own,
-                  is_to_learn: this.to_learn
+              const config = {
+                  headers: {
+                      'Content-Type': 'multipart/form-data'
+                  }
               }
+              const payload = {
+                  id: this.id,
+                  data: new FormData(),
+                  config: config
+              }
+              payload.id = this.id != null ? this.id : this.currentLang.value;
+              // payload.data.append('currentLang', this.currentLang);
+              payload.data.append('is_own', this.own);
+              payload.data.append('is_to_learn', this.to_learn);
+              payload.data.append('cover_image', this.cover_image);
+              payload.data.append('_method', 'PUT')
+              this.$store.commit('SET_BEARER');
               this.$store.dispatch(`course/${link}`, payload)
                   .then(res=>{
                       this.$vs.notify({
@@ -100,7 +122,6 @@
                   })
               this.currentLang = null
               this.to_learn = this.own = false
-              console.log(this.to_learn)
           },
           close(){
               this.$emit('deActive', false)
@@ -126,6 +147,26 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+    .section_upload {
+        padding: 5px;
+        border: 1px solid #dad4d4;
+        border-radius: 5px;
+    }
+    input[type=file]::-webkit-file-upload-button {
+        border: 2px solid #7367F0;
+        padding: .2em .4em;
+        border-radius: .2em;
+        background-color: #7367F0;
+        color: white;
+        transition: 1s;
+    }
 
+    input[type=file]::file-selector-button {
+        border: 2px solid #7367F0;
+        padding: .2em .4em;
+        border-radius: .2em;
+        background-color: #7367F0;
+        transition: 1s;
+    }
 </style>

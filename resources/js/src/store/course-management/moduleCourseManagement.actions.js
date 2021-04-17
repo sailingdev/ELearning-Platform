@@ -11,20 +11,20 @@ export default {
                 })
         })
     },
-    async updateLanguage({commit}, payload){
-        const { is_own, is_to_learn } = payload
-      return new Promise((resolve, reject)=> {
-          axios.put(`/api/language/${payload.id}`, {is_own, is_to_learn})
-              .then(res => {
-                  if (res.status === 201){
-                      commit('SET_LANGUAGE_LIST', res.data.dataList)
-                      resolve()
-                  } else reject(res.data.message)
-              })
-              .catch(err => {
-                  reject(err)
-              })
-      })
+    updateLanguage({commit}, payload){
+        const { id, data, config } = payload
+        return new Promise((resolve, reject)=> {
+              axios.post(`/api/language/${id}`, data, config)
+                  .then(res => {
+                      if (res.status === 201){
+                          commit('SET_LANGUAGE_LIST', res.data.dataList)
+                          resolve()
+                      } else reject(res.data.message)
+                  })
+                  .catch(err => {
+                      reject(err)
+                  })
+            })
     },
     destroyLanguage({commit}, payload){
         return new Promise((resolve, reject) => {
