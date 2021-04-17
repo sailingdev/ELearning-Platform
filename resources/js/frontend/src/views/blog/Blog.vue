@@ -14,9 +14,9 @@
                     <div class="row g-5">
                         <!-- Single blog-management Post-->
                         <div v-for="(post, index) in items" v-if="showPosts(index)" :key="post.id" class="col-12">
-                            <div class="card blog-card"><a href="#"><img class="card-img-top" :src="post.cover_image" alt=""></a>
-                                <div class="post-content p-4"><a class="d-block text-muted mb-2" href="#">{{post.updated_at}}</a><router-link class="post-title d-block mb-3" :to="`/blog-management-details/${post.id}`">
-                                    <h4>{{index, post.title}}</h4></router-link>
+                            <div class="card blog-card"><router-link :to="`/blog-management-details/${post.id}`"><img class="card-img-top" :src="post.cover_image" alt=""></router-link>
+                                <div class="post-content p-4"><a class="d-block text-muted mb-2" href="#">{{formatDate(post.updated_at)}}</a><router-link class="post-title d-block mb-3" :to="`/blog-management-details/${post.id}`">
+                                    <h4>{{post.title}}</h4></router-link>
                                     <p></p>
                                     <div class="post-meta d-flex align-items-center justify-content-between"><router-link class="post-author" :to="`/blog-management-details/${post.id}`"><img src="frontend/img/bg-img/t1.png" alt=""></router-link><span class="text-muted">2 min read</span></div>
                                 </div>
@@ -158,6 +158,9 @@
           showPosts(index){
               return (this.pagination === 1 || this.perPage * (this.pagination-1) < (index +1))
                   && (index +1) <= this.perPage * this.pagination;
+          },
+          formatDate(date){
+              return moment(date).format('MMM D, YYYY');
           }
       },
       async mounted(){

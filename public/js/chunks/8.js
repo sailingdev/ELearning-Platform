@@ -180,6 +180,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     showPosts: function showPosts(index) {
       return (this.pagination === 1 || this.perPage * (this.pagination - 1) < index + 1) && index + 1 <= this.perPage * this.pagination;
+    },
+    formatDate: function formatDate(date) {
+      return moment__WEBPACK_IMPORTED_MODULE_2___default()(date).format('MMM D, YYYY');
     }
   },
   mounted: function mounted() {
@@ -556,73 +559,91 @@ var render = function() {
               _vm._l(_vm.items, function(post, index) {
                 return _vm.showPosts(index)
                   ? _c("div", { key: post.id, staticClass: "col-12" }, [
-                      _c("div", { staticClass: "card blog-card" }, [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("img", {
-                            staticClass: "card-img-top",
-                            attrs: { src: post.cover_image, alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "post-content p-4" },
-                          [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "d-block text-muted mb-2",
-                                attrs: { href: "#" }
-                              },
-                              [_vm._v(_vm._s(post.updated_at))]
-                            ),
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "post-title d-block mb-3",
-                                attrs: {
-                                  to: "/blog-management-details/" + post.id
-                                }
-                              },
-                              [_c("h4", [_vm._v(_vm._s(index, post.title))])]
-                            ),
-                            _vm._v(" "),
-                            _c("p"),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "post-meta d-flex align-items-center justify-content-between"
-                              },
-                              [
-                                _c(
-                                  "router-link",
-                                  {
-                                    staticClass: "post-author",
-                                    attrs: {
-                                      to: "/blog-management-details/" + post.id
-                                    }
-                                  },
-                                  [
-                                    _c("img", {
+                      _c(
+                        "div",
+                        { staticClass: "card blog-card" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              attrs: {
+                                to: "/blog-management-details/" + post.id
+                              }
+                            },
+                            [
+                              _c("img", {
+                                staticClass: "card-img-top",
+                                attrs: { src: post.cover_image, alt: "" }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "post-content p-4" },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "d-block text-muted mb-2",
+                                  attrs: { href: "#" }
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(_vm.formatDate(post.updated_at))
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass: "post-title d-block mb-3",
+                                  attrs: {
+                                    to: "/blog-management-details/" + post.id
+                                  }
+                                },
+                                [_c("h4", [_vm._v(_vm._s(post.title))])]
+                              ),
+                              _vm._v(" "),
+                              _c("p"),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "post-meta d-flex align-items-center justify-content-between"
+                                },
+                                [
+                                  _c(
+                                    "router-link",
+                                    {
+                                      staticClass: "post-author",
                                       attrs: {
-                                        src: "frontend/img/bg-img/t1.png",
-                                        alt: ""
+                                        to:
+                                          "/blog-management-details/" + post.id
                                       }
-                                    })
-                                  ]
-                                ),
-                                _c("span", { staticClass: "text-muted" }, [
-                                  _vm._v("2 min read")
-                                ])
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
-                      ])
+                                    },
+                                    [
+                                      _c("img", {
+                                        attrs: {
+                                          src: "frontend/img/bg-img/t1.png",
+                                          alt: ""
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _c("span", { staticClass: "text-muted" }, [
+                                    _vm._v("2 min read")
+                                  ])
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
                     ])
                   : _vm._e()
               }),

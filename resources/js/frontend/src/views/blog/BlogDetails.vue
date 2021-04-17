@@ -28,7 +28,7 @@
                         <!-- Post Tags-->
                         <div class="post-tag pb-5">
                             <ul class="d-flex align-items-center pl-0" >
-                                <li><a href="#">{{currentPost.category.name}}</a></li>
+                                <li><a href="#">{{currentPost.category ? currentPost.category.name : ''}}</a></li>
                             </ul>
                         </div>
                         <!-- Share Button-->

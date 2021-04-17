@@ -569,7 +569,13 @@ var render = function() {
                   _c("ul", { staticClass: "d-flex align-items-center pl-0" }, [
                     _c("li", [
                       _c("a", { attrs: { href: "#" } }, [
-                        _vm._v(_vm._s(_vm.currentPost.category.name))
+                        _vm._v(
+                          _vm._s(
+                            _vm.currentPost.category
+                              ? _vm.currentPost.category.name
+                              : ""
+                          )
+                        )
                       ])
                     ])
                   ])

@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::get('/blog', 'PostController@index');
+Route::post('/blog', 'PostController@show');
 Route::post('/login', 'Auth\LoginController@Login');
 Route::middleware('auth:sanctum')->group(function(){
     Route::post('/logout', 'Auth\LoginController@Logout');
@@ -21,11 +23,11 @@ Route::middleware('auth:sanctum')->group(function(){
 Route::group(['middleware' => ['auth:sanctum', 'role:admin']],function(){
     Route::resource('course', 'Admin\CourseController');
     Route::resource('post', 'Admin\PostController');
-    Route::put('/post/{$id}', 'Admin\PostController@update');
+//    Route::put('/post/{$id}', 'Admin\PostController@update');
     Route::resource('language', 'Admin\LanguageController');
-    Route::put('/language/{$id}', 'Admin\LanguageController@update');
+//    Route::put('/language1/{$id}', 'Admin\LanguageController@update');
     Route::resource('lesson', 'Admin\LessonController');
-    Route::put('/lesson/{$id}', 'Admin\LessonController@update');
+//    Route::put('/lesson/{$id}', 'Admin\LessonController@update');
     Route::resource('/lesson-part', 'Admin\LessonPartController');
-    Route::put('/lesson-part/{$id}', 'Admin\LessonPartController@update');
+//    Route::put('/lesson-part/{$id}', 'Admin\LessonPartController@update');
 });
