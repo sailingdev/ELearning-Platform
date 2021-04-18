@@ -119,8 +119,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       id: null,
-      idReady: false
+      idReady: false,
+      favorite: false
     };
+  },
+  methods: {
+    addFavorite: function addFavorite() {
+      console.log(this.currentPost);
+      var payload = {
+        id: this.id,
+        favorites: this.currentPost.favorites + 1
+      };
+      this.$store.dispatch('setFavoritePost', payload);
+    }
+  },
+  watch: {
+    favorite: function favorite(newVal, oldVal) {
+      if (newVal) this.addFavorite();
+    }
   },
   computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['currentPost'])), {}, {
     updated_at: function updated_at() {
@@ -528,8 +544,19 @@ var render = function() {
             "div",
             { staticClass: "post--like-post" },
             [
-              _vm._m(1),
-              _c("span", [_vm._v("267")]),
+              _c(
+                "a",
+                {
+                  staticClass: "cursor-on",
+                  on: {
+                    click: function($event) {
+                      _vm.favorite = !_vm.favorite
+                    }
+                  }
+                },
+                [_c("i", { staticClass: "lni-heart" })]
+              ),
+              _c("span", [_vm._v(_vm._s(_vm.currentPost.favorites))]),
               _vm._v(" "),
               _c("the-social-button")
             ],
@@ -551,7 +578,7 @@ var render = function() {
                 _vm._v(_vm._s(_vm.currentPost.title))
               ]),
               _vm._v(" "),
-              _vm._m(2),
+              _vm._m(1),
               _vm._v(" "),
               _c("div", {
                 domProps: { innerHTML: _vm._s(_vm.currentPost.content) }
@@ -581,7 +608,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(3)
+                _vm._m(2)
               ]
             )
           ])
@@ -599,14 +626,6 @@ var staticRenderFns = [
       _c("div", { staticClass: "col-12 col-md-9 col-lg-7 col-xxl-6" }, [
         _c("div", { staticClass: "section-heading text-center" }, [_c("h2")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { attrs: { href: "#" } }, [
-      _c("i", { staticClass: "lni-heart" })
     ])
   },
   function() {

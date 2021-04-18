@@ -39291,7 +39291,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     // =============================================================================
     path: '',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./layouts/Main.vue */ "./resources/js/frontend/src/layouts/Main.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./layouts/Main.vue */ "./resources/js/frontend/src/layouts/Main.vue"));
     },
     children: [// =============================================================================
     // Page Routes
@@ -39300,7 +39300,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/',
       name: 'home',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/frontend/src/views/Home.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/frontend/src/views/Home.vue"));
       }
     }, {
       path: '/category',
@@ -39312,13 +39312,13 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/lesson-list',
       name: 'lesson-list',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./views/LessonList.vue */ "./resources/js/frontend/src/views/LessonList.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./views/LessonList.vue */ "./resources/js/frontend/src/views/LessonList.vue"));
       }
     }, {
       path: '/lesson',
       name: 'lesson',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./views/Lesson.vue */ "./resources/js/frontend/src/views/Lesson.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./views/Lesson.vue */ "./resources/js/frontend/src/views/Lesson.vue"));
       }
     }, {
       path: '/contact',
@@ -39336,13 +39336,13 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/blog-management',
       name: 'blog',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(5), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ./views/blog/Blog.vue */ "./resources/js/frontend/src/views/blog/Blog.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ./views/blog/Blog.vue */ "./resources/js/frontend/src/views/blog/Blog.vue"));
       }
     }, {
       path: '/blog-management-details/:id',
       name: 'blog-details',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(5), __webpack_require__.e(15)]).then(__webpack_require__.bind(null, /*! ./views/blog/BlogDetails.vue */ "./resources/js/frontend/src/views/blog/BlogDetails.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ./views/blog/BlogDetails.vue */ "./resources/js/frontend/src/views/blog/BlogDetails.vue"));
       }
     }, {
       path: '/login',
@@ -39458,10 +39458,24 @@ var actions = {
   showPost: function showPost(_ref9, payload) {
     var commit = _ref9.commit;
     return new Promise(function (resolve, reject) {
-      axios_index_js__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/blog", {
-        id: payload
-      }).then(function (res) {
+      axios_index_js__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/blog/".concat(payload)).then(function (res) {
         commit('SET_CURRENT_POST', res.data.dataList);
+        resolve();
+      })["catch"](function (err) {
+        console.log(err);
+        reject();
+      });
+    });
+  },
+  setFavoritePost: function setFavoritePost(_ref10, payload) {
+    var commit = _ref10.commit;
+    var id = payload.id,
+        favorites = payload.favorites;
+    return new Promise(function (resolve, reject) {
+      axios_index_js__WEBPACK_IMPORTED_MODULE_0___default.a.put("/api/blog/".concat(id), {
+        favorites: favorites
+      }).then(function (res) {
+        if (res.status === 204) commit('SET_CURRENT_POST_FAVORITES', favorites);
         resolve();
       })["catch"](function (err) {
         console.log(err);
@@ -39952,6 +39966,9 @@ var mutations = {
   },
   SET_CURRENT_POST: function SET_CURRENT_POST(state, payload) {
     state.currentPost = payload;
+  },
+  SET_CURRENT_POST_FAVORITES: function SET_CURRENT_POST_FAVORITES(state, payload) {
+    state.currentPost.favorites = payload;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (mutations);

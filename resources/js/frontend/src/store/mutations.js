@@ -125,6 +125,9 @@ const mutations = {
     SET_CURRENT_POST(state, payload){
       state.currentPost = payload;
     },
+    SET_CURRENT_POST_FAVORITES(state, payload){
+      state.currentPost.favorites = payload
+    }
 }
 
 export default mutations

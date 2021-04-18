@@ -66,6 +66,7 @@ class PostController extends Controller
             $post->cover_image = '/storage/'.$img_src;
             $post->category_id = $request['category'];
             $post->content = $request['content'];
+            $post->favorites = 0;
             $post->save();
             return response()->json([
                 'message' => 'successfully created.'

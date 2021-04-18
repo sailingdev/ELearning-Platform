@@ -68,8 +68,21 @@ const actions = {
     },
     showPost({commit}, payload){
         return new Promise((resolve, reject)=>{
-            axios.post(`/api/blog`, {id: payload}).then(res => {
+            axios.get(`/api/blog/${payload}`).then(res => {
                 commit('SET_CURRENT_POST', res.data.dataList);
+                resolve();
+            }).catch(err => {
+                console.log(err);
+                reject();
+            });
+        })
+    },
+    setFavoritePost({commit}, payload){
+        const {id, favorites} = payload;
+        return new Promise((resolve, reject) => {
+            axios.put(`/api/blog/${id}`, {favorites}).then(res=>{
+                if (res.status === 204)
+                commit('SET_CURRENT_POST_FAVORITES', favorites);
                 resolve();
             }).catch(err => {
                 console.log(err);

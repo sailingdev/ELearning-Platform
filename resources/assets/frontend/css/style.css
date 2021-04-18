@@ -6227,3 +6227,9 @@ textarea.form-control {
 .btn-pink i {
     color: white;
 }
+
+.favorite {
+    background-color: #0811fb;
+    border-color: #0811fb;
+    color: #ffffff !important;
+}

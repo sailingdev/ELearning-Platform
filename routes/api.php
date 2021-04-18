@@ -14,8 +14,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/blog', 'PostController@index');
-Route::post('/blog', 'PostController@show');
+Route::resource('blog', 'PostController');
 Route::post('/login', 'Auth\LoginController@Login');
 Route::middleware('auth:sanctum')->group(function(){
     Route::post('/logout', 'Auth\LoginController@Logout');

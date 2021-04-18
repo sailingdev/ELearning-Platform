@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Post;
 use http\Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
@@ -29,14 +28,14 @@ class PostController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display a Post data
      *
-     * @param  int  $id
+     * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        $row = Post::find($id)->with('category:id,name')->first();
+        $row = Post::where('id', $request->id)->with('category:id,name')->first();
         if ($row){
             return response()->json([
                 'dataList' => $row
@@ -47,25 +46,5 @@ class PostController extends Controller
         ], 400);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  Post $post
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function update(Request $request, Post $post)
-    {
-        $validate = Validator::make($request->all(), [
-            'favorites' => 'required|numeric'
-        ]);
-        if($validate->fails()) {
-            return response()->json($validate->errors(), 422);
-        }
-        $post->favorites = $request->favorites;
-        $post->update();
 
-        return response()->json([
-        ], 204);
-    }
 }

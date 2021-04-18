@@ -11,7 +11,7 @@
             </div>
             <div class="row justify-content-center wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1000ms">
                 <div class="post--like-post">
-                    <a href="#"><i class="lni-heart"></i></a><span>267</span>
+                    <a ref="favorite" :class="{'cursor-on': true, 'favorite': favorite}"  @click="favorite = !favorite"><i class="lni-heart"></i></a><span>{{currentPost.favorites}}</span>
                     <the-social-button />
                 </div>
                 <div class="col-12 col-sm-10 col-md-8">
@@ -53,7 +53,22 @@
         return {
             id: null,
             idReady: false,
+            favorite: false
         }
+      },
+      methods: {
+          addFavorite(){
+              const payload = {id: this.id, favorites: this.currentPost.favorites + 1}
+              this.$store.dispatch('setFavoritePost', payload);
+          }
+      },
+      watch: {
+          favorite(newVal, oldVal){
+              if(newVal) {
+                  this.addFavorite();
+                  this.$refs.favorite.focus();
+              }
+          }
       },
       computed: {
         ...mapGetters(['currentPost']),
@@ -67,3 +82,7 @@
       },
   }
 </script>
+<style lang="css">
+
+
+</style>

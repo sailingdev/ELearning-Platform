@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->text('cover_image');
             $table->foreignId('category_id')->constrained('categories');
             $table->longText('content');
+            $table->bigInteger('favorites');
             $table->timestamps();
         });
     }
