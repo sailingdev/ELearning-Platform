@@ -29,7 +29,7 @@
             <component :is="scrollbarTag" class="chat-content-scroll-area border border-solid d-theme-border-grey-light" :settings="settings" ref="chatLogPS" :key="$vs.rtl">
                 <lesson-creator v-if="isLessonCreator || isLessonEditor" :edit-lesson="isLessonEditor" :id="payload.itemId" @onClose="closeLessonCreator" />
                 <lesson-part-creator v-if="isPartCreator || isPartEditor" @closePart="closePart" :add-part="isPartCreator" :edit-part="isPartEditor" :id="payload.itemId" />
-                <lesson-parts-table v-if="isLesson && !isLessonCreator && !isLessonEditor && !isPartCreator && !isPartEditor"  />
+                <lesson-parts-table v-if="isLesson && !isLessonCreator && !isLessonEditor && !isPartCreator && !isPartEditor" :lesson_parts = "lesson_parts" />
             </component>
         </div>
 
@@ -72,6 +72,7 @@
                 isLessonEditor: false,
                 isPartCreator: false,
                 isPartEditor: false,
+                lesson_parts: [],
                 payload : {
                     itemId: null,
                     notify: this.$vs.notify
@@ -117,12 +118,11 @@
                 this.isCourse = true
                 this.isLesson = false
             },
-            async selectedLesson(){
+            selectedLesson(){
                 console.log(`Lesson Selected:: ${this.payload.itemId}`)
                 this.isCourse = false
                 this.isLesson = true
-                const res = await this.$store.dispatch('lesson/show', this.payload);
-
+                this.$store.dispatch('lesson/show', this.payload).then(lesson_parts => this.lesson_parts = lesson_parts);
             },
             selectedOthers(){
                 this.isCourse = false

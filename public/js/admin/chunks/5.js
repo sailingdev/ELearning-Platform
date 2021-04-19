@@ -224,22 +224,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _LessonNavbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LessonNavbar */ "./resources/js/src/views/course/LessonNavbar.vue");
-/* harmony import */ var _LessonTree__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LessonTree */ "./resources/js/src/views/course/LessonTree.vue");
-/* harmony import */ var _LessonCreator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./LessonCreator */ "./resources/js/src/views/course/LessonCreator.vue");
-/* harmony import */ var _CourseAction__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./CourseAction */ "./resources/js/src/views/course/CourseAction.vue");
-/* harmony import */ var _LessonPartsTable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./LessonPartsTable */ "./resources/js/src/views/course/LessonPartsTable.vue");
-/* harmony import */ var vue_perfect_scrollbar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-perfect-scrollbar */ "./node_modules/vue-perfect-scrollbar/dist/index.js");
-/* harmony import */ var vue_perfect_scrollbar__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue_perfect_scrollbar__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _LessonPartCreator__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./LessonPartCreator */ "./resources/js/src/views/course/LessonPartCreator.vue");
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
+/* harmony import */ var _LessonNavbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LessonNavbar */ "./resources/js/src/views/course/LessonNavbar.vue");
+/* harmony import */ var _LessonTree__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LessonTree */ "./resources/js/src/views/course/LessonTree.vue");
+/* harmony import */ var _LessonCreator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LessonCreator */ "./resources/js/src/views/course/LessonCreator.vue");
+/* harmony import */ var _CourseAction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CourseAction */ "./resources/js/src/views/course/CourseAction.vue");
+/* harmony import */ var _LessonPartsTable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./LessonPartsTable */ "./resources/js/src/views/course/LessonPartsTable.vue");
+/* harmony import */ var vue_perfect_scrollbar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-perfect-scrollbar */ "./node_modules/vue-perfect-scrollbar/dist/index.js");
+/* harmony import */ var vue_perfect_scrollbar__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_perfect_scrollbar__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _LessonPartCreator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./LessonPartCreator */ "./resources/js/src/views/course/LessonPartCreator.vue");
 //
 //
 //
@@ -288,13 +280,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'LessonList',
   components: {
-    LessonPartCreator: _LessonPartCreator__WEBPACK_IMPORTED_MODULE_7__["default"],
-    LessonNavbar: _LessonNavbar__WEBPACK_IMPORTED_MODULE_1__["default"],
-    LessonTree: _LessonTree__WEBPACK_IMPORTED_MODULE_2__["default"],
-    LessonCreator: _LessonCreator__WEBPACK_IMPORTED_MODULE_3__["default"],
-    CourseAction: _CourseAction__WEBPACK_IMPORTED_MODULE_4__["default"],
-    LessonPartsTable: _LessonPartsTable__WEBPACK_IMPORTED_MODULE_5__["default"],
-    VuePerfectScrollbar: vue_perfect_scrollbar__WEBPACK_IMPORTED_MODULE_6___default.a
+    LessonPartCreator: _LessonPartCreator__WEBPACK_IMPORTED_MODULE_6__["default"],
+    LessonNavbar: _LessonNavbar__WEBPACK_IMPORTED_MODULE_0__["default"],
+    LessonTree: _LessonTree__WEBPACK_IMPORTED_MODULE_1__["default"],
+    LessonCreator: _LessonCreator__WEBPACK_IMPORTED_MODULE_2__["default"],
+    CourseAction: _CourseAction__WEBPACK_IMPORTED_MODULE_3__["default"],
+    LessonPartsTable: _LessonPartsTable__WEBPACK_IMPORTED_MODULE_4__["default"],
+    VuePerfectScrollbar: vue_perfect_scrollbar__WEBPACK_IMPORTED_MODULE_5___default.a
   },
   data: function data() {
     return {
@@ -312,6 +304,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       isLessonEditor: false,
       isPartCreator: false,
       isPartEditor: false,
+      lesson_parts: [],
       payload: {
         itemId: null,
         notify: this.$vs.notify
@@ -360,28 +353,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     selectedLesson: function selectedLesson() {
       var _this = this;
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var res;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                console.log("Lesson Selected:: ".concat(_this.payload.itemId));
-                _this.isCourse = false;
-                _this.isLesson = true;
-                _context.next = 5;
-                return _this.$store.dispatch('lesson/show', _this.payload);
-
-              case 5:
-                res = _context.sent;
-
-              case 6:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
+      console.log("Lesson Selected:: ".concat(this.payload.itemId));
+      this.isCourse = false;
+      this.isLesson = true;
+      this.$store.dispatch('lesson/show', this.payload).then(function (lesson_parts) {
+        return _this.lesson_parts = lesson_parts;
+      });
     },
     selectedOthers: function selectedOthers() {
       this.isCourse = false;
@@ -615,13 +592,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -683,18 +653,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'LessonPartsTable',
+  props: {
+    lesson_parts: {
+      type: Array,
+      "default": []
+    }
+  },
   data: function data() {
     return {
       activePrompt: false,
       itemId: null
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
-    lesson_parts: 'lesson/getLessonParts'
-  })),
   methods: {
     format_date: function format_date(str) {
       return moment(str).format('YYYY-MM-DD');
@@ -740,6 +712,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'LessonTree',
@@ -749,7 +722,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       lessons: [],
-      dataReady: false
+      dataReady: false,
+      editingNode: {},
+      editingItem: {}
     };
   },
   computed: {
@@ -870,7 +845,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     },
     itemClick: function itemClick(node) {
-      console.log('Node Clicked', node);
+      console.log('Node Clicked', node.model);
 
       switch (node.model.type) {
         case 'course':
@@ -1593,7 +1568,9 @@ var render = function() {
               !_vm.isLessonEditor &&
               !_vm.isPartCreator &&
               !_vm.isPartEditor
-                ? _c("lesson-parts-table")
+                ? _c("lesson-parts-table", {
+                    attrs: { lesson_parts: _vm.lesson_parts }
+                  })
                 : _vm._e()
             ],
             1
@@ -2094,6 +2071,7 @@ var render = function() {
         "div",
         [
           _c("v-jstree", {
+            ref: "tree",
             attrs: { data: _vm.lessons },
             on: { "item-click": _vm.itemClick }
           })

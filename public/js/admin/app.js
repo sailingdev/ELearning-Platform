@@ -92945,8 +92945,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var itemId = payload.itemId,
           notify = payload.notify;
       _http_axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/lesson/".concat(itemId)).then(function (res) {
-        commit('SET_LESSON_PARTS', res.data.lesson_parts);
-        resolve(200);
+        resolve(res.data.lesson_parts);
       })["catch"](function (err) {
         notify({
           time: 2500,
@@ -93145,9 +93144,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  SET_LESSON_PARTS: function SET_LESSON_PARTS(state, payload) {
-    state.lesson_parts = payload;
-  },
   UPDATE_LESSON: function UPDATE_LESSON() {},
   ADD_LESSON: function ADD_LESSON() {}
 });
@@ -93163,9 +93159,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({
-  lesson_parts: []
-});
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 

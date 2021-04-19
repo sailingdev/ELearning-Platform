@@ -60,17 +60,19 @@
 </template>
 
 <script>
-    import {mapGetters} from 'vuex';
   export default {
     name: 'LessonPartsTable',
+    props: {
+      lesson_parts: {
+          type: Array,
+          default: []
+      }
+    },
       data(){
         return {
             activePrompt: false,
             itemId: null
         }
-      },
-      computed: {
-        ...mapGetters({lesson_parts: 'lesson/getLessonParts'}),
       },
       methods:{
         format_date(str){
