@@ -1,6 +1,7 @@
 <template>
     <div v-if="dataReady">
-        <v-jstree :data="lessons" @item-click="itemClick"></v-jstree>
+        <v-jstree ref="tree" :data="lessons"
+                  @item-click="itemClick"></v-jstree>
     </div>
 </template>
 
@@ -15,6 +16,8 @@
             return {
                 lessons: [],
                 dataReady: false,
+                editingNode: {},
+                editingItem: {}
             }
         },
         computed: {
@@ -128,7 +131,7 @@
                 }
             },
             itemClick (node) {
-                console.log('Node Clicked', node)
+                console.log('Node Clicked', node.model)
                 switch (node.model.type) {
                     case 'course':
                         this.$emit('itemId', node.model.id);

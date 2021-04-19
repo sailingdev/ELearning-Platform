@@ -5,8 +5,7 @@ export default {
         return new Promise((resolve, reject) => {
             const {itemId, notify} = payload;
             axios.get(`/api/lesson/${itemId}`).then(res => {
-                commit('SET_LESSON_PARTS', res.data.lesson_parts);
-                resolve(200);
+                resolve(res.data.lesson_parts);
             }).catch (err => {
                 notify({
                     time: 2500,
