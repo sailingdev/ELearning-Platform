@@ -31,15 +31,15 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\JsonResponse
      */
     public function show($id)
     {
-        $row = Post::find($id)->with('category:id,name')->first();
+        $row = Post::find($id);
         if ($row){
             return response()->json([
-                'dataList' => $row
+                'dataList' => Post::where('id', '=', $id)->with('category:id,name')->firstOrFail()
             ], 200);
         }
         return response()->json([

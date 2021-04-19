@@ -18,7 +18,7 @@
                                 <div class="post-content p-4"><a class="d-block text-muted mb-2" href="#">{{formatDate(post.updated_at)}}</a><router-link class="post-title d-block mb-3" :to="`/blog-management-details/${post.id}`">
                                     <h4>{{post.title}}</h4></router-link>
                                     <p></p>
-                                    <div class="post-meta d-flex align-items-center justify-content-between"><router-link class="post-author" :to="`/blog-management-details/${post.id}`"><img src="frontend/img/bg-img/t1.png" alt=""></router-link><span class="text-muted">2 min read</span></div>
+                                    <div class="post-meta d-flex align-items-center justify-content-between"><router-link class="post-author" :to="`/blog-management-details/${post.id}`"><img src="frontend/img/bg-img/t1.png" alt=""></router-link><span class="text-muted">{{post.favorite}}</span></div>
                                 </div>
                             </div>
                         </div>
@@ -27,7 +27,7 @@
                     <div class="saasbox-pagination-area mt-5">
                         <nav aria-label="Page navigation example">
                             <ul class="pagination justify-content-center">
-                                <li :class="{'page-item': true, active: pagination === n}" v-for="n in Math.round(items.length/perPage)" :key="n">
+                                <li :class="{'page-item': true, active: pagination === n}" v-for="n in Math.ceil(items.length/perPage)" :key="n">
                                     <a class="page-link cursor-on" @click="pagination = n" >{{n}}</a>
                                 </li>
 <!--                                <li class="page-item"><a class="page-link" href="#">2</a></li>-->
@@ -142,7 +142,7 @@
           }
       },
       computed: {
-        ...mapGetters(['posts'])
+        ...mapGetters(['posts']),
       },
       methods: {
           byCategory(id){

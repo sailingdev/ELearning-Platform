@@ -633,7 +633,7 @@ var render = function() {
                                     ]
                                   ),
                                   _c("span", { staticClass: "text-muted" }, [
-                                    _vm._v("2 min read")
+                                    _vm._v(_vm._s(post.favorite))
                                   ])
                                 ],
                                 1
@@ -658,7 +658,7 @@ var render = function() {
                   _c(
                     "ul",
                     { staticClass: "pagination justify-content-center" },
-                    _vm._l(Math.round(_vm.items.length / _vm.perPage), function(
+                    _vm._l(Math.ceil(_vm.items.length / _vm.perPage), function(
                       n
                     ) {
                       return _c(
