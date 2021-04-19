@@ -86,6 +86,7 @@ export default {
         return new Promise((resolve, reject)=> {
             axios.delete(`/api/lesson/${itemId}`)
                 .then(res => {
+                    resolve();
                     notify({
                         time: 2500,
                         title: `success`,
@@ -95,6 +96,7 @@ export default {
                         color: 'success'
                     });
                 }).catch(err => {
+                    reject();
                 notify({
                     time: 2500,
                     title: `${err.response.status} error`,

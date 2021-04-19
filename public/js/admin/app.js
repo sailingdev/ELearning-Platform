@@ -93037,6 +93037,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               itemId = payload.itemId, notify = payload.notify;
               return _context.abrupt("return", new Promise(function (resolve, reject) {
                 _http_axios__WEBPACK_IMPORTED_MODULE_1__["default"]["delete"]("/api/lesson/".concat(itemId)).then(function (res) {
+                  resolve();
                   notify({
                     time: 2500,
                     title: "success",
@@ -93046,6 +93047,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     color: 'success'
                   });
                 })["catch"](function (err) {
+                  reject();
                   notify({
                     time: 2500,
                     title: "".concat(err.response.status, " error"),

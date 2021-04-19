@@ -1,6 +1,7 @@
 <template>
     <div v-if="dataReady">
-        <v-jstree ref="tree" :data="lessons"
+        <v-jstree ref="tree"
+                  :data="lessons"
                   @item-click="itemClick"></v-jstree>
     </div>
 </template>
@@ -145,7 +146,7 @@
                         this.$emit('itemId', null);
                         this.$emit('selectedOthers');
                 }
-            }
+            },
         },
         async mounted(){
             await this.$store.commit('SET_BEARER');

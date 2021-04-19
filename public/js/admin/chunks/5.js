@@ -308,7 +308,8 @@ __webpack_require__.r(__webpack_exports__);
       payload: {
         itemId: null,
         notify: this.$vs.notify
-      }
+      },
+      lesson_tree: 0
     };
   },
   watch: {
@@ -371,10 +372,15 @@ __webpack_require__.r(__webpack_exports__);
       this.isLessonEditor = true;
     },
     deleteLesson: function deleteLesson() {
-      this.$store.dispatch('lesson/destroy', this.payload);
+      var _this2 = this;
+
+      this.$store.dispatch('lesson/destroy', this.payload).then(function () {
+        _this2.lesson_tree++;
+      });
     },
     closeLessonCreator: function closeLessonCreator() {
       this.resetState();
+      this.lesson_tree++;
       console.log('lESSON_TABLE_STATUS', this.isLesson);
     },
     addPart: function addPart() {
@@ -706,6 +712,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
 //
 //
 //
@@ -1485,6 +1492,8 @@ var render = function() {
                 { staticClass: "chat__contacts" },
                 [
                   _c("lesson-tree", {
+                    key: _vm.lesson_tree,
+                    ref: "lesson-tree",
                     on: {
                       itemId: function(id) {
                         return (this$1.payload.itemId = id)

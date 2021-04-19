@@ -14,7 +14,7 @@
             <vs-divider class="d-theme-border-grey-light m-0" />
             <component :is="scrollbarTag" class="chat-scroll-area pt-4" :settings="settings" :key="$vs.rtl">
                 <div class="chat__contacts">
-                    <lesson-tree @itemId="id => this.payload.itemId = id" @selectedLesson="selectedLesson" @selectedCourse="selectedCourse" @selectedOthers="selectedOthers" />
+                    <lesson-tree :key="lesson_tree" ref="lesson-tree" @itemId="id => this.payload.itemId = id" @selectedLesson="selectedLesson" @selectedCourse="selectedCourse" @selectedOthers="selectedOthers" />
                 </div>
             </component>
         </vs-sidebar>
@@ -76,7 +76,8 @@
                 payload : {
                     itemId: null,
                     notify: this.$vs.notify
-                }
+                },
+                lesson_tree: 0,
             }
         },
         watch: {
@@ -135,10 +136,13 @@
                 this.isLessonEditor = true
             },
             deleteLesson(){
-                this.$store.dispatch('lesson/destroy', this.payload);
+                this.$store.dispatch('lesson/destroy', this.payload).then(()=>{
+                    this.lesson_tree ++;
+                })
             },
             closeLessonCreator(){
                 this.resetState();
+                this.lesson_tree ++;
                 console.log('lESSON_TABLE_STATUS', this.isLesson)
             },
             addPart(){
